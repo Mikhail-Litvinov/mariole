@@ -6,7 +6,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="style/stylesheet.css">
     <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/home.css">
     <link rel="stylesheet" href="fonts/Fontello/css/animation.css">
     <link rel="stylesheet" href="fonts/Fontello/css/fontello-codes.css">
     <link rel="stylesheet" href="fonts/Fontello/css/fontello-embedded.css">
@@ -48,17 +47,20 @@
                     </div>
                 </div>
             </div>
-            <div class="flex-row nav flex-align-middle">
+            <div class="flex-row nav flex-align-middle wrap" onmouseout="closeSub()">
                 <div class="flex nav-wrapper">
                     <ul class="nav-list">
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer"><span id="home-page">Главная</span></a></li>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer"><span id="about-page">О нас</span></a></li>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer"><span id="gallery-page">Галерея</span></a></li>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer"><span id="for-women-page">Для женщин</span></a></li>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer"><span id="for-men-page">Для мужчин</span></a></li>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer"><span id="for-children-page">Десткое</span></a></li>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer"><span id="blog-page">Блог</span></a></li>
+                        <li><a href="http://" target="_blank" rel="noopener noreferrer" onmouseover="openSubmenu(event, 'main')" class="menu-btn" id="main"><span id="home-page">Главная</span></a></li>
+                        <li><a href="http://" target="_blank" rel="noopener noreferrer" onmouseover="openSubmenu(event, 'about')" class="menu-btn" id="about"><span id="about-page">О нас</span></a></li>
+                        <li><a href="http://" target="_blank" rel="noopener noreferrer" onmouseover="openSubmenu(event, 'gallery')" class="menu-btn" id="gallery"><span id="gallery-page">Галерея</span></a></li>
+                        <li><a href="http://" target="_blank" rel="noopener noreferrer" onmouseover="openSubmenu(event, 'forwomen')" class="menu-btn" id="forwomen"><span id="for-women-page">Для женщин</span></a></li>
+                        <li><a href="http://" target="_blank" rel="noopener noreferrer" onmouseover="openSubmenu(event, 'formen')" class="menu-btn" id="formen"><span id="for-men-page">Для мужчин</span></a></li>
+                        <li><a href="http://" target="_blank" rel="noopener noreferrer" onmouseover="openSubmenu(event, 'baby')" class="menu-btn" id="baby"><span id="for-children-page">Десткое</span></a></li>
+                        <li><a href="http://" target="_blank" rel="noopener noreferrer" onmouseover="openSubmenu(event, 'blog')" class="menu-btn" id="blog"><span id="blog-page">Блог</span></a></li>
                     </ul>
+                </div>
+                <div class="flex sub-nav-main-wrapper" id="main-sub">
+
                 </div>
             </div>
         </div>
@@ -164,5 +166,6 @@
     
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/translate.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 </html>
