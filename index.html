@@ -25,7 +25,7 @@
                         <div class="modal-wrapper-lang flex" id="modal-lang">
                             <div class="modal-content-lang">
                                 <ul>
-                                    <li><a href="#" id="RU" class="lang-btn defaulOpen" onclick="changeLanguage(event, 'RU')">Russian</a></li>
+                                    <li><a href="#" id="RU" class="lang-btn defaultOpen" onclick="changeLanguage(event, 'RU')">Russian</a></li>
                                     <li><a href="#" id="EN" class="lang-btn" onclick="changeLanguage(event, 'EN')">English</a></li>
                                     <li><a href="#" id="CZ" class="lang-btn" onclick="changeLanguage(event, 'CZ')">Czech</a></li>
                                     <li><a href="#" id="IT" class="lang-btn" onclick="changeLanguage(event, 'IT')">Italian</a></li>
@@ -47,21 +47,25 @@
                     </div>
                 </div>
             </div>
-            <div class="flex-row nav flex-align-middle wrap" onmouseout="closeSub()">
+            <div class="flex-row nav flex-align-middle wrap">
                 <div class="flex nav-wrapper">
                     <ul class="nav-list">
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer" onmouseover="openSubmenu(event, 'main')" class="menu-btn" id="main"><span id="home-page">Главная</span></a></li>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer" onmouseover="openSubmenu(event, 'about')" class="menu-btn" id="about"><span id="about-page">О нас</span></a></li>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer" onmouseover="openSubmenu(event, 'gallery')" class="menu-btn" id="gallery"><span id="gallery-page">Галерея</span></a></li>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer" onmouseover="openSubmenu(event, 'forwomen')" class="menu-btn" id="forwomen"><span id="for-women-page">Для женщин</span></a></li>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer" onmouseover="openSubmenu(event, 'formen')" class="menu-btn" id="formen"><span id="for-men-page">Для мужчин</span></a></li>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer" onmouseover="openSubmenu(event, 'baby')" class="menu-btn" id="baby"><span id="for-children-page">Десткое</span></a></li>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer" onmouseover="openSubmenu(event, 'blog')" class="menu-btn" id="blog"><span id="blog-page">Блог</span></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="main"><span id="home-page">Главная</span></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="about"><span id="about-page">О нас</span></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="gallery"><span id="gallery-page">Галерея</span></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="forwomen"><span id="for-women-page">Для женщин</span></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="formen"><span id="for-men-page">Для мужчин</span></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="baby"><span id="for-children-page">Десткое</span></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="blog"><span id="blog-page">Блог</span></a></li>
                     </ul>
                 </div>
-                <div class="flex sub-nav-main-wrapper" id="main-sub">
-
-                </div>
+                <div class="flex sub-nav-main-wrapper" id="main-sub"></div>
+                <div class="flex sub-nav-about-wrapper" id="about-sub"></div>
+                <div class="flex sub-nav-gallery-wrapper" id="gallery-sub"></div>
+                <div class="flex sub-nav-forwomen-wrapper" id="forwomen-sub"></div>
+                <div class="flex sub-nav-formen-wrapper" id="formen-sub"></div>
+                <div class="flex sub-nav-baby-wrapper" id="baby-sub"></div>
+                <div class="flex sub-nav-blog-wrapper" id="blog-sub"></div>
             </div>
         </div>
 
@@ -94,7 +98,7 @@
                                 <span class="country-list-europe">
                                     <span id="area-europe">Европа:</span>
                                     <ul class="country-list">
-                                        <li><a href="#" id="AUT" onclick="changeCountry(event, 'AUT')" class="country-btn">Австрия</a></li>
+                                        <li><a href="#" id="AUT" onclick="changeCountry(event, 'AUT')" class="country-btn defaultOpen">Австрия</a></li>
                                         <li><a href="#" id="ARM" onclick="changeCountry(event, 'ARM')" class="country-btn">Армения</a></li>
                                         <li><a href="#" id="BLR" onclick="changeCountry(event, 'BLR')" class="country-btn">Беларусь</a></li>
                                         <li><a href="#" id="BEL" onclick="changeCountry(event, 'BEL')" class="country-btn">Бельгия</a></li>
@@ -117,7 +121,7 @@
                                         <li><a href="#" id="NLD" onclick="changeCountry(event, 'NLD')" class="country-btn">Нидерланды</a></li>
                                         <li><a href="#" id="POL" onclick="changeCountry(event, 'POL')" class="country-btn">Польша</a></li>
                                         <li><a href="#" id="PRT" onclick="changeCountry(event, 'PRT')" class="country-btn">Португалия</a></li>
-                                        <li><a href="#" id="RUS" onclick="changeCountry(event, 'RUS')" class="country-btn defaulOpen">Россия</a></li>
+                                        <li><a href="#" id="RUS" onclick="changeCountry(event, 'RUS')" class="country-btn">Россия</a></li>
                                         <li><a href="#" id="ROU" onclick="changeCountry(event, 'ROU')" class="country-btn">Румыния</a></li>
                                         <li><a href="#" id="SVK" onclick="changeCountry(event, 'SVK')" class="country-btn">Словакия</a></li>
                                         <li><a href="#" id="SVN" onclick="changeCountry(event, 'SVN')" class="country-btn">Словения</a></li>
