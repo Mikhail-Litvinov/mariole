@@ -25,7 +25,7 @@
                         <div class="modal-wrapper-lang flex" id="modal-lang">
                             <div class="modal-content-lang">
                                 <ul>
-                                    <li><a href="#" id="RU" class="lang-btn defaultOpen" onclick="changeLanguage(event, 'RU')">Russian</a></li>
+                                    <li><a href="#" id="RU" class="lang-btn" onclick="changeLanguage(event, 'RU')">Russian</a></li>
                                     <li><a href="#" id="EN" class="lang-btn" onclick="changeLanguage(event, 'EN')">English</a></li>
                                     <li><a href="#" id="CZ" class="lang-btn" onclick="changeLanguage(event, 'CZ')">Czech</a></li>
                                     <li><a href="#" id="IT" class="lang-btn" onclick="changeLanguage(event, 'IT')">Italian</a></li>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="buttons-top-nav flex flex-align-middle">
                         <ul class="buttons-top-nav-list">
-                            <li><span class="seacrh-icon"></span></li>
+                            <li><span class="seacrh-icon" id="open-search"></span></li>
                             <li><a href="https://www.instagram.com/mario__le/" target="_blank"><span class="inst-icon"></span></a></li>
                         </ul>
                     </div>
@@ -56,16 +56,16 @@
                         <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="forwomen"><span id="for-women-page">Для женщин</span></a></li>
                         <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="formen"><span id="for-men-page">Для мужчин</span></a></li>
                         <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="baby"><span id="for-children-page">Десткое</span></a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="blog"><span id="blog-page">Блог</span></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="blog"><span id="blog-page">Новости</span></a></li>
                     </ul>
                 </div>
-                <div class="flex sub-nav-main-wrapper" id="main-sub"></div>
-                <div class="flex sub-nav-about-wrapper" id="about-sub"></div>
-                <div class="flex sub-nav-gallery-wrapper" id="gallery-sub"></div>
-                <div class="flex sub-nav-forwomen-wrapper" id="forwomen-sub"></div>
-                <div class="flex sub-nav-formen-wrapper" id="formen-sub"></div>
-                <div class="flex sub-nav-baby-wrapper" id="baby-sub"></div>
-                <div class="flex sub-nav-blog-wrapper" id="blog-sub"></div>
+                <div class="flex sub-nav-main-wrapper sub-nav" id="main-sub"></div>
+                <div class="flex sub-nav-about-wrapper sub-nav" id="about-sub"></div>
+                <div class="flex sub-nav-gallery-wrapper sub-nav" id="gallery-sub"></div>
+                <div class="flex sub-nav-forwomen-wrapper sub-nav" id="forwomen-sub"></div>
+                <div class="flex sub-nav-formen-wrapper sub-nav" id="formen-sub"></div>
+                <div class="flex sub-nav-baby-wrapper sub-nav" id="baby-sub"></div>
+                <div class="flex sub-nav-blog-wrapper sub-nav" id="blog-sub"></div>
             </div>
         </div>
 
@@ -98,7 +98,7 @@
                                 <span class="country-list-europe">
                                     <span id="area-europe">Европа:</span>
                                     <ul class="country-list">
-                                        <li><a href="#" id="AUT" onclick="changeCountry(event, 'AUT')" class="country-btn defaultOpen">Австрия</a></li>
+                                        <li><a href="#" id="AUT" onclick="changeCountry(event, 'AUT')" class="country-btn">Австрия</a></li>
                                         <li><a href="#" id="ARM" onclick="changeCountry(event, 'ARM')" class="country-btn">Армения</a></li>
                                         <li><a href="#" id="BLR" onclick="changeCountry(event, 'BLR')" class="country-btn">Беларусь</a></li>
                                         <li><a href="#" id="BEL" onclick="changeCountry(event, 'BEL')" class="country-btn">Бельгия</a></li>
@@ -163,12 +163,22 @@
             </div>
         </div>
     </div>
+    <div class="modal-search-bg" id="modal-search">
+        <div class="modal-search-wrapper">
+            <div class="modal-search">
+                <form action="search.php" class="search-form" method="POST">
+                    <input type="search" name="query" class="search-input" placeholder="Search...">
+                    <button class="search-button" type="submit"></button>
+                </form>
+            </div>
+            <span class="close-search" id="close-search"></span>
+        </div>
+    </div>
     <!-- modals end -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script charset="utf-8" src="https://api-maps.yandex.ru/1.1/index.xml" type="text/javascript"></script>
     <script src="js/main.js"></script>
     <script src="js/modal.js"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/translate.js"></script>
     <script src="js/menu.js"></script>
 </body>
