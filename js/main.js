@@ -1,4 +1,4 @@
-//open language//
+//open language/country //
 
 document.getElementById("btn-lang").onclick = function changeLang() {
     let btnLang = document.getElementById("btn-lang");
@@ -20,4 +20,16 @@ document.getElementById("btn-country").onclick=function changeCountry() {
     }
 }
 
-//open language end//
+//open language/country end//
+
+//open search//
+
+document.getElementById("open-search").onclick=function openSearch() {
+    let btnSearch = document.getElementById("open-search");
+    btnSearch.classList.toggle("active");
+    if (btnSearch.classList.contains("active")) {
+    SearchModalOpen();
+    }
+}
+
+//open search end//
