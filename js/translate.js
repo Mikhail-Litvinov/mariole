@@ -1,3 +1,5 @@
+//varaibles//
+
 let homeText = document.getElementById("home-page");
 let aboutText = document.getElementById("about-page");
 let galleryText = document.getElementById("gallery-page");
@@ -62,6 +64,260 @@ let europe = document.getElementById("area-europe");
 let america = document.getElementById("area-america");
 let asia = document.getElementById("area-asia");
 let chooseText = document.getElementById ("chooseCountry");
+
+//varaibles end//
+
+let countryMass = [
+    YMaps.location.country == "Россия" || YMaps.location.country == "Russia", // 0
+    YMaps.location.country == "Чехия" || YMaps.location.country == "Czech Republic", // 1
+    YMaps.location.country == "США" || YMaps.location.country == "USA", // 2
+    YMaps.location.country == "Австрия" || YMaps.location.country == "country", // 3
+    YMaps.location.country == "Армения" || YMaps.location.country == "country", // 4
+    YMaps.location.country == "Белорусь" || YMaps.location.country == "country", // 5
+    YMaps.location.country == "Бельгия" || YMaps.location.country == "country", // 6
+    YMaps.location.country == "Болгария" || YMaps.location.country == "country", // 7
+    YMaps.location.country == "Великобритания" || YMaps.location.country == "country", // 8
+    YMaps.location.country == "Венгрия" || YMaps.location.country == "country", // 9
+    YMaps.location.country == "Германия" || YMaps.location.country == "country", // 10
+    YMaps.location.country == "Греция" || YMaps.location.country == "country", // 11
+    YMaps.location.country == "Грузия" || YMaps.location.country == "country", // 12
+    YMaps.location.country == "Дания" || YMaps.location.country == "country", // 13
+    YMaps.location.country == "Ирландия" || YMaps.location.country == "country", // 14
+    YMaps.location.country == "Испания" || YMaps.location.country == "country", // 15
+    YMaps.location.country == "Италия" || YMaps.location.country == "Italy", // 16
+    YMaps.location.country == "Кипр" || YMaps.location.country == "country", // 17
+    YMaps.location.country == "Латвия" || YMaps.location.country == "country", // 18
+    YMaps.location.country == "Литва" || YMaps.location.country == "country", // 19
+    YMaps.location.country == "Люксембург" || YMaps.location.country == "country", // 20
+    YMaps.location.country == "Мальта" || YMaps.location.country == "country", // 21
+    YMaps.location.country == "Монако" || YMaps.location.country == "country", // 22
+    YMaps.location.country == "Нидерланды" || YMaps.location.country == "country", // 23
+    YMaps.location.country == "Польша" || YMaps.location.country == "country", // 24
+    YMaps.location.country == "Португалия" || YMaps.location.country == "country", // 25
+    YMaps.location.country == "Румыния" || YMaps.location.country == "country", // 26
+    YMaps.location.country == "Словакия" || YMaps.location.country == "country", // 27
+    YMaps.location.country == "Словения" || YMaps.location.country == "country", // 28
+    YMaps.location.country == "Украина" || YMaps.location.country == "country", // 29
+    YMaps.location.country == "Финляндия" || YMaps.location.country == "country", // 30
+    YMaps.location.country == "Франция" || YMaps.location.country == "country", // 31
+    YMaps.location.country == "Хорватия" || YMaps.location.country == "country", // 32
+    YMaps.location.country == "Швеция" || YMaps.location.country == "country", // 33
+    YMaps.location.country == "Эстония" || YMaps.location.country == "country", // 34
+    YMaps.location.country == "Канада" || YMaps.location.country == "country", // 35
+    YMaps.location.country == "Мексика" || YMaps.location.country == "country", // 36
+    YMaps.location.country == "Китай" || YMaps.location.country == "country", // 37
+    YMaps.location.country == "Япония" || YMaps.location.country == "country", // 38
+    YMaps.location.country == "Южная Корея" || YMaps.location.country == "country", // 39
+    ]
+
+//check language//
+$(document).ready (function() {
+    var userlang = window.navigator.language || navigator.userLanguage;
+    console.log(userlang)
+    if ( userlang  == "ru" || userlang == "ru-RU") {
+        RU.classList.add ("defaultOpen");
+    }
+    if ( userlang  == "cs" ) {
+        CZ.classList.add ("defaultOpen");
+    }
+    if ( userlang  == "it-IT" || userlang == "it" ) {
+        IT.classList.add ("defaultOpen");
+    }
+    if ( userlang  == "zh-TW" || userlang == "zh" ) {
+        CH.classList.add ("defaultOpen");
+    }
+    else {
+        EN.classList.add ("defaultOpen");
+    }
+});
+
+//check language end//
+
+//check country//
+
+$(document).ready (function() {
+    if (YMaps.location) // Проверяем, доступна ли геопозиция
+    {
+        let countryConsole = countryMass[0] || countryMass[1] || countryMass[2] || countryMass[3] || countryMass[4] || countryMass[5] || countryMass[6] || countryMass[7] 
+        || countryMass[8] || countryMass[9] || countryMass[10] || countryMass[11] || countryMass[12] || countryMass[13] || countryMass[14] || countryMass[15] 
+        || countryMass[16] || countryMass[17] || countryMass[18] || countryMass[19] || countryMass[20] || countryMass[21] || countryMass[22] || countryMass[23] 
+        || countryMass[24] || countryMass[25] || countryMass[26] || countryMass[27] || countryMass[28] || countryMass[29] || countryMass[30] || countryMass[31] 
+        || countryMass[32] || countryMass[33] || countryMass[34] || countryMass[35] || countryMass[36] || countryMass[37] || countryMass[38] || countryMass[39];
+        console.log (YMaps.location.country)
+        if (countryConsole == true) {
+            
+        if (YMaps.location.country == "Россия" || YMaps.location.country == "Russia") {
+            rus.classList.add("defaultOpen");
+        } 
+
+        if (YMaps.location.country == "Австрия" || YMaps.location.country == "country") {
+            aut.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Армения" || YMaps.location.country == "country") {
+            arm.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Белорусь" || YMaps.location.country == "country") {
+            blr.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Бельгия" || YMaps.location.country == "country") {
+            bel.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Болгария" || YMaps.location.country == "country") {
+            bgr.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Великобритания" || YMaps.location.country == "country") {
+            gbr.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Венгрия" || YMaps.location.country == "country") {
+            hun.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Германия" || YMaps.location.country == "country") {
+            deu.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Греция" || YMaps.location.country == "country") {
+            grc.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Грузия" || YMaps.location.country == "country") {
+            geo.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Дания" || YMaps.location.country == "country") {
+            dnk.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Ирландия" || YMaps.location.country == "country") {
+            irl.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Испания" || YMaps.location.country == "country") {
+            esp.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Италия" || YMaps.location.country == "italy") {
+            ita.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Кипр" || YMaps.location.country == "country") {
+            cyp.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Латвия" || YMaps.location.country == "country") {
+            lva.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Литва" || YMaps.location.country == "country") {
+            ltu.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Люксембург" || YMaps.location.country == "country") {
+            lux.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Мальта" || YMaps.location.country == "country") {
+            mlt.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Монако" || YMaps.location.country == "country") {
+            mco.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Нидерланды" || YMaps.location.country == "country") {
+            nld.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Польша" || YMaps.location.country == "country") {
+            pol.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Португалия" || YMaps.location.country == "country") {
+            prt.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Румыния" || YMaps.location.country == "country") {
+            rou.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Словакия" || YMaps.location.country == "country") {
+            svk.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Словения" || YMaps.location.country == "country") {
+            svn.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Украина" || YMaps.location.country == "country") {
+            ukr.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Финляндия" || YMaps.location.country == "country") {
+            fin.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Франция" || YMaps.location.country == "country") {
+            fra.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Хорватия" || YMaps.location.country == "country") {
+            hrv.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Чехия" || YMaps.location.country == "country") {
+            cze.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Швеция" || YMaps.location.country == "country") {
+            swe.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Эстония" || YMaps.location.country == "country") {
+            est.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "США" || YMaps.location.country == "country") {
+            usa.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Канада" || YMaps.location.country == "country") {
+            can.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Мексика" || YMaps.location.country == "country") {
+            mex.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Китай" || YMaps.location.country == "country") {
+            chn.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Япония" || YMaps.location.country == "country") {
+            jpn.classList.add("defaultOpen");
+        }
+
+        if (YMaps.location.country == "Южная Корея" || YMaps.location.country == "country") {
+            kor.classList.add("defaultOpen");
+        }
+    }
+    if (countryConsole == false) {
+        gbr.classList.add("defaultOpen")
+    }
+    } 
+    else
+        alert("Пожалуйста, разрешите доступ к использованию Вашей геопозиции!");
+        
+});
+
+//check country end//
+
+//translane//
 
 function changeLanguage(evt, language) {
 
@@ -1174,4 +1430,12 @@ function changeButtonsCH() {
     childrenText.innerHTML = "对于儿童";
     blogText.innerHTML = "新闻";
 }
-// document.querySelectorAll("defaulOpen").click();
+
+$(document).ready(function() {
+    let defaultOpenButtons = document.querySelectorAll(".defaultOpen");
+    for (let index = defaultOpenButtons.length - 1; index >= 0; index--) {
+        const defaultOpenButton = defaultOpenButtons[index];
+        defaultOpenButton.click(); 
+    }
+});
+//translane end//
