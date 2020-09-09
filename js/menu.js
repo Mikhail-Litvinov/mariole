@@ -14,14 +14,11 @@ let forWomenSub = document.getElementById("forwomen-sub");
 let forMenSub = document.getElementById("formen-sub");
 let babySub = document.getElementById("baby-sub");
 let blogSub = document.getElementById("blog-sub");
+let timeout = null;
+let subMenu = document.getElementsByClassName("sub-nav");
 var i;
 
-for (var i=0; i<menuBtns.length; i++) {
-        menuBtns[i].addEventListener('mouseenter', openSubMenu);
-        menuBtns[i].addEventListener('mouseleave', closeSubMenu);
-    }
-
-function openSubMenu() {
+$(menuBtns).mouseenter (function(){
     this.className += " active";
     if (main.classList.contains("active")) {
         mainSub.classList.add("active");
@@ -33,28 +30,44 @@ function openSubMenu() {
         gallerySub.className += " active";
     }
     if (forWomen.classList.contains("active")) {
-    forWomenSub.className += " active";
+        forWomenSub.className += " active";
     }
     if (forMen.classList.contains("active")) {
-    forMenSub.className += " active";
+        forMenSub.className += " active";
     }
     if (baby.classList.contains("active")) {
-    babySub.className += " active";
+        babySub.className += " active";
     }
     if (blog.classList.contains("active")) {
-    blogSub.className += " active";
+        blogSub.className += " active";
     }
-}
+}).mouseleave (function (){
+    timeout = setTimeout(() => {
+        this.classList.remove("active");
+        mainSub.classList.remove("active");
+        aboutSub.classList.remove("active");
+        gallerySub.classList.remove("active");
+        forWomenSub.classList.remove("active");
+        forMenSub.classList.remove("active");
+        babySub.classList.remove("active");
+        blogSub.classList.remove("active");
+    }, 100)    
+})
 
-function closeSubMenu() {
-    this.classList.remove("active");
-    mainSub.classList.remove("active");
-    aboutSub.classList.remove("active");
-    gallerySub.classList.remove("active");
-    forWomenSub.classList.remove("active");
-    forMenSub.classList.remove("active");
-    babySub.classList.remove("active");
-    blogSub.classList.remove("active");
-}
+$(subMenu).mouseenter (function(){
+    clearTimeout(timeout);
+}).mouseleave (function (){
+    timeout = setTimeout(() => {
+        this.classList.remove("active");
+        mainSub.classList.remove("active");
+        aboutSub.classList.remove("active");
+        gallerySub.classList.remove("active");
+        forWomenSub.classList.remove("active");
+        forMenSub.classList.remove("active");
+        babySub.classList.remove("active");
+        blogSub.classList.remove("active");
+    }, 100)
+})
+
 //submenu end
 
