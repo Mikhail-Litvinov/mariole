@@ -20,16 +20,16 @@
             <div class="flex-row nav-top">
                 <div class="nav-top-cont flex nowrap">
                     <div class="countries flex">
-                        <button class="btn-country" id="btn-country"><span id="country">Страна:</span> <span id="country-name">Россия (&#8381;)</span></button>
-                        <button class="btn-language" id="btn-lang"><span id="lang">Язык:</span> <span id="langAbb">RU</span>&nbsp;<span class="lang-ind"></span></button>
+                        <button class="btn-country" id="btn-country"><span id="country" class="languageable">Страна:</span> <span id="country-name">Россия (&#8381;)</span></bu	tton>
+                        <button class="btn-language" id="btn-lang"><span id="lang" class="languageable">Язык:</span> <span id="lang-symbol" class="languageable">RU</span>&nbsp;<span class="lang-ind"></span></button>
                         <div class="modal-wrapper-lang flex" id="modal-lang">
                             <div class="modal-content-lang">
                                 <ul>
-                                    <li><a href="#" id="RU" class="lang-btn" onclick="changeLanguage(event, 'RU')">Russian</a></li>
-                                    <li><a href="#" id="EN" class="lang-btn" onclick="changeLanguage(event, 'EN')">English</a></li>
-                                    <li><a href="#" id="CZ" class="lang-btn" onclick="changeLanguage(event, 'CZ')">Czech</a></li>
-                                    <li><a href="#" id="IT" class="lang-btn" onclick="changeLanguage(event, 'IT')">Italian</a></li>
-                                    <li><a href="#" id="CH" class="lang-btn" onclick="changeLanguage(event, 'CH')">Chinese</a></li>
+                                    <li><a href="#" id="lang-ru" class="lang-btn" onclick="changeLanguage('RU')">Русский</a></li>
+                                    <li><a href="#" id="lang-en" class="lang-btn" onclick="changeLanguage('EN')">English</a></li>
+                                    <li><a href="#" id="lang-cs" class="lang-btn" onclick="changeLanguage('CS')">Čeština</a></li>
+                                    <li><a href="#" id="lang-it" class="lang-btn" onclick="changeLanguage('IT')">Italiano</a></li>
+                                    <li><a href="#" id="lang-zh" class="lang-btn" onclick="changeLanguage('ZH')">中文</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="buttons-top-nav flex flex-align-middle">
                         <ul class="buttons-top-nav-list">
-                            <li><span class="seacrh-icon" id="open-search"></span></li>
+                            <li><span class="seacrh-icon"></span></li>
                             <li><a href="https://www.instagram.com/mario__le/" target="_blank"><span class="inst-icon"></span></a></li>
                         </ul>
                     </div>
@@ -50,22 +50,22 @@
             <div class="flex-row nav flex-align-middle wrap">
                 <div class="flex nav-wrapper">
                     <ul class="nav-list">
-                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="main"><span id="home-page">Главная</span></a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="about"><span id="about-page">О нас</span></a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="gallery"><span id="gallery-page">Галерея</span></a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="forwomen"><span id="for-women-page">Для женщин</span></a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="formen"><span id="for-men-page">Для мужчин</span></a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="baby"><span id="for-children-page">Десткое</span></a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="blog"><span id="blog-page">Новости</span></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="home"><span id="home-page" class="languageable">Главная</span></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="about"><span id="about-page" class="languageable">О нас</span></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="gallery"><span id="gallery-page" class="languageable">Галерея</span></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="women"><span id="women-page" class="languageable">Для женщин</span></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="men"><span id="men-page" class="languageable">Для мужчин</span></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="children"><span id="children-page" class="languageable">Десткое</span></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn"><span id="blog-page" class="languageable">Новости</span></a></li>
                     </ul>
                 </div>
-                <div class="flex sub-nav-main-wrapper sub-nav" id="main-sub"></div>
-                <div class="flex sub-nav-about-wrapper sub-nav" id="about-sub"></div>
-                <div class="flex sub-nav-gallery-wrapper sub-nav" id="gallery-sub"></div>
-                <div class="flex sub-nav-forwomen-wrapper sub-nav" id="forwomen-sub"></div>
-                <div class="flex sub-nav-formen-wrapper sub-nav" id="formen-sub"></div>
-                <div class="flex sub-nav-baby-wrapper sub-nav" id="baby-sub"></div>
-                <div class="flex sub-nav-blog-wrapper sub-nav" id="blog-sub"></div>
+                <div class="flex sub-nav-main-wrapper" id="main-sub"></div>
+                <div class="flex sub-nav-about-wrapper" id="about-sub"></div>
+                <div class="flex sub-nav-gallery-wrapper" id="gallery-sub"></div>
+                <div class="flex sub-nav-forwomen-wrapper" id="forwomen-sub"></div>
+                <div class="flex sub-nav-formen-wrapper" id="formen-sub"></div>
+                <div class="flex sub-nav-baby-wrapper" id="baby-sub"></div>
+                <div class="flex sub-nav-blog-wrapper" id="blog-sub"></div>
             </div>
         </div>
 
@@ -90,48 +90,48 @@
                         </div>
                     </div>
                     <div class="flex-row nowrap flex-align-middle width-100 modal-country-title-2">
-                        <span class="choose-country" id="chooseCountry">Выберите страну</span>
+                        <span id="choose-country" class="choose-country languageable">Выберите страну</span>
                     </div>
                     <div class="modal-country-content flex wrap">
                         <div class="flex-row width-100 nowrap">
                             <div class="flex-column width-100 height-100 wrap">
                                 <span class="country-list-europe">
-                                    <span id="area-europe">Европа:</span>
+                                    <span id="area-europe" class="languageable">Европа:</span>
                                     <ul class="country-list">
-                                        <li><a href="#" id="AUT" onclick="changeCountry(event, 'AUT')" class="country-btn">Австрия</a></li>
-                                        <li><a href="#" id="ARM" onclick="changeCountry(event, 'ARM')" class="country-btn">Армения</a></li>
-                                        <li><a href="#" id="BLR" onclick="changeCountry(event, 'BLR')" class="country-btn">Беларусь</a></li>
-                                        <li><a href="#" id="BEL" onclick="changeCountry(event, 'BEL')" class="country-btn">Бельгия</a></li>
-                                        <li><a href="#" id="BGR" onclick="changeCountry(event, 'BGR')" class="country-btn">Болгария</a></li>
-                                        <li><a href="#" id="GBR" onclick="changeCountry(event, 'GBR')" class="country-btn">Великобритания</a></li>
-                                        <li><a href="#" id="HUN" onclick="changeCountry(event, 'HUN')" class="country-btn">Венгрия</a></li>
-                                        <li><a href="#" id="DEU" onclick="changeCountry(event, 'DEU')" class="country-btn">Германия</a></li>
-                                        <li><a href="#" id="GRC" onclick="changeCountry(event, 'GRC')" class="country-btn">Греция</a></li>
-                                        <li><a href="#" id="GEO" onclick="changeCountry(event, 'GEO')" class="country-btn">Грузия</a></li>
-                                        <li><a href="#" id="DNK" onclick="changeCountry(event, 'DNK')" class="country-btn">Дания</a></li>
-                                        <li><a href="#" id="IRL" onclick="changeCountry(event, 'IRL')" class="country-btn">Ирландия</a></li>
-                                        <li><a href="#" id="ESP" onclick="changeCountry(event, 'ESP')" class="country-btn">Испания</a></li>
-                                        <li><a href="#" id="ITA" onclick="changeCountry(event, 'ITA')" class="country-btn">Италия</a></li>
-                                        <li><a href="#" id="CYP" onclick="changeCountry(event, 'CYP')" class="country-btn">Кипр</a></li>
-                                        <li><a href="#" id="LVA" onclick="changeCountry(event, 'LVA')" class="country-btn">Латвия</a></li>
-                                        <li><a href="#" id="LTU" onclick="changeCountry(event, 'LTU')" class="country-btn">Литва</a></li>
-                                        <li><a href="#" id="LUX" onclick="changeCountry(event, 'LUX')" class="country-btn">Люксенбург</a></li>
-                                        <li><a href="#" id="MLT" onclick="changeCountry(event, 'MLT')" class="country-btn">Мальта</a></li>
-                                        <li><a href="#" id="MCO" onclick="changeCountry(event, 'MCO')" class="country-btn">Монако</a></li>
-                                        <li><a href="#" id="NLD" onclick="changeCountry(event, 'NLD')" class="country-btn">Нидерланды</a></li>
-                                        <li><a href="#" id="POL" onclick="changeCountry(event, 'POL')" class="country-btn">Польша</a></li>
-                                        <li><a href="#" id="PRT" onclick="changeCountry(event, 'PRT')" class="country-btn">Португалия</a></li>
-                                        <li><a href="#" id="RUS" onclick="changeCountry(event, 'RUS')" class="country-btn">Россия</a></li>
-                                        <li><a href="#" id="ROU" onclick="changeCountry(event, 'ROU')" class="country-btn">Румыния</a></li>
-                                        <li><a href="#" id="SVK" onclick="changeCountry(event, 'SVK')" class="country-btn">Словакия</a></li>
-                                        <li><a href="#" id="SVN" onclick="changeCountry(event, 'SVN')" class="country-btn">Словения</a></li>
-                                        <li><a href="#" id="UKR" onclick="changeCountry(event, 'UKR')" class="country-btn">Украина</a></li>
-                                        <li><a href="#" id="FIN" onclick="changeCountry(event, 'FIN')" class="country-btn">Финляндия</a></li>
-                                        <li><a href="#" id="FRA" onclick="changeCountry(event, 'FRA')" class="country-btn">Франция</a></li>
-                                        <li><a href="#" id="HRV" onclick="changeCountry(event, 'HRV')" class="country-btn">Хорватия</a></li>
-                                        <li><a href="#" id="CZE" onclick="changeCountry(event, 'CZE')" class="country-btn">Чехия</a></li>
-                                        <li><a href="#" id="SWE" onclick="changeCountry(event, 'SWE')" class="country-btn">Швеция</a></li>
-                                        <li><a href="#" id="EST" onclick="changeCountry(event, 'EST')" class="country-btn">Эстония</a></li>
+										<li><a href="#" id="country-austria" onclick="changeCountry('austria')" class="country-btn">Австрия</a></li>
+										<li><a href="#" id="country-armenia" onclick="changeCountry('armenia')" class="country-btn">Армения</a></li>
+										<li><a href="#" id="country-belarus" onclick="changeCountry('belarus')" class="country-btn">Беларусь</a></li>
+										<li><a href="#" id="country-belgium" onclick="changeCountry('belgium')" class="country-btn">Бельгия</a></li>
+										<li><a href="#" id="country-bulgaria" onclick="changeCountry('bulgaria')" class="country-btn">Болгария</a></li>
+										<li><a href="#" id="country-uk" onclick="changeCountry('uk')" class="country-btn">Великобритания</a></li>
+										<li><a href="#" id="country-hungary" onclick="changeCountry('hungary')" class="country-btn">Венгрия</a></li>
+										<li><a href="#" id="country-germany" onclick="changeCountry('germany')" class="country-btn">Германия</a></li>
+										<li><a href="#" id="country-greece" onclick="changeCountry('greece')" class="country-btn">Греция</a></li>
+										<li><a href="#" id="country-georgia" onclick="changeCountry('georgia')" class="country-btn">Грузия</a></li>
+										<li><a href="#" id="country-denmark" onclick="changeCountry('denmark')" class="country-btn">Дания</a></li>
+										<li><a href="#" id="country-ireland" onclick="changeCountry('ireland')" class="country-btn">Ирландия</a></li>
+										<li><a href="#" id="country-spain" onclick="changeCountry('spain')" class="country-btn">Испания</a></li>
+										<li><a href="#" id="country-italy" onclick="changeCountry('italy')" class="country-btn">Италия</a></li>
+										<li><a href="#" id="country-cyprus" onclick="changeCountry('cyprus')" class="country-btn">Кипр</a></li>
+										<li><a href="#" id="country-latvia" onclick="changeCountry('latvia')" class="country-btn">Латвия</a></li>
+										<li><a href="#" id="country-lithuania" onclick="changeCountry('lithuania')" class="country-btn">Литва</a></li>
+										<li><a href="#" id="country-luxemburg" onclick="changeCountry('luxemburg')" class="country-btn">Люксембург</a></li>
+										<li><a href="#" id="country-malta" onclick="changeCountry('malta')" class="country-btn">Мальта</a></li>
+										<li><a href="#" id="country-monaco" onclick="changeCountry('monaco')" class="country-btn">Монако</a></li>
+										<li><a href="#" id="country-netherlands" onclick="changeCountry('netherlands')" class="country-btn">Нидерланды</a></li>
+										<li><a href="#" id="country-poland" onclick="changeCountry('poland')" class="country-btn">Польша</a></li>
+										<li><a href="#" id="country-portugal" onclick="changeCountry('portugal')" class="country-btn">Португалия</a></li>
+										<li><a href="#" id="country-russia" onclick="changeCountry('russia')" class="country-btn">Россия</a></li>
+										<li><a href="#" id="country-romania" onclick="changeCountry('romania')" class="country-btn">Румыния</a></li>
+										<li><a href="#" id="country-slovakia" onclick="changeCountry('slovakia')" class="country-btn">Словакия</a></li>
+										<li><a href="#" id="country-slovenia" onclick="changeCountry('slovenia')" class="country-btn">Словения</a></li>
+										<li><a href="#" id="country-ukraine" onclick="changeCountry('ukraine')" class="country-btn">Украина</a></li>
+										<li><a href="#" id="country-finland" onclick="changeCountry('finland')" class="country-btn">Финляндия</a></li>
+										<li><a href="#" id="country-france" onclick="changeCountry('france')" class="country-btn">Франция</a></li>
+										<li><a href="#" id="country-croatia" onclick="changeCountry('croatia')" class="country-btn">Хорватия</a></li>
+										<li><a href="#" id="country-czech" onclick="changeCountry('czech')" class="country-btn">Чехия</a></li>
+										<li><a href="#" id="country-sweden" onclick="changeCountry('sweden')" class="country-btn">Швеция</a></li>
+										<li><a href="#" id="country-estonia" onclick="changeCountry('estonia')" class="country-btn">Эстония</a></li>
                                     </ul>
                                 </span>
                             </div>
@@ -139,21 +139,21 @@
                         <div class="flex-row width-100">
                             <div class="flex-column nowrap col-1-2 align-items-center">
                                 <span class="country-list-america">
-                                    <span id="area-america">Америка:</span>
+                                    <span id="area-america" class="languageable">Америка:</span>
                                     <ul class="country-list-2">
-                                        <li><a href="#" id="USA" onclick="changeCountry(event, 'USA')" class="country-btn">США</a></li>
-                                        <li><a href="#" id="CAN" onclick="changeCountry(event, 'CAN')" class="country-btn">Канада</a></li>
-                                        <li><a href="#" id="MEX" onclick="changeCountry(event, 'MEX')" class="country-btn">Мексика</a></li>
+                                        <li><a href="#" id="country-usa" onclick="changeCountry('usa')" class="country-btn">США</a></li>
+                                        <li><a href="#" id="country-canada" onclick="changeCountry('canada')" class="country-btn">Канада</a></li>
+                                        <li><a href="#" id="country-mexico" onclick="changeCountry('mexico')" class="country-btn">Мексика</a></li>
                                     </ul>
                                 </span>
                             </div>
                             <div class="flex-column nowrap col-1-2 align-items-center">
                                 <span class="country-list-asia">
-                                    <span id="area-asia">Азия:</span>
+                                    <span id="area-asia" class="languageable">Азия:</span>
                                     <ul class="country-list-2">
-                                        <li><a href="#" id="CHN" onclick="changeCountry(event, 'CHN')" class="country-btn">Китай</a></li>
-                                        <li><a href="#" id="JPN" onclick="changeCountry(event, 'JPN')" class="country-btn">Япония</a></li>
-                                        <li><a href="#" id="KOR" onclick="changeCountry(event, 'KOR')" class="country-btn">Южная Корея</a></li>
+                                        <li><a href="#" id="country-china" onclick="changeCountry('china')" class="country-btn">Китай</a></li>
+                                        <li><a href="#" id="country-japan" onclick="changeCountry('japan')" class="country-btn">Япония</a></li>
+                                        <li><a href="#" id="country-korea" onclick="changeCountry('korea')" class="country-btn">Южная Корея</a></li>
                                     </ul>
                                 </span>
                             </div>
@@ -161,17 +161,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="modal-search-bg" id="modal-search">
-        <div class="modal-search-wrapper">
-            <div class="modal-search">
-                <form action="search.php" class="search-form" method="POST">
-                    <input type="search" name="query" class="search-input" placeholder="Search...">
-                    <button class="search-button" type="submit"></button>
-                </form>
-            </div>
-            <span class="close-search" id="close-search"></span>
         </div>
     </div>
     <!-- modals end -->

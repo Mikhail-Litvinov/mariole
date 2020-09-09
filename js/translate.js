@@ -1,1441 +1,174 @@
-//varaibles//
+let languages = {
+	"lang-code": ["EN", "RU", "CS", "IT", "ZH"],
+	"lang-symbol": ["EN", "РУ", "ČR", "IT", "中文"],
+	"lang": ["Language:<br>", "Язык:<br>", "Jazyk:<br>", "Lingua:<br>", "语言:<br>"],
+	"country": ["Country:<br>", "Страна:<br>", "Země:<br>", "Paese:<br>", "国家：<br>"],
+	"geoerror": ["Please allow access to your geoposition to identify your country", "Пожалуйста, разрешите доступ к геопозиции для определения вашей страны", "TODO", "TODO", "TODO"],
+	"home-page": ["Home", "Главная", "Hlavní stránka", "Home", "首页"],
+	"about-page": ["About", "О нас", "O nás", "Di noi", "关于我们"],
+	"gallery-page": ["Gallery", "Галерея", "Galerie", "Galleria", "画廊"],
+	"women-page": ["For women", "Для женщин", "Pro ženy", "Per le donne", "对于女性"],
+	"men-page": ["For men", "Для мужчин", "Pro muže", "Per gli uomini", "对于男人"],
+	"children-page": ["For children", "Для детей", "Dítě", "Infante", "对于儿童"],
+	"blog-page": ["News", "Новости", "Novinky", "News", "新闻"],
+	"area-europe": ["Europe:", "Европа:", "Evropa:", "Europa:", "欧洲:"],
+	"area-america": ["America:", "Америка:", "Amerika:", "America:", "美国:"],
+	"area-asia": ["Asia:", "Азия:", "Asie:", "Asia:", "亚洲:"],
+	"choose-country": ["Choose your country", "Выберите страну", "Vyberte zemi", "Seleziona un paese", "选择的国家"],
+	"countries": {
+		"austria": ["Austria", "Австрия", "Rakousko", "Austria", "奥地利"],
+		"armenia": ["Armenia", "Армения", "Arménie", "Armenia", "亚美尼亚"],
+		"belarus": ["Belarus", "Беларусь", "Bělorusko", "Bielorussia", "白俄罗斯"],
+		"belgium": ["Belgium", "Бельгия", "Belgie", "Belgio", "比利时"],
+		"bulgaria": ["Bulgaria", "Болгария", "Bulharsko", "Bulgaria", "保加利亚"],
+		"uk": ["UK", "Великобритания", "Británie", "Gran Bretagna", "英国"],
+		"hungary": ["Hungary", "Венгрия", "Maďarsko", "Ungheria", "匈牙利"],
+		"germany": ["Germany", "Германия", "Německo", "Germania", "德国"],
+		"greece": ["Greece", "Греция", "Řecko", "Grecia", "希腊"],
+		"georgia": ["Georgia", "Грузия", "Gruzie", "Georgia", "格鲁吉亚"],
+		"denmark": ["Denmark", "Дания", "Dánsko", "Danimarca", "丹麦"],
+		"ireland": ["Ireland", "Ирландия", "Irsko", "Irlanda", "爱尔兰"],
+		"spain": ["Spain", "Испания", "Španělsko", "Spagna", "西班牙"],
+		"italy": ["Italy", "Италия", "Itálie", "Italia", "意大利"],
+		"cyprus": ["Cyprus", "Кипр", "Kypr", "Cipro", "塞浦路斯"],
+		"latvia": ["Latvia", "Латвия", "Lotyšsko", "Lettonia", "拉脱维亚"],
+		"lithuania": ["Lithuania", "Литва", "Litva", "Lituania", "立陶宛"],
+		"luxemburg": ["Luxemburg", "Люксембург", "Lucembursko", "Lussemburgo", "卢森堡"],
+		"malta": ["Malta", "Мальта", "Malta", "Malta", "马耳他"],
+		"monaco": ["Monaco", "Монако", "Monako", "Monaco", "摩纳哥"],
+		"netherlands": ["Netherlands", "Нидерланды", "Nizozemsko", "Olanda", "荷兰"],
+		"poland": ["Poland", "Польша", "Polsko", "Polonia", "波兰"],
+		"portugal": ["Portugal", "Португалия", "Portugalsko", "Portogallo", "葡萄牙"],
+		"russia": ["Russia", "Россия", "Rusko", "Russia", "俄罗斯"],
+		"romania": ["Romania", "Румыния", "Rumunsko", "Romania", "罗马尼亚"],
+		"slovakia": ["Slovakia", "Словакия", "Slovensko", "Slovacchia", "斯洛伐克"],
+		"slovenia": ["Slovenia", "Словения", "Slovinsko", "Slovenia", "斯洛文尼亚"],
+		"ukraine": ["Ukraine", "Украина", "Ukrajina", "Ucraina", "乌克兰"],
+		"finland": ["Finland", "Финляндия", "Finsko", "Finlandia", "芬兰"],
+		"france": ["France", "Франция", "Francie", "Francia", "法国"],
+		"croatia": ["Croatia", "Хорватия", "Chorvatsko", "Croazia", "克罗地亚"],
+		"czech": ["Czech Republic", "Чешская республика", "Česká Republika", "Repubblica Ceca", "捷克共和国"],
+		"sweden": ["Sweden", "Швеция", "Švédsko", "Svezia", "瑞典"],
+		"estonia": ["Estonia", "Эстония", "Estonsko", "Estonia", "爱沙尼亚"],
+		"usa": ["USA", "США", "USA", "USA", "美国"],
+		"canada": ["Canada", "Канада", "Kanada", "Canada", "加拿大"],
+		"mexico": ["Mexico", "Мексика", "Mexiko", "Messico", "墨西哥"],
+		"china": ["China", "Китай", "Čína", "Cina", "中国"],
+		"japan": ["Japan", "Япония", "Japonsko", "Giappone", "日本"],
+		"korea": ["South Korea", "Южная Корея", "Jižní Korea", "Corea", "韩国"]
+	}
+};
 
-let homeText = document.getElementById("home-page");
-let aboutText = document.getElementById("about-page");
-let galleryText = document.getElementById("gallery-page");
-let womenText = document.getElementById("for-women-page");
-let menText = document.getElementById("for-men-page");
-let childrenText = document.getElementById("for-children-page");
-let blogText  = document.getElementById("blog-page");
+let countries = {
+	"Чехия": {"latin": "czech", "currency": "C"},
+	"Россия": {"latin": "russia", "currency": "R"},
+	"Италия": {"latin": "italy", "currency": "E"},
+	"Китай": {"latin": "china", "currency": "D"},
+	"США": {"latin": "usa", "currency": "D"},
+	"Австрия": {"latin": "austria"},
+	"Армения": {"latin": "armenia", "currency": "D"},
+	"Беларусь": {"latin": "belarus", "currency": "D"},
+	"Бельгия": {"latin": "belgium"},
+	"Болгария": {"latin": "bulgaria"},
+	"Великобритания": {"latin": "uk"},
+	"Венгрия": {"latin": "hungary"},
+	"Германия": {"latin": "germany"},
+	"Греция": {"latin": "greece"},
+	"Грузия": {"latin": "georgia", "currency": "D"},
+	"Дания": {"latin": "denmark"},
+	"Ирландия": {"latin": "ireland"},
+	"Испания": {"latin": "spain"},
+	"Кипр": {"latin": "cyprus"},
+	"Латвия": {"latin": "latvia"},
+	"Литва": {"latin": "lithuania"},
+	"Люксембург": {"latin": "luxemburg"},
+	"Мальта": {"latin": "malta"},
+	"Монако": {"latin": "monaco"},
+	"Нидерланды": {"latin": "netherlands"},
+	"Польша": {"latin": "poland"},
+	"Португалия": {"latin": "portugal"},
+	"Румыния": {"latin": "romania"},
+	"Словакия": {"latin": "slovakia"},
+	"Словения": {"latin": "slovenia"},
+	"Украина": {"latin": "ukraine", "currency": "D"},
+	"Финляндия": {"latin": "finland"},
+	"Франция": {"latin": "france"},
+	"Хорватия": {"latin": "croatia"},
+	"Швеция": {"latin": "sweden"},
+	"Эстония": {"latin": "estonia"},
+	"Канада": {"latin": "canada", "currency": "D"},
+	"Мексика": {"latin": "mexico", "currency": "D"},
+	"Япония": {"latin": "japan", "currency": "D"},
+	"Южная Корея": {"latin": "korea", "currency": "D"}
+};
 
-let aut = document.getElementById("AUT");
-let arm = document.getElementById("ARM");
-let blr = document.getElementById("BLR");
-let bel = document.getElementById("BEL");
-let bgr = document.getElementById("BGR");
-let gbr = document.getElementById("GBR");
-let hun = document.getElementById("HUN");
-let deu = document.getElementById("DEU");
-let grc = document.getElementById("GRC");
-let geo = document.getElementById("GEO");
-let dnk = document.getElementById("DNK");
-let irl = document.getElementById("IRL");
-let esp = document.getElementById("ESP");
-let ita = document.getElementById("ITA");
-let cyp = document.getElementById("CYP");
-let lva = document.getElementById("LVA");
-let ltu = document.getElementById("LTU");
-let lux = document.getElementById("LUX");
-let mlt = document.getElementById("MLT");
-let mco = document.getElementById("MCO");
-let nld = document.getElementById("NLD");
-let pol = document.getElementById("POL");
-let prt = document.getElementById("PRT");
-let rus = document.getElementById("RUS");
-let rou = document.getElementById("ROU");
-let svk = document.getElementById("SVK");
-let svn = document.getElementById("SVN");
-let ukr = document.getElementById("UKR");
-let fin = document.getElementById("FIN");
-let fra = document.getElementById("FRA");
-let hrv = document.getElementById("HRV");
-let cze = document.getElementById("CZE");
-let swe = document.getElementById("SWE");
-let est = document.getElementById("EST");
-let usa = document.getElementById("USA");
-let can = document.getElementById("CAN");
-let mex = document.getElementById("MEX");
-let chn = document.getElementById("CHN");
-let jpn = document.getElementById("JPN");
-let kor = document.getElementById("KOR");
+let activeCountry = null;
+let activeLanguage = 0;
+let countryButtons = null;
+let languageables = null;
 
-let LangAbb = document.getElementById("langAbb");
-let lang = document.getElementById("lang");
-let country = document.getElementById("country");
-let countryName = document.getElementById("country-name");
-
-let RU = document.getElementById("RU");
-let EN = document.getElementById("EN");
-let CZ = document.getElementById("CZ");
-let IT = document.getElementById("IT");
-let CH = document.getElementById("CH");
-
-let europe = document.getElementById("area-europe");
-let america = document.getElementById("area-america");
-let asia = document.getElementById("area-asia");
-let chooseText = document.getElementById ("chooseCountry");
-
-//varaibles end//
-
-let countryMass = [
-    YMaps.location.country == "Россия" || YMaps.location.country == "Russia", // 0
-    YMaps.location.country == "Чехия" || YMaps.location.country == "Czech Republic", // 1
-    YMaps.location.country == "США" || YMaps.location.country == "USA", // 2
-    YMaps.location.country == "Австрия" || YMaps.location.country == "country", // 3
-    YMaps.location.country == "Армения" || YMaps.location.country == "country", // 4
-    YMaps.location.country == "Белорусь" || YMaps.location.country == "country", // 5
-    YMaps.location.country == "Бельгия" || YMaps.location.country == "country", // 6
-    YMaps.location.country == "Болгария" || YMaps.location.country == "country", // 7
-    YMaps.location.country == "Великобритания" || YMaps.location.country == "country", // 8
-    YMaps.location.country == "Венгрия" || YMaps.location.country == "country", // 9
-    YMaps.location.country == "Германия" || YMaps.location.country == "country", // 10
-    YMaps.location.country == "Греция" || YMaps.location.country == "country", // 11
-    YMaps.location.country == "Грузия" || YMaps.location.country == "country", // 12
-    YMaps.location.country == "Дания" || YMaps.location.country == "country", // 13
-    YMaps.location.country == "Ирландия" || YMaps.location.country == "country", // 14
-    YMaps.location.country == "Испания" || YMaps.location.country == "country", // 15
-    YMaps.location.country == "Италия" || YMaps.location.country == "Italy", // 16
-    YMaps.location.country == "Кипр" || YMaps.location.country == "country", // 17
-    YMaps.location.country == "Латвия" || YMaps.location.country == "country", // 18
-    YMaps.location.country == "Литва" || YMaps.location.country == "country", // 19
-    YMaps.location.country == "Люксембург" || YMaps.location.country == "country", // 20
-    YMaps.location.country == "Мальта" || YMaps.location.country == "country", // 21
-    YMaps.location.country == "Монако" || YMaps.location.country == "country", // 22
-    YMaps.location.country == "Нидерланды" || YMaps.location.country == "country", // 23
-    YMaps.location.country == "Польша" || YMaps.location.country == "country", // 24
-    YMaps.location.country == "Португалия" || YMaps.location.country == "country", // 25
-    YMaps.location.country == "Румыния" || YMaps.location.country == "country", // 26
-    YMaps.location.country == "Словакия" || YMaps.location.country == "country", // 27
-    YMaps.location.country == "Словения" || YMaps.location.country == "country", // 28
-    YMaps.location.country == "Украина" || YMaps.location.country == "country", // 29
-    YMaps.location.country == "Финляндия" || YMaps.location.country == "country", // 30
-    YMaps.location.country == "Франция" || YMaps.location.country == "country", // 31
-    YMaps.location.country == "Хорватия" || YMaps.location.country == "country", // 32
-    YMaps.location.country == "Швеция" || YMaps.location.country == "country", // 33
-    YMaps.location.country == "Эстония" || YMaps.location.country == "country", // 34
-    YMaps.location.country == "Канада" || YMaps.location.country == "country", // 35
-    YMaps.location.country == "Мексика" || YMaps.location.country == "country", // 36
-    YMaps.location.country == "Китай" || YMaps.location.country == "country", // 37
-    YMaps.location.country == "Япония" || YMaps.location.country == "country", // 38
-    YMaps.location.country == "Южная Корея" || YMaps.location.country == "country", // 39
-    ]
-
-//check language//
-$(document).ready (function() {
-    var userlang = window.navigator.language || navigator.userLanguage;
-    console.log(userlang)
-    if ( userlang  == "ru" || userlang == "ru-RU") {
-        RU.classList.add ("defaultOpen");
-    }
-    if ( userlang  == "cs" ) {
-        CZ.classList.add ("defaultOpen");
-    }
-    if ( userlang  == "it-IT" || userlang == "it" ) {
-        IT.classList.add ("defaultOpen");
-    }
-    if ( userlang  == "zh-TW" || userlang == "zh" ) {
-        CH.classList.add ("defaultOpen");
-    }
-    else {
-        EN.classList.add ("defaultOpen");
-    }
-});
-
-//check language end//
-
-//check country//
-
-$(document).ready (function() {
-    if (YMaps.location) // Проверяем, доступна ли геопозиция
-    {
-        let countryConsole = countryMass[0] || countryMass[1] || countryMass[2] || countryMass[3] || countryMass[4] || countryMass[5] || countryMass[6] || countryMass[7] 
-        || countryMass[8] || countryMass[9] || countryMass[10] || countryMass[11] || countryMass[12] || countryMass[13] || countryMass[14] || countryMass[15] 
-        || countryMass[16] || countryMass[17] || countryMass[18] || countryMass[19] || countryMass[20] || countryMass[21] || countryMass[22] || countryMass[23] 
-        || countryMass[24] || countryMass[25] || countryMass[26] || countryMass[27] || countryMass[28] || countryMass[29] || countryMass[30] || countryMass[31] 
-        || countryMass[32] || countryMass[33] || countryMass[34] || countryMass[35] || countryMass[36] || countryMass[37] || countryMass[38] || countryMass[39];
-        console.log (YMaps.location.country)
-        if (countryConsole == true) {
-            
-        if (YMaps.location.country == "Россия" || YMaps.location.country == "Russia") {
-            rus.classList.add("defaultOpen");
-        } 
-
-        if (YMaps.location.country == "Австрия" || YMaps.location.country == "country") {
-            aut.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Армения" || YMaps.location.country == "country") {
-            arm.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Белорусь" || YMaps.location.country == "country") {
-            blr.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Бельгия" || YMaps.location.country == "country") {
-            bel.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Болгария" || YMaps.location.country == "country") {
-            bgr.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Великобритания" || YMaps.location.country == "country") {
-            gbr.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Венгрия" || YMaps.location.country == "country") {
-            hun.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Германия" || YMaps.location.country == "country") {
-            deu.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Греция" || YMaps.location.country == "country") {
-            grc.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Грузия" || YMaps.location.country == "country") {
-            geo.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Дания" || YMaps.location.country == "country") {
-            dnk.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Ирландия" || YMaps.location.country == "country") {
-            irl.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Испания" || YMaps.location.country == "country") {
-            esp.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Италия" || YMaps.location.country == "italy") {
-            ita.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Кипр" || YMaps.location.country == "country") {
-            cyp.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Латвия" || YMaps.location.country == "country") {
-            lva.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Литва" || YMaps.location.country == "country") {
-            ltu.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Люксембург" || YMaps.location.country == "country") {
-            lux.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Мальта" || YMaps.location.country == "country") {
-            mlt.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Монако" || YMaps.location.country == "country") {
-            mco.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Нидерланды" || YMaps.location.country == "country") {
-            nld.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Польша" || YMaps.location.country == "country") {
-            pol.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Португалия" || YMaps.location.country == "country") {
-            prt.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Румыния" || YMaps.location.country == "country") {
-            rou.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Словакия" || YMaps.location.country == "country") {
-            svk.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Словения" || YMaps.location.country == "country") {
-            svn.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Украина" || YMaps.location.country == "country") {
-            ukr.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Финляндия" || YMaps.location.country == "country") {
-            fin.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Франция" || YMaps.location.country == "country") {
-            fra.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Хорватия" || YMaps.location.country == "country") {
-            hrv.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Чехия" || YMaps.location.country == "country") {
-            cze.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Швеция" || YMaps.location.country == "country") {
-            swe.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Эстония" || YMaps.location.country == "country") {
-            est.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "США" || YMaps.location.country == "country") {
-            usa.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Канада" || YMaps.location.country == "country") {
-            can.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Мексика" || YMaps.location.country == "country") {
-            mex.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Китай" || YMaps.location.country == "country") {
-            chn.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Япония" || YMaps.location.country == "country") {
-            jpn.classList.add("defaultOpen");
-        }
-
-        if (YMaps.location.country == "Южная Корея" || YMaps.location.country == "country") {
-            kor.classList.add("defaultOpen");
-        }
-    }
-    if (countryConsole == false) {
-        gbr.classList.add("defaultOpen")
-    }
-    } 
-    else
-        alert("Пожалуйста, разрешите доступ к использованию Вашей геопозиции!");
-        
-});
-
-//check country end//
-
-//translane//
-
-function changeLanguage(evt, language) {
-
-    var i;
-    var langBtns = document.getElementsByClassName("lang-btn");
-
-    for (i = 0; i < langBtns.length; i++) {
-        langBtns[i].className = langBtns[i].className.replace(" active", "");
-
-    }
-
-    evt.currentTarget.className += " active";
-
-    if (RU.classList.contains("active")) {
-        LangAbb.textContent = "RU";
-        lang.textContent = "Язык:";
-        country.innerHTML = "Страна:";
-        changeButtonsRU();
-        if (usa.classList.contains("active")) {
-            countryName.innerHTML = "США (&#36;)";
-        }
-        if (can.classList.contains("active")) {
-            countryName.innerHTML = "Канада (&#36;)";
-        }
-        if (mex.classList.contains("active")) {
-            countryName.innerHTML = "Мексика (&#36;)";
-        }
-        if (jpn.classList.contains("active")) {
-            countryName.innerHTML = "Япония (&#36;)";
-        }
-        if (kor.classList.contains("active")) {
-            countryName.innerHTML = "Южная Корея (&#36;)";
-        }
-        if (est.classList.contains("active")) {
-            countryName.innerHTML = "Эстония (&#8364;)";
-        }
-        if (swe.classList.contains("active")) {
-            countryName.innerHTML = "Швеция (&#8364;)";
-        }
-        if (hrv.classList.contains("active")) {
-            countryName.innerHTML = "Хорватия (&#8364;)";
-        }
-        if (fin.classList.contains("active")) {
-            countryName.innerHTML = "Финляндия (&#8364;)";
-        }
-        if (fra.classList.contains("active")) {
-            countryName.innerHTML = "Франция (&#8364;)";
-        }
-        if (svn.classList.contains("active")) {
-            countryName.innerHTML = "Словения (&#8364;)";
-        }
-        if (svk.classList.contains("active")) {
-            countryName.innerHTML = "Словакия (&#8364;)";
-        }
-        if (rou.classList.contains("active")) {
-            countryName.innerHTML = "Румыния (&#8364;)";
-        }
-        if (aut.classList.contains("active")) {
-            countryName.innerHTML = "Австрия (&#8364;)";
-        }
-        if (bel.classList.contains("active")) {
-            countryName.innerHTML = "Бельгия (&#8364;)";
-        }
-        if (bgr.classList.contains("active")) {
-            countryName.innerHTML = "Болгария (&#8364;)";
-        }
-        if (gbr.classList.contains("active")) {
-            countryName.innerHTML = "Великобритания (&#8364;)";
-        }
-        if (hun.classList.contains("active")) {
-            countryName.innerHTML = "Венгрия (&#8364;)";
-        }
-        if (deu.classList.contains("active")) {
-            countryName.innerHTML = "Германия (&#8364;)";
-        }
-        if (grc.classList.contains("active")) {
-            countryName.innerHTML = "Греция (&#8364;)";
-        }
-        if (dnk.classList.contains("active")) {
-            countryName.innerHTML = "Дания (&#8364;)";
-        }
-        if (irl.classList.contains("active")) {
-            countryName.innerHTML = "Ирландия (&#8364;)";
-        }
-        if (esp.classList.contains("active")) {
-            countryName.innerHTML = "Испания (&#8364;)";
-        }
-        if (cyp.classList.contains("active")) {
-            countryName.innerHTML = "Кипр (&#8364;)";
-        }
-        if (lva.classList.contains("active")) {
-            countryName.innerHTML = "Латвия (&#8364;)";
-        }
-        if (ltu.classList.contains("active")) {
-            countryName.innerHTML = "Литва (&#8364;)";
-        }
-        if (lux.classList.contains("active")) {
-            countryName.innerHTML = "Люксембург (&#8364;)";
-        }
-        if (mlt.classList.contains("active")) {
-            countryName.innerHTML = "Мальта (&#8364;)";
-        }
-        if (mco.classList.contains("active")) {
-            countryName.innerHTML = "Монако (&#8364;)";
-        }
-        if (nld.classList.contains("active")) {
-            countryName.innerHTML = "Нидерланды (&#8364;)";
-        }
-        if (pol.classList.contains("active")) {
-            countryName.innerHTML = "Польша (&#8364;)";
-        }
-        if (prt.classList.contains("active")) {
-            countryName.innerHTML = "Португалия (&#8364;)";
-        }
-        if (chn.classList.contains("active")) {
-            countryName.innerHTML = "Китай (&#36;)";
-        }
-        if (ita.classList.contains("active")) {
-            countryName.innerHTML = "Италия (&#8364;)";
-        }
-        if (cze.classList.contains("active")) {
-            countryName.innerHTML = "Чешская республика (Kč)";
-        }
-        if (arm.classList.contains("active")) {
-            countryName.innerHTML = "Армения (&#36;)";
-        }
-        if (blr.classList.contains("active")) {
-            countryName.innerHTML = "Беларусь (&#36;)";
-        }
-        if (geo.classList.contains("active")) {
-            countryName.innerHTML = "Грузия (&#36;)";
-        }
-        if (rus.classList.contains("active")) {
-            countryName.innerHTML = "Россия (&#8381;)";
-        }
-        if (ukr.classList.contains("active")) {
-            countryName.innerHTML = "Украина (&#36;)";
-        }
-    }
-
-    if (EN.classList.contains("active")) {
-        LangAbb.textContent = "EN";
-        lang.textContent = "Language:";
-        country.innerHTML = "Country:";
-        changeButtonsEN();
-        if (usa.classList.contains("active")) {
-            countryName.innerHTML = "USA (&#36;)";
-        }
-        if (can.classList.contains("active")) {
-            countryName.innerHTML = "Canada (&#36;)";
-        }
-        if (mex.classList.contains("active")) {
-            countryName.innerHTML = "Mexico (&#36;)";
-        }
-        if (jpn.classList.contains("active")) {
-            countryName.innerHTML = "Japan (&#36;)";
-        }
-        if (kor.classList.contains("active")) {
-            countryName.innerHTML = "South Korea (&#36;)";
-        }
-        if (est.classList.contains("active")) {
-            countryName.innerHTML = "Estonia (&#8364;)";
-        }
-        if (swe.classList.contains("active")) {
-            countryName.innerHTML = "Sweden (&#8364;)";
-        }
-        if (hrv.classList.contains("active")) {
-            countryName.innerHTML = "Croatia (&#8364;)";
-        }
-        if (fin.classList.contains("active")) {
-            countryName.innerHTML = "Finland (&#8364;)";
-        }
-        if (fra.classList.contains("active")) {
-            countryName.innerHTML = "France (&#8364;)";
-        }
-        if (svn.classList.contains("active")) {
-            countryName.innerHTML = "Slovenia (&#8364;)";
-        }
-        if (svk.classList.contains("active")) {
-            countryName.innerHTML = "Slovakia (&#8364;)";
-        }
-        if (rou.classList.contains("active")) {
-            countryName.innerHTML = "Romania (&#8364;)";
-        }
-        if (aut.classList.contains("active")) {
-            countryName.innerHTML = "Austria (&#8364;)";
-        }
-        if (bel.classList.contains("active")) {
-            countryName.innerHTML = "Belgium (&#8364;)";
-        }
-        if (bgr.classList.contains("active")) {
-            countryName.innerHTML = "Bulgaria (&#8364;)";
-        }
-        if (gbr.classList.contains("active")) {
-            countryName.innerHTML = "Great Britain (&#8364;)";
-        }
-        if (hun.classList.contains("active")) {
-            countryName.innerHTML = "Hungary (&#8364;)";
-        }
-        if (deu.classList.contains("active")) {
-            countryName.innerHTML = "Germany (&#8364;)";
-        }
-        if (grc.classList.contains("active")) {
-            countryName.innerHTML = "Greece (&#8364;)";
-        }
-        if (dnk.classList.contains("active")) {
-            countryName.innerHTML = "Denmark (&#8364;)";
-        }
-        if (irl.classList.contains("active")) {
-            countryName.innerHTML = "Ireland (&#8364;)";
-        }
-        if (esp.classList.contains("active")) {
-            countryName.innerHTML = "Spain (&#8364;)";
-        }
-        if (cyp.classList.contains("active")) {
-            countryName.innerHTML = "Cyprus (&#8364;)";
-        }
-        if (lva.classList.contains("active")) {
-            countryName.innerHTML = "Latvia (&#8364;)";
-        }
-        if (ltu.classList.contains("active")) {
-            countryName.innerHTML = "Lithuania (&#8364;)";
-        }
-        if (lux.classList.contains("active")) {
-            countryName.innerHTML = "Luxembourg (&#8364;)";
-        }
-        if (mlt.classList.contains("active")) {
-            countryName.innerHTML = "Malta (&#8364;)";
-        }
-        if (mco.classList.contains("active")) {
-            countryName.innerHTML = "Monaco (&#8364;)";
-        }
-        if (nld.classList.contains("active")) {
-            countryName.innerHTML = "Netherlands (&#8364;)";
-        }
-        if (pol.classList.contains("active")) {
-            countryName.innerHTML = "Poland (&#8364;)";
-        }
-        if (prt.classList.contains("active")) {
-            countryName.innerHTML = "Portugal (&#8364;)";
-        }
-        if (chn.classList.contains("active")) {
-            countryName.innerHTML = "China (&#36;)";
-        }
-        if (ita.classList.contains("active")) {
-            countryName.innerHTML = "Italy (&#8364;)";
-        }
-        if (cze.classList.contains("active")) {
-            countryName.innerHTML = "Czech Republic (Kč)";
-        }
-        if (arm.classList.contains("active")) {
-            countryName.innerHTML = "Armenia (&#36;)";
-        }
-        if (blr.classList.contains("active")) {
-            countryName.innerHTML = "Belarus (&#36;)";
-        }
-        if (geo.classList.contains("active")) {
-            countryName.innerHTML = "Georgia (&#36;)";
-        }
-        if (rus.classList.contains("active")) {
-            countryName.innerHTML = "Russia (&#8381;)";
-        }
-        if (ukr.classList.contains("active")) {
-            countryName.innerHTML = "Ukraine (&#36;)";
-        }
-    }
-
-    if (CZ.classList.contains("active")) {
-        LangAbb.textContent = "ČR";
-        lang.textContent = "Jazyk:";
-        country.innerHTML = "Země:";
-        changeButtonsCZ();
-        if (usa.classList.contains("active")) {
-            countryName.innerHTML = "USA (&#36;)";
-        }
-        if (can.classList.contains("active")) {
-            countryName.innerHTML = "Kanada (&#36;)";
-        }
-        if (mex.classList.contains("active")) {
-            countryName.innerHTML = "Mexiko (&#36;)";
-        }
-        if (jpn.classList.contains("active")) {
-            countryName.innerHTML = "Japonsko (&#36;)";
-        }
-        if (kor.classList.contains("active")) {
-            countryName.innerHTML = "Jižní Korea (&#36;)";
-        }
-        if (est.classList.contains("active")) {
-            countryName.innerHTML = "Estonsko (&#8364;)";
-        }
-        if (swe.classList.contains("active")) {
-            countryName.innerHTML = "Švédsko (&#8364;)";
-        }
-        if (hrv.classList.contains("active")) {
-            countryName.innerHTML = "Chorvatsko (&#8364;)";
-        }
-        if (fin.classList.contains("active")) {
-            countryName.innerHTML = "Finsko (&#8364;)";
-        }
-        if (fra.classList.contains("active")) {
-            countryName.innerHTML = "Francie (&#8364;)";
-        }
-        if (svn.classList.contains("active")) {
-            countryName.innerHTML = "Slovinsko (&#8364;)";
-        }
-        if (svk.classList.contains("active")) {
-            countryName.innerHTML = "Slovensko (&#8364;)";
-        }
-        if (rou.classList.contains("active")) {
-            countryName.innerHTML = "Rumunsko (&#8364;)";
-        }
-        if (aut.classList.contains("active")) {
-            countryName.innerHTML = "Rakousko (&#8364;)";
-        }
-        if (bel.classList.contains("active")) {
-            countryName.innerHTML = "Belgie (&#8364;)";
-        }
-        if (bgr.classList.contains("active")) {
-            countryName.innerHTML = "Bulharsko (&#8364;)";
-        }
-        if (gbr.classList.contains("active")) {
-            countryName.innerHTML = "Británie (&#8364;)";
-        }
-        if (hun.classList.contains("active")) {
-            countryName.innerHTML = "Maďarsko (&#8364;)";
-        }
-        if (deu.classList.contains("active")) {
-            countryName.innerHTML = "Německo (&#8364;)";
-        }
-        if (grc.classList.contains("active")) {
-            countryName.innerHTML = "Řecko (&#8364;)";
-        }
-        if (dnk.classList.contains("active")) {
-            countryName.innerHTML = "Dánsko (&#8364;)";
-        }
-        if (irl.classList.contains("active")) {
-            countryName.innerHTML = "Irsko (&#8364;)";
-        }
-        if (esp.classList.contains("active")) {
-            countryName.innerHTML = "Španělsko (&#8364;)";
-        }
-        if (cyp.classList.contains("active")) {
-            countryName.innerHTML = "Kypr (&#8364;)";
-        }
-        if (lva.classList.contains("active")) {
-            countryName.innerHTML = "Lotyšsko (&#8364;)";
-        }
-        if (ltu.classList.contains("active")) {
-            countryName.innerHTML = "Litva (&#8364;)";
-        }
-        if (lux.classList.contains("active")) {
-            countryName.innerHTML = "Lucembursko (&#8364;)";
-        }
-        if (mlt.classList.contains("active")) {
-            countryName.innerHTML = "Malta (&#8364;)";
-        }
-        if (mco.classList.contains("active")) {
-            countryName.innerHTML = "Monako (&#8364;)";
-        }
-        if (nld.classList.contains("active")) {
-            countryName.innerHTML = "Nizozemsko (&#8364;)";
-        }
-        if (pol.classList.contains("active")) {
-            countryName.innerHTML = "Polsko (&#8364;)";
-        }
-        if (prt.classList.contains("active")) {
-            countryName.innerHTML = "Portugalsko (&#8364;)";
-        }
-        if (chn.classList.contains("active")) {
-            countryName.innerHTML = "Čína (&#36;)";
-        }
-        if (ita.classList.contains("active")) {
-            countryName.innerHTML = "Itálie (&#8364;)";
-        }
-        if (cze.classList.contains("active")) {
-            countryName.innerHTML = "Česká Republika (Kč)";
-        }
-        if (arm.classList.contains("active")) {
-            countryName.innerHTML = "Arménie (&#36;)";
-        }
-        if (blr.classList.contains("active")) {
-            countryName.innerHTML = "Bělorusko (&#36;)";
-        }
-        if (geo.classList.contains("active")) {
-            countryName.innerHTML = "Gruzie (&#36;)";
-        }
-        if (rus.classList.contains("active")) {
-            countryName.innerHTML = "Rusko (&#8381;)";
-        }
-        if (ukr.classList.contains("active")) {
-            countryName.innerHTML = "Ukrajina (&#36;)";
-        }
-    }
-
-    if (IT.classList.contains("active")) {
-        LangAbb.textContent = "IT";
-        lang.textContent = "Lingua:";
-        country.innerHTML = "Paese:";
-        changeButtonsIT();
-        if (usa.classList.contains("active")) {
-            countryName.innerHTML = "USA (&#36;)";
-        }
-        if (can.classList.contains("active")) {
-            countryName.innerHTML = "Canada (&#36;)";
-        }
-        if (mex.classList.contains("active")) {
-            countryName.innerHTML = "Messico (&#36;)";
-        }
-        if (jpn.classList.contains("active")) {
-            countryName.innerHTML = "Giappone (&#36;)";
-        }
-        if (kor.classList.contains("active")) {
-            countryName.innerHTML = "Corea (&#36;)";
-        }
-        if (est.classList.contains("active")) {
-            countryName.innerHTML = "Estonia (&#8364;)";
-        }
-        if (swe.classList.contains("active")) {
-            countryName.innerHTML = "Svezia (&#8364;)";
-        }
-        if (hrv.classList.contains("active")) {
-            countryName.innerHTML = "Croazia (&#8364;)";
-        }
-        if (fin.classList.contains("active")) {
-            countryName.innerHTML = "Finlandia (&#8364;)";
-        }
-        if (fra.classList.contains("active")) {
-            countryName.innerHTML = "France (&#8364;)";
-        }
-        if (svn.classList.contains("active")) {
-            countryName.innerHTML = "Slovenia (&#8364;)";
-        }
-        if (svk.classList.contains("active")) {
-            countryName.innerHTML = "Slovacchia (&#8364;)";
-        }
-        if (rou.classList.contains("active")) {
-            countryName.innerHTML = "Romania (&#8364;)";
-        }
-        if (aut.classList.contains("active")) {
-            countryName.innerHTML = "Austria (&#8364;)";
-        }
-        if (bel.classList.contains("active")) {
-            countryName.innerHTML = "Belgio (&#8364;)";
-        }
-        if (bgr.classList.contains("active")) {
-            countryName.innerHTML = "Bulgaria (&#8364;)";
-        }
-        if (gbr.classList.contains("active")) {
-            countryName.innerHTML = "Gran Bretagna (&#8364;)";
-        }
-        if (hun.classList.contains("active")) {
-            countryName.innerHTML = "Ungheria (&#8364;)";
-        }
-        if (deu.classList.contains("active")) {
-            countryName.innerHTML = "Germania (&#8364;)";
-        }
-        if (grc.classList.contains("active")) {
-            countryName.innerHTML = "Grecia (&#8364;)";
-        }
-        if (dnk.classList.contains("active")) {
-            countryName.innerHTML = "Danimarca (&#8364;)";
-        }
-        if (irl.classList.contains("active")) {
-            countryName.innerHTML = "Irlanda (&#8364;)";
-        }
-        if (esp.classList.contains("active")) {
-            countryName.innerHTML = "Spagna (&#8364;)";
-        }
-        if (cyp.classList.contains("active")) {
-            countryName.innerHTML = "Cipro (&#8364;)";
-        }
-        if (lva.classList.contains("active")) {
-            countryName.innerHTML = "Lettonia (&#8364;)";
-        }
-        if (ltu.classList.contains("active")) {
-            countryName.innerHTML = "Lituania (&#8364;)";
-        }
-        if (lux.classList.contains("active")) {
-            countryName.innerHTML = "Lussemburgo (&#8364;)";
-        }
-        if (mlt.classList.contains("active")) {
-            countryName.innerHTML = "Malta (&#8364;)";
-        }
-        if (mco.classList.contains("active")) {
-            countryName.innerHTML = "Monaco (&#8364;)";
-        }
-        if (nld.classList.contains("active")) {
-            countryName.innerHTML = "Olanda (&#8364;)";
-        }
-        if (pol.classList.contains("active")) {
-            countryName.innerHTML = "Polonia (&#8364;)";
-        }
-        if (prt.classList.contains("active")) {
-            countryName.innerHTML = "Portogallo (&#8364;)";
-        }
-        if (chn.classList.contains("active")) {
-            countryName.innerHTML = "Cina (&#36;)";
-        }
-        if (ita.classList.contains("active")) {
-            countryName.innerHTML = "Italia (&#8364;)";
-        }
-        if (cze.classList.contains("active")) {
-            countryName.innerHTML = "Repubblica Ceca (Kč)";
-        }
-        if (arm.classList.contains("active")) {
-            countryName.innerHTML = "Armenia (&#36;)";
-        }
-        if (blr.classList.contains("active")) {
-            countryName.innerHTML = "Bielorussia (&#36;)";
-        }
-        if (geo.classList.contains("active")) {
-            countryName.innerHTML = "Georgia (&#36;)";
-        }
-        if (rus.classList.contains("active")) {
-            countryName.innerHTML = "Russia (&#8381;)";
-        }
-        if (ukr.classList.contains("active")) {
-            countryName.innerHTML = "Ucraina (&#36;)";
-        }
-    }
-
-    if (CH.classList.contains("active")) {
-        LangAbb.textContent = "中文";
-        lang.textContent = "语言:";
-        country.innerHTML = "国家：";
-        changeButtonsCH();
-        if (usa.classList.contains("active")) {
-            countryName.innerHTML = "乌克兰 (&#36;)";
-        }
-        if (can.classList.contains("active")) {
-            countryName.innerHTML = "加拿大 (&#36;)";
-        }
-        if (mex.classList.contains("active")) {
-            countryName.innerHTML = "墨西哥 (&#36;)";
-        }
-        if (jpn.classList.contains("active")) {
-            countryName.innerHTML = "日本 (&#36;)";
-        }
-        if (kor.classList.contains("active")) {
-            countryName.innerHTML = "韩国 (&#36;)";
-        }
-        if (est.classList.contains("active")) {
-            countryName.innerHTML = "爱沙尼亚 (&#8364;)";
-        }
-        if (swe.classList.contains("active")) {
-            countryName.innerHTML = "瑞典 (&#8364;)";
-        }
-        if (hrv.classList.contains("active")) {
-            countryName.innerHTML = "克罗地亚 (&#8364;)";
-        }
-        if (fin.classList.contains("active")) {
-            countryName.innerHTML = "芬兰 (&#8364;)";
-        }
-        if (fra.classList.contains("active")) {
-            countryName.innerHTML = "法国 (&#8364;)";
-        }
-        if (svn.classList.contains("active")) {
-            countryName.innerHTML = "斯洛文尼亚 (&#8364;)";
-        }
-        if (svk.classList.contains("active")) {
-            countryName.innerHTML = "斯洛伐克 (&#8364;)";
-        }
-        if (rou.classList.contains("active")) {
-            countryName.innerHTML = "罗马尼亚 (&#8364;)";
-        }
-        if (aut.classList.contains("active")) {
-            countryName.innerHTML = "奥地利 (&#8364;)";
-        }
-        if (bel.classList.contains("active")) {
-            countryName.innerHTML = "比利时 (&#8364;)";
-        }
-        if (bgr.classList.contains("active")) {
-            countryName.innerHTML = "保加利亚 (&#8364;)";
-        }
-        if (gbr.classList.contains("active")) {
-            countryName.innerHTML = "英国 (&#8364;)";
-        }
-        if (hun.classList.contains("active")) {
-            countryName.innerHTML = "匈牙利 (&#8364;)";
-        }
-        if (deu.classList.contains("active")) {
-            countryName.innerHTML = "德国 (&#8364;)";
-        }
-        if (grc.classList.contains("active")) {
-            countryName.innerHTML = "希腊 (&#8364;)";
-        }
-        if (dnk.classList.contains("active")) {
-            countryName.innerHTML = "丹麦 (&#8364;)";
-        }
-        if (irl.classList.contains("active")) {
-            countryName.innerHTML = "爱尔兰 (&#8364;)";
-        }
-        if (esp.classList.contains("active")) {
-            countryName.innerHTML = "西班牙 (&#8364;)";
-        }
-        if (cyp.classList.contains("active")) {
-            countryName.innerHTML = "塞浦路斯 (&#8364;)";
-        }
-        if (lva.classList.contains("active")) {
-            countryName.innerHTML = "拉脱维亚 (&#8364;)";
-        }
-        if (ltu.classList.contains("active")) {
-            countryName.innerHTML = "立陶宛 (&#8364;)";
-        }
-        if (lux.classList.contains("active")) {
-            countryName.innerHTML = "卢森堡 (&#8364;)";
-        }
-        if (mlt.classList.contains("active")) {
-            countryName.innerHTML = "马耳他 (&#8364;)";
-        }
-        if (mco.classList.contains("active")) {
-            countryName.innerHTML = "摩纳哥 (&#8364;)";
-        }
-        if (nld.classList.contains("active")) {
-            countryName.innerHTML = "荷兰 (&#8364;)";
-        }
-        if (pol.classList.contains("active")) {
-            countryName.innerHTML = "波兰 (&#8364;)";
-        }
-        if (prt.classList.contains("active")) {
-            countryName.innerHTML = "葡萄牙 (&#8364;)";
-        }
-        if (chn.classList.contains("active")) {
-            countryName.innerHTML = "中国 (&#36;)";
-        }
-        if (ita.classList.contains("active")) {
-            countryName.innerHTML = "意大利 (&#8364;)";
-        }
-        if (cze.classList.contains("active")) {
-            countryName.innerHTML = "捷克共和国 (Kč)";
-        }
-        if (arm.classList.contains("active")) {
-            countryName.innerHTML = "亚美尼亚 (&#36;)";
-        }
-        if (blr.classList.contains("active")) {
-            countryName.innerHTML = "白俄罗斯 (&#36;)";
-        }
-        if (geo.classList.contains("active")) {
-            countryName.innerHTML = "格鲁吉亚 (&#36;)";
-        }
-        if (rus.classList.contains("active")) {
-            countryName.innerHTML = "俄罗斯 (&#8381;)";
-        }
-        if (ukr.classList.contains("active")) {
-            countryName.innerHTML = "乌克兰 (&#36;)";
-        };
-    }
-
+function detectLanguage() {
+	activeLanguage = navigator.language ? getLanguageIndex(navigator.language.slice(0, 2).toUpperCase()) : 0;
 }
 
-function changeCountry(evt, country) {
-    var i;
-    var countryBtns = document.getElementsByClassName("country-btn");
-
-    for (i = 0; i < countryBtns.length; i++) {
-        countryBtns[i].className = countryBtns[i].className.replace(" active", "");
-
-    }
-    evt.currentTarget.className += " active";
-    selectedCountry();
+function detectCountry() {
+	if(YMaps.location) activeCountry = countries[YMaps.location.country] ?? countries["Чехия"];
+	else alert(activeLanguage["geoerror"]);
 }
 
-function selectedCountry() {
-    //CH
-    if (chn.classList.contains("active")) {
-        LangAbb.textContent = "中文";
-        lang.textContent = "语言:";
-        country.innerHTML = "国家：";
-        countryName.innerHTML = "中国 (&#36;)";
-        changeButtonsCH();
-    }
-    //IT
-    if (ita.classList.contains("active")) {
-        LangAbb.textContent = "IT";
-        lang.textContent = "Lingua:";
-        country.innerHTML = "Paese:";
-        countryName.innerHTML = "Italia (&#8364;)";
-        changeButtonsIT();
-    }
-
-    //CZ
-    if (cze.classList.contains("active")) {
-        country.innerHTML = "Země:";
-        countryName.innerHTML = "Česká Republika (Kč)";
-        LangAbb.textContent = "ČR";
-        lang.textContent = "Jazyk:";
-        changeButtonsCZ();
-    }
-    //EN
-    if (aut.classList.contains("active") || bel.classList.contains("active") || bgr.classList.contains("active") 
-    || gbr.classList.contains("active") || hun.classList.contains("active") || deu.classList.contains("active") 
-    || grc.classList.contains("active") || dnk.classList.contains("active") || irl.classList.contains("active") 
-    || esp.classList.contains("active") || cyp.classList.contains("active") || lva.classList.contains("active") 
-    || ltu.classList.contains("active") || lux.classList.contains("active") || mlt.classList.contains("active") 
-    || mco.classList.contains("active") || nld.classList.contains("active") || pol.classList.contains("active") 
-    || prt.classList.contains("active") || rou.classList.contains("active") || svk.classList.contains("active") 
-    || svn.classList.contains("active") || fin.classList.contains("active") || fra.classList.contains("active") 
-    || hrv.classList.contains("active") || swe.classList.contains("active") || est.classList.contains("active") 
-    || usa.classList.contains("active") || can.classList.contains("active") || mex.classList.contains("active") 
-    || jpn.classList.contains("active") || kor.classList.contains("active")) {
-        changeButtonsEN();
-        LangAbb.textContent = "EN";
-        lang.textContent = "Language:";
-        country.innerHTML = "Country:";
-        /*for dollar*/
-        if (usa.classList.contains("active")) {
-            countryName.innerHTML = "USA (&#36;)";
-        }
-        if (can.classList.contains("active")) {
-            countryName.innerHTML = "Canada (&#36;)";
-        }
-        if (mex.classList.contains("active")) {
-            countryName.innerHTML = "Mexico (&#36;)";
-        }
-        if (jpn.classList.contains("active")) {
-            countryName.innerHTML = "Japan (&#36;)";
-        }
-        if (kor.classList.contains("active")) {
-            countryName.innerHTML = "South Korea (&#36;)";
-        }
-        /*for en euro*/
-        if (est.classList.contains("active")) {
-            countryName.innerHTML = "Estonia (&#8364;)";
-        }
-        if (swe.classList.contains("active")) {
-            countryName.innerHTML = "Sweden (&#8364;)";
-        }
-        if (hrv.classList.contains("active")) {
-            countryName.innerHTML = "Croatia (&#8364;)";
-        }
-        if (fin.classList.contains("active")) {
-            countryName.innerHTML = "Finland (&#8364;)";
-        }
-        if (fra.classList.contains("active")) {
-            countryName.innerHTML = "France (&#8364;)";
-        }
-        if (svn.classList.contains("active")) {
-            countryName.innerHTML = "Slovenia (&#8364;)";
-        }
-        if (svk.classList.contains("active")) {
-            countryName.innerHTML = "Slovakia (&#8364;)";
-        }
-        if (rou.classList.contains("active")) {
-            countryName.innerHTML = "Romania (&#8364;)";
-        }
-        if (aut.classList.contains("active")) {
-            countryName.innerHTML = "Austria (&#8364;)";
-        }
-        if (bel.classList.contains("active")) {
-            countryName.innerHTML = "Belgium (&#8364;)";
-        }
-        if (bgr.classList.contains("active")) {
-            countryName.innerHTML = "Bulgaria (&#8364;)";
-        }
-        if (gbr.classList.contains("active")) {
-            countryName.innerHTML = "Great Britain (&#8364;)";
-        }
-        if (hun.classList.contains("active")) {
-            countryName.innerHTML = "Hungary (&#8364;)";
-        }
-        if (deu.classList.contains("active")) {
-            countryName.innerHTML = "Germany (&#8364;)";
-        }
-        if (grc.classList.contains("active")) {
-            countryName.innerHTML = "Greece (&#8364;)";
-        }
-        if (dnk.classList.contains("active")) {
-            countryName.innerHTML = "Denmark (&#8364;)";
-        }
-        if (irl.classList.contains("active")) {
-            countryName.innerHTML = "Ireland (&#8364;)";
-        }
-        if (esp.classList.contains("active")) {
-            countryName.innerHTML = "Spain (&#8364;)";
-        }
-        if (cyp.classList.contains("active")) {
-            countryName.innerHTML = "Cyprus (&#8364;)";
-        }
-        if (lva.classList.contains("active")) {
-            countryName.innerHTML = "Latvia (&#8364;)";
-        }
-        if (ltu.classList.contains("active")) {
-            countryName.innerHTML = "Lithuania (&#8364;)";
-        }
-        if (lux.classList.contains("active")) {
-            countryName.innerHTML = "Luxembourg (&#8364;)";
-        }
-        if (mlt.classList.contains("active")) {
-            countryName.innerHTML = "Malta (&#8364;)";
-        }
-        if (mco.classList.contains("active")) {
-            countryName.innerHTML = "Monaco (&#8364;)";
-        }
-        if (nld.classList.contains("active")) {
-            countryName.innerHTML = "Netherlands (&#8364;)";
-        }
-        if (pol.classList.contains("active")) {
-            countryName.innerHTML = "Poland (&#8364;)";
-        }
-        if (prt.classList.contains("active")) {
-            countryName.innerHTML = "Portugal (&#8364;)";
-        }
-        
-    }
-    //RU
-    if (arm.classList.contains("active") || blr.classList.contains("active") || geo.classList.contains("active") || rus.classList.contains("active") || ukr.classList.contains("active")) {
-        LangAbb.textContent = "RU";
-        lang.textContent = "Язык:";
-        country.innerHTML = "Страна:";
-        changeButtonsRU();
-        if (arm.classList.contains("active")) {
-            countryName.innerHTML = "Армения (&#36;)";
-        }
-        if (blr.classList.contains("active")) {
-            countryName.innerHTML = "Беларусь (&#36;)";
-        }
-        if (geo.classList.contains("active")) {
-            countryName.innerHTML = "Грузия (&#36;)";
-        }
-        if (rus.classList.contains("active")) {
-            countryName.innerHTML = "Россия (&#8381;)";
-        }
-        if (ukr.classList.contains("active")) {
-            countryName.innerHTML = "Украина (&#36;)";
-        }
-    }
+function changeLanguage(language) {
+	document.getElementById("lang-" + languages["lang-code"][activeLanguage].toLowerCase()).classList.remove("active");
+	activeLanguage = getLanguageIndex(language);
+	document.getElementById("lang-" + languages["lang-code"][activeLanguage].toLowerCase()).classList.add("active");
+	
+	languageables.forEach(item => item.innerHTML = languages[item.id][activeLanguage]);
+	countryButtons.forEach(item => item.innerHTML = languages["countries"][item.id.slice(8)][activeLanguage]);
+	
+	updateCountryLabel();
 }
 
-function changeButtonsEN() {
-    //text
-    chooseText.innerHTML = "Choose your country";
-    europe.innerHTML = "Europe";
-    america.innerHTML = "America";
-    asia.innerHTML = "Asia";
-    //country buttons
-    aut .innerHTML = "Austria";
-    arm.innerHTML = "Armenia";
-    blr.innerHTML = "Belarus";
-    bel.innerHTML = "Belgium";
-    bgr.innerHTML = "Bulgaria";
-    gbr.innerHTML = "Great Britain";
-    hun.innerHTML = "Hungary";
-    deu.innerHTML = "Germany";
-    grc.innerHTML = "Greece";
-    geo.innerHTML = "Georgia";
-    dnk.innerHTML = "Denmark";
-    irl.innerHTML = "Ireland";
-    esp.innerHTML = "Spain";
-    ita.innerHTML = "Italy";
-    cyp.innerHTML = "Cyprus";
-    lva.innerHTML = "Latvia";
-    ltu.innerHTML = "Lithuania";
-    lux.innerHTML = "Luxembourg";
-    mlt.innerHTML = "Malta";
-    mco.innerHTML = "Monaco";
-    nld.innerHTML = "Netherlands";
-    pol.innerHTML = "Poland";
-    prt.innerHTML = "Portugal";
-    rus.innerHTML = "Russia";
-    rou.innerHTML = "Romania";
-    svk.innerHTML = "Slovakia";
-    svn.innerHTML = "Slovenia";
-    ukr.innerHTML = "Ukraine";
-    fin.innerHTML = "Finland";
-    fra.innerHTML = "France";
-    hrv.innerHTML = "Croatia";
-    cze.innerHTML = "Czech Republic";
-    swe.innerHTML = "Sweden";
-    est.innerHTML = "Estonia";
-    usa.innerHTML = "USA";
-    can.innerHTML = "Canada";
-    mex.innerHTML = "Mexico";
-    chn.innerHTML = "China";
-    jpn.innerHTML = "Japan";
-    kor.innerHTML = "South Korea";
-    //nav buttons
-    homeText.innerHTML = "Home";
-    aboutText.innerHTML = "About";
-    galleryText.innerHTML = "Gallery";
-    womenText.innerHTML = "For women";
-    menText.innerHTML = "For men";
-    childrenText.innerHTML = "Baby";
-    blogText.innerHTML = "News";
+function changeCountry(country) {
+	document.getElementById("country-" + activeCountry["latin"]).classList.remove("active");
+	activeCountry = getCountryByLatin(country);
+	document.getElementById("country-" + activeCountry["latin"]).classList.add("active");
+	
+	updateCountryLabel();
 }
 
-function changeButtonsRU() {
-    //text
-    chooseText.innerHTML = "Выберите страну";
-    europe.innerHTML = "Европа";
-    america.innerHTML = "Америка";
-    asia.innerHTML = "Азия";
-    //country buttons 
-    aut .innerHTML = "Австрия";
-    arm.innerHTML = "Армения";
-    blr.innerHTML = "Белорусь";
-    bel.innerHTML = "Бельгия";
-    bgr.innerHTML = "Болгария";
-    gbr.innerHTML = "Великобритания";
-    hun.innerHTML = "Венгрия";
-    deu.innerHTML = "Германия";
-    grc.innerHTML = "Греция";
-    geo.innerHTML = "Грузия";
-    dnk.innerHTML = "Дания";
-    irl.innerHTML = "Ирландия";
-    esp.innerHTML = "Испания";
-    ita.innerHTML = "Италия";
-    cyp.innerHTML = "Кипр";
-    lva.innerHTML = "Латвия";
-    ltu.innerHTML = "Литва";
-    lux.innerHTML = "Люксембург";
-    mlt.innerHTML = "Мальта";
-    mco.innerHTML = "Монако";
-    nld.innerHTML = "Нидерланды";
-    pol.innerHTML = "Польша";
-    prt.innerHTML = "Португалия";
-    rus.innerHTML = "Россия";
-    rou.innerHTML = "Румыния";
-    svk.innerHTML = "Словакия";
-    svn.innerHTML = "Словения";
-    ukr.innerHTML = "Украина";
-    fin.innerHTML = "Финляндия";
-    fra.innerHTML = "Франция";
-    hrv.innerHTML = "Хорватия";
-    cze.innerHTML = "Чехия";
-    swe.innerHTML = "Швеция";
-    est.innerHTML = "Эстония";
-    usa.innerHTML = "США";
-    can.innerHTML = "Канада";
-    mex.innerHTML = "Мексика";
-    chn.innerHTML = "Китай";
-    jpn.innerHTML = "Япония";
-    kor.innerHTML = "Южная Корея";
-    //nav buttons
-    homeText.innerHTML = "Главная";
-    aboutText.innerHTML = "О нас";
-    galleryText.innerHTML = "Галерея";
-    womenText.innerHTML = "Для женщин";
-    menText.innerHTML = "Для мужчин";
-    childrenText.innerHTML = "Десткое";
-    blogText.innerHTML = "Новости";
+function updateCountryLabel() {
+	document.getElementById("country-name").innerHTML = languages["countries"][activeCountry["latin"]][activeLanguage] + " (" + getCurrencySign() + ")";
 }
 
-function changeButtonsCZ() {
-    //text
-    chooseText.innerHTML = "Vyberte zemi";
-    europe.innerHTML = "Evropa";
-    america.innerHTML = "Amerika";
-    asia.innerHTML = "Asie";
-    //country buttons 
-    aut .innerHTML = "Rakousko";
-    arm.innerHTML = "Arménie";
-    blr.innerHTML = "Bělorusko";
-    bel.innerHTML = "Belgie";
-    bgr.innerHTML = "Bulharsko";
-    gbr.innerHTML = "Británie";
-    hun.innerHTML = "Maďarsko";
-    deu.innerHTML = "Německo";
-    grc.innerHTML = "Řecko";
-    geo.innerHTML = "Gruzie";
-    dnk.innerHTML = "Dánsko";
-    irl.innerHTML = "Irsko";
-    esp.innerHTML = "Španělsko";
-    ita.innerHTML = "Itálie";
-    cyp.innerHTML = "Kypr";
-    lva.innerHTML = "Lotyšsko";
-    ltu.innerHTML = "Litva";
-    lux.innerHTML = "Lucembursko";
-    mlt.innerHTML = "Malta";
-    mco.innerHTML = "Monako";
-    nld.innerHTML = "Nizozemsko";
-    pol.innerHTML = "Polsko";
-    prt.innerHTML = "Portugalsko";
-    rus.innerHTML = "Rusko";
-    rou.innerHTML = "Rumunsko";
-    svk.innerHTML = "Slovensko";
-    svn.innerHTML = "Slovinsko";
-    ukr.innerHTML = "Ukrajina";
-    fin.innerHTML = "Finsko";
-    fra.innerHTML = "Francie";
-    hrv.innerHTML = "Chorvatsko";
-    cze.innerHTML = "Česká Republika";
-    swe.innerHTML = "Švédsko";
-    est.innerHTML = "Estonsko";
-    usa.innerHTML = "USA";
-    can.innerHTML = "Kanada";
-    mex.innerHTML = "Mexiko";
-    chn.innerHTML = "Čína";
-    jpn.innerHTML = "Japonsko";
-    kor.innerHTML = "Jižní Korea";
-    //nav buttons
-    homeText.innerHTML = "Hlavní stránka";
-    aboutText.innerHTML = "O nás";
-    galleryText.innerHTML = "Galerie";
-    womenText.innerHTML = "Pro ženy";
-    menText.innerHTML = "Pro muže";
-    childrenText.innerHTML = "Dítě";
-    blogText.innerHTML = "Novinky";
+function getCurrencySign() {
+	switch(activeCountry["currency"]) {
+		case "C": return "Kč";		// crone
+		case "D": return "&#36;";	// dollar
+		case "R": return "&#8381;"; // rouble
+		default: return "&#8364;"; // euro
+	}
 }
 
-function changeButtonsIT() {
-    //text
-    chooseText.innerHTML = "Seleziona un paese";
-    europe.innerHTML = "Europa";
-    america.innerHTML = "America";
-    asia.innerHTML = "Asia";
-    //country buttons 
-    aut .innerHTML = "Austria";
-    arm.innerHTML = "Armenia";
-    blr.innerHTML = "Bielorussia";
-    bel.innerHTML = "Belgio";
-    bgr.innerHTML = "Bulgaria";
-    gbr.innerHTML = "Gran Bretagna";
-    hun.innerHTML = "Ungheria";
-    deu.innerHTML = "Germania";
-    grc.innerHTML = "Grecia";
-    geo.innerHTML = "Georgia";
-    dnk.innerHTML = "Danimarca";
-    irl.innerHTML = "Irlanda";
-    esp.innerHTML = "Spagna";
-    ita.innerHTML = "Italia";
-    cyp.innerHTML = "Cipro";
-    lva.innerHTML = "Lettonia";
-    ltu.innerHTML = "Lituania";
-    lux.innerHTML = "Lussemburgo";
-    mlt.innerHTML = "Malta";
-    mco.innerHTML = "Monaco";
-    nld.innerHTML = "Olanda";
-    pol.innerHTML = "Polonia";
-    prt.innerHTML = "Portogallo";
-    rus.innerHTML = "Russia";
-    rou.innerHTML = "Romania";
-    svk.innerHTML = "Slovacchia";
-    svn.innerHTML = "Slovenia";
-    ukr.innerHTML = "Ucraina";
-    fin.innerHTML = "Finlandia";
-    fra.innerHTML = "Francia";
-    hrv.innerHTML = "Croazia";
-    cze.innerHTML = "Repubblica Ceca";
-    swe.innerHTML = "Svezia";
-    est.innerHTML = "Estonia";
-    usa.innerHTML = "USA";
-    can.innerHTML = "Canada";
-    mex.innerHTML = "Messico";
-    chn.innerHTML = "Cina";
-    jpn.innerHTML = "Giappone";
-    kor.innerHTML = "Corea";
-    //nav buttons
-    homeText.innerHTML = "Home";
-    aboutText.innerHTML = "Di noi";
-    galleryText.innerHTML = "Galleria";
-    womenText.innerHTML = "Per le donne";
-    menText.innerHTML = "Per gli uomini";
-    childrenText.innerHTML = "Infante";
-    blogText.innerHTML = "News";
+function getCountryByLatin(latin) {
+	return Object.entries(countries).find(item => item[1]["latin"] == latin)[1];
 }
 
-function changeButtonsCH() {
-    //text
-    chooseText.innerHTML = "选择的国家";
-    europe.innerHTML = "欧洲";
-    america.innerHTML = "美国";
-    asia.innerHTML = "亚洲";
-    //country buttons 
-    aut .innerHTML = "奥地利";
-    arm.innerHTML = "亚美尼亚";
-    blr.innerHTML = "白俄罗斯";
-    bel.innerHTML = "比利时";
-    bgr.innerHTML = "保加利亚";
-    gbr.innerHTML = "英国";
-    hun.innerHTML = "匈牙利";
-    deu.innerHTML = "德国";
-    grc.innerHTML = "希腊";
-    geo.innerHTML = "格鲁吉亚";
-    dnk.innerHTML = "丹麦";
-    irl.innerHTML = "爱尔兰";
-    esp.innerHTML = "西班牙";
-    ita.innerHTML = "意大利";
-    cyp.innerHTML = "塞浦路斯";
-    lva.innerHTML = "拉脱维亚";
-    ltu.innerHTML = "立陶宛";
-    lux.innerHTML = "卢森堡";
-    mlt.innerHTML = "马耳他";
-    mco.innerHTML = "摩纳哥";
-    nld.innerHTML = "荷兰";
-    pol.innerHTML = "波兰";
-    prt.innerHTML = "葡萄牙";
-    rus.innerHTML = "俄罗斯";
-    rou.innerHTML = "罗马尼亚";
-    svk.innerHTML = "斯洛伐克";
-    svn.innerHTML = "斯洛文尼亚";
-    ukr.innerHTML = "乌克兰";
-    fin.innerHTML = "芬兰";
-    fra.innerHTML = "法国";
-    hrv.innerHTML = "克罗地亚";
-    cze.innerHTML = "捷克共和国";
-    swe.innerHTML = "瑞典";
-    est.innerHTML = "爱沙尼亚";
-    usa.innerHTML = "美国";
-    can.innerHTML = "加拿大";
-    mex.innerHTML = "墨西哥";
-    chn.innerHTML = "中国";
-    jpn.innerHTML = "日本";
-    kor.innerHTML = "韩国";
-    //nav buttons
-    homeText.innerHTML = "首页";
-    aboutText.innerHTML = "关于我们";
-    galleryText.innerHTML = "画廊";
-    womenText.innerHTML = "对于女性";
-    menText.innerHTML = "对于男人";
-    childrenText.innerHTML = "对于儿童";
-    blogText.innerHTML = "新闻";
+function getLanguageIndex(language) {
+	switch(language) {
+		case "RU": return 1;
+		case "CS": return 2;
+		case "IT": return 3;
+		case "ZH": return 4;
+		default: return 0;
+	}
 }
 
 $(document).ready(function() {
-    let defaultOpenButtons = document.querySelectorAll(".defaultOpen");
-    for (let index = defaultOpenButtons.length - 1; index >= 0; index--) {
-        const defaultOpenButton = defaultOpenButtons[index];
-        defaultOpenButton.click(); 
-    }
-});
-//translane end//
+	countryButtons = Array.from(document.getElementsByClassName("country-btn"));
+	languageables = Array.from(document.getElementsByClassName("languageable"));
+	
+	detectCountry();
+	detectLanguage();
+	
+	changeCountry(activeCountry["latin"]);
+	changeLanguage(languages["lang-code"][activeLanguage]);
+})
