@@ -1,11 +1,11 @@
 // submenu
 let menuBtns = document.getElementsByClassName("menu-btn");
-let main = document.getElementById("main");
+let main = document.getElementById("home");
 let about = document.getElementById("about");
 let gallery = document.getElementById("gallery");
-let forWomen = document.getElementById("forwomen");
-let forMen = document.getElementById("formen");
-let baby = document.getElementById("baby");
+let forWomen = document.getElementById("women");
+let forMen = document.getElementById("men");
+let baby = document.getElementById("children");
 let blog = document.getElementById("blog");
 let mainSub = document.getElementById("main-sub");
 let aboutSub = document.getElementById("about-sub");
@@ -57,6 +57,4 @@ function closeSubMenu() {
     blogSub.classList.remove("active");
 }
 //submenu end
-
-
 
