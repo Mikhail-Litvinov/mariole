@@ -12,12 +12,14 @@ $(".menu-btn").hover(function () {
     $(this).addClass("active")
     for (let i = 0; i < menu.length; i++) {
         if ($(menu[i]).hasClass("active")) {
-            $(subMenu[i]).addClass("active")
+            // $(subMenu[i]).addClass("active")
+            $(subMenu[i]).height(subMenu[i].scrollHeight + "px")
         }
     }
 }, function closeSub() {
     closeMenu = setTimeout(() => {
-            $(subMenu).removeClass("active")
+            // $(subMenu).removeClass("active")
+            $(subMenu).height(0)
             $(menu).removeClass("active")  
     }, 50)
 })
@@ -25,7 +27,8 @@ $(".menu-btn").hover(function () {
 $(subMenu).hover(function () {
     clearTimeout(closeMenu)
 }, function () {
-    $(subMenu).removeClass("active")
+    // $(subMenu).removeClass("active")
+    $(subMenu).height(0)
     $(menu).removeClass("active")
 })
 
