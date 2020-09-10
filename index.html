@@ -50,13 +50,13 @@
             <div class="flex-row nav flex-align-middle wrap">
                 <div class="flex nav-wrapper">
                     <ul class="nav-list">
-                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="home"><span id="home-page" class="languageable">Главная</span></a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="about"><span id="about-page" class="languageable">О нас</span></a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="gallery"><span id="gallery-page" class="languageable">Галерея</span></a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="women"><span id="women-page" class="languageable">Для женщин</span></a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="men"><span id="men-page" class="languageable">Для мужчин</span></a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="children"><span id="children-page" class="languageable">Десткое</span></a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer"  class="menu-btn" id="blog"><span id="blog-page" class="languageable">Новости</span></a></li>
+                        <li><a onclick="showContent('home.html')" rel="noopener noreferrer"  class="menu-btn" id="home"><span id="home-page" class="languageable">Главная</span></a></li>
+                        <li><a  onclick="showContent('about.html')" rel="noopener noreferrer"  class="menu-btn" id="about"><span id="about-page" class="languageable">О нас</span></a></li>
+                        <li><a  onclick="showContent('gallery.html')" rel="noopener noreferrer"  class="menu-btn" id="gallery"><span id="gallery-page" class="languageable">Галерея</span></a></li>
+                        <li><a  onclick="showContent('women.html')" rel="noopener noreferrer"  class="menu-btn" id="women"><span id="women-page" class="languageable">Для женщин</span></a></li>
+                        <li><a  onclick="showContent('men.html')" rel="noopener noreferrer"  class="menu-btn" id="men"><span id="men-page" class="languageable">Для мужчин</span></a></li>
+                        <li><a  onclick="showContent('baby.html')" rel="noopener noreferrer"  class="menu-btn" id="children"><span id="children-page" class="languageable">Десткое</span></a></li>
+                        <li><a  onclick="showContent('blog.html')" rel="noopener noreferrer"  class="menu-btn" id="blog"><span id="blog-page" class="languageable">Новости</span></a></li>
                     </ul>
                 </div>
                 <div class="flex sub-nav-main-wrapper sub-nav" id="main-sub"></div>
@@ -72,7 +72,9 @@
     </header>
     <!-- header end -->
     <main>
-        
+        <div id="content">
+
+        </div>
     </main>
     <!-- modals -->
     <div class="modal-country-bg" id="modal-country">
@@ -181,5 +183,6 @@
     <script src="js/modal.js"></script>
     <script src="js/translate.js"></script>
     <script src="js/menu.js"></script>
+    <script type="text/javascript" src="js/ajax.js"></script>
 </body>
 </html>

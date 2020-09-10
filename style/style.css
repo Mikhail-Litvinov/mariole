@@ -182,8 +182,9 @@ header {
     font-size: 18px;
 }
 
-.nav-list li a {
+.menu-btn {
     position: relative;
+    cursor: pointer;
 }
 
 .nav-list li a::after {
@@ -224,6 +225,11 @@ header {
 /* sub menu end */
 
 /* header end */
+
+#content {
+    width: 100%;
+    height: 100%;
+}
 
 /* modals */
 
