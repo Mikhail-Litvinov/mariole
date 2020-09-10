@@ -5,7 +5,7 @@ let languages = {
 	"lang-code": ["EN", "RU", "CS", "IT", "ZH"],
 	"lang-symbol": ["EN", "RU", "ČR", "IT", "中文"],
 	"lang": ["Language:", "Язык:", "Jazyk:", "Lingua:", "语言:"],
-	"country": ["Country:", "Страна:", "Země:", "Paese:", "国家："],
+	"country": ["Country:", "Страна:", "Země:", "Paese:", "国家:"],
 	"geoerror": ["Please allow access to your geoposition to identify your country", "Пожалуйста, разрешите доступ к геопозиции для определения вашей страны", "TODO", "TODO", "TODO"],
 	"home-page": ["Home", "Главная", "Hlavní stránka", "Home", "首页"],
 	"about-page": ["About", "О нас", "O nás", "Di noi", "关于我们"],
@@ -24,7 +24,7 @@ let languages = {
 		"belarus": ["Belarus", "Беларусь", "Bělorusko", "Bielorussia", "白俄罗斯"],
 		"belgium": ["Belgium", "Бельгия", "Belgie", "Belgio", "比利时"],
 		"bulgaria": ["Bulgaria", "Болгария", "Bulharsko", "Bulgaria", "保加利亚"],
-		"uk": ["UK", "Великобритания", "Británie", "Gran Bretagna", "英国"],
+		"uk": ["Great Britain", "Великобритания", "Británie", "Gran Bretagna", "英国"],
 		"hungary": ["Hungary", "Венгрия", "Maďarsko", "Ungheria", "匈牙利"],
 		"germany": ["Germany", "Германия", "Německo", "Germania", "德国"],
 		"greece": ["Greece", "Греция", "Řecko", "Grecia", "希腊"],
@@ -158,7 +158,7 @@ function getLanguageIndex(language) {
 
 $(document).ready(function() {
 	// Country identifying
-	if(YMaps.location) countries["_active"] = countries["list"][YMaps.location.country] ?? countries["list"]["Чехия"];
+	if(YMaps.location) countries["_active"] = countries["list"][YMaps.location.country] ?? countries["list"]["Великобритания"];
 	else alert(languages._get("geoerror"));
 	
 	// Language identifying
