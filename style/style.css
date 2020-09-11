@@ -124,16 +124,16 @@ header {
     transform: rotate(90deg);
 }
 
-.seacrh-icon, .inst-icon {
+.search-icon, .inst-icon {
     color: #4a4a4a;
     cursor: pointer;
 }
 
-.seacrh-icon:hover, .inst-icon:hover {
+.search-icon:hover, .inst-icon:hover {
     color: #CD7F32;
 }
 
-.seacrh-icon::before {
+.search-icon::before {
     font-family: "fontello";
     content: '\e803';
     font-size: 30px;
@@ -210,8 +210,8 @@ header {
 
 /* sub menu */
 
-.sub-nav-main-wrapper, .sub-nav-about-wrapper, .sub-nav-gallery-wrapper, .sub-nav-forwomen-wrapper, 
-.sub-nav-formen-wrapper, .sub-nav-main-wrapper, .sub-nav-baby-wrapper, .sub-nav-blog-wrapper{
+.sub-nav-home-wrapper, .sub-nav-about-wrapper, .sub-nav-gallery-wrapper, .sub-nav-women-wrapper, 
+.sub-nav-men-wrapper, .sub-nav-baby-wrapper, .sub-nav-news-wrapper{
     width: 100%;
     height: 0;
     background-color: whitesmoke;
@@ -220,7 +220,7 @@ header {
     position: relative;
 }
 
-.main-sub-container {
+.home-sub-container {
     width: 95%;
     height: 95%;
     margin: auto;
