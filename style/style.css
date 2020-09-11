@@ -210,8 +210,8 @@ header {
 
 /* sub menu */
 
-.sub-nav-main-wrapper, .sub-nav-about-wrapper, .sub-nav-gallery-wrapper, .sub-nav-forwomen-wrapper, 
-.sub-nav-formen-wrapper, .sub-nav-main-wrapper, .sub-nav-baby-wrapper, .sub-nav-blog-wrapper{
+.sub-nav-home-wrapper, .sub-nav-about-wrapper, .sub-nav-gallery-wrapper, .sub-nav-women-wrapper, 
+.sub-nav-men-wrapper, .sub-nav-baby-wrapper, .sub-nav-news-wrapper{
     width: 100%;
     height: 0;
     background-color: whitesmoke;
@@ -220,7 +220,7 @@ header {
     position: relative;
 }
 
-.main-sub-container {
+.home-sub-container {
     width: 95%;
     height: 95%;
     margin: auto;
