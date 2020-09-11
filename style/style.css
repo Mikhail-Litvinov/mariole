@@ -124,16 +124,16 @@ header {
     transform: rotate(90deg);
 }
 
-.seacrh-icon, .inst-icon {
+.search-icon, .inst-icon {
     color: #4a4a4a;
     cursor: pointer;
 }
 
-.seacrh-icon:hover, .inst-icon:hover {
+.search-icon:hover, .inst-icon:hover {
     color: #CD7F32;
 }
 
-.seacrh-icon::before {
+.search-icon::before {
     font-family: "fontello";
     content: '\e803';
     font-size: 30px;
