@@ -60,8 +60,56 @@
                     </ul>
                 </div>
                 <div class="flex sub-nav-home-wrapper sub-nav" id="home-sub">
-                    <div class="home-sub-container">
-
+                <div class="sub-home-wrapper">
+                        <div class="sub-home-table">
+                            <div class="sale-container">
+                                <div class="sale-img">
+                                    <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                    <div class="sale-text">
+                                        <p>Акция</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="new-goods-container">
+                                <div class="new-baby">
+                                    <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                    <div class="new-text">
+                                        <p>Новое</p>
+                                    </div>
+                                    <div class="new-title flex flex-align-middle">
+                                        <p>Десткое</p>
+                                    </div>
+                                </div>
+                                <div class="new-women">
+                                    <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                    <div class="new-text">
+                                        <p>Новое</p>
+                                    </div>
+                                    <div class="new-title flex flex-align-middle">
+                                        <p>Для женщин</p>
+                                    </div>
+                                </div>
+                                <div class="new-accessories">
+                                    <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                    <div class="new-text">
+                                        <p>Новое</p>
+                                    </div>
+                                    <div class="new-title flex flex-align-middle">
+                                        <p>Аксессуары</p>
+                                    </div>
+                                </div>
+                                <div class="new-men">
+                                    <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                    <div class="new-text">
+                                        <p>Новое</p>
+                                    </div>
+                                    <div class="new-title flex flex-align-middle">
+                                        <p>Для мужчин</p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="flex sub-nav-about-wrapper sub-nav" id="about-sub"></div>
@@ -181,6 +229,7 @@
         </div>
     </div>
     <!-- modals end -->
+    <?php echo '<script> loadPagesList(' . json_encode(scandir('./pages')) . '); </script>'; ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script charset="utf-8" src="https://api-maps.yandex.ru/1.1/index.xml" type="text/javascript"></script>
     <script src="js/main.js"></script>
@@ -188,6 +237,6 @@
     <script src="js/translation.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/navigation.js"></script>
-	<?php echo '<script> loadPagesList(' . json_encode(scandir('./pages')) . '); </script>'; ?>
+	
 </body>
 </html>
