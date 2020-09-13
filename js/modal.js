@@ -56,3 +56,13 @@ document.addEventListener('keydown', function (esc) {
 //     modalCountry.classList.remove("open");
 // }
 
+$(function createError() {
+    let timerEror = null;
+    $('header').prepend('<div class="alert-wrapper flex wrap flex-align-middle" id="errorModal"><div class="alert-content flex wrap flex-align-middle"><span id="closeError"></span><div class="error-title"><h2>ОШИБКА 404</h2></div><div class="error-description"><p>Вероятно, запрашиваемая страница не существует.</p><p>Пожалуйста, измените поисковой запрос или перезагрузите страницу.</p></div></div></div>')
+    $("#closeError").click( function () {
+        $("#errorModal").addClass("active")
+        timerEror = setTimeout(() => {
+            $("#errorModal").remove();
+        },700)
+    })
+})
