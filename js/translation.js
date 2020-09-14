@@ -24,7 +24,7 @@ let languages = {
 		"belarus": ["Belarus", "Беларусь", "Bělorusko", "Bielorussia", "白俄罗斯"],
 		"belgium": ["Belgium", "Бельгия", "Belgie", "Belgio", "比利时"],
 		"bulgaria": ["Bulgaria", "Болгария", "Bulharsko", "Bulgaria", "保加利亚"],
-		"uk": ["Great Britain", "Великобритания", "Británie", "Gran Bretagna", "英国"],
+		"greatbritain": ["Great Britain", "Великобритания", "Británie", "Gran Bretagna", "英国"],
 		"hungary": ["Hungary", "Венгрия", "Maďarsko", "Ungheria", "匈牙利"],
 		"germany": ["Germany", "Германия", "Německo", "Germania", "德国"],
 		"greece": ["Greece", "Греция", "Řecko", "Grecia", "希腊"],
@@ -50,7 +50,7 @@ let languages = {
 		"finland": ["Finland", "Финляндия", "Finsko", "Finlandia", "芬兰"],
 		"france": ["France", "Франция", "Francie", "Francia", "法国"],
 		"croatia": ["Croatia", "Хорватия", "Chorvatsko", "Croazia", "克罗地亚"],
-		"czech": ["Czech Republic", "Чешская республика", "Česká Republika", "Repubblica Ceca", "捷克共和国"],
+		"czechrepublic": ["Czech Republic", "Чешская республика", "Česká Republika", "Repubblica Ceca", "捷克共和国"],
 		"sweden": ["Sweden", "Швеция", "Švédsko", "Svezia", "瑞典"],
 		"estonia": ["Estonia", "Эстония", "Estonsko", "Estonia", "爱沙尼亚"],
 		"usa": ["USA", "США", "USA", "USA", "美国"],
@@ -58,56 +58,20 @@ let languages = {
 		"mexico": ["Mexico", "Мексика", "Mexiko", "Messico", "墨西哥"],
 		"china": ["China", "Китай", "Čína", "Cina", "中国"],
 		"japan": ["Japan", "Япония", "Japonsko", "Giappone", "日本"],
-		"korea": ["South Korea", "Южная Корея", "Jižní Korea", "Corea", "韩国"]
+		"southkorea": ["South Korea", "Южная Корея", "Jižní Korea", "Corea", "韩国"]
 	}
 };
 
 let countries = {
 	"_active": null,
-	get latin() {return this["_active"]["latin"]},
-	get currency() {return this["_active"]["currency"]},
-	"list": {
-		"Чехия": {"latin": "czech", "currency": "C"},
-		"Россия": {"latin": "russia", "currency": "R"},
-		"Италия": {"latin": "italy", "currency": "E"},
-		"Китай": {"latin": "china", "currency": "D"},
-		"США": {"latin": "usa", "currency": "D"},
-		"Австрия": {"latin": "austria"},
-		"Армения": {"latin": "armenia", "currency": "D"},
-		"Беларусь": {"latin": "belarus", "currency": "D"},
-		"Бельгия": {"latin": "belgium"},
-		"Болгария": {"latin": "bulgaria"},
-		"Великобритания": {"latin": "uk"},
-		"Венгрия": {"latin": "hungary"},
-		"Германия": {"latin": "germany"},
-		"Греция": {"latin": "greece"},
-		"Грузия": {"latin": "georgia", "currency": "D"},
-		"Дания": {"latin": "denmark"},
-		"Ирландия": {"latin": "ireland"},
-		"Испания": {"latin": "spain"},
-		"Кипр": {"latin": "cyprus"},
-		"Латвия": {"latin": "latvia"},
-		"Литва": {"latin": "lithuania"},
-		"Люксембург": {"latin": "luxembourg"},
-		"Мальта": {"latin": "malta"},
-		"Монако": {"latin": "monaco"},
-		"Нидерланды": {"latin": "netherlands"},
-		"Польша": {"latin": "poland"},
-		"Португалия": {"latin": "portugal"},
-		"Румыния": {"latin": "romania"},
-		"Словакия": {"latin": "slovakia"},
-		"Словения": {"latin": "slovenia"},
-		"Украина": {"latin": "ukraine", "currency": "D"},
-		"Финляндия": {"latin": "finland"},
-		"Франция": {"latin": "france"},
-		"Хорватия": {"latin": "croatia"},
-		"Швеция": {"latin": "sweden"},
-		"Эстония": {"latin": "estonia"},
-		"Канада": {"latin": "canada", "currency": "D"},
-		"Мексика": {"latin": "mexico", "currency": "D"},
-		"Япония": {"latin": "japan", "currency": "D"},
-		"Южная Корея": {"latin": "korea", "currency": "D"}
-	}
+	"_change": country => {
+		countries["_active"] = countries["list"][country];
+		countries["_active"]["latin"] = country;
+	},
+	get latin() { return this["_active"]["latin"] },
+	get ymaps() { return this["_active"]["ymaps"] },
+	get currency() { return this["_active"]["cur"] },
+	"list": null
 };
 
 function changeLanguage(language) {
@@ -121,10 +85,14 @@ function changeLanguage(language) {
 	updateCountryLabel();
 }
 
-function changeCountry(country) {
-	document.getElementById("country-" + countries.latin).classList.remove("active");
-	countries["_active"] = getCountryByLatin(country);
-	document.getElementById("country-" + countries.latin).classList.add("active");
+function changeCountry(evt) {
+	let country = evt ? (
+		$('a.country-btn.active').removeClass("active"),
+		evt.currentTarget.id.slice(8)
+	) : countries.latin;
+	
+	countries._change(country);
+	$('#country-' + countries.latin).addClass("active");
 	
 	updateCountryLabel();
 }
@@ -135,15 +103,15 @@ function updateCountryLabel() {
 
 function getCurrencySign() {
 	switch(countries.currency) {
-		case "C": return "Kč";		// crone
-		case "D": return "&#36;";	// dollar
-		case "R": return "&#8381;"; // rouble
-		default: return "&#8364;"; 	// euro
+		case 0: return "Kč"; // crone
+		case 1: return "&#8381;"; // rouble
+		case 2: return "&#36;"; // dollar
+		default: return "&#8364;"; // euro
 	}
 }
 
-function getCountryByLatin(latin_) {
-	return Object.entries(countries["list"]).find(item => item[1]["latin"] == latin_)[1];
+function getCountryByYMaps(ymaps) {
+	return Object.entries(countries["list"]).find(item => item[1]["ymaps"] == ymaps)[0];
 }
 
 function getLanguageIndex(language) {
@@ -158,12 +126,15 @@ function getLanguageIndex(language) {
 
 $(document).ready(function() {
 	// Country identifying
-	if(YMaps.location) countries["_active"] = countries["list"][YMaps.location.country] ?? countries["list"]["Великобритания"];
+	if(YMaps.location) countries._change(getCountryByYMaps(YMaps.location.country) ?? "greatbritain");
 	else alert(languages._get("geoerror"));
 	
 	// Language identifying
 	languages["_active"] = navigator.language ? getLanguageIndex(navigator.language.slice(0, 2).toUpperCase()) : 0;
 	
-	changeCountry(countries.latin);
+	// Country button onclick function binding
+	$('a.country-btn').click(changeCountry);
+	
+	changeCountry();
 	changeLanguage(languages._get("lang-code"));
 })
