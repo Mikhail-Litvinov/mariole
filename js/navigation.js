@@ -5,6 +5,7 @@ addEventListener("popstate", () => { showContent() });
 $(document).ready(() => { showContent() });
 
 function showContent(page) {
+	return;
 	page = validatePage(page ?? location.pathname.slice(1), page ? history.pushState : history.replaceState);
 
 	$("#content").load(`pages/${page}.html`);
