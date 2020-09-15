@@ -1,140 +1,78 @@
-let languages = {
-	"_active": 0,
-	"_get": item => languages[item][languages["_active"]],
-	"_getCountry": item => languages["countries"][item][languages["_active"]],
-	"lang-code": ["EN", "RU", "CS", "IT", "ZH"],
-	"lang-symbol": ["EN", "RU", "ČR", "IT", "中文"],
-	"lang": ["Language:", "Язык:", "Jazyk:", "Lingua:", "语言:"],
-	"country": ["Country:", "Страна:", "Země:", "Paese:", "国家:"],
-	"geoerror": ["Please allow access to your geoposition to identify your country", "Пожалуйста, разрешите доступ к геопозиции для определения вашей страны", "TODO", "TODO", "TODO"],
-	"home-page": ["Home", "Главная", "Hlavní stránka", "Home", "首页"],
-	"about-page": ["About", "О нас", "O nás", "Di noi", "关于我们"],
-	"gallery-page": ["Gallery", "Галерея", "Galerie", "Galleria", "画廊"],
-	"women-page": ["For women", "Для женщин", "Pro ženy", "Per le donne", "对于女性"],
-	"men-page": ["For men", "Для мужчин", "Pro muže", "Per gli uomini", "对于男人"],
-	"baby-page": ["Baby", "Детское", "Dítě", "Infante", "对于儿童"],
-	"news-page": ["News", "Новости", "Novinky", "News", "新闻"],
-	"area-europe": ["Europe:", "Европа:", "Evropa:", "Europa:", "欧洲:"],
-	"area-america": ["America:", "Америка:", "Amerika:", "America:", "美国:"],
-	"area-asia": ["Asia:", "Азия:", "Asie:", "Asia:", "亚洲:"],
-	"choose-country": ["Choose your country", "Выберите страну", "Vyberte zemi", "Seleziona un paese", "选择的国家"],
-	"countries": {
-		"austria": ["Austria", "Австрия", "Rakousko", "Austria", "奥地利"],
-		"armenia": ["Armenia", "Армения", "Arménie", "Armenia", "亚美尼亚"],
-		"belarus": ["Belarus", "Беларусь", "Bělorusko", "Bielorussia", "白俄罗斯"],
-		"belgium": ["Belgium", "Бельгия", "Belgie", "Belgio", "比利时"],
-		"bulgaria": ["Bulgaria", "Болгария", "Bulharsko", "Bulgaria", "保加利亚"],
-		"greatbritain": ["Great Britain", "Великобритания", "Británie", "Gran Bretagna", "英国"],
-		"hungary": ["Hungary", "Венгрия", "Maďarsko", "Ungheria", "匈牙利"],
-		"germany": ["Germany", "Германия", "Německo", "Germania", "德国"],
-		"greece": ["Greece", "Греция", "Řecko", "Grecia", "希腊"],
-		"georgia": ["Georgia", "Грузия", "Gruzie", "Georgia", "格鲁吉亚"],
-		"denmark": ["Denmark", "Дания", "Dánsko", "Danimarca", "丹麦"],
-		"ireland": ["Ireland", "Ирландия", "Irsko", "Irlanda", "爱尔兰"],
-		"spain": ["Spain", "Испания", "Španělsko", "Spagna", "西班牙"],
-		"italy": ["Italy", "Италия", "Itálie", "Italia", "意大利"],
-		"cyprus": ["Cyprus", "Кипр", "Kypr", "Cipro", "塞浦路斯"],
-		"latvia": ["Latvia", "Латвия", "Lotyšsko", "Lettonia", "拉脱维亚"],
-		"lithuania": ["Lithuania", "Литва", "Litva", "Lituania", "立陶宛"],
-		"luxembourg": ["Luxembourg", "Люксембург", "Lucembursko", "Lussemburgo", "卢森堡"],
-		"malta": ["Malta", "Мальта", "Malta", "Malta", "马耳他"],
-		"monaco": ["Monaco", "Монако", "Monako", "Monaco", "摩纳哥"],
-		"netherlands": ["Netherlands", "Нидерланды", "Nizozemsko", "Olanda", "荷兰"],
-		"poland": ["Poland", "Польша", "Polsko", "Polonia", "波兰"],
-		"portugal": ["Portugal", "Португалия", "Portugalsko", "Portogallo", "葡萄牙"],
-		"russia": ["Russia", "Россия", "Rusko", "Russia", "俄罗斯"],
-		"romania": ["Romania", "Румыния", "Rumunsko", "Romania", "罗马尼亚"],
-		"slovakia": ["Slovakia", "Словакия", "Slovensko", "Slovacchia", "斯洛伐克"],
-		"slovenia": ["Slovenia", "Словения", "Slovinsko", "Slovenia", "斯洛文尼亚"],
-		"ukraine": ["Ukraine", "Украина", "Ukrajina", "Ucraina", "乌克兰"],
-		"finland": ["Finland", "Финляндия", "Finsko", "Finlandia", "芬兰"],
-		"france": ["France", "Франция", "Francie", "Francia", "法国"],
-		"croatia": ["Croatia", "Хорватия", "Chorvatsko", "Croazia", "克罗地亚"],
-		"czechrepublic": ["Czech Republic", "Чешская республика", "Česká Republika", "Repubblica Ceca", "捷克共和国"],
-		"sweden": ["Sweden", "Швеция", "Švédsko", "Svezia", "瑞典"],
-		"estonia": ["Estonia", "Эстония", "Estonsko", "Estonia", "爱沙尼亚"],
-		"usa": ["USA", "США", "USA", "USA", "美国"],
-		"canada": ["Canada", "Канада", "Kanada", "Canada", "加拿大"],
-		"mexico": ["Mexico", "Мексика", "Mexiko", "Messico", "墨西哥"],
-		"china": ["China", "Китай", "Čína", "Cina", "中国"],
-		"japan": ["Japan", "Япония", "Japonsko", "Giappone", "日本"],
-		"southkorea": ["South Korea", "Южная Корея", "Jižní Korea", "Corea", "韩国"]
-	}
+let language = {
+	"_active": null, // Contains active language
+	"get": item => language["_active"][item], // Returns requested language field
+	"validate": lang => ["ru", "cs", "it", "zh"].includes(lang) ? lang : "en" // If language is provided, then returns it, else returns default (en)
 };
 
 let countries = {
-	"_active": null,
-	"_change": country => {
-		countries["_active"] = countries["list"][country];
-		countries["_active"]["latin"] = country;
+	"_active": null, // Contains active country
+	"change": country => { // Sets new country
+		countries["_active"] = Object.assign({}, countries["list"][country]); // Clones country object
+		countries["_active"]["latin"] = country; // Writes active country latin name
 	},
-	get latin() { return this["_active"]["latin"] },
-	get ymaps() { return this["_active"]["ymaps"] },
-	get currency() { return this["_active"]["cur"] },
-	"list": null
+	"getByYMaps": ymaps => Object.entries(countries["list"]).find(item => item[1]["ymaps"] == ymaps)[0], // Find country by YMaps name
+	get latin() { return this["_active"]["latin"] }, // Returns latin name of active country
+	get ymaps() { return this["_active"]["ymaps"] }, // Returns ymaps name of active country
+	get sign() { // Returns currency sign of active country
+		switch(this["_active"]["cur"]) {
+			case 0: return "Kč"; // Returns czech koruna sign
+			case 1: return "&#8381;"; // Returns russian rouble sign
+			case 2: return "&#36;"; // Returns dollar sign
+			default: return "&#8364;"; // Returns euro sign
+		}
+	},
+	"list": null // Contains all provided countries
 };
 
-function changeLanguage(language) {
-	document.getElementById("lang-" + languages._get("lang-code").toLowerCase()).classList.remove("active");
-	languages["_active"] = getLanguageIndex(language);
-	document.getElementById("lang-" + languages._get("lang-code").toLowerCase()).classList.add("active");
-
-	Array.from(document.getElementsByClassName("languageable")).forEach(item => item.innerHTML = languages._get(item.id));
-	Array.from(document.getElementsByClassName("country-btn")).forEach(item => item.innerHTML = languages._getCountry(item.id.slice(8)));
-
-	updateCountryLabel();
+function changeLanguage(evt) {
+	let lang = evt ? ( // If evt is given (method executed by pressing a language button)
+		$('a.lang-btn.active').removeClass("active"), // Make last language button inactive
+		evt.currentTarget.id.replace("lang-", "") // Remove "lang-" part of DOM's id
+	) : language.get("lang-code"); // If evt is not given (method executed after page loading), use default language (en)
+	
+	$.getJSON(`config/lang/${lang}.json`, data => { // Load new language file from server
+		language["_active"] = data; // Set new language in config object
+		$(`#lang-${language.get("lang-code")}`).addClass("active"); // Make new language button active
+		$('.languageable').html(function() { return language.get(this.id); }); // Translate the page to the new language
+		updateCountryLabel(); // Update country label with new language
+	});
 }
 
 function changeCountry(evt) {
-	let country = evt ? (
-		$('a.country-btn.active').removeClass("active"),
-		evt.currentTarget.id.slice(8)
-	) : countries.latin;
+	let country = evt ? ( // If evt is given (method executed by pressing a country button)
+		$('a.country-btn.active').removeClass("active"), // Make last country button inactive
+		evt.currentTarget.id.replace("country-", "") // Remove "country-" part of DOM's id
+	) : countries.latin; // If evt is not given (method executed after page loading), use default country (not Russia)
 	
-	countries._change(country);
-	$('#country-' + countries.latin).addClass("active");
+	countries.change(country); // Set new country in config object
+	$(`#country-${countries.latin}`).addClass("active"); // Make new country button active
 	
-	updateCountryLabel();
+	updateCountryLabel(); // Update country label with new country
 }
 
 function updateCountryLabel() {
-	document.getElementById("country-name").innerHTML = languages._getCountry(countries.latin) + " (" + getCurrencySign() + ")";
+	$('#country-name').html(language.get(`country-${countries.latin}`) + ` (${countries.sign})`); // Replace html in DOM with id "country-name"
 }
 
-function getCurrencySign() {
-	switch(countries.currency) {
-		case 0: return "Kč"; // crone
-		case 1: return "&#8381;"; // rouble
-		case 2: return "&#36;"; // dollar
-		default: return "&#8364;"; // euro
-	}
-}
-
-function getCountryByYMaps(ymaps) {
-	return Object.entries(countries["list"]).find(item => item[1]["ymaps"] == ymaps)[0];
-}
-
-function getLanguageIndex(language) {
-	switch(language) {
-		case "RU": return 1; // russian
-		case "CS": return 2; // czech
-		case "IT": return 3; // italian
-		case "ZH": return 4; // chinese
-		default: return 0; // english
-	}
-}
-
-$(document).ready(function() {
-	// Country identifying
-	if(YMaps.location) countries._change(getCountryByYMaps(YMaps.location.country) ?? "greatbritain");
-	else alert(languages._get("geoerror"));
+$(() => {
+	// If navigator is available, then use it's language, else default (en)
+	let lang = language.validate(navigator.language ? navigator.language.slice(0, 2).toLowerCase() : "en");
 	
-	// Language identifying
-	languages["_active"] = navigator.language ? getLanguageIndex(navigator.language.slice(0, 2).toUpperCase()) : 0;
-	
-	// Country button onclick function binding
-	$('a.country-btn').click(changeCountry);
-	
-	changeCountry();
-	changeLanguage(languages._get("lang-code"));
-})
+	$.when(
+		$.getJSON("config/countries.json"), // Load countries list file from server
+		$.getJSON(`config/lang/${lang}.json`) // Load current language file from server
+	).then((countriesResponse, langResponse) => {
+		countries["list"] = countriesResponse[0]; // Load list of countries into config object
+		
+		// If YMaps is available, then check it's country and if it's provided, then use this country or default (GB), else throw an alert
+		YMaps.location ? countries.change(countries.getByYMaps(YMaps.location.country) ?? "greatbritain") : alert(language.get("geoerror"));
+
+		language["_active"] = langResponse[0]; // Set default language in config object
+		
+		$('a.country-btn').click(changeCountry); // Country buttons onclick function binding
+		$('a.lang-btn').click(changeLanguage); // Language buttons onclick function binding
+
+		changeCountry(); // Initial country update
+		changeLanguage(); // Initial language update
+	});
+});
