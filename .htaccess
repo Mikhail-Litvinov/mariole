@@ -1,6 +1,6 @@
 RewriteEngine On
-Options +SymLinksIfOwnerMatch
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-l
-RewriteRule .* /index.php [L,QSA] 
+
+RewriteRule ^sitemap\.xml/? sitemap.php [L,QSA]
+
+RewriteCond %{REQUEST_URI} !^/(js|css|fonts|img|tpl|config|robots.txt|sitemap.(xml|php))
+RewriteRule .* index.php [L,QSA]
