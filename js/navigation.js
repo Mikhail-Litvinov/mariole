@@ -18,5 +18,5 @@ function validatePage(page, action) {
 }
 
 function loadPagesList(rawList) {
-	pages = rawList.map(item => item.replace(".tpl", "")); // Remove "." and ".." from list, then make a new list without ".tpl" at the end
+	pages = rawList.map(item => item.replace(".tpl", "")); // Make a new list without ".tpl" at the end
 }
