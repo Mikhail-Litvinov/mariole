@@ -7,18 +7,18 @@
 					<div class="modal-wrapper-lang flex" id="modal-lang">
 						<div class="modal-content-lang">
 							<ul>
-								<li><a href="#" id="lang-ru" class="lang-btn" onclick="changeLanguage('RU')">Русский</a></li>
-								<li><a href="#" id="lang-en" class="lang-btn" onclick="changeLanguage('EN')">English</a></li>
-								<li><a href="#" id="lang-cs" class="lang-btn" onclick="changeLanguage('CS')">Čeština</a></li>
-								<li><a href="#" id="lang-it" class="lang-btn" onclick="changeLanguage('IT')">Italiano</a></li>
-								<li><a href="#" id="lang-zh" class="lang-btn" onclick="changeLanguage('ZH')">中文</a></li>
+								<li><a href="#" id="lang-ru" class="lang-btn">Русский</a></li>
+								<li><a href="#" id="lang-en" class="lang-btn">English</a></li>
+								<li><a href="#" id="lang-cs" class="lang-btn">Čeština</a></li>
+								<li><a href="#" id="lang-it" class="lang-btn">Italiano</a></li>
+								<li><a href="#" id="lang-zh" class="lang-btn">中文</a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 				<div class="logo flex">
 					<div class="logo-cont">
-						<a onclick="showContent('home')"><img src="img/logo.png" alt="mario'le logo" srcset="" width="60px"></a>
+						<a onclick="showContent('home')"><img src="/img/logo.png" alt="mario'le logo" srcset="" width="60px"></a>
 					</div>
 				</div>
 				<div class="buttons-top-nav flex flex-align-middle">

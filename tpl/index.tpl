@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
-		<?php include_once "head.tpl"; ?>
+		<?php include 'tpl/head.tpl'; ?>
 	</head>
 	<body>
 		<header>
-			<?php include_once "header.tpl"; ?>
+			<?php include 'tpl/header.tpl'; ?>
 		</header>
 		<main>
 			<div id="content"></div>
 		</main>
 		<?php
-			include_once "modal-countries.tpl";
-			include_once "modal-search.tpl";
-			include_once "scripts.tpl";
+			include 'tpl/modal-countries.tpl';
+			include 'tpl/modal-search.tpl';
+			include 'tpl/scripts.tpl';
 		?>
 	</body>
 </html>

@@ -5,7 +5,7 @@
 				<div class="modal-country-header flex-row nowrap">
 					<div class="col-9-10 height-100 flex-column flex-align-middle ">
 						<div class="modal-country-title-cont flex flex-align-middle">
-							<img src="img/title.png" alt="" srcset="" width="100%">
+							<img src="/img/title.png" alt="" srcset="" width="100%">
 						</div>
 					</div>
 					<div class="col-1-10 height-100 flex-column flex-align-middle ">
@@ -24,7 +24,7 @@
 									<?php
 										foreach($countries_list as $key => $value) {
 											if(!isset($value['area'])) {
-												echo '<li><a href="#" id="country-' . $key . '" class="country-btn"></a></li>';
+												echo '<li><a href="#" id="country-' . $key . '" class="country-btn languageable"></a></li>' . "\n";
 											}
 										}
 									?>
@@ -40,7 +40,7 @@
 									<?php
 										foreach($countries_list as $key => $value) {
 											if(isset($value['area']) && $value['area'] == 0) {
-												echo '<li><a href="#" id="country-' . $key . '" class="country-btn"></a></li>';
+												echo '<li><a href="#" id="country-' . $key . '" class="country-btn languageable"></a></li>' . "\n";
 											}
 										}
 									?>
@@ -54,7 +54,7 @@
 									<?php
 										foreach($countries_list as $key => $value) {
 											if(isset($value['area']) && $value['area'] == 1) {
-												echo '<li><a href="#" id="country-' . $key . '" class="country-btn"></a></li>';
+												echo '<li><a href="#" id="country-' . $key . '" class="country-btn languageable"></a></li>' . "\n";
 											}
 										}
 									?>
