@@ -1,3 +1,1 @@
-<body>
-    <h2>Women</h2>
-</body>
+<h2>Women</h2>

@@ -1,3 +1,1 @@
-<body>
-    <h2>News</h2>
-</body>
+<h2>News</h2>

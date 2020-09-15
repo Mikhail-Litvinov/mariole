@@ -1,3 +1,1 @@
-<body>
-    <h2>About</h2>
-</body>
+<h2>About</h2>

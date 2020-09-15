@@ -1,3 +1,1 @@
-<body>
-    <h2>Baby</h2>
-</body>
+<h2>Baby</h2>
