@@ -56,3 +56,9 @@ document.addEventListener('keydown', function (esc) {
 //     modalCountry.classList.remove("open");
 // }
 
+$(() => {
+    $("#close-error-404").click(() => {
+        $("#error-404-modal").addClass("active");
+        setTimeout($("#error-404-modal").remove, 700);
+    });
+});

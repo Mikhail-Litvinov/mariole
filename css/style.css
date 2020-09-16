@@ -519,4 +519,64 @@ header {
     color: #CD7F32;
 }
  
+.alert-wrapper {
+    position: fixed;
+    width: 100%;
+    z-index: 1002;
+    top: 10px;
+    animation: modalAppear 0.7s ease-in-out;
+}
+
+.alert-content {
+    width: 600px;
+    height: 100px;
+    padding: 10px;
+    background-color: hsl(355deg 59% 63% / 90%);
+    color: #353535;
+    border: 1px solid #D91E41;
+    border-radius: 5px;
+    position: relative;
+}
+
+.alert-wrapper.active {
+    opacity: 0;
+    top: -200px;
+    transition: 0.7s ease-in-out;
+}
+
+#close-error-404 {
+    color: #353535;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+#close-error-404:hover {
+    color: #686868;
+}
+
+#close-error-404::before {
+    font-size: 18px;
+    content: '\2716';
+    cursor: pointer;
+}
+
+.error-404-title {
+    text-align: center;
+}
+
+.error-404-description {
+    text-align: center;
+    font-size: 20px;
+}
+ 
 /* modals end */
+
+/* animation */
+
+@keyframes modalAppear {
+    from {opacity: 0; top: 0;}
+    to {opacity: 1; top: 10px;}
+}
+
+/* animation end */
