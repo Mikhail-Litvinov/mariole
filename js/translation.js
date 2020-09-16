@@ -25,17 +25,18 @@ let countries = {
 };
 
 function changeLanguage(evt) {
-	if(evt) {
-		$('a.lang-btn.active').removeClass("active"), // Make last language button inactive
-		evt.currentTarget.id.replace("lang-", "") // Remove "lang-" part of DOM's id
+	$('a.lang-btn.active').removeClass("active"); // Make last language button inactive
 		
-		$.getJSON(`config/lang/${lang}.json`, data => { // Load new language file from server
-			language["_active"] = data; // Set new language in config object
-			$(`#lang-${language.get("lang-code")}`).addClass("active"); // Make new language button active
-			$('.languageable').html(function() { return language.get(this.id); }); // Translate the page to the new language
-			updateCountryLabel(); // Update country label with new language
-		});
-	}
+	$.getJSON(`config/lang/${evt.currentTarget.id.replace("lang-", "")}.json`, data => { // Load new language file from server
+		language["_active"] = data; // Set new language in config object
+		translatePage();
+	});
+}
+
+function translatePage() {
+	$('.languageable').html(function() { return language.get(this.id); }); // Translate the page to the new language
+	$(`#lang-${language.get("lang-code")}`).addClass("active"); // Make new language button active
+	updateCountryLabel(); // Update country label with new language
 }
 
 function changeCountry(evt) {
@@ -73,6 +74,6 @@ $(() => {
 		$('a.lang-btn').click(changeLanguage); // Language buttons onclick function binding
 
 		changeCountry(); // Initial country update
-		changeLanguage(); // Initial language update
+		translatePage(); // Initial language update
 	});
 });
