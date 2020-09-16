@@ -6,8 +6,8 @@
 	<body>
 		<header>
 			<?php
-				include 'tpl/header.tpl';
 				if(!($current_page == '' || in_array($current_page, $pages_list))) { include 'tpl/404.tpl'; }
+				include 'tpl/header.tpl';
 			?>
 		</header>
 		<main>
