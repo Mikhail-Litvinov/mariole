@@ -51,73 +51,209 @@
                 <div class="flex nav-wrapper">
                     <ul class="nav-list">
                         <li><a onclick="showContent('home')" rel="noopener noreferrer"  class="menu-btn" id="home"><span id="home-page" class="languageable">Главная</span></a></li>
-                        <li><a onclick="showContent('about')" rel="noopener noreferrer"  class="menu-btn" id="about"><span id="about-page" class="languageable">О нас</span></a></li>
+                        <!-- <li><a onclick="showContent('about')" rel="noopener noreferrer"  class="menu-btn" id="about"><span id="about-page" class="languageable">О нас</span></a></li> -->
                         <li><a onclick="showContent('gallery')" rel="noopener noreferrer"  class="menu-btn" id="gallery"><span id="gallery-page" class="languageable">Галерея</span></a></li>
-                        <li><a onclick="showContent('women')" rel="noopener noreferrer"  class="menu-btn" id="women"><span id="women-page" class="languageable">Для женщин</span></a></li>
+                        <li><a onclick="showContent('clothes')" rel="noopener noreferrer"  class="menu-btn" id="clothes"><span id="clothes-page" class="languageable">Одежда</span></a></li>
+                        <li><a onclick="showContent('accessories')" rel="noopener noreferrer"  class="menu-btn" id="accessories"><span id="accessories-page" class="languageable">Аксессуары</span></a></li>
+                        <!-- <li><a onclick="showContent('women')" rel="noopener noreferrer"  class="menu-btn" id="women"><span id="women-page" class="languageable">Для женщин</span></a></li>
                         <li><a onclick="showContent('men')" rel="noopener noreferrer"  class="menu-btn" id="men"><span id="men-page" class="languageable">Для мужчин</span></a></li>
-                        <li><a onclick="showContent('baby')" rel="noopener noreferrer"  class="menu-btn" id="baby"><span id="baby-page" class="languageable">Десткое</span></a></li>
+                        <li><a onclick="showContent('baby')" rel="noopener noreferrer"  class="menu-btn" id="baby"><span id="baby-page" class="languageable">Десткое</span></a></li> -->
                         <li><a onclick="showContent('news')" rel="noopener noreferrer"  class="menu-btn" id="news"><span id="news-page" class="languageable">Новости</span></a></li>
                     </ul>
                 </div>
                 <div class="flex sub-nav-home-wrapper sub-nav" id="home-sub">
-                <div class="sub-home-wrapper">
-                        <div class="sub-home-table">
-                            <div class="sale-container">
-                                <div class="sale-img">
+                    <div class="sub-home-wrapper">
+                            <div class="sub-home-table">
+                                <div onclick="showContent('about')" class="about-container sub-list-element">
                                     <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
-                                    <div class="sale-text">
-                                        <p>Акция</p>
+                                    <div class="about-text flex flex-align-middle">
+                                            <p class="after-change">О нас</p>
+                                    </div>
+                                </div>
+                                <div onclick="showContent('sales')" class="sale-container sub-list-element">
+                                    <div class="sale-img">
+                                        <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                        <div class="sale-text">
+                                            <p>Акция</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="new-goods-container">
+                                    <div onclick="showContent('new-baby')" class="new-baby sub-list-element">
+                                        <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                        <div class="new-text">
+                                            <p>Новое</p>
+                                        </div>
+                                        <div class="new-title flex flex-align-middle">
+                                            <p class="after-change">Десткое</p>
+                                        </div>
+                                    </div>
+                                    <div onclick="showContent('new-women')" class="new-women sub-list-element">
+                                        <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                        <div class="new-text">
+                                            <p>Новое</p>
+                                        </div>
+                                        <div class="new-title flex flex-align-middle">
+                                            <p class="after-change">Для женщин</p>
+                                        </div>
+                                    </div>
+                                    <div onclick="showContent('new-accessories')" class="new-accessories sub-list-element">
+                                        <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                        <div class="new-text">
+                                            <p>Новое</p>
+                                        </div>
+                                        <div class="new-title flex flex-align-middle">
+                                            <p class="after-change">Аксессуары</p>
+                                        </div>
+                                    </div>
+                                    <div onclick="showContent('new-men')" class="new-men sub-list-element">
+                                        <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                        <div class="new-text">
+                                            <p>Новое</p>
+                                        </div>
+                                        <div class="new-title flex flex-align-middle">
+                                            <p class="after-change">Для мужчин</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="new-goods-container">
-                                <div class="new-baby">
-                                    <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
-                                    <div class="new-text">
-                                        <p>Новое</p>
-                                    </div>
-                                    <div class="new-title flex flex-align-middle">
-                                        <p>Десткое</p>
-                                    </div>
+                    </div>
+                </div>
+                <div class="flex sub-nav-gallery-wrapper sub-nav" id="gallery-sub">
+                    <div class="sub-gallery-wrapper">
+                        <div class="sub-gallery-table">
+                            <div onclick="showContent('fashion-gallery')" class="clothes-gallery sub-list-element">
+                                <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                <div class="gallery-sub-title">
+                                    <p><span>Mariole.fashion</span></p>
                                 </div>
-                                <div class="new-women">
-                                    <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
-                                    <div class="new-text">
-                                        <p>Новое</p>
-                                    </div>
-                                    <div class="new-title flex flex-align-middle">
-                                        <p>Для женщин</p>
-                                    </div>
+                            </div>
+                            <div onclick="showContent('home-gallery')" class="home-gallery sub-list-element">
+                                <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                <div class="gallery-sub-title">
+                                    <p><span>Mariole.home</span></p>
                                 </div>
-                                <div class="new-accessories">
-                                    <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
-                                    <div class="new-text">
-                                        <p>Новое</p>
-                                    </div>
-                                    <div class="new-title flex flex-align-middle">
-                                        <p>Аксессуары</p>
-                                    </div>
+                            </div>
+                            <div onclick="showContent('travel-gallery')" class="travel-gallery sub-list-element">
+                                <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                <div class="gallery-sub-title">
+                                    <p><span>Mariole.travel</span></p>
                                 </div>
-                                <div class="new-men">
-                                    <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
-                                    <div class="new-text">
-                                        <p>Новое</p>
-                                    </div>
-                                    <div class="new-title flex flex-align-middle">
-                                        <p>Для мужчин</p>
-                                    </div>
-                                </div>
-                                
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="flex sub-nav-about-wrapper sub-nav" id="about-sub"></div>
-                <div class="flex sub-nav-gallery-wrapper sub-nav" id="gallery-sub"></div>
-                <div class="flex sub-nav-women-wrapper sub-nav" id="women-sub"></div>
-                <div class="flex sub-nav-men-wrapper sub-nav" id="men-sub"></div>
-                <div class="flex sub-nav-baby-wrapper sub-nav" id="baby-sub"></div>
-                <div class="flex sub-nav-news-wrapper sub-nav" id="news-sub"></div>
+                <div class="flex sub-nav-clothes-wrapper sub-nav" id="clothes-sub">
+                    <div class="sub-clothes-wrapper">
+                        <div class="flex nowrap flex-align-middle">
+                            <div class="women-clothe">
+                                <div onclick="showContent('women')" class="clothe-table sub-list-element">
+                                    <div class="clothe-title">
+                                        <p>Для женщин</p>
+                                    </div>
+                                    <div class="clothe-img">
+                                        <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div onclick="showContent('baby')" class="baby-clothe">
+                                <div class="clothe-table sub-list-element">
+                                    <div class="clothe-title">
+                                        <p>Детское</p>
+                                    </div>
+                                    <div class="clothe-img">
+                                        <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div onclick="showContent('men')" class="men-clothe">
+                                <div class="clothe-table sub-list-element">
+                                    <div class="clothe-title">
+                                        <p>Для мужчин</p>
+                                    </div>
+                                    <div class="clothe-img">
+                                        <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div onclick="showContent('new')" class="new-clothe sub-list-element">
+                                <div class="clothe-table">
+                                    <div class="clothe-title">
+                                        <p>Новое</p>
+                                    </div>
+                                    <div class="clothe-img">
+                                        <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                        <div class="new-text">
+                                            <p>Новое</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex sub-nav-accessories-wrapper sub-nav" id="accessories-sub">
+                    <div class="accessories-wrapper">
+                        <div class="accessories-content flex nowrap">
+                            <div class="ul-for-women flex nowrap">
+                                <ul><p>Для женщин</p>
+                                    <li ><a onclick="showContent('')" class="sub-list-element"><span>Платки</span></a></li>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Шарфы</span></a></li>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Шали</span></a></li>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Палантины</span></a></li>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Перчатки</span></a></li>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Носочки</span></a></li>
+                                </ul>
+                                <div class="ul-sub-img">
+                                    <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                </div>
+                            </div>
+                            <div class="ul-for-home flex nowrap">
+                                <ul><p>Для дома</p>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Пледы</span></a></li>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Полотенца</span></a></li>
+                                </ul>
+                                <div class="ul-sub-img">
+                                    <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                </div>
+                            </div>
+                            <div class="ul-for-jewelry flex nowrap">
+                                <ul><p>Ювелирные изделия</p>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Серьги</span></a></li>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Браслеты</span></a></li>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Подвески</span></a></li>
+                                </ul>
+                                <div class="ul-sub-img">
+                                    <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex sub-nav-news-wrapper sub-nav" id="news-sub">
+                    <div class="news-sub-wrapper">
+                        <div class="news-sub-content">
+                            <div onclick="showContent('news')" class="last-news-container sub-list-element">
+                                <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                <div class="news-sub-title flex nowrap flex-align-middle">
+                                    <span>Свежие новости</span>
+                                </div>
+                            </div>
+                            <div onclick="showContent('recommend')" class="rec-news-container sub-list-element">
+                                <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                <div class="rec-sub-title flex nowrap">
+                                    <span>Рекомендованное</span>
+                                </div>
+                            </div>
+                            <div onclick="showContent('media')" class="media-news-container sub-list-element">
+                                <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                <div class="media-sub-title flex nowrap">
+                                    <span>Мы в прессе</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -229,7 +365,6 @@
         </div>
     </div>
     <!-- modals end -->
-    <?php echo '<script> loadPagesList(' . json_encode(scandir('./pages')) . '); </script>'; ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script charset="utf-8" src="https://api-maps.yandex.ru/1.1/index.xml" type="text/javascript"></script>
     <script src="js/main.js"></script>
@@ -237,6 +372,6 @@
     <script src="js/translation.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/navigation.js"></script>
-	
+	<?php echo '<script> loadPagesList(' . json_encode(scandir('./pages')) . '); </script>'; ?>
 </body>
 </html>
