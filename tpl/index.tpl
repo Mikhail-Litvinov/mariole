@@ -5,7 +5,10 @@
 	</head>
 	<body>
 		<header>
-			<?php include 'tpl/header.tpl'; ?>
+			<?php
+				include 'tpl/header.tpl';
+				if(!($current_page == '' || in_array($current_page, $pages_list))) { include 'tpl/404.tpl'; }
+			?>
 		</header>
 		<main>
 			<div id="content"></div>
