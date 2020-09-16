@@ -544,28 +544,28 @@ header {
     transition: 0.7s ease-in-out;
 }
 
-#closeError {
+#close-error-404 {
     color: #353535;
     position: absolute;
     top: 10px;
     right: 20px;
 }
 
-#closeError:hover {
+#close-error-404:hover {
     color: #686868;
 }
 
-#closeError::before {
+#close-error-404::before {
     font-size: 18px;
     content: '\2716';
     cursor: pointer;
 }
 
-.error-title {
+.error-404-title {
     text-align: center;
 }
 
-.error-description {
+.error-404-description {
     text-align: center;
     font-size: 20px;
 }
