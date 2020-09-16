@@ -29,7 +29,7 @@ function changeLanguage(evt) {
 		
 	$.getJSON(`config/lang/${evt.currentTarget.id.replace("lang-", "")}.json`, data => { // Load new language file from server
 		language["_active"] = data; // Set new language in config object
-		translatePage();
+		translatePage(); // Translate page to a new language
 	});
 }
 
@@ -56,8 +56,8 @@ function updateCountryLabel() {
 }
 
 $(() => {
-	// If navigator is available, then use it's language, else default (en)
-	let lang = language.validate(navigator.language ? navigator.language.slice(0, 2).toLowerCase() : "en");
+	// If navigator is available, then use it's language, else default
+	let lang = language.validate(navigator ? navigator.language.slice(0, 2).toLowerCase() : "");
 	
 	$.when(
 		$.getJSON("config/countries.json"), // Load countries list file from server
