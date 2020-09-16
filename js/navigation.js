@@ -1,9 +1,5 @@
 let pages; // Array containing available pages
 
-addEventListener("popstate", () => { showContent() }); // Bind forward/back action to showContent
-
-$(document).ready(() => { showContent() }); // Execute showContent when page is loaded
-
 function showContent(page) {
 	page = validatePage(page ?? location.pathname.slice(1), page ? history.pushState : history.replaceState);
 
@@ -17,6 +13,7 @@ function validatePage(page, action) {
 	return page; // Return valid page
 }
 
-function loadPagesList(rawList) {
-	pages = rawList.map(item => item.replace(".tpl", "")); // Make a new list without ".tpl" at the end
-}
+$(() => {
+	addEventListener("popstate", () => { showContent() }); // Bind forward/back action to showContent
+	showContent(); // Execute showContent when page is loaded
+});
