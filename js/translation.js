@@ -25,17 +25,17 @@ let countries = {
 };
 
 function changeLanguage(evt) {
-	let lang = evt ? ( // If evt is given (method executed by pressing a language button)
+	if(evt) {
 		$('a.lang-btn.active').removeClass("active"), // Make last language button inactive
 		evt.currentTarget.id.replace("lang-", "") // Remove "lang-" part of DOM's id
-	) : language.get("lang-code"); // If evt is not given (method executed after page loading), use default language (en)
-	
-	$.getJSON(`config/lang/${lang}.json`, data => { // Load new language file from server
-		language["_active"] = data; // Set new language in config object
-		$(`#lang-${language.get("lang-code")}`).addClass("active"); // Make new language button active
-		$('.languageable').html(function() { return language.get(this.id); }); // Translate the page to the new language
-		updateCountryLabel(); // Update country label with new language
-	});
+		
+		$.getJSON(`config/lang/${lang}.json`, data => { // Load new language file from server
+			language["_active"] = data; // Set new language in config object
+			$(`#lang-${language.get("lang-code")}`).addClass("active"); // Make new language button active
+			$('.languageable').html(function() { return language.get(this.id); }); // Translate the page to the new language
+			updateCountryLabel(); // Update country label with new language
+		});
+	}
 }
 
 function changeCountry(evt) {
