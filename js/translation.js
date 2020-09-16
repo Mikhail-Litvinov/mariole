@@ -58,10 +58,9 @@ function updateCountryLabel() {
 $(() => {
 	// If navigator is available, then use it's language, else default
 	let lang = language.validate(navigator ? navigator.language.slice(0, 2).toLowerCase() : "");
-	
 	$.when(
-		$.getJSON("config/countries.json"), // Load countries list file from server
-		$.getJSON(`config/lang/${lang}.json`) // Load current language file from server
+		$.getJSON("/config/countries.json"), // Load countries list file from server
+		$.getJSON(`/config/lang/${lang}.json`) // Load current language file from server
 	).then((countriesResponse, langResponse) => {
 		countries["list"] = countriesResponse[0]; // Load list of countries into config object
 		

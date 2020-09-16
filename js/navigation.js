@@ -3,7 +3,7 @@ let pages; // Array containing available pages
 function showContent(page) {
 	page = validatePage(page ?? location.pathname.slice(1), page ? history.pushState : history.replaceState);
 
-	$("#content").load(`tpl/pages/${page}.tpl`); // Load the page to a content container
+	$("#content").load(`/tpl/pages/${page}.tpl`); // Load the page to a content container
 }
 
 function validatePage(page, action) {
