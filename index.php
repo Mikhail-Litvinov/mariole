@@ -22,7 +22,7 @@
                     <div class="countries flex">
                         <button class="btn-country" id="btn-country"><span id="country" class="languageable">Страна:</span> <span id="country-name">Россия</span></button>
                         <button class="btn-language" id="btn-lang"><span id="lang" class="languageable">Язык:</span> <span id="lang-symbol" class="languageable">RU</span>&nbsp;<span class="lang-ind"></span></button>
-                        <div class="modal-wrapper-lang flex" id="modal-lang">
+                        <div class="modal-wrapper-lang flex" id="modal-lang" style="display: none;">
                             <div class="modal-content-lang">
                                 <ul>
                                     <li><a href="#" id="lang-ru" class="lang-btn" onclick="changeLanguage('RU')">Русский</a></li>
@@ -63,14 +63,14 @@
                 </div>
                 <div class="flex sub-nav-home-wrapper sub-nav" id="home-sub">
                     <div class="sub-home-wrapper">
-                            <div class="sub-home-table">
+                            <div class="flex nowrap flex-align-middle">
                                 <div onclick="showContent('about')" class="about-container sub-list-element">
                                     <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
                                     <div class="about-text flex flex-align-middle">
                                             <p class="after-change">О нас</p>
                                     </div>
                                 </div>
-                                <div onclick="showContent('sales')" class="sale-container sub-list-element">
+                                <div onclick="showContent('sales')" class="sale-container sub-list-element" style="display: none">
                                     <div class="sale-img">
                                         <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
                                         <div class="sale-text">
@@ -78,42 +78,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="new-goods-container">
-                                    <div onclick="showContent('new-baby')" class="new-baby sub-list-element">
-                                        <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
-                                        <div class="new-text">
-                                            <p>Новое</p>
-                                        </div>
-                                        <div class="new-title flex flex-align-middle">
-                                            <p class="after-change">Десткое</p>
-                                        </div>
-                                    </div>
-                                    <div onclick="showContent('new-women')" class="new-women sub-list-element">
-                                        <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
-                                        <div class="new-text">
-                                            <p>Новое</p>
-                                        </div>
-                                        <div class="new-title flex flex-align-middle">
-                                            <p class="after-change">Для женщин</p>
-                                        </div>
-                                    </div>
-                                    <div onclick="showContent('new-accessories')" class="new-accessories sub-list-element">
-                                        <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
-                                        <div class="new-text">
-                                            <p>Новое</p>
-                                        </div>
-                                        <div class="new-title flex flex-align-middle">
-                                            <p class="after-change">Аксессуары</p>
-                                        </div>
-                                    </div>
-                                    <div onclick="showContent('new-men')" class="new-men sub-list-element">
-                                        <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
-                                        <div class="new-text">
-                                            <p>Новое</p>
-                                        </div>
-                                        <div class="new-title flex flex-align-middle">
-                                            <p class="after-change">Для мужчин</p>
-                                        </div>
+                                <div onclick="showContent('new')" class="new-goods-container sub-list-element">
+                                    <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
+                                    <div class="new-text">
+                                        <p>Новинки</p>
                                     </div>
                                 </div>
                             </div>
@@ -147,34 +115,12 @@
                     <div class="sub-clothes-wrapper">
                         <div class="flex nowrap flex-align-middle">
                             <div class="women-clothe">
-                                <div onclick="showContent('women')" class="clothe-table sub-list-element">
-                                    <div class="clothe-title">
-                                        <p>Для женщин</p>
-                                    </div>
-                                    <div class="clothe-img">
-                                        <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
-                                    </div>
-                                </div>
-                            </div>
-                            <div onclick="showContent('baby')" class="baby-clothe">
-                                <div class="clothe-table sub-list-element">
-                                    <div class="clothe-title">
-                                        <p>Детское</p>
-                                    </div>
-                                    <div class="clothe-img">
-                                        <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
-                                    </div>
-                                </div>
-                            </div>
-                            <div onclick="showContent('men')" class="men-clothe">
-                                <div class="clothe-table sub-list-element">
-                                    <div class="clothe-title">
-                                        <p>Для мужчин</p>
-                                    </div>
-                                    <div class="clothe-img">
-                                        <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
-                                    </div>
-                                </div>
+                                <ul>
+                                    <p>Для женщин</p>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Брюки</span></a></li>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Джемпера</span></a></li>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Кардиганы</span></a></li>
+                                </ul>
                             </div>
                             <div onclick="showContent('new')" class="new-clothe sub-list-element">
                                 <div class="clothe-table">
@@ -183,8 +129,8 @@
                                     </div>
                                     <div class="clothe-img">
                                         <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
-                                        <div class="new-text">
-                                            <p>Новое</p>
+                                        <div class="new-clothe-text">
+                                            <p>Новинки</p>
                                         </div>
                                     </div>
                                 </div>
@@ -197,12 +143,13 @@
                         <div class="accessories-content flex nowrap">
                             <div class="ul-for-women flex nowrap">
                                 <ul><p>Для женщин</p>
-                                    <li ><a onclick="showContent('')" class="sub-list-element"><span>Платки</span></a></li>
-                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Шарфы</span></a></li>
-                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Шали</span></a></li>
+                                    <li ><a onclick="showContent('')" class="sub-list-element"><span>Варежки</span></a></li>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Головные уборы</span></a></li>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Носочки</span></a></li>
                                     <li><a onclick="showContent('')" class="sub-list-element"><span>Палантины</span></a></li>
                                     <li><a onclick="showContent('')" class="sub-list-element"><span>Перчатки</span></a></li>
-                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Носочки</span></a></li>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Платки</span></a></li>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Шали</span></a></li>
                                 </ul>
                                 <div class="ul-sub-img">
                                     <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
@@ -211,17 +158,18 @@
                             <div class="ul-for-home flex nowrap">
                                 <ul><p>Для дома</p>
                                     <li><a onclick="showContent('')" class="sub-list-element"><span>Пледы</span></a></li>
-                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Полотенца</span></a></li>
                                 </ul>
                                 <div class="ul-sub-img">
                                     <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
                                 </div>
                             </div>
                             <div class="ul-for-jewelry flex nowrap">
-                                <ul><p>Ювелирные изделия</p>
-                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Серьги</span></a></li>
+                                <ul><p>Бижутерия</p>
                                     <li><a onclick="showContent('')" class="sub-list-element"><span>Браслеты</span></a></li>
-                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Подвески</span></a></li>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Броши</span></a></li>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Колье</span></a></li>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Кулоны</span></a></li>
+                                    <li><a onclick="showContent('')" class="sub-list-element"><span>Серьги</span></a></li>
                                 </ul>
                                 <div class="ul-sub-img">
                                     <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">

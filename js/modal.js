@@ -7,11 +7,19 @@ let modalSearch = document.getElementById("modal-search");
 let closeSearch = document.getElementById("close-search");
 let btnSearch = document.getElementById("open-search");
 
+let closeTimer = null;
+
 function openLang() {
-    modalLang.classList.add("open");
+    modalLang.style.display = "flex";
+    closeTimer = setTimeout (() => {
+        modalLang.classList.add("open");
+    }, 50)
 }
 function closeLang() {
     modalLang.classList.remove("open");
+    closeTimer = setTimeout (() => {
+        modalLang.style.display = "none"
+    }, 300)
 }
 
 function openCountry() {
