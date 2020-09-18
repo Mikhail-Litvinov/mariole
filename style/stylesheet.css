@@ -81,4 +81,8 @@ main {
     padding-top: 150px;
 }
 
+.mobile {
+    display: none;
+}
+
 /* stylesheet end */

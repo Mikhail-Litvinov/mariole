@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="style/stylesheet.css">
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/media.css">
     <link rel="stylesheet" href="fonts/Fontello/css/animation.css">
     <link rel="stylesheet" href="fonts/Fontello/css/fontello-codes.css">
     <link rel="stylesheet" href="fonts/Fontello/css/fontello-embedded.css">
@@ -18,10 +19,24 @@
     <header>
         <div class="flex fixed width-100 wrap">
             <div class="flex-row nav-top">
+                <div class="mobile hamburger-wrapper">
+                    <div class="icon-container">
+                        <div class="hamburger" id="hamburger-1">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-menu mobile modal" id="mobile-menu">
+                    <div class="mobile-menu-wrapper">
+
+                    </div>
+                </div>
                 <div class="nav-top-cont flex nowrap">
                     <div class="countries flex">
                         <button class="btn-country" id="btn-country"><span id="country" class="languageable">Страна:</span> <span id="country-name">Россия</span></button>
-                        <button class="btn-language" id="btn-lang"><span id="lang" class="languageable">Язык:</span> <span id="lang-symbol" class="languageable">RU</span>&nbsp;<span class="lang-ind"></span></button>
+                        <button class="btn-language" id="btn-lang"><span id="lang" class="languageable">Язык:</span> <span id="lang-symbol" class="languageable">RU</span>&nbsp;<span class="lang-ind"></span>
                         <div class="modal-wrapper-lang flex" id="modal-lang" style="display: none;">
                             <div class="modal-content-lang">
                                 <ul>
@@ -33,6 +48,7 @@
                                 </ul>
                             </div>
                         </div>
+                    </button>
                     </div>
                     <div class="logo flex">
                         <div class="logo-cont">
@@ -48,7 +64,7 @@
                 </div>
             </div>
             <div class="flex-row nav flex-align-middle wrap">
-                <div class="flex nav-wrapper">
+                <div class="flex nav-wrapper navigation">
                     <ul class="nav-list">
                         <li><a onclick="showContent('home')" rel="noopener noreferrer"  class="menu-btn" id="home"><span id="home-page" class="languageable">Главная</span></a></li>
                         <!-- <li><a onclick="showContent('about')" rel="noopener noreferrer"  class="menu-btn" id="about"><span id="about-page" class="languageable">О нас</span></a></li> -->
@@ -63,14 +79,14 @@
                 </div>
                 <div class="flex sub-nav-home-wrapper sub-nav" id="home-sub">
                     <div class="sub-home-wrapper">
-                            <div class="flex nowrap flex-align-middle">
+                            <div class="flex nowrap flex-align-middle mobile-sub">
                                 <div onclick="showContent('about')" class="about-container sub-list-element">
                                     <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
                                     <div class="about-text flex flex-align-middle">
                                             <p class="after-change">О нас</p>
                                     </div>
                                 </div>
-                                <div onclick="showContent('sales')" class="sale-container sub-list-element" style="display: none">
+                                <div onclick="showContent('sales')" class="sale-container sub-list-element">
                                     <div class="sale-img">
                                         <img src="img/menu/img filler 1x1.jpg" alt="" width="100%">
                                         <div class="sale-text">
@@ -113,7 +129,7 @@
                 </div>
                 <div class="flex sub-nav-clothes-wrapper sub-nav" id="clothes-sub">
                     <div class="sub-clothes-wrapper">
-                        <div class="flex nowrap flex-align-middle">
+                        <div class="flex nowrap flex-align-middle mobile-sub">
                             <div class="women-clothe">
                                 <ul>
                                     <p>Для женщин</p>

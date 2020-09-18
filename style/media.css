@@ -1,0 +1,561 @@
+@media screen and (max-width: 1024px) {
+    .mobile {
+        display: block;
+    }
+
+    /* nabigation */
+    
+    /* nav icon */
+
+    .hamburger-wrapper {
+        position: fixed;
+        width: 100%;
+        z-index: 2;
+    }
+
+    .icon-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger {
+        position: absolute;
+        left: 30px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger .line{
+        width: 40px;
+        height: 5px;
+        background-color: black;
+        display: block;
+        margin: 8px 0;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .hamburger:hover{
+        cursor: pointer;
+    }
+
+    .hamburger.is-active  {
+        left: 45%;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+    #hamburger-1.is-active .line:nth-child(2){
+        opacity: 0;
+    }
+    
+    #hamburger-1.is-active .line:nth-child(1){
+        -webkit-transform: translateY(13px) rotate(45deg);
+        -ms-transform: translateY(13px) rotate(45deg);
+        -o-transform: translateY(13px) rotate(45deg);
+        transform: translateY(13px) rotate(45deg);
+    }
+    
+    #hamburger-1.is-active .line:nth-child(3){
+        -webkit-transform: translateY(-13px) rotate(-45deg);
+        -ms-transform: translateY(-13px) rotate(-45deg);
+        -o-transform: translateY(-13px) rotate(-45deg);
+        transform: translateY(-13px) rotate(-45deg);
+    }
+
+    /* nav icon end */
+    
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        z-index: 1;
+        transition: 0.3s ease-in-out;
+        overflow: hidden;
+    }
+
+    .mobile-menu.open {
+        left: 0;
+        transition: 0.3s ease-in-out;
+    }
+
+    .mobile-menu-wrapper {
+        background-color: whitesmoke;
+        position: relative; 
+        padding-top: 45px;
+    }
+
+    .nav-list {
+        display: block;
+        width: fit-content;
+        margin: 0 0;
+        margin-left: 0;
+        margin-right: 0;
+        align-self: center;
+        padding: 20px 0;
+    }
+
+    .nav-list li {
+        margin: 0;
+        padding: 10px 0;
+        text-align: left;
+        font-size: 40px;
+    }
+
+    .countries {
+        width: auto;
+        height: auto;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+        padding-left: 10%;
+        display: block;
+        padding-bottom: 20px;
+    }
+
+    .btn-country, .btn-language {
+        height: 100%;
+        background-color: transparent;
+        border: none;
+        font-size: 30px;
+        margin: 0px 0px;
+        color: #532c11;
+        cursor: pointer;
+        position: relative;
+        transition: 0.3s ease-in-out;
+        padding: 20px 0;
+        display: block;
+    }
+
+    .nav-wrapper {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+        padding-left: 10%;
+    }
+
+    .logo {
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .buttons-top-nav {
+        width: auto;
+        height: auto;
+        justify-content: flex-start;
+        padding-left: 10%;
+        padding-bottom: 20px;
+    }
+
+    .buttons-top-nav-list li {
+        margin: 0;
+        padding-right: 40px;
+    }
+
+    .search-icon::before {
+        font-family: "fontello";
+        content: '\e803';
+        font-size: 50px;
+    }
+
+    .inst-icon::before {
+        font-family: "fontello";
+        content: '\e804';
+        font-size: 50px;
+    }
+
+    .sub-nav-home-wrapper, .sub-nav-gallery-wrapper, .sub-nav-clothes-wrapper, .sub-nav-accessories-wrapper, .sub-nav-news-wrapper {
+        width: 50%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 0;
+        background-color: whitesmoke;
+        transition: 0.5s ease-in-out;
+        overflow: hidden;
+        z-index: 2;
+    }
+
+    .mobile-sub {
+        flex-wrap: wrap;
+    }
+
+    .sub-home-wrapper {
+        width: 100%;
+        margin: auto;
+        padding: 10px;
+    }
+
+    .about-container {
+        overflow: hidden;
+        background-color: lightgrey;
+        position: relative;
+        cursor: pointer;
+        width: 300px;
+        height: 300px;
+        margin: 0 20px;
+        margin-bottom: 15px;
+    }
+
+    .about-text {
+        position: absolute;
+        top: 50%;
+        text-align: center;
+        width: 100%;
+        height: 60px;
+        font-size: 40px;
+        font-weight: 600;
+        background-color: rgba(245, 245, 245, 0.5);
+        color: #532c11;
+        transform: translate(0, -50%);
+    }
+
+    .sale-container {
+        overflow: hidden;
+        background-color: lightgrey;
+        position: relative;
+        width: 300px;
+        height: 300px;
+        margin: 15px 20px;
+    }
+
+    .sale-text {
+        position: absolute;
+        text-align: center;
+        width: 260px;
+        transform: rotate(-45deg);
+        bottom: 11%;
+        left: 36%;
+        background-color: red;
+        height: 55px;
+        color: whitesmoke;
+        font-size: 40px;
+    }
+
+    .new-goods-container {
+        position: relative;
+        overflow: hidden;
+        width: 300px;
+        height: 300px;
+        margin: 15px 20px;
+        cursor: pointer;
+    }
+
+    .new-text {
+        position: absolute;
+        text-align: center;
+        width: 260px;
+        transform: rotate(-45deg);
+        bottom: 14%;
+        left: 34%;
+        background-color: red;
+        height: 55px;
+        color: whitesmoke;
+        font-size: 40px;
+    }
+
+    .sub-gallery-wrapper {
+        width: 100%;
+        margin: auto;
+        padding: 10px;
+    }
+
+    .sub-gallery-table {
+        display: grid;
+        grid-template-columns: repeat(2, 150px);
+        grid-template-rows: repeat(5, auto);
+        justify-content: center;
+        grid-gap: 20px;
+    }
+
+    .clothes-gallery {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .gallery-sub-title {
+        position: absolute;
+        bottom: 0;
+        padding: 10px 0;
+        background-color: rgba(245, 245, 245, 0.5);
+        color: #532c11;
+        width: 100%;
+        text-align: center;
+        font-size: 40px;
+        font-weight: 600;
+        transition: 0.3s ease-in-out;
+    }
+
+    .home-gallery {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 5;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .travel-gallery {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 5;
+        grid-row-end: 7;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .women-clothe {
+        margin-left: 10%;
+        margin-right: 10%;
+        width: 100%;
+        margin-top: 20px;
+        position: relative;
+        font-size: 40px;
+    }
+
+    .new-clothe {
+        width: 300px;
+        height: auto;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-bottom: 20px;
+        position: relative;
+    }
+
+    .clothe-table {
+        display: flex;
+        flex-flow: wrap;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .clothe-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        color: #532c11;
+    }
+
+    .clothe-img {
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .accessories-content {
+        justify-content: flex-start;
+        flex-flow: wrap;
+    }
+
+    .accessories-content ul {
+        font-size: 40px;
+        margin-right: 20px;
+        color: #532c11;
+    }
+
+    .ul-for-women {
+        margin: 0 10%;
+        flex-wrap: wrap;
+    }
+
+    .ul-for-home {
+        margin: 0px 10%;
+    }
+
+    .ul-for-jewelry {
+        margin: 0 10%;
+    }
+
+    .ul-sub-img {
+        display: none;
+        width: 200px;
+        height: 200px;
+    }
+
+    .news-sub-content {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(9, 100px);
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .last-news-container {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 4;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .news-sub-title {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 70px;
+        font-size: 40px;
+        background-color: rgba(245, 245, 245, 0.5);
+    }
+
+    .rec-news-container {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 4;
+        grid-row-end: 7;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .rec-sub-title {
+        position: absolute;
+        width: 100%;
+        height: 60px;
+        top: 50%;
+        transform: translate(0, -50%);
+        align-items: center;
+        font-size: 40px;
+        background-color: rgba(245, 245, 245, 0.5);
+    }
+
+    .media-news-container {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 7;
+        grid-row-end: 10;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .media-sub-title {
+        position: absolute;
+        width: 100%;
+        height: 60px;
+        top: 50%;
+        transform: translate(0, -50%);
+        align-items: center;
+        font-size: 40px;
+        background-color: rgba(245, 245, 245, 0.5);
+    }
+
+    .modal-wrapper-lang {
+        position: absolute;
+        opacity: 0;
+        top: 40px;
+        left: 0;
+        width: 300px;
+        background-color: white;
+        border: 1px solid #7d7d7d;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s ease-in-out;
+        z-index: -1000;
+    }
+
+    .open.modal-wrapper-lang {
+        opacity: 1;
+        top: 80px;
+        left: 0;
+        z-index: 1001;
+    }
+
+    .modal-content-lang ul {
+        position: relative;
+        margin-top: 10px;
+        font-size: 30px;
+    }
+
+    .modal-content-lang::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: calc(100% - 170px);
+        width: 16px;
+        height: 16px;
+        background: #fff;
+        border-left: 1px solid #7d7d7d;
+        border-top: 1px solid #7d7d7d;
+        pointer-events: none;
+        -webkit-transform: rotate(45deg) translateY(-13px);
+        transform: rotate(45deg) translateY(-13px);
+        transform-origin: 50% 50%;
+        -webkit-transform-origin: 50% 50%;
+        -moz-transform-origin: 50% 50%;
+        -ms-transform-origin: 50% 50%;
+    }
+
+    .modal-country-cont {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        background-color: whitesmoke;
+    }
+
+    .modal-country-header {
+        width: 100%;
+        height: 140px;
+        background-color: #ebebeb;
+    }
+
+    .modal-country-title-cont {
+        width: 40%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .close-modal::before {
+        font-size: 50px;
+        content: '\2716';
+        cursor: pointer;
+    }
+
+    .choose-country {
+        font-size: 40px;
+        color: #532c11;
+    }
+
+    .country-list-europe {
+        padding: 0 30px;
+        font-size: 40px;
+        color: #532c11;
+    }
+
+    .country-list-america, .country-list-asia {
+        align-items: center;
+        font-size: 40px;
+        color: #532c11;
+    }
+
+    
+
+    /* navigaiton end */
+}
