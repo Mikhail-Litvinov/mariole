@@ -24,13 +24,19 @@ function closeLang() {
 
 function openCountry() {
     if (btnCountry.classList.contains("active")) {
-        modalCountry.classList.add("open");
+        modalCountry.style.display = "block"
+        closeTimer = setTimeout (() => {
+            modalCountry.classList.add("open");
+        }, 50)
     }
 }
 
 document.getElementById("close-country").onclick = function closeCountry() {
     btnCountry.classList.remove("active");
     modalCountry.classList.remove("open");
+    closeTimer = setTimeout (() => {
+        modalCountry.style.display = "none"
+    }, 300)
 }
 
 function SearchModalOpen() {

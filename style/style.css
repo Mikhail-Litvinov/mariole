@@ -974,13 +974,16 @@ header {
 .modal-search-bg {
     width: 100%;
     position: fixed;
-    top: 0;
     left: 0;
     height: 0;
     background-color: rgba(0,  0, 0, 0.7);
     opacity: 0;
     transition: 0.5s ease-in-out;
     overflow: hidden;
+}
+
+.desktop-search {
+    top: 0;
 }
 
 .modal-search-bg.open {
@@ -1075,5 +1078,13 @@ header {
 .close-search:hover {
     color: #CD7F32;
 }
- 
+
+.digital-search {
+    bottom: 0;
+}
+
+.desktop-search {
+    top: 0;
+}
+
 /* modals end */
