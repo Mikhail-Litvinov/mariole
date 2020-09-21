@@ -16,8 +16,8 @@
 </head>
 <body>
     <!-- header -->
-    <header>
-        <div class="flex fixed width-100 wrap">
+    <header class="animated">
+        <div class="flex fixed width-100 wrap" id="headerContainer">
             <div class="flex-row nav-top">
                 <div class="mobile hamburger-wrapper">
                     <div class="icon-container">

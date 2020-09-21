@@ -49,6 +49,13 @@ $(window).ready(function () {
             $(".hamburger").removeClass("is-active")
         });   
     }else {
+        // padding main //
+
+        $(document).ready(function () {
+            $("#content").css("padding-top", $("#headerContainer").height()+10);
+        })
+
+        //padding main end //
         $(".buttons-top-nav").detach().prependTo(".nav-top-cont");
         $(".logo").detach().prependTo(".nav-top-cont");
         $(".countries").detach().prependTo(".nav-top-cont");
@@ -108,6 +115,13 @@ $(window).ready(function () {
             $(".hamburger").removeClass("is-active")
         });
     } else {
+        // padding main //
+
+        $(document).ready(function () {
+        $("#content").css("padding-top", $("#headerContainer").height()+10);
+        })
+
+        //padding main end //
         $(".buttons-top-nav").detach().prependTo(".nav-top-cont");
         $(".logo").detach().prependTo(".nav-top-cont");
         $(".countries").detach().prependTo(".nav-top-cont");

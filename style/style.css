@@ -5,6 +5,14 @@
     padding: 0;
 }
 
+body {
+    overflow-x: hidden;
+}
+
+.animated {
+    animation: blockAppear 0.5s ease-in-out;
+}
+
 *::before {
     box-sizing: border-box;
 }
@@ -1088,3 +1096,12 @@ header {
 }
 
 /* modals end */
+
+/* animation */
+
+@keyframes blockAppear {
+    0% {opacity: 0; transform: scale(1.1);}
+    100% {opacity: 1; transform: scaleX(1);}
+}
+
+/* animation end */
