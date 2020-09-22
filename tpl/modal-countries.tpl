@@ -1,4 +1,4 @@
-<div class="modal-country-bg" id="modal-country">
+<div class="modal-country-bg" id="modal-country" style="display:none;">
 	<div class="modal-country-wrapper">
 		<div class="modal-country-wrapper-2">
 			<div class="modal-country-cont flex wrap">
