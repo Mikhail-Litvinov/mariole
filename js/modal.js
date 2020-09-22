@@ -7,22 +7,36 @@ let modalSearch = document.getElementById("modal-search");
 let closeSearch = document.getElementById("close-search");
 let btnSearch = document.getElementById("open-search");
 
+let closeTimer = null;
+
 function openLang() {
-    modalLang.classList.add("open");
+    modalLang.style.display = "flex";
+    closeTimer = setTimeout (() => {
+        modalLang.classList.add("open");
+    }, 50)
 }
 function closeLang() {
     modalLang.classList.remove("open");
+    closeTimer = setTimeout (() => {
+        modalLang.style.display = "none"
+    }, 300)
 }
 
 function openCountry() {
     if (btnCountry.classList.contains("active")) {
-        modalCountry.classList.add("open");
+        modalCountry.style.display = "block"
+        closeTimer = setTimeout (() => {
+            modalCountry.classList.add("open");
+        }, 50)
     }
 }
 
 document.getElementById("close-country").onclick = function closeCountry() {
     btnCountry.classList.remove("active");
     modalCountry.classList.remove("open");
+    closeTimer = setTimeout (() => {
+        modalCountry.style.display = "none"
+    }, 300)
 }
 
 function SearchModalOpen() {
