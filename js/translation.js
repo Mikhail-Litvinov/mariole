@@ -35,6 +35,7 @@ function changeLanguage(evt) {
 
 function translatePage() {
 	$('.languageable').html(function() { return language.get(this.id); }); // Translate the page to the new language
+	$('[langid]').html(function() { return language.get(this.getAttribute("langid")); }); // Translate the page to the new language
 	$(`#lang-${language.get("lang-code")}`).addClass("active"); // Make new language button active
 	updateCountryLabel(); // Update country label with new language
 }
