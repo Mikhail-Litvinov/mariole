@@ -2,46 +2,55 @@
 <head>
     <link rel="stylesheet" href="/css/stylesheet.css">
     <link rel="stylesheet" href="/css/home-page.css">
-    <link rel="stylesheet" href="/js/OwlCarousel2-2.3.4/owl.carousel.css">
-    <link rel="stylesheet" href="/js/OwlCarousel2-2.3.4/owl.theme.default.css">
     <link rel="stylesheet" href="/css/media.css">
 </head>
 <body>
     <main>
-        <div class="carousel-wrapper">
-            <div class="owl-carousel owl-theme">
-                <div class="owl-slide">
-                    <img src="/img/carousel/img filler 16x9.jpg" width="100%">
-                    <p class="slide-text">Надо придумать текст</p>
-                    <div class="slide-btn-cont">
-                        <a onclick="showContent('clothes')"><button class="slide-button">
-                            Одежда
-                        </button></a>
-                        <a onclick="showContent('accessories')"><button class="slide-button">
-                            Аксессуары
-                        </button></a>
-                    </div>
-                </div>
-                <div class="owl-slide">
-                    <img src="/img/carousel/img filler 16x9.jpg" width="100%">
-                    <p class="slide-text">Надо придумать текст</p>
-                    <div class="slide-btn-cont">
-                        <a onclick="showContent('accessories')"><button class="slide-button">
-                            Бижутерия
-                        </button></a>
-                    </div>
-                </div>
-                <div class="owl-slide">
-                    <img src="/img/carousel/img filler 16x9.jpg" width="100%">
-                    <p class="slide-text">Надо придумать текст</p>
-                    <div class="slide-btn-cont">
-                        <a onclick="showContent('accessories')"><button class="slide-button">
-                            Для дома
-                        </button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div id="carousel">
+				<div id="previous-slide-btn" class="move-slide-btn">
+					<div class="circle">
+						<span class="previous-slide-icon">&lt;</span>
+					</div>
+				</div>
+				<div id="next-slide-btn" class="move-slide-btn">
+					<div class="circle">
+						<span class="next-slide-icon">&gt;</span>
+					</div>
+				</div>
+				<div id="slide-container">
+					<div class="slide">
+						<img src="/img/carousel/img filler 16x9.jpg" width="100%">
+                        <p class="slide-text">Надо придумать текст</p>
+                        <div class="slide-btn-cont">
+                            <a onclick="showContent('clothes')"><button class="slide-button">
+                                Одежда
+                            </button></a>
+                            <a onclick="showContent('accessories')"><button class="slide-button">
+                                Аксессуары
+                            </button></a>
+                        </div>
+					</div>
+					<div class="slide">
+						<img src="/img/carousel/img filler 16x9.jpg" width="100%">
+                        <p class="slide-text">Надо придумать текст</p>
+                        <div class="slide-btn-cont">
+                            <a onclick="showContent('accessories')"><button class="slide-button">
+                                Бижутерия
+                            </button></a>
+                        </div>
+					</div>
+					<div class="slide">
+						<img src="/img/carousel/img filler 16x9.jpg" width="100%">
+                        <p class="slide-text">Надо придумать текст</p>
+                        <div class="slide-btn-cont">
+                            <a onclick="showContent('accessories')"><button class="slide-button">
+                                Для дома
+                            </button></a>
+                        </div>
+					</div>
+				</div>
+			</div>
+       
         <div class="content-wrapper">
             <div class="section-wrapper-grid">
                 <div class="img-home-1">
@@ -64,6 +73,5 @@
             </div>
         </div>
     </main>
-    <script type="text/javascript" src="/js/OwlCarousel2-2.3.4/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="/js/init plugins.js"></script>
+    <script type="text/javascript" src="/js/carousel.js"></script>
 </body>
