@@ -114,7 +114,7 @@ function onMouseDown(evt) {
 		
 		prepareSlides();
 		
-		$("#document")[0].style.cursor = "grabbing";
+		$("html")[0].style.cursor = "grabbing";
 		$("#carousel")[0].style.cursor = "grabbing";
 	}
 }
@@ -146,7 +146,7 @@ function onMouseUp(evt) {
 		isDragging = false;
 		isDraggingBlocked = true;
 				
-		$("#document")[0].style.cursor = "auto";
+		$("html")[0].style.cursor = "auto";
 		$("#carousel")[0].style.cursor = "grab";
 		
 		fallSlide();
