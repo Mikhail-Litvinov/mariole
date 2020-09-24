@@ -5,4 +5,5 @@
 <script charset="utf-8" type="text/javascript" src="/js/translation.js"></script>
 <script charset="utf-8" type="text/javascript" src="/js/menu.js"></script>
 <script charset="utf-8" type="text/javascript" src="/js/navigation.js"></script>
+
 <script charset="utf-8" type="text/javascript">pages = <?php echo json_encode($pages_list, true) ?>;</script>

@@ -36,3 +36,15 @@ document.getElementById("open-search").onclick=function openSearch() {
 
 //open search end//
 
+//scrollbar//
+
+$(function() {
+	$("body").overlayScrollbars({
+        overflowBehavior : {
+            x : "hidden",
+            y : "scroll"
+        },
+    });
+});
+
+//scrollbar end//

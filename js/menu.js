@@ -24,6 +24,13 @@ $(document).ready(function(){
 
 $(window).ready(function () {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width() <= 1024) {
+        // padding main //
+
+        $(document).ready(function () {
+            $("#content").css("padding-top", $("#headerContainer").height());
+        })
+    
+        //padding main end //
         $(".navigation").detach().appendTo(".mobile-menu-wrapper");
         $(".countries").detach().appendTo(".mobile-menu-wrapper");
         $(".buttons-top-nav").detach().appendTo(".mobile-menu-wrapper");
@@ -90,6 +97,13 @@ $(window).ready(function () {
     }
 }).resize(function () {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width() <= 1024) {
+        // padding main //
+
+        $(document).ready(function () {
+            $("#content").css("padding-top", $("#headerContainer").height());
+        })
+    
+        //padding main end //
         $(".navigation").detach().appendTo(".mobile-menu-wrapper");
         $(".countries").detach().appendTo(".mobile-menu-wrapper");
         $(".buttons-top-nav").detach().appendTo(".mobile-menu-wrapper");

@@ -1,3 +1,88 @@
+@media screen and (min-width:0px) and (max-width:1024px) {
+    body {
+        overflow-x: auto;
+    }
+
+    .slide-text {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        font-size: 100%;
+        font-weight: 600;
+        color: whitesmoke;
+        width: 60%;
+        height: 20%;
+        display: flex;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .slide-text {
+        transform: translate(-50%, 20%);
+        font-size: 100%;
+        width: 60%;
+        height: 20%;
+    }
+
+    .slide-btn-cont {
+        top: 40%;
+        left: 50%;
+        width: 50%;
+        transform: translate(-50%, 20%);
+    }
+
+    .slide-button {
+        width: 100%;
+        height: 5vh;
+        margin: 3% 0;
+        font-size: 100%;
+    }
+
+
+    .owl-carousel .owl-item {
+        height: 30vh;
+    }
+
+    #content {
+        padding-top: 12vh;
+    }
+
+    .owl-nav {
+        display: none;
+    }
+
+    .content-wrapper {
+        width: 90%;
+    }
+
+    .content-text {
+        grid-column-end: 3;
+    }
+    .content-text-wrapper-left {
+        left: -10%;
+    }
+
+
+    .relative-text-wrapper {
+        padding: 5% 10%;
+    }
+
+    .content-text-wrapper-left h2 {
+        font-size: 100%;
+    }
+
+    .content-text-wrapper-left p {
+        font-size: 100%;
+    }
+
+    .content-button {
+        height: 4vh;
+        font-size: 100%;
+    }
+}
+
 @media screen and (min-width:0px) and (max-width: 280px) {
 
     .modal-search-bg.open {
@@ -16,7 +101,7 @@
         flex-wrap: nowrap;
         align-items: center;
         justify-content: center;
-        color: #532c11;
+        color: #3D210C;
         height: 34px;
     }
 
@@ -82,7 +167,7 @@
     .hamburger .line{
         width: 35px;
         height: 3px;
-        background-color: black;
+        background-color: #3D210C;
         display: block;
         margin: 8px 0;
         -webkit-transition: all 0.3s ease-in-out;
@@ -199,7 +284,7 @@
         border: none;
         font-size: 18px;
         margin: 0px 0px;
-        color: #532c11;
+        color: #3D210C;
         cursor: pointer;
         position: relative;
         transition: 0.3s ease-in-out;
@@ -296,7 +381,7 @@
         font-size: 20px;
         font-weight: 600;
         background-color: rgba(245, 245, 245, 0.5);
-        color: #532c11;
+        color: #3D210C;
         transform: translate(0, -50%);
     }
 
@@ -374,7 +459,7 @@
         bottom: 0;
         padding: 10px 0;
         background-color: rgba(245, 245, 245, 0.5);
-        color: #532c11;
+        color: #3D210C;
         width: 100%;
         text-align: center;
         font-size: 18px;
@@ -437,7 +522,7 @@
         justify-content: center;
         align-items: center;
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .clothe-img {
@@ -475,7 +560,7 @@
     .accessories-content ul {
         font-size: 20px;
         margin-right: 0px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .ul-for-women {
@@ -645,7 +730,7 @@
     }
 
     .close-modal {
-        color: #532c11;
+        color: #3D210C;
         padding-right: 10px;
     }
 
@@ -661,7 +746,7 @@
 
     .choose-country {
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .modal-country-content {
@@ -674,7 +759,7 @@
     .country-list-europe {
         padding: 0 5px;
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .country-list {
@@ -689,7 +774,7 @@
     .country-list-america, .country-list-asia {
         align-items: center;
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 }
 
@@ -711,7 +796,7 @@
         flex-wrap: nowrap;
         align-items: center;
         justify-content: center;
-        color: #532c11;
+        color: #3D210C;
         height: 34px;
     }
 
@@ -777,7 +862,7 @@
     .hamburger .line{
         width: 35px;
         height: 3px;
-        background-color: black;
+        background-color: #3D210C;
         display: block;
         margin: 8px 0;
         -webkit-transition: all 0.3s ease-in-out;
@@ -894,7 +979,7 @@
         border: none;
         font-size: 18px;
         margin: 0px 0px;
-        color: #532c11;
+        color: #3D210C;
         cursor: pointer;
         position: relative;
         transition: 0.3s ease-in-out;
@@ -991,7 +1076,7 @@
         font-size: 20px;
         font-weight: 600;
         background-color: rgba(245, 245, 245, 0.5);
-        color: #532c11;
+        color: #3D210C;
         transform: translate(0, -50%);
     }
 
@@ -1069,7 +1154,7 @@
         bottom: 0;
         padding: 10px 0;
         background-color: rgba(245, 245, 245, 0.5);
-        color: #532c11;
+        color: #3D210C;
         width: 100%;
         text-align: center;
         font-size: 18px;
@@ -1132,7 +1217,7 @@
         justify-content: center;
         align-items: center;
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .clothe-img {
@@ -1170,7 +1255,7 @@
     .accessories-content ul {
         font-size: 16px;
         margin-right: 0;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .ul-for-women {
@@ -1278,7 +1363,7 @@
     .media-sub-title span {
         margin-left: 0px;
         width: 100%;
-        color: #532c11;
+        color: #3D210C;
         text-align: center;
     }
 
@@ -1352,7 +1437,7 @@
     }
 
     .close-modal {
-        color: #532c11;
+        color: #3D210C;
         padding-right: 10px;
     }
 
@@ -1368,7 +1453,7 @@
 
     .choose-country {
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .modal-country-content {
@@ -1381,7 +1466,7 @@
     .country-list-europe {
         padding: 0 5px;
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .country-list {
@@ -1396,7 +1481,7 @@
     .country-list-america, .country-list-asia {
         align-items: center;
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 }
 
@@ -1418,7 +1503,7 @@
         flex-wrap: nowrap;
         align-items: center;
         justify-content: center;
-        color: #532c11;
+        color: #3D210C;
         height: 34px;
     }
 
@@ -1484,7 +1569,7 @@
     .hamburger .line{
         width: 35px;
         height: 3px;
-        background-color: black;
+        background-color: #3D210C;
         display: block;
         margin: 8px 0;
         -webkit-transition: all 0.3s ease-in-out;
@@ -1601,7 +1686,7 @@
         border: none;
         font-size: 18px;
         margin: 0px 0px;
-        color: #532c11;
+        color: #3D210C;
         cursor: pointer;
         position: relative;
         transition: 0.3s ease-in-out;
@@ -1698,7 +1783,7 @@
         font-size: 20px;
         font-weight: 600;
         background-color: rgba(245, 245, 245, 0.5);
-        color: #532c11;
+        color: #3D210C;
         transform: translate(0, -50%);
     }
 
@@ -1776,7 +1861,7 @@
         bottom: 0;
         padding: 10px 0;
         background-color: rgba(245, 245, 245, 0.5);
-        color: #532c11;
+        color: #3D210C;
         width: 100%;
         text-align: center;
         font-size: 18px;
@@ -1839,7 +1924,7 @@
         justify-content: center;
         align-items: center;
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .clothe-img {
@@ -1877,7 +1962,7 @@
     .accessories-content ul {
         font-size: 20px;
         margin-right: 0;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .ul-for-women {
@@ -1985,7 +2070,7 @@
     .media-sub-title span {
         margin-left: 0px;
         width: 100%;
-        color: #532c11;
+        color: #3D210C;
         text-align: center;
     }
 
@@ -2059,7 +2144,7 @@
     }
 
     .close-modal {
-        color: #532c11;
+        color: #3D210C;
         padding-right: 10px;
     }
 
@@ -2075,7 +2160,7 @@
 
     .choose-country {
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .modal-country-content {
@@ -2088,7 +2173,7 @@
     .country-list-europe {
         padding: 0 5px;
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .country-list {
@@ -2103,7 +2188,7 @@
     .country-list-america, .country-list-asia {
         align-items: center;
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 }
 
@@ -2125,7 +2210,7 @@
         flex-wrap: nowrap;
         align-items: center;
         justify-content: center;
-        color: #532c11;
+        color: #3D210C;
         height: 34px;
     }
 
@@ -2191,7 +2276,7 @@
     .hamburger .line{
         width: 35px;
         height: 3px;
-        background-color: black;
+        background-color: #3D210C;
         display: block;
         margin: 8px 0;
         -webkit-transition: all 0.3s ease-in-out;
@@ -2308,7 +2393,7 @@
         border: none;
         font-size: 18px;
         margin: 0px 0px;
-        color: #532c11;
+        color: #3D210C;
         cursor: pointer;
         position: relative;
         transition: 0.3s ease-in-out;
@@ -2405,7 +2490,7 @@
         font-size: 20px;
         font-weight: 600;
         background-color: rgba(245, 245, 245, 0.5);
-        color: #532c11;
+        color: #3D210C;
         transform: translate(0, -50%);
     }
 
@@ -2483,7 +2568,7 @@
         bottom: 0;
         padding: 10px 0;
         background-color: rgba(245, 245, 245, 0.5);
-        color: #532c11;
+        color: #3D210C;
         width: 100%;
         text-align: center;
         font-size: 18px;
@@ -2546,7 +2631,7 @@
         justify-content: center;
         align-items: center;
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .clothe-img {
@@ -2584,7 +2669,7 @@
     .accessories-content ul {
         font-size: 20px;
         margin-right: 0;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .ul-for-women {
@@ -2692,7 +2777,7 @@
     .media-sub-title span {
         margin-left: 0px;
         width: 100%;
-        color: #532c11;
+        color: #3D210C;
         text-align: center;
     }
 
@@ -2766,7 +2851,7 @@
     }
 
     .close-modal {
-        color: #532c11;
+        color: #3D210C;
         padding-right: 10px;
     }
 
@@ -2782,7 +2867,7 @@
 
     .choose-country {
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .modal-country-content {
@@ -2795,7 +2880,7 @@
     .country-list-europe {
         padding: 0 5px;
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .country-list {
@@ -2810,7 +2895,7 @@
     .country-list-america, .country-list-asia {
         align-items: center;
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 }
 
@@ -2832,7 +2917,7 @@
         flex-wrap: nowrap;
         align-items: center;
         justify-content: center;
-        color: #532c11;
+        color: #3D210C;
         height: 34px;
     }
 
@@ -2894,7 +2979,7 @@
     .hamburger .line{
         width: 35px;
         height: 3px;
-        background-color: black;
+        background-color: #3D210C;
         display: block;
         margin: 8px 0;
         -webkit-transition: all 0.3s ease-in-out;
@@ -3011,7 +3096,7 @@
         border: none;
         font-size: 20px;
         margin: 0px 0px;
-        color: #532c11;
+        color: #3D210C;
         cursor: pointer;
         position: relative;
         transition: 0.3s ease-in-out;
@@ -3108,7 +3193,7 @@
         font-size: 30px;
         font-weight: 600;
         background-color: rgba(245, 245, 245, 0.5);
-        color: #532c11;
+        color: #3D210C;
         transform: translate(0, -50%);
     }
 
@@ -3190,7 +3275,7 @@
         bottom: 0;
         padding: 10px 0;
         background-color: rgba(245, 245, 245, 0.5);
-        color: #532c11;
+        color: #3D210C;
         width: 100%;
         text-align: center;
         font-size: 20px;
@@ -3253,7 +3338,7 @@
         justify-content: center;
         align-items: center;
         font-size: 24px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .clothe-img {
@@ -3291,7 +3376,7 @@
     .accessories-content ul {
         font-size: 24px;
         margin-right: 0;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .ul-for-women {
@@ -3379,7 +3464,7 @@
         margin-left: 0px;
         width: 100%;
         text-align: center;
-        color: #532c11;
+        color: #3D210C;
         position: relative;
     }
 
@@ -3407,7 +3492,7 @@
     .media-sub-title span {
         margin-left: 0px;
         width: 100%;
-        color: #532c11;
+        color: #3D210C;
         text-align: center;
     }
 
@@ -3481,7 +3566,7 @@
     }
 
     .close-modal {
-        color: #532c11;
+        color: #3D210C;
         padding-right: 10px;
     }
 
@@ -3497,7 +3582,7 @@
 
     .choose-country {
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .modal-country-content {
@@ -3510,7 +3595,7 @@
     .country-list-europe {
         padding: 0px 15px;
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .country-list {
@@ -3527,7 +3612,7 @@
         font-size: 20px;
         padding: 0 20px;
         align-self: flex-start;
-        color: #532c11;
+        color: #3D210C;
     }
 }
 
@@ -3549,7 +3634,7 @@
         flex-wrap: nowrap;
         align-items: center;
         justify-content: center;
-        color: #532c11;
+        color: #3D210C;
         height: 34px;
     }
 
@@ -3611,7 +3696,7 @@
     .hamburger .line{
         width: 35px;
         height: 3px;
-        background-color: black;
+        background-color: #3D210C;
         display: block;
         margin: 8px 0;
         -webkit-transition: all 0.3s ease-in-out;
@@ -3728,7 +3813,7 @@
         border: none;
         font-size: 20px;
         margin: 0px 0px;
-        color: #532c11;
+        color: #3D210C;
         cursor: pointer;
         position: relative;
         transition: 0.3s ease-in-out;
@@ -3825,7 +3910,7 @@
         font-size: 30px;
         font-weight: 600;
         background-color: rgba(245, 245, 245, 0.5);
-        color: #532c11;
+        color: #3D210C;
         transform: translate(0, -50%);
     }
 
@@ -3907,7 +3992,7 @@
         bottom: 0;
         padding: 10px 0;
         background-color: rgba(245, 245, 245, 0.5);
-        color: #532c11;
+        color: #3D210C;
         width: 100%;
         text-align: center;
         font-size: 20px;
@@ -3970,7 +4055,7 @@
         justify-content: center;
         align-items: center;
         font-size: 24px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .clothe-img {
@@ -4008,7 +4093,7 @@
     .accessories-content ul {
         font-size: 24px;
         margin-right: 0;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .ul-for-women {
@@ -4096,7 +4181,7 @@
         margin-left: 0px;
         width: 100%;
         text-align: center;
-        color: #532c11;
+        color: #3D210C;
         position: relative;
     }
 
@@ -4124,7 +4209,7 @@
     .media-sub-title span {
         margin-left: 0px;
         width: 100%;
-        color: #532c11;
+        color: #3D210C;
         text-align: center;
     }
 
@@ -4198,7 +4283,7 @@
     }
 
     .close-modal {
-        color: #532c11;
+        color: #3D210C;
         padding-right: 10px;
     }
 
@@ -4214,7 +4299,7 @@
 
     .choose-country {
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .modal-country-content {
@@ -4227,7 +4312,7 @@
     .country-list-europe {
         padding: 0px 15px;
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .country-list {
@@ -4244,7 +4329,7 @@
         font-size: 20px;
         padding: 0 20px;
         align-self: flex-start;
-        color: #532c11;
+        color: #3D210C;
     }
 }
 
@@ -4266,7 +4351,7 @@
         flex-wrap: nowrap;
         align-items: center;
         justify-content: center;
-        color: #532c11;
+        color: #3D210C;
         height: 34px;
     }
 
@@ -4328,7 +4413,7 @@
     .hamburger .line{
         width: 35px;
         height: 3px;
-        background-color: black;
+        background-color: #3D210C;
         display: block;
         margin: 8px 0;
         -webkit-transition: all 0.3s ease-in-out;
@@ -4445,7 +4530,7 @@
         border: none;
         font-size: 18px;
         margin: 0px 0px;
-        color: #532c11;
+        color: #3D210C;
         cursor: pointer;
         position: relative;
         transition: 0.3s ease-in-out;
@@ -4542,7 +4627,7 @@
         font-size: 20px;
         font-weight: 600;
         background-color: rgba(245, 245, 245, 0.5);
-        color: #532c11;
+        color: #3D210C;
         transform: translate(0, -50%);
     }
 
@@ -4624,7 +4709,7 @@
         bottom: 0;
         padding: 10px 0;
         background-color: rgba(245, 245, 245, 0.5);
-        color: #532c11;
+        color: #3D210C;
         width: 100%;
         text-align: center;
         font-size: 20px;
@@ -4687,7 +4772,7 @@
         justify-content: center;
         align-items: center;
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .clothe-img {
@@ -4725,7 +4810,7 @@
     .accessories-content ul {
         font-size: 20px;
         margin-right: 0;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .ul-for-women {
@@ -4813,7 +4898,7 @@
         margin-left: 0px;
         width: 100%;
         text-align: center;
-        color: #532c11;
+        color: #3D210C;
         position: relative;
     }
 
@@ -4841,7 +4926,7 @@
     .media-sub-title span {
         margin-left: 0px;
         width: 100%;
-        color: #532c11;
+        color: #3D210C;
         text-align: center;
     }
 
@@ -4915,7 +5000,7 @@
     }
 
     .close-modal {
-        color: #532c11;
+        color: #3D210C;
         padding-right: 10px;
     }
 
@@ -4931,7 +5016,7 @@
 
     .choose-country {
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .modal-country-content {
@@ -4944,7 +5029,7 @@
     .country-list-europe {
         padding: 0px 30px;
         font-size: 20px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .country-list {
@@ -4961,7 +5046,7 @@
         font-size: 20px;
         padding: 0 40px;
         align-self: flex-start;
-        color: #532c11;
+        color: #3D210C;
     }
 }
 
@@ -4983,7 +5068,7 @@
         flex-wrap: nowrap;
         align-items: center;
         justify-content: center;
-        color: #532c11;
+        color: #3D210C;
         height: 40px;
     }
 
@@ -5045,7 +5130,7 @@
     .hamburger .line{
         width: 35px;
         height: 3px;
-        background-color: black;
+        background-color: #3D210C;
         display: block;
         margin: 8px 0;
         -webkit-transition: all 0.3s ease-in-out;
@@ -5162,7 +5247,7 @@
         border: none;
         font-size: 24px;
         margin: 0px 0px;
-        color: #532c11;
+        color: #3D210C;
         cursor: pointer;
         position: relative;
         transition: 0.3s ease-in-out;
@@ -5259,7 +5344,7 @@
         font-size: 30px;
         font-weight: 600;
         background-color: rgba(245, 245, 245, 0.5);
-        color: #532c11;
+        color: #3D210C;
         transform: translate(0, -50%);
     }
 
@@ -5341,7 +5426,7 @@
         bottom: 0;
         padding: 10px 0;
         background-color: rgba(245, 245, 245, 0.5);
-        color: #532c11;
+        color: #3D210C;
         width: 100%;
         text-align: center;
         font-size: 30px;
@@ -5404,7 +5489,7 @@
         justify-content: center;
         align-items: center;
         font-size: 30px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .clothe-img {
@@ -5442,7 +5527,7 @@
     .accessories-content ul {
         font-size: 24px;
         margin-right: 0;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .ul-for-women {
@@ -5530,7 +5615,7 @@
         margin-left: 0px;
         width: 100%;
         text-align: center;
-        color: #532c11;
+        color: #3D210C;
         position: relative;
     }
 
@@ -5558,7 +5643,7 @@
     .media-sub-title span {
         margin-left: 0px;
         width: 100%;
-        color: #532c11;
+        color: #3D210C;
         text-align: center;
     }
 
@@ -5632,7 +5717,7 @@
     }
 
     .close-modal {
-        color: #532c11;
+        color: #3D210C;
         padding-right: 10px;
     }
 
@@ -5648,7 +5733,7 @@
 
     .choose-country {
         font-size: 30px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .modal-country-content {
@@ -5661,7 +5746,7 @@
     .country-list-europe {
         padding: 0px 30px;
         font-size: 24px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .country-list {
@@ -5678,7 +5763,7 @@
         font-size: 24px;
         padding: 0 40px;
         align-self: flex-start;
-        color: #532c11;
+        color: #3D210C;
     }
 }
 
@@ -5700,7 +5785,7 @@
         flex-wrap: nowrap;
         align-items: center;
         justify-content: center;
-        color: #532c11;
+        color: #3D210C;
         height: 80px;
     }
 
@@ -5727,7 +5812,7 @@
         align-items: center;
         text-align: center;
         justify-content: center;
-        color: #532c11;
+        color: #3D210C;
         right: 7%;
         cursor: pointer;
     }
@@ -5777,7 +5862,7 @@
     .hamburger .line{
         width: 45px;
         height: 5px;
-        background-color: black;
+        background-color: #3D210C;
         display: block;
         margin: 8px 0;
         -webkit-transition: all 0.3s ease-in-out;
@@ -5894,7 +5979,7 @@
         border: none;
         font-size: 34px;
         margin: 0px 0px;
-        color: #532c11;
+        color: #3D210C;
         cursor: pointer;
         position: relative;
         transition: 0.3s ease-in-out;
@@ -5991,7 +6076,7 @@
         font-size: 40px;
         font-weight: 600;
         background-color: rgba(245, 245, 245, 0.5);
-        color: #532c11;
+        color: #3D210C;
         transform: translate(0, -50%);
     }
 
@@ -6073,7 +6158,7 @@
         bottom: 0;
         padding: 10px 0;
         background-color: rgba(245, 245, 245, 0.5);
-        color: #532c11;
+        color: #3D210C;
         width: 100%;
         text-align: center;
         font-size: 40px;
@@ -6136,7 +6221,7 @@
         justify-content: center;
         align-items: center;
         font-size: 40px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .clothe-img {
@@ -6174,7 +6259,7 @@
     .accessories-content ul {
         font-size: 34px;
         margin-right: 0;
-        color: #532c11;
+        color: #3D210C;
         margin: auto 0;
     }
 
@@ -6265,7 +6350,7 @@
         margin-left: 0px;
         width: 100%;
         text-align: center;
-        color: #532c11;
+        color: #3D210C;
         position: relative;
     }
 
@@ -6293,7 +6378,7 @@
     .media-sub-title span {
         margin-left: 0px;
         width: 100%;
-        color: #532c11;
+        color: #3D210C;
         text-align: center;
     }
 
@@ -6367,7 +6452,7 @@
     }
 
     .close-modal {
-        color: #532c11;
+        color: #3D210C;
         padding-right: 10px;
     }
 
@@ -6383,7 +6468,7 @@
 
     .choose-country {
         font-size: 50px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .modal-country-content {
@@ -6396,7 +6481,7 @@
     .country-list-europe {
         padding: 0px 30px;
         font-size: 40px;
-        color: #532c11;
+        color: #3D210C;
     }
 
     .country-list {
@@ -6414,6 +6499,6 @@
         padding: 0;
         margin: 0 auto;
         align-self: flex-start;
-        color: #532c11;
+        color: #3D210C;
     }
 }

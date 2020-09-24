@@ -7,6 +7,7 @@
 
 body {
     overflow-x: hidden;
+    background-color: whitesmoke;
 }
 
 .animated {
@@ -34,7 +35,7 @@ body {
 }
 
 a {
-    color: #532c11;
+    color: #3D210C;
     text-decoration: none;
     cursor: pointer;
 }
@@ -53,6 +54,10 @@ li {
 ul {
     position: relative;
     margin-top: 10px;
+}
+
+header {
+    z-index: 1000;
 }
 
 /*global style end*/
@@ -75,6 +80,11 @@ ul {
 header {
     background-color: whitesmoke;
     z-index: 1001;
+}
+
+#headerContainer {
+    background-color: whitesmoke;
+    z-index: 1;
 }
 
 .nav-top {
@@ -110,7 +120,7 @@ header {
     border: none;
     font-size: 18px;
     margin: 0 10px;
-    color: #532c11;
+    color: #3D210C;
     cursor: pointer;
     position: relative;
     transition: 0.3s ease-in-out;
@@ -133,7 +143,7 @@ header {
 }
 
 .search-icon, .inst-icon {
-    color: #532c11;
+    color: #3D210C;
     cursor: pointer;
 }
 
@@ -288,7 +298,7 @@ header {
     font-size: 20px;
     font-weight: 600;
     background-color: rgba(245, 245, 245, 0.5);
-    color: #532c11;
+    color: #3D210C;
     transform: translate(0, -50%);
 }
 
@@ -408,7 +418,7 @@ header {
     bottom: 0;
     padding: 10px 0;
     background-color: rgba(245, 245, 245, 0.5);
-    color: #532c11;
+    color: #3D210C;
     width: 100%;
     text-align: center;
     font-size: 24px;
@@ -475,7 +485,7 @@ header {
 
 .women-clothe ul {
     margin: 0;
-    color: #532c11;  
+    color: #3D210C;  
 }
 
 .women-clothe ul li {
@@ -539,7 +549,7 @@ header {
     justify-content: center;
     align-items: center;
     font-size: 20px;
-    color: #532c11;
+    color: #3D210C;
 }
 
 .clothe-title p {
@@ -621,7 +631,7 @@ header {
 .accessories-content ul {
     font-size: 18px;
     margin-right: 20px;
-    color: #532c11;
+    color: #3D210C;
 }
 
 .accessories-content ul p {
@@ -699,7 +709,7 @@ header {
 }
 
 .news-sub-title span {
-    color: #532c11;
+    color: #3D210C;
     position: relative;
 }
 
@@ -726,7 +736,7 @@ header {
 
 .rec-sub-title span {
     margin-left: 10px;
-    color: #532c11;
+    color: #3D210C;
     position: relative;
 }
 
@@ -753,7 +763,7 @@ header {
 
 .media-sub-title span {
     margin-left: 10px;
-    color: #532c11;
+    color: #3D210C;
     position: relative;
 }
 
@@ -861,6 +871,7 @@ header {
 .modal-country-bg.open {
     top: 0;
     opacity: 1;
+    z-index: 2;
 } 
 
 .modal-country-wrapper {
@@ -893,11 +904,11 @@ header {
 
 .choose-country {
     font-size: 24px;
-    color: #532c11;
+    color: #3D210C;
 }
 
 .close-modal {
-    color: #532c11;
+    color: #3D210C;
 }
 
 .close-modal::before {
@@ -928,7 +939,7 @@ header {
 .country-list-europe {
     padding: 0 30px;
     font-size: 18px;
-    color: #532c11;
+    color: #3D210C;
 }
 
 .country-list {
@@ -976,7 +987,7 @@ header {
 .country-list-america, .country-list-asia{
     align-items: center;
     font-size: 18px;
-    color: #532c11;
+    color: #3D210C;
 }
 
 .modal-search-bg {
@@ -1019,7 +1030,7 @@ header {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-    color: #532c11;
+    color: #3D210C;
     height: 44px;
 }
 
@@ -1055,7 +1066,7 @@ header {
     align-items: center;
     text-align: center;
     justify-content: center;
-    color: #532c11;
+    color: #3D210C;
     right: 5%;
     cursor: pointer;
 }
@@ -1085,57 +1096,6 @@ header {
 
 .close-search:hover {
     color: #CD7F32;
-}
- 
-.alert-wrapper {
-    position: fixed;
-    width: 100%;
-    z-index: 1002;
-    top: 10px;
-    animation: modalAppear 0.7s ease-in-out;
-}
-
-.alert-content {
-    width: 600px;
-    height: 100px;
-    padding: 10px;
-    background-color: hsl(355deg 59% 63% / 90%);
-    color: #353535;
-    border: 1px solid #D91E41;
-    border-radius: 5px;
-    position: relative;
-}
-
-.alert-wrapper.active {
-    opacity: 0;
-    top: -200px;
-    transition: 0.7s ease-in-out;
-}
-
-#close-error-404 {
-    color: #353535;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-}
-
-#close-error-404:hover {
-    color: #686868;
-}
-
-#close-error-404::before {
-    font-size: 18px;
-    content: '\2716';
-    cursor: pointer;
-}
-
-.error-404-title {
-    text-align: center;
-}
-
-.error-404-description {
-    text-align: center;
-    font-size: 20px;
 }
 
 .digital-search {
