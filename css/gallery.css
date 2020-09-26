@@ -1,0 +1,163 @@
+.grid-el-1 {
+    background-color: #929292;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    width: auto;
+}
+
+.grid-el-2 {
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.grid-el-3 {
+    background-color: #929292;
+    grid-column-start: 6;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 5;
+}
+
+.grid-el-4 {
+    grid-column-start: 4;
+    grid-column-end: 8;
+    grid-row-start: 3;
+    grid-row-end: 5;
+}
+
+.grid-el-5 {
+    background-color: #929292;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 5;
+    grid-row-end: 7;
+}
+
+.grid-el-6 {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 5;
+    grid-row-end: 7;
+}
+
+.grid-el-7 {
+    background-color: #929292;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 7;
+    grid-row-end: 9;
+}
+
+.grid-el-8 {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 7;
+    grid-row-end: 9;
+}
+
+.grid-el-9 {
+    background-color: #929292;
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 5;
+    grid-row-end: 9;
+}
+
+.grid-el-10 {
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 6;
+    grid-row-end: 9;
+}
+
+.bg-gradien-right {
+    background: linear-gradient(to right, transparent, whitesmoke, whitesmoke);
+}
+
+.bg-gradien-left {
+    background: linear-gradient(to left, transparent, whitesmoke, whitesmoke);
+}
+
+.bg-gradient-top {
+    background: linear-gradient(to top, transparent, whitesmoke, whitesmoke);
+}
+
+.bg-gradient-bottom {
+    background: linear-gradient(to bottom, transparent, whitesmoke, whitesmoke);
+}
+
+.grid-el-2, .grid-el-8 {
+    border: 1px solid #3D210C;
+    border-left: none;
+    border-radius: 10%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.grid-el-4, .grid-el-6 {
+    border: 1px solid #3D210C;
+    border-right: none;
+    border-radius: 10%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.grid-el-10 {
+    background: linear-gradient(to bottom, transparent, whitesmoke, whitesmoke);
+    border: 1px solid #3D210C;
+    border-top: none;
+    border-radius: 10%;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.grid-el-1, .grid-el-2, .grid-el-3, .grid-el-4, .grid-el-5, 
+.grid-el-6, .grid-el-7, .grid-el-8, .grid-el-9, .grid-el-10 {
+    overflow: hidden;
+    z-index: 0;
+    position: relative;
+}
+
+.grid-el-2,.grid-el-4, .grid-el-6, .grid-el-8, .grid-el-10 {
+    cursor: pointer;
+}
+
+.grid-el-1 img, .grid-el-3 img, .grid-el-5 img, 
+.grid-el-7 img, .grid-el-9 img {
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.grid-el-1:hover img, .grid-el-3:hover img, .grid-el-5:hover img, 
+.grid-el-7:hover img,.grid-el-9:hover img {
+    transform: scale(1.2);
+}
+
+.gallery-text-right, .gallery-text-left {
+    font-size: 120%;
+    width: 60%;
+    padding: 10px;
+}
+.gallery-text-left {
+    margin-right: auto;
+}
+
+.gallery-text-right {
+    margin-left: auto;
+}
+
+.gallery-text-bottom {
+    font-size: 120%;
+    width: 70%;
+    padding: 20px;
+    margin: 0 auto;
+    align-self: flex-end;
+}
+
+.gallery-text-right h3, .gallery-text-left h3, .gallery-text-bottom h3 {
+    text-align: center;
+}

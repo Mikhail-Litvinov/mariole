@@ -1,7 +1,5 @@
 //open language/country //
 
-
-
 document.getElementById("btn-lang").onclick = function changeLang() {
     let btnLang = document.getElementById("btn-lang");
     btnLang.classList.toggle("active");
@@ -48,3 +46,4 @@ $(function() {
 });
 
 //scrollbar end//
+

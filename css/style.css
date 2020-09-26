@@ -805,6 +805,36 @@ header {
 
 /* header end */
 
+/* footer */
+
+.footer {
+    background-color: #2d2d2d;
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+.footer-wrapper {
+    width: 60%;
+    margin: auto;
+    padding: 20px 10px;
+    flex-wrap: nowrap;
+}
+
+.footer a {
+    color: whitesmoke;
+}
+
+.footer a:hover {
+    color: #CD7F32;
+}
+
+.footer-row {
+    padding-bottom: 5px;
+    font-size: 16px;
+}
+
+/* footer end */
+
 #content {
     width: 100%;
     height: 100%;
@@ -999,6 +1029,7 @@ header {
     opacity: 0;
     transition: 0.5s ease-in-out;
     overflow: hidden;
+    z-index: 1;
 }
 
 .desktop-search {
@@ -1104,6 +1135,72 @@ header {
 
 .desktop-search {
     top: 0;
+}
+
+.go-top-link {
+    position: fixed;
+    bottom: -100px;
+    right: 20px;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.go-top-link.active {
+    bottom: 20px;
+    right: 20px;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.go-top {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow {
+    transform: rotate(90deg);
+}
+
+.arrow .arrow-line{
+    width: 45px;
+    height: 2px;
+    background-color: black;
+    display: block;
+    margin: 8px auto;
+  }
+
+.arrow .arrow-line:nth-child(1),
+.arrow .arrow-line:nth-child(3){
+  width: 30px;
+}
+
+.arrow .arrow-line:nth-child(1){
+  -webkit-transform: translateX(-10px) rotate(-40deg);
+  -ms-transform: translateX(-10px) rotate(-40deg);
+  -o-transform: translateX(-10px) rotate(-40deg);
+  transform: translateX(-10px) rotate(-40deg);
+}
+
+.arrow .arrow-line:nth-child(3){
+  -webkit-transform: translateX(-10px) rotate(40deg);
+  -ms-transform: translateX(-10px) rotate(40deg);
+  -o-transform: translateX(-10px) rotate(40deg);
+  transform: translateX(-10px) rotate(40deg);
+}
+
+.go-top-link:hover .go-top {
+    border: 2px solid #CD7F32;
+}
+
+.go-top-link:hover .go-top .arrow .arrow-line {
+    background-color: #CD7F32;
 }
 
 /* modals end */

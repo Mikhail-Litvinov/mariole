@@ -18,5 +18,10 @@
 			include 'tpl/modal-search.tpl';
 			include 'tpl/scripts.tpl';
 		?>
+		<footer>
+			<?php
+				include 'tpl/footer.tpl';
+			?>
+		</footer>
 	</body>
 </html>

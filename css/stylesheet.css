@@ -5,6 +5,10 @@
     position: fixed;
 }
 
+.absolute {
+    position: absolute;
+}
+
 .flex {
     display: flex;
 }
@@ -44,6 +48,18 @@
     padding-right: 30px;
 }
 
+.p-right-20{
+    padding-right: 20px;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
 .col-9-10 {
     width: 90%;
 }
@@ -80,6 +96,10 @@
     display: none;
 }
 
+.top-0 {
+    top: 0;
+}
+
 .section-wrapper-grid {
     display: grid;
     grid-template-columns: repeat(2, 50%);
@@ -89,7 +109,118 @@
 .content-wrapper {
     width: 60%;
     margin: 0 auto;
-    padding:5% 0;
+    padding: 3% 0;
+    color: #3D210C;
+}
+
+.grid-col-1-1-left {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    padding-right: 10px;
+}
+
+.grid-col-1-2-right {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    padding-left: 10px;
+}
+
+.grid-col-1-1-right {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    padding-left: 10px;
+}
+
+.grid-col-1-2-left {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    padding-right: 10px;
+}
+
+.grid-bottom-1-1-left {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    position: relative;
+}
+
+.grid-bottom-1-1-right {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    position: relative;
+}
+
+.grid-col-1-2-right-2 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    padding-left: 10px;
+    position: relative;
+}
+
+.grid-col-1-2-left-2 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    padding-right: 10px;
+    position: relative;
+}
+
+.grid-col-1-2-middle {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-gap: 10px;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.content-title {
+    color: #3D210C;
+    font-size: 120%;
+    font-weight: 600;
+}
+
+.content-article {
+    padding-top: 10px;
+    color: #3D210C;
+    font-size: 120%;
+    line-height: 1.5;
+}
+
+.content-wrapper-full-width {
+    width: 100%;
+    padding: 3% 0;
+}
+
+.content-title-2 {
+    color: #3D210C;
+    font-size: 120%;
+    font-weight: 600;
+    width: 60%;
+    margin: auto;
 }
 
 /* stylesheet end */

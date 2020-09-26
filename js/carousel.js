@@ -9,6 +9,20 @@ let isDraggingBlocked = false;
 let isAutoMoveBlocked = false;
 let originalX, width, nextSlideIndex, previousSlideIndex;
 
+$(window).ready(function () {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width() <= 1024) {
+		$("#carousel").css("height", $(window).height() -  $("#headerContainer").height())
+	}else {
+		$("#carousel").css("height", $(window).height() -  $("#headerContainer").height())
+	}
+}).resize(function () {
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width() <= 1024) {
+		$("#carousel").css("height", $(window).height() -  $("#headerContainer").height())
+	}else {
+		$("#carousel").css("height", $(window).height() -  $("#headerContainer").height())
+	}
+})
+
 function initCarousel() {
 	slides = $("div.slide");
 	slides.hide();
