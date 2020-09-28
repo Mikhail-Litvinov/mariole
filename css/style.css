@@ -80,6 +80,8 @@ header {
 header {
     background-color: whitesmoke;
     z-index: 1001;
+    position: fixed;
+    width: 100%;
 }
 
 #headerContainer {
@@ -236,6 +238,11 @@ header {
     transition: 0.5s ease-in-out;
     overflow: hidden;
     position: relative;
+}
+
+.sub-menu-container {
+    width: 100%;
+    z-index: 1;
 }
 
 /* home-sub */

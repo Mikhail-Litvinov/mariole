@@ -1,4 +1,4 @@
-<div class="flex fixed width-100 wrap" id="headerContainer">
+<div class="flex width-100 wrap" id="headerContainer">
 	<div class="flex-row nav-top">
 		<div class="mobile hamburger-wrapper">
 			<div class="icon-container">
@@ -54,143 +54,146 @@
 				<li><a onclick="showContent('news')" rel="noopener noreferrer" class="menu-btn" id="news"><span id="news-page" class="languageable">Новости</span></a></li>
 			</ul>
 		</div>
-		<div class="flex sub-nav-home-wrapper sub-nav" id="home-sub">
-			<div class="sub-home-wrapper">
-					<div class="flex nowrap flex-align-middle mobile-sub">
-						<div onclick="showContent('about')" class="about-container sub-list-element">
+		
+	</div>
+</div>
+<div class="sub-menu-container">
+	<div class="flex sub-nav-home-wrapper sub-nav" id="home-sub">
+		<div class="sub-home-wrapper">
+				<div class="flex nowrap flex-align-middle mobile-sub">
+					<div onclick="showContent('about')" class="about-container sub-list-element">
+						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
+						<div class="about-text flex flex-align-middle">
+								<p class="after-change">О нас</p>
+						</div>
+					</div>
+					<div onclick="showContent('sales')" class="sale-container sub-list-element">
+						<div class="sale-img">
 							<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-							<div class="about-text flex flex-align-middle">
-									<p class="after-change">О нас</p>
+							<div class="sale-text">
+								<p>Акция</p>
 							</div>
 						</div>
-						<div onclick="showContent('sales')" class="sale-container sub-list-element">
-							<div class="sale-img">
-								<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-								<div class="sale-text">
-									<p>Акция</p>
-								</div>
-							</div>
+					</div>
+					<div onclick="showContent('new')" class="new-goods-container sub-list-element">
+						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
+						<div class="new-text">
+							<p>Новинки</p>
 						</div>
-						<div onclick="showContent('new')" class="new-goods-container sub-list-element">
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="flex sub-nav-gallery-wrapper sub-nav" id="gallery-sub">
+		<div class="sub-gallery-wrapper">
+			<div class="sub-gallery-table">
+				<div onclick="showContent('fashion-gallery')" class="clothes-gallery sub-list-element">
+					<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
+					<div class="gallery-sub-title">
+						<p><span>Mariole.fashion</span></p>
+					</div>
+				</div>
+				<div onclick="showContent('home-gallery')" class="home-gallery sub-list-element">
+					<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
+					<div class="gallery-sub-title">
+						<p><span>Mariole.home</span></p>
+					</div>
+				</div>
+				<div onclick="showContent('travel-gallery')" class="travel-gallery sub-list-element">
+					<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
+					<div class="gallery-sub-title">
+						<p><span>Mariole.travel</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="flex sub-nav-clothes-wrapper sub-nav" id="clothes-sub">
+		<div class="sub-clothes-wrapper">
+			<div class="flex nowrap flex-align-middle mobile-sub">
+				<div class="women-clothe">
+					<ul>
+						<p>Для женщин</p>
+						<li><a onclick="showContent('')" class="sub-list-element"><span>Брюки</span></a></li>
+						<li><a onclick="showContent('')" class="sub-list-element"><span>Джемпера</span></a></li>
+						<li><a onclick="showContent('')" class="sub-list-element"><span>Кардиганы</span></a></li>
+					</ul>
+				</div>
+				<div onclick="showContent('new')" class="new-clothe sub-list-element">
+					<div class="clothe-table">
+						<div class="clothe-title">
+							<p>Новое</p>
+						</div>
+						<div class="clothe-img">
 							<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-							<div class="new-text">
+							<div class="new-clothe-text">
 								<p>Новинки</p>
 							</div>
 						</div>
 					</div>
+				</div>
 			</div>
 		</div>
-		<div class="flex sub-nav-gallery-wrapper sub-nav" id="gallery-sub">
-			<div class="sub-gallery-wrapper">
-				<div class="sub-gallery-table">
-					<div onclick="showContent('fashion-gallery')" class="clothes-gallery sub-list-element">
+	</div>
+	<div class="flex sub-nav-accessories-wrapper sub-nav" id="accessories-sub">
+		<div class="accessories-wrapper">
+			<div class="accessories-content flex nowrap">
+				<div class="ul-for-women flex nowrap">
+					<ul><p>Для женщин</p>
+						<li ><a onclick="showContent('')" class="sub-list-element"><span>Варежки</span></a></li>
+						<li><a onclick="showContent('')" class="sub-list-element"><span>Головные уборы</span></a></li>
+						<li><a onclick="showContent('')" class="sub-list-element"><span>Носочки</span></a></li>
+						<li><a onclick="showContent('')" class="sub-list-element"><span>Палантины</span></a></li>
+						<li><a onclick="showContent('')" class="sub-list-element"><span>Перчатки</span></a></li>
+						<li><a onclick="showContent('')" class="sub-list-element"><span>Платки</span></a></li>
+						<li><a onclick="showContent('')" class="sub-list-element"><span>Шали</span></a></li>
+					</ul>
+					<div class="ul-sub-img">
 						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-						<div class="gallery-sub-title">
-							<p><span>Mariole.fashion</span></p>
-						</div>
 					</div>
-					<div onclick="showContent('home-gallery')" class="home-gallery sub-list-element">
+				</div>
+				<div class="ul-for-home flex nowrap">
+					<ul><p>Для дома</p>
+						<li><a onclick="showContent('')" class="sub-list-element"><span>Пледы</span></a></li>
+					</ul>
+					<div class="ul-sub-img">
 						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-						<div class="gallery-sub-title">
-							<p><span>Mariole.home</span></p>
-						</div>
 					</div>
-					<div onclick="showContent('travel-gallery')" class="travel-gallery sub-list-element">
+				</div>
+				<div class="ul-for-jewelry flex nowrap">
+					<ul><p>Бижутерия</p>
+						<li><a onclick="showContent('')" class="sub-list-element"><span>Браслеты</span></a></li>
+						<li><a onclick="showContent('')" class="sub-list-element"><span>Броши</span></a></li>
+						<li><a onclick="showContent('')" class="sub-list-element"><span>Колье</span></a></li>
+						<li><a onclick="showContent('')" class="sub-list-element"><span>Кулоны</span></a></li>
+						<li><a onclick="showContent('')" class="sub-list-element"><span>Серьги</span></a></li>
+					</ul>
+					<div class="ul-sub-img">
 						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-						<div class="gallery-sub-title">
-							<p><span>Mariole.travel</span></p>
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="flex sub-nav-clothes-wrapper sub-nav" id="clothes-sub">
-			<div class="sub-clothes-wrapper">
-				<div class="flex nowrap flex-align-middle mobile-sub">
-					<div class="women-clothe">
-						<ul>
-							<p>Для женщин</p>
-							<li><a onclick="showContent('')" class="sub-list-element"><span>Брюки</span></a></li>
-							<li><a onclick="showContent('')" class="sub-list-element"><span>Джемпера</span></a></li>
-							<li><a onclick="showContent('')" class="sub-list-element"><span>Кардиганы</span></a></li>
-						</ul>
-					</div>
-					<div onclick="showContent('new')" class="new-clothe sub-list-element">
-						<div class="clothe-table">
-							<div class="clothe-title">
-								<p>Новое</p>
-							</div>
-							<div class="clothe-img">
-								<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-								<div class="new-clothe-text">
-									<p>Новинки</p>
-								</div>
-							</div>
-						</div>
+	</div>
+	<div class="flex sub-nav-news-wrapper sub-nav" id="news-sub">
+		<div class="news-sub-wrapper">
+			<div class="news-sub-content">
+				<div onclick="showContent('news')" class="last-news-container sub-list-element">
+					<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
+					<div class="news-sub-title flex nowrap flex-align-middle">
+						<span>Свежие новости</span>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="flex sub-nav-accessories-wrapper sub-nav" id="accessories-sub">
-			<div class="accessories-wrapper">
-				<div class="accessories-content flex nowrap">
-					<div class="ul-for-women flex nowrap">
-						<ul><p>Для женщин</p>
-							<li ><a onclick="showContent('')" class="sub-list-element"><span>Варежки</span></a></li>
-							<li><a onclick="showContent('')" class="sub-list-element"><span>Головные уборы</span></a></li>
-							<li><a onclick="showContent('')" class="sub-list-element"><span>Носочки</span></a></li>
-							<li><a onclick="showContent('')" class="sub-list-element"><span>Палантины</span></a></li>
-							<li><a onclick="showContent('')" class="sub-list-element"><span>Перчатки</span></a></li>
-							<li><a onclick="showContent('')" class="sub-list-element"><span>Платки</span></a></li>
-							<li><a onclick="showContent('')" class="sub-list-element"><span>Шали</span></a></li>
-						</ul>
-						<div class="ul-sub-img">
-							<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-						</div>
-					</div>
-					<div class="ul-for-home flex nowrap">
-						<ul><p>Для дома</p>
-							<li><a onclick="showContent('')" class="sub-list-element"><span>Пледы</span></a></li>
-						</ul>
-						<div class="ul-sub-img">
-							<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-						</div>
-					</div>
-					<div class="ul-for-jewelry flex nowrap">
-						<ul><p>Бижутерия</p>
-							<li><a onclick="showContent('')" class="sub-list-element"><span>Браслеты</span></a></li>
-							<li><a onclick="showContent('')" class="sub-list-element"><span>Броши</span></a></li>
-							<li><a onclick="showContent('')" class="sub-list-element"><span>Колье</span></a></li>
-							<li><a onclick="showContent('')" class="sub-list-element"><span>Кулоны</span></a></li>
-							<li><a onclick="showContent('')" class="sub-list-element"><span>Серьги</span></a></li>
-						</ul>
-						<div class="ul-sub-img">
-							<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-						</div>
+				<div onclick="showContent('recommend')" class="rec-news-container sub-list-element">
+					<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
+					<div class="rec-sub-title flex nowrap">
+						<span>Рекомендованное</span>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="flex sub-nav-news-wrapper sub-nav" id="news-sub">
-			<div class="news-sub-wrapper">
-				<div class="news-sub-content">
-					<div onclick="showContent('news')" class="last-news-container sub-list-element">
-						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-						<div class="news-sub-title flex nowrap flex-align-middle">
-							<span>Свежие новости</span>
-						</div>
-					</div>
-					<div onclick="showContent('recommend')" class="rec-news-container sub-list-element">
-						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-						<div class="rec-sub-title flex nowrap">
-							<span>Рекомендованное</span>
-						</div>
-					</div>
-					<div onclick="showContent('media')" class="media-news-container sub-list-element">
-						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-						<div class="media-sub-title flex nowrap">
-							<span>Мы в прессе</span>
-						</div>
+				<div onclick="showContent('media')" class="media-news-container sub-list-element">
+					<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
+					<div class="media-sub-title flex nowrap">
+						<span>Мы в прессе</span>
 					</div>
 				</div>
 			</div>

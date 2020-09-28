@@ -120,15 +120,6 @@
                 </div>
             </div>
         </div>
-        <a href="#header" class="anchor go-top-link">
-            <div class="go-top">
-                <div class="arrow" id="hamburger-3">
-                    <span class="arrow-line"></span>
-                    <span class="arrow-line"></span>
-                    <span class="arrow-line"></span>
-                  </div>
-            </div>
-        </a>
     </main>
     <script type="text/javascript" src="/js/carousel.js"></script>
 </body>

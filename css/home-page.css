@@ -7,7 +7,6 @@
 #carousel {
     width: 100%;
     margin: auto;
-    height: 700px;
     position: relative;
 	cursor: grab;
 }

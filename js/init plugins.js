@@ -13,4 +13,18 @@ $(document).ready(function(){
         navtext:false
     });
     });
+
+    $(window).ready(function () {
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width() <= 1024) {
+            $(".carousel-wrapper").css("height", $(window).height() -  $("#headerContainer").height())
+        }else {
+            $(".carousel-wrapper").css("height", $(window).height() -  $("#headerContainer").height())
+        }
+    }).resize(function () {
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width() <= 1024) {
+            $(".carousel-wrapper").css("height", $(window).height() -  $("#headerContainer").height())
+        }else {
+            $(".carousel-wrapper").css("height", $(window).height() -  $("#headerContainer").height())
+        }
+    })
 //owl carousel end//
