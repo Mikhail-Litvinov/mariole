@@ -1,3 +1,5 @@
+let carousel;
+
 //open language/country //
 
 document.getElementById("btn-lang").onclick = function changeLang() {
