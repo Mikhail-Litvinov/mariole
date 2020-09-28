@@ -35,9 +35,9 @@ function initCarousel() { // Prepare carousel to work
 	resizeCarousel();
 	
 	carousel.slides[0].style.transform = "translateX(0%)"; // Center first slide
-	carousel.slides.on("mousedown", onMouseDown); // Bind dragging start event to every slide
+	carousel.slides.on("mousedown touchstart", onMouseDown); // Bind dragging start event to every slide
 	carousel.slides.each((index, element) => { element.ondragstart = null; }); // Unbind default drag event from every slide
-	$(document).on("mousemove", onMouseMove).on("mouseup", onMouseUp); // Bing mouse move and undragging events to the page
+	$(document).on("mousemove touchmove", onMouseMove).on("mouseup touchend", onMouseUp); // Bing mouse move and undragging events to the page
 	
 	$("div#previous-slide-btn").click(() => { moveCarousel(-1, true); }); // Bing switching slide back to back arrow
 	$("div#next-slide-btn").click(() => { moveCarousel(1, true); }); // Bing switching slide forward to forward arrow
@@ -129,8 +129,8 @@ function onMouseDown(evt) { // Activates then user clicks on carousel to drag
 		pauseCarousel(); // Pause carousel
 		carousel.isDragging = true; // Set flag that it's dragging at the moment
 		carousel.isAutoMoveBlocked = true; // Block auto slide switching
-		carousel.originalX = evt.screenX; // Write base cursor X
 		carousel.width = $("#carousel").width(); // Write current carousel width
+		carousel.originalX = (evt.type == "touchstart" ? evt.touches[0] : evt).screenX;
 		
 		prepareSlides(); // Prepare slides
 		
@@ -145,7 +145,7 @@ function prepareSlides() { // Update indexes of next and previous slides
 }
 
 function onMouseMove(evt) {
-	if(carousel.isDragging) moveSlide(evt.screenX - carousel.originalX); // If it's dragging at the moment then move slide
+	if(carousel.isDragging) moveSlide((evt.type == "touchmove" ? evt.touches[0] : evt).screenX - carousel.originalX); // If it's dragging at the moment then move slide
 }
 
 function fallSlide() {
