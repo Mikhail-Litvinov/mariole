@@ -59,7 +59,7 @@ $(window).ready(function () {
         // padding main //
 
         $(document).ready(function () {
-            $("#content").css("padding-top", $("#headerContainer").height()+10);
+            $("#content").css("padding-top", $("#headerContainer").height());
         })
 
         //padding main end //
@@ -132,7 +132,7 @@ $(window).ready(function () {
         // padding main //
 
         $(document).ready(function () {
-        $("#content").css("padding-top", $("#headerContainer").height()+10);
+        $("#content").css("padding-top", $("#headerContainer").height());
         })
 
         //padding main end //

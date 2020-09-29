@@ -16,7 +16,6 @@
     height: 100%;
     overflow: hidden;
     position: absolute;
-	transform: translateX(100%);
 }
 
 #slide-container {
