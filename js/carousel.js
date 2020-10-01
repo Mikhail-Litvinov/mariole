@@ -1,4 +1,4 @@
-function preinit() {
+function preInitCarousel() {
 	carousel = {
 		slides: $("div.slide"), // Array containing slide's DOMs
 		active: 0, // Index of active slide
@@ -31,7 +31,7 @@ function initCarousel() { // Prepare carousel to work
 		clearTimeout(carousel.unpauseTimer);
 	}
 	
-	preinit();
+	preInitCarousel();
 	resizeCarousel();
 	
 	carousel.slides[0].style.transform = "translateX(0%)"; // Center first slide
@@ -172,11 +172,11 @@ function moveSlide(relativeX) { // Move slide dynamically
 	let percentage = (relativeX / carousel.width) * 100; // Calculate percentage of offset
 	
 	if(Math.abs(percentage) > 50) { // If slide is too much on left or right side
-		let direction = Math.sign(-percentage); // Calculate direction of moving
+		let direction = Math.sign(percentage); // Calculate direction of moving
 		
-		carousel.active = validate(direction); // Set new active slide
-		percentage += 100 * direction; // Change percentage for new active slide
-		carousel.originalX -= carousel.width * direction; // Set new X on which it calculates offset
+		carousel.active = validate(-direction); // Set new active slide
+		percentage -= 100 * direction; // Change percentage for new active slide
+		carousel.originalX += carousel.width * direction; // Set new X on which it calculates offset
 		
 		prepareSlides(); // Prepare slides
 	}
