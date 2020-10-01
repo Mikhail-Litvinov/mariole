@@ -3,5 +3,5 @@ RewriteEngine On
 RewriteRule ^sitemap\.xml/? sitemap.php [L,QSA]
 RewriteRule ^robots\.txt/? robots.php [L,QSA]
 
-RewriteCond %{REQUEST_URI} !^/(js|css|fonts|img|tpl|config|favicon.ico|robots.(txt|php)|sitemap.(xml|php))
-RewriteRule .* index.php [L,QSA]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php?q=$1 [L,QSA]
