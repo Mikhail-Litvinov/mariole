@@ -3,15 +3,6 @@ let closeTimeout = 300;
 let close404Timeout = 700;
 let escapeKeycode = 27;
 
-let modalLang = document.getElementById("modal-lang");
-let btnLang = document.getElementById("btn-lang");
-let modalCountry = document.getElementById("modal-country");
-let closeModalCountry = document.getElementById("close-country");
-let btnCountry = document.getElementById("btn-country");
-let modalSearch = document.getElementById("modal-search");
-let closeSearch = document.getElementById("close-search");
-let btnSearch = document.getElementById("open-search");
-
 function toggleLangModal() { $("#btn-lang").hasClass("active") ? closeLangModal() : openLangModal(); }
 
 function openLangModal() {
@@ -52,24 +43,7 @@ function close404Modal() {
 	setTimeout(() => { $("#error-404-modal").remove(); }, close404Timeout);
 }
 
-document.addEventListener('keydown', function (esc) {
-    if (esc.keyCode === 27) {
-        if (btnSearch.classList.contains("active")) {
-            btnSearch.classList.remove("active");
-            modalSearch.classList.remove("open");
-        }
-        if (btnCountry.classList.contains("active")) {
-            btnCountry.classList.remove("active");
-            modalCountry.classList.remove("open");
-        }
-        if (btnLang.classList.contains("active")) {
-            btnLang.classList.remove("active");
-            modalLang.classList.remove("open");
-        }
-    }
-  }); 
-
-  function onKeyDown(evt) {
+function onKeyDown(evt) {
 	if(evt.keyCode == escapeKeycode) {
 		closeLangModal();
 		closeCountryModal();
@@ -77,11 +51,6 @@ document.addEventListener('keydown', function (esc) {
 		close404Modal();
 	}
 }
-
-// modalCountry.onclick = function WinCloseCountry() {
-//     btnCountry.classList.remove("active");
-//     modalCountry.classList.remove("open");
-// }
 
 $(() => {
     $("#btn-lang").click(toggleLangModal);
@@ -95,8 +64,4 @@ $(() => {
 	$("#close-error-404").click(close404Modal);
 
 	$(document).on("keydown", onKeyDown);
-    $("#close-error-404").click(() => {
-        $("#error-404-modal").addClass("active");
-        setTimeout($("#error-404-modal").remove, 700);
-    });
 });

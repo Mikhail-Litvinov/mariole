@@ -1,7 +1,5 @@
 let carousel; // Config singleton for carousel
 
-//scrollbar//
-
 $(() => {
 	$("body").overlayScrollbars({
         overflowBehavior : {
@@ -10,9 +8,3 @@ $(() => {
         },
     });
 });
-
-//scrollbar end//
-
-
-
-
