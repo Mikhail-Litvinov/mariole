@@ -9,7 +9,8 @@ function closeAllSubmenus() {
 $(".accordion").click(function () {
     let isActive = $(this).toggleClass("active").hasClass("active");
     let height = (isActive ? $(this).children(".catalogue-sub")[0].scrollHeight : 0) + "px";
-    closeAllSubmenus();
+	
+	closeAllSubmenus();
 	
     $(this).toggleClass("active", isActive).children(".catalogue-sub").height(height);
 });
