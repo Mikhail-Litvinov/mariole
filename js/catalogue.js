@@ -1,10 +1,11 @@
-$(".catalogue-button").click(function () {
+
+$(".accordion").click(function () {
     let isActive = $(this).toggleClass("active").hasClass("active");
     let height = (isActive ? $(this).children(".catalogue-sub")[0].scrollHeight : 0) + "px";
     
-    $(".catalogue-button").removeClass("active");
+    $(".accordion").removeClass("active");
     $(this).toggleClass("active", isActive);
     
-    $(".catalogue-button > .catalogue-sub").height("0px");
-    $(".catalogue-button.active > .catalogue-sub").height(height);
+    $(".accordion > .catalogue-sub").height("0px");
+    $(".accordion.active > .catalogue-sub").height(height);
 });
