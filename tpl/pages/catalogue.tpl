@@ -1,9 +1,10 @@
 <head>
     <link rel="stylesheet" href="/css/catalogue.css">
+    <link rel="stylesheet" href="/css/jquery.nselect.css">
 </head>
 <body>
     <main>
-        <div class=".content-wrapper-full-width flex">
+        <div class="catalogue-content">
             <aside class="catalogue-left-nav">
                 <div class="categories-title">
                     <p id="categories-title">Категории</p>
@@ -43,13 +44,126 @@
                 <button class="catalogue-button">Акции</button>
             </aside>
             <div class="catalogue-top-nav">
-                <button class="catalogue-button-top-nav">Сортировка <span class="btn-ind"></span></button>
+                <div class="catalogue-button-top-nav">
+                    <p>Сортировка:</p>
+                    <select class="sorting">
+                        <option value="1" selected><p>По умолчанию</p></option>
+                        <option value="2"><p>Цена: убывание</p></option>
+                        <option value="3"><p>Цена: возрастание</p></option>
+                        <option value="4"><p>Алфавитный (А-Я)</p></option>
+                        <option value="5"><p>Сначала новое</p></option>
+                    </select>
+                </div>
             </div>
-            
-            <div class="catalogue-content">
-
+            <div class="catalogue-page flex wrap">
+                <div class="product-wrapper" onclick="showContent('product-page')">
+                    <div class="product-photo">
+                        <img src="/img/gallery/img filler 5x7.jpg" alt="" width="100%">
+                    </div>
+                    <div class="product-title">
+                        <P>Название товара</P>
+                    </div>
+                    <div class="product-price">
+                        <p>ХХ.ХХХ(&#8381;)</p>
+                    </div>
+                </div>
+                <div class="product-wrapper" onclick="showContent('product-page')">
+                    <div class="product-photo">
+                        <img src="/img/gallery/img filler 5x7.jpg" alt="" width="100%">
+                    </div>
+                    <div class="product-title">
+                        <P>Название товара</P>
+                    </div>
+                    <div class="product-price">
+                        <p>ХХ.ХХХ(&#8381;)</p>
+                    </div>
+                </div>
+                <div class="product-wrapper" onclick="showContent('product-page')">
+                    <div class="product-photo">
+                        <img src="/img/gallery/img filler 5x7.jpg" alt="" width="100%">
+                    </div>
+                    <div class="product-title">
+                        <P>Название товара</P>
+                    </div>
+                    <div class="product-price">
+                        <p>ХХ.ХХХ(&#8381;)</p>
+                    </div>
+                </div>
+                <div class="product-wrapper" onclick="showContent('product-page')">
+                    <div class="product-photo">
+                        <img src="/img/gallery/img filler 5x7.jpg" alt="" width="100%">
+                        <div class="sale-catalogue">
+								<p>Акция</p>
+							</div>
+                    </div>
+                    <div class="product-title">
+                        <P>Название товара</P>
+                    </div>
+                    <div class="product-price">
+                        <p>ХХ.ХХХ(&#8381;)</p>
+                    </div>
+                </div>
+                <div class="product-wrapper" onclick="showContent('product-page')">
+                    <div class="product-photo">
+                        <img src="/img/gallery/img filler 5x7.jpg" alt="" width="100%">
+                    </div>
+                    <div class="product-title">
+                        <P>Название товара</P>
+                    </div>
+                    <div class="product-price">
+                        <p>ХХ.ХХХ(&#8381;)</p>
+                    </div>
+                </div>
+                <div class="product-wrapper" onclick="showContent('product-page')">
+                    <div class="product-photo">
+                        <img src="/img/gallery/img filler 5x7.jpg" alt="" width="100%">
+                    </div>
+                    <div class="product-title">
+                        <P>Название товара</P>
+                    </div>
+                    <div class="product-price">
+                        <p>ХХ.ХХХ(&#8381;)</p>
+                    </div>
+                </div>
+                <div class="product-wrapper" onclick="showContent('product-page')">
+                    <div class="product-photo">
+                        <img src="/img/gallery/img filler 5x7.jpg" alt="" width="100%">
+                        <div class="new-catalogue">
+							<p>Новинки</p>
+						</div>
+                    </div>
+                    <div class="product-title">
+                        <P>Название товара</P>
+                    </div>
+                    <div class="product-price">
+                        <p>ХХ.ХХХ(&#8381;)</p>
+                    </div>
+                </div>
+                <div class="product-wrapper" onclick="showContent('product-page')">
+                    <div class="product-photo">
+                        <img src="/img/gallery/img filler 5x7.jpg" alt="" width="100%">
+                    </div>
+                    <div class="product-title">
+                        <P>Название товара</P>
+                    </div>
+                    <div class="product-price">
+                        <p>ХХ.ХХХ(&#8381;)</p>
+                    </div>
+                </div>
+                <div class="product-wrapper" onclick="showContent('product-page')">
+                    <div class="product-photo">
+                        <img src="/img/gallery/img filler 5x7.jpg" alt="" width="100%">
+                    </div>
+                    <div class="product-title">
+                        <P>Название товара</P>
+                    </div>
+                    <div class="product-price">
+                        <p>ХХ.ХХХ(&#8381;)</p>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
+    <script src="/js/jquery.nselect.js"></script>
     <script src="/js/catalogue.js"></script>
 </body>

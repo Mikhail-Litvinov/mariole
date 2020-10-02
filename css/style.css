@@ -818,6 +818,7 @@ header {
     background-color: #2d2d2d;
     font-size: 20px;
     color: whitesmoke;
+    position: relative;
 }
 
 .footer-wrapper {
