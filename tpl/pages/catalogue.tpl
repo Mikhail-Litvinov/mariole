@@ -8,7 +8,7 @@
                 <div class="categories-title">
                     <p id="categories-title">Категории</p>
                 </div>
-                <button class="catalogue-button">Одежда <span class="btn-ind"></span>
+                <button class="catalogue-button accordion">Одежда <span class="btn-ind"></span>
                 <div class="catalogue-sub">
                     <ul>
                         <li><a >Брюки</a></li>
@@ -17,7 +17,7 @@
                     </ul>
                 </div>
                 </button>
-                <button class="catalogue-button">Аксессуары <span class="btn-ind"></span>
+                <button class="catalogue-button accordion">Аксессуары <span class="btn-ind"></span>
                     <div class="catalogue-sub">
                         <ul>
                             <li><a >Варежки</a></li>
@@ -30,7 +30,7 @@
                         </ul>
                     </div></button>
                 <button class="catalogue-button">Для дома</button>
-                <button class="catalogue-button">Бижутерия <span class="btn-ind"></span>
+                <button class="catalogue-button accordion">Бижутерия <span class="btn-ind"></span>
                     <div class="catalogue-sub">
                         <ul>
                             <li><a >Браслеты</a></li>

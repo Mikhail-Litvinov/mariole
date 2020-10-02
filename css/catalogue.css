@@ -2,18 +2,17 @@
     width: 100%;
     margin-left: auto;
     height: 5vh;
-    background-color: #cecece;
+    background-color: rgb(240, 240, 240);
     position: relative;
     display: flex;
     align-items: center;
 }
 
 .catalogue-left-nav {
-    background-color: #cecece;
+    background-color: rgb(240, 240, 240);
     height: 100%;
     position: relative;
     width: 10%;
-    padding: 0 20px;
 }
 
 .categories-title {
@@ -48,6 +47,7 @@
     color: #3D210C;
     position: relative;
     text-align: left;
+    padding: 0 20px;
 }
 
 .catalogue-sub {
@@ -59,6 +59,11 @@
 
 .catalogue-button:hover, .catalogue-button-top-nav:hover {
     color: #CD7F32;
+    background-color: rgb(230, 230, 230);
+}
+
+.active.catalogue-button, .active.catalogue-button-top-nav {
+    background-color: rgb(230, 230, 230);
 }
 
 .catalogue-button::after, .catalogue-button-top-nav::after {
@@ -77,7 +82,7 @@
     transform:translateX(-50%);
 }
 
-.catalogue-button:hover::after, .catalogue-button-top-nav:hover::after {
+.active.catalogue-button::after,.active.catalogue-button-top-nav::after {
     width: 100%;
 }
 

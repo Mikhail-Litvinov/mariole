@@ -908,7 +908,7 @@ header {
 .modal-country-bg.open {
     top: 0;
     opacity: 1;
-    z-index: 2;
+    z-index: 1001;
 } 
 
 .modal-country-wrapper {
@@ -1046,6 +1046,7 @@ header {
 .modal-search-bg.open {
     height: 150px;
     opacity: 1;
+    z-index: 1001;
 }
 
 .modal-search-wrapper {

@@ -1,3 +1,8 @@
+let openTimeout = 50;
+let closeTimeout = 300;
+let close404Timeout = 700;
+let escapeKeycode = 27;
+
 let modalLang = document.getElementById("modal-lang");
 let btnLang = document.getElementById("btn-lang");
 let modalCountry = document.getElementById("modal-country");
@@ -7,45 +12,44 @@ let modalSearch = document.getElementById("modal-search");
 let closeSearch = document.getElementById("close-search");
 let btnSearch = document.getElementById("open-search");
 
-let closeTimer = null;
+function toggleLangModal() { $("#btn-lang").hasClass("active") ? closeLangModal() : openLangModal(); }
 
-function openLang() {
-    modalLang.style.display = "flex";
-    closeTimer = setTimeout (() => {
-        modalLang.classList.add("open");
-    }, 50)
+function openLangModal() {
+	$("#btn-lang").addClass("active");
+	$("#modal-lang").css("display", "flex");
+	setTimeout(() => { $("#modal-lang").addClass("open"); }, openTimeout);
 }
-function closeLang() {
-    modalLang.classList.remove("open");
-    closeTimer = setTimeout (() => {
-        modalLang.style.display = "none"
-    }, 300)
+function closeLangModal() {
+	$("#btn-lang").removeClass("active");
+	$("#modal-lang").removeClass("open");
+	setTimeout(() => { $("#modal-lang").css("display", "none"); }, closeTimeout);
 }
 
-function openCountry() {
-    if (btnCountry.classList.contains("active")) {
-        modalCountry.style.display = "block"
-        closeTimer = setTimeout (() => {
-            modalCountry.classList.add("open");
-        }, 50)
-    }
+function openCountryModal() {
+	$("#btn-country").addClass("active");
+	$("#modal-country").css("display", "block");
+	setTimeout(() => { $("#modal-country").addClass("open"); }, openTimeout);
 }
 
-document.getElementById("close-country").onclick = function closeCountry() {
-    btnCountry.classList.remove("active");
-    modalCountry.classList.remove("open");
-    closeTimer = setTimeout (() => {
-        modalCountry.style.display = "none"
-    }, 300)
+function closeCountryModal() {
+	$("#btn-country").removeClass("active");
+	$("#modal-country").removeClass("open");
+	setTimeout(() => { $("#modal-country").css("display", "none"); }, closeTimeout);
 }
 
-function SearchModalOpen() {
-    modalSearch.classList.add("open");
+function openSearchModal() {
+	$("#open-search").addClass("active");
+	$("#modal-search").addClass("open");
 }
 
-closeSearch.onclick = function SearchModalClose() {
-    btnSearch.classList.remove("active");
-    modalSearch.classList.remove("open");
+function closeSearchModal() {
+	$("#open-search").removeClass("active");
+	$("#modal-search").removeClass("open");
+}
+
+function close404Modal() {
+	$("#error-404-modal").addClass("active");
+	setTimeout(() => { $("#error-404-modal").remove(); }, close404Timeout);
 }
 
 document.addEventListener('keydown', function (esc) {
@@ -65,12 +69,32 @@ document.addEventListener('keydown', function (esc) {
     }
   }); 
 
+  function onKeyDown(evt) {
+	if(evt.keyCode == escapeKeycode) {
+		closeLangModal();
+		closeCountryModal();
+		closeSearchModal();
+		close404Modal();
+	}
+}
+
 // modalCountry.onclick = function WinCloseCountry() {
 //     btnCountry.classList.remove("active");
 //     modalCountry.classList.remove("open");
 // }
 
 $(() => {
+    $("#btn-lang").click(toggleLangModal);
+
+	$("#btn-country").click(openCountryModal);
+	$("#close-country").click(closeCountryModal);
+
+	$("#open-search").click(openSearchModal);
+	$("#close-search").click(closeSearchModal);
+
+	$("#close-error-404").click(close404Modal);
+
+	$(document).on("keydown", onKeyDown);
     $("#close-error-404").click(() => {
         $("#error-404-modal").addClass("active");
         setTimeout($("#error-404-modal").remove, 700);

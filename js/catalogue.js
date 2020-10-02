@@ -1,20 +1,15 @@
-// $(document).ready(function () {
-//     $(".catalogue-top-nav").css("width", $(window).width()-$(".catalogue-left-nav").width())
-// })
-// , function closeCat() {
-//     $(".catalogue-button").removeClass("active");
-//     $(".catalogue-sub").height(0);
-// }
 
-let catalogueSub = [$(".catalogue-sub")]
-let catalogueBtn = [$(".catalogue-button")]
+let catalogueSub = $(".catalogue-sub");
+let catalogueBtn =$(".accordion");
 
 
 $(".catalogue-button").click(function () {
-    $(this).toggleClass("active");
-    for (let n = 0; n < catalogueBtn.length; n++) {
-        if ($(catalogueBtn[n]).hasClass("active")) {
-            $(catalogueSub[n]).height(catalogueSub[n].scrollHeight + "px");
-        }
-    }
-})
+    let isActive = $(this).toggleClass("active").hasClass("active");
+    let height = (isActive ? $(this).children(".catalogue-sub")[0].scrollHeight : 0) + "px";
+    
+    $(".catalogue-button").removeClass("active");
+    $(this).toggleClass("active", isActive);
+    
+    $(".catalogue-button > .catalogue-sub").height("0px");
+    $(".catalogue-button.active > .catalogue-sub").height(height);
+});
