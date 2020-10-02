@@ -1,7 +1,5 @@
 <head>
-    <link rel="stylesheet" href="/css/stylesheet.css">
     <link rel="stylesheet" href="/css/fashion-gallery.css">
-    <link rel="stylesheet" href="/css/media.css">
 </head>
 <body>
     <div class="content-wrapper">

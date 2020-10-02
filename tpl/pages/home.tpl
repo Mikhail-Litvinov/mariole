@@ -1,8 +1,6 @@
 
 <head>
-    <link rel="stylesheet" href="/css/stylesheet.css">
     <link rel="stylesheet" href="/css/home-page.css">
-    <link rel="stylesheet" href="/css/media.css">
 </head>
 <body>
     <main>

@@ -1212,6 +1212,59 @@ header {
 
 /* modals end */
 
+/* alerts */
+
+.alert-wrapper {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    transition: 0.5s ease-in-out;
+}
+
+.alert-wrapper.active {
+    top: -100%;
+}
+
+.alert-content {
+    width: 30%;
+    background-color: rgba(243, 157, 165, 0.7);
+    padding: 20px;
+    position: relative;
+}
+
+.error-404-title {
+    color: #3D210C;
+    font-size: 120%;
+}
+
+.error-404-description {
+    color: #3D210C;
+    font-size: 120%;
+    text-align: center;
+    width: 80%;
+    padding-top: 10px;
+}
+
+#close-error-404 {
+    position: absolute;
+    font-size: 110%;
+    color: #3D210C;
+    top: 1vh;
+    right: 2vh;
+    cursor: pointer;
+}
+
+#close-error-404:hover {
+    color: #CD7F32;
+}
+
+#close-error-404::before {
+    content: "\2716";
+}
+
+/* alerts end */
+
 /* animation */
 
 @keyframes blockAppear {

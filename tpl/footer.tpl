@@ -3,7 +3,7 @@
         <div class="flex col-1-3 footer-column">
             <ul>
                 <li>
-                    <a>Каталог</a>
+                    <a onclick="showContent('catalogue')">Каталог</a>
                 </li>
                 <li>
                     <a>Связаться с нами</a>
