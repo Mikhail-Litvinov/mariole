@@ -6,6 +6,7 @@
     position: fixed;
     display: flex;
     align-items: center;
+    z-index: 1;
 }
 
 .catalogue-left-nav {
@@ -131,6 +132,7 @@
     height: 100%;
     padding-left: 20%;
     padding-top: 5vh;
+    z-index: 1;
 }
 
 .product-wrapper {

@@ -1,5 +1,6 @@
 <head>
     <link rel="stylesheet" href="/css/about-page.css">
+    <link rel="stylesheet" href="/css/media.css">
 </head>
 
 <body>

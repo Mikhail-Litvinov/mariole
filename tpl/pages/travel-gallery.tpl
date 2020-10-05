@@ -1,5 +1,6 @@
 <head>
     <link rel="stylesheet" href="/css/travel-gallery.css">
+    <link rel="stylesheet" href="/css/media.css">
 </head>
 <body>
     <div class="content-wrapper">

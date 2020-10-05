@@ -1,9 +1,10 @@
 <head>
     <link rel="stylesheet" href="/css/product.css">
     <link rel="stylesheet" href="/css/jquery.nselect.css">
+    <link rel="stylesheet" href="/css/media.css">
 </head>
 <body>
-    <div class="content-wrapper-full-width flex nowrap">
+    <div class="content-wrapper-full-width flex nowrap" id="product-page-wrapper">
         <div class="card-left">
             <div class="product-slider-wrapper">
                 <div class="product-slider">

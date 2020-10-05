@@ -6,36 +6,36 @@
                     <a onclick="showContent('catalogue')">Каталог</a>
                 </li>
                 <li>
-                    <a>Связаться с нами</a>
+                    <a onclick="showContent('contacts')">Связаться с нами</a>
                 </li>
                 <li>
-                    <a>Галерея</a>
+                    <a onclick="showContent('gallery')">Галерея</a>
                 </li>
                 <li>
-                    <a>Блог</a>
-                </li>
-            </ul>
-        </div>
-        <div class="flex col-1-3 footer-column">
-            <ul>
-                <li>
-                    <a>Возврат и обмен</a>
-                </li>
-                <li>
-                    <a>Доставка</a>
-                </li>
-                <li>
-                    <a>Вопросы и ответы</a>
+                    <a onclick="showContent('news')">Блог</a>
                 </li>
             </ul>
         </div>
         <div class="flex col-1-3 footer-column">
             <ul>
                 <li>
-                    <a>Юридическая информация</a>
+                    <a onclick="showContent('returns_and_exchanges')">Возврат и обмен</a>
                 </li>
                 <li>
-                    <a>Cookies и конфиденциальность</a>
+                    <a onclick="showContent('delivery')">Доставка</a>
+                </li>
+                <li>
+                    <a onclick="showContent('FAQ')">Вопросы и ответы</a>
+                </li>
+            </ul>
+        </div>
+        <div class="flex col-1-3 footer-column">
+            <ul>
+                <li>
+                    <a onclick="showContent('legal_information')">Юридическая информация</a>
+                </li>
+                <li>
+                    <a onclick="showContent('privacy_policy')">Cookies и конфиденциальность</a>
                 </li>
             </ul>
         </div>

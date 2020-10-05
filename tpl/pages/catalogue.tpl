@@ -1,10 +1,18 @@
 <head>
     <link rel="stylesheet" href="/css/catalogue.css">
     <link rel="stylesheet" href="/css/jquery.nselect.css">
+    <link rel="stylesheet" href="/css/media.css">
 </head>
 <body>
     <main>
         <div class="catalogue-content">
+            <div id="openCatNav" class="mobile">
+                <div class="hamburger" id="hamburger-4">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                  </div>
+            </div>
             <aside class="catalogue-left-nav">
                 <div class="categories-title">
                     <p id="categories-title">Категории</p>

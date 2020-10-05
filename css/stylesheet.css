@@ -216,7 +216,7 @@
 
 .content-wrapper-full-width {
     width: 100%;
-    padding: 3% 0;
+    padding: 1vh 0;
 }
 
 .content-title-2 {
@@ -225,6 +225,12 @@
     font-weight: 600;
     width: 60%;
     margin: auto;
+}
+
+.title-middle {
+    width: 100%;
+    text-align: center;
+    font-size: 100%;
 }
 
 /* stylesheet end */

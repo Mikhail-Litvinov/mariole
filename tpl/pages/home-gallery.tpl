@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="/css/home-gallery.css">
+    <link rel="stylesheet" href="/css/media.css">
 </head>
 <body>
 <div class="content-wrapper">
