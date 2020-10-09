@@ -30,7 +30,7 @@
 
 .blog-nav-element {
     background-color: rgb(230, 230, 230);
-    width: 100%;
+    max-width: 100%;
     padding: 5%;
     margin-bottom: 2vh;
     position: relative;
