@@ -17,3 +17,27 @@ $(".accordion").click(function () {
 
 $(".catalogue-button:not(.accordion)").click(closeAllSubmenus);
 
+$(window).ready(function () {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width() <= 1024) {
+        $(".catalogue-button-top-nav").detach().appendTo(".catalogue-left-nav")
+    } else {
+        $(".catalogue-button-top-nav").detach().appendTo(".catalogue-top-nav")
+    }
+}).resize(function () {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width() <= 1024) {
+        $(".catalogue-button-top-nav").detach().appendTo(".catalogue-left-nav")
+    } else {
+        $(".catalogue-button-top-nav").detach().appendTo(".catalogue-top-nav")
+    }
+})
+
+$(document).ready(function(){
+    $(".hamburger").click(function(){
+      $(this).toggleClass("is-active");
+    });
+  });
+
+$("#hamburger-4").click(function () {
+    $(".catalogue-left-nav").toggleClass("opened")
+})
+  
