@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="catalogue-page flex wrap">
-                <div class="product-wrapper" onclick="showContent('product-page')">
+                <div class="product-wrapper wow animate__slideInUp" data-wow-duration="0.8s" onclick="showContent('product-page')">
                     <div class="product-photo">
                         <img src="/img/gallery/img filler 5x7.jpg" alt="" width="100%">
                     </div>
@@ -75,7 +75,7 @@
                         <p>ХХ.ХХХ(&#8381;)</p>
                     </div>
                 </div>
-                <div class="product-wrapper" onclick="showContent('product-page')">
+                <div class="product-wrapper wow animate__slideInUp" data-wow-duration="0.8s" onclick="showContent('product-page')">
                     <div class="product-photo">
                         <img src="/img/gallery/img filler 5x7.jpg" alt="" width="100%">
                     </div>
@@ -86,7 +86,7 @@
                         <p>ХХ.ХХХ(&#8381;)</p>
                     </div>
                 </div>
-                <div class="product-wrapper" onclick="showContent('product-page')">
+                <div class="product-wrapper wow animate__slideInUp" data-wow-duration="0.8s" onclick="showContent('product-page')">
                     <div class="product-photo">
                         <img src="/img/gallery/img filler 5x7.jpg" alt="" width="100%">
                     </div>
@@ -97,7 +97,7 @@
                         <p>ХХ.ХХХ(&#8381;)</p>
                     </div>
                 </div>
-                <div class="product-wrapper" onclick="showContent('product-page')">
+                <div class="product-wrapper wow animate__slideInUp" data-wow-duration="0.8s" onclick="showContent('product-page')">
                     <div class="product-photo">
                         <img src="/img/gallery/img filler 5x7.jpg" alt="" width="100%">
                         <div class="sale-catalogue">
@@ -111,7 +111,7 @@
                         <p>ХХ.ХХХ(&#8381;)</p>
                     </div>
                 </div>
-                <div class="product-wrapper" onclick="showContent('product-page')">
+                <div class="product-wrapper wow animate__slideInUp" data-wow-duration="0.8s" onclick="showContent('product-page')">
                     <div class="product-photo">
                         <img src="/img/gallery/img filler 5x7.jpg" alt="" width="100%">
                     </div>
@@ -122,7 +122,7 @@
                         <p>ХХ.ХХХ(&#8381;)</p>
                     </div>
                 </div>
-                <div class="product-wrapper" onclick="showContent('product-page')">
+                <div class="product-wrapper wow animate__slideInUp" data-wow-duration="0.8s" onclick="showContent('product-page')">
                     <div class="product-photo">
                         <img src="/img/gallery/img filler 5x7.jpg" alt="" width="100%">
                     </div>
@@ -133,7 +133,7 @@
                         <p>ХХ.ХХХ(&#8381;)</p>
                     </div>
                 </div>
-                <div class="product-wrapper" onclick="showContent('product-page')">
+                <div class="product-wrapper wow animate__slideInUp" data-wow-duration="0.8s" onclick="showContent('product-page')">
                     <div class="product-photo">
                         <img src="/img/gallery/img filler 5x7.jpg" alt="" width="100%">
                         <div class="new-catalogue">
@@ -147,7 +147,7 @@
                         <p>ХХ.ХХХ(&#8381;)</p>
                     </div>
                 </div>
-                <div class="product-wrapper" onclick="showContent('product-page')">
+                <div class="product-wrapper wow animate__slideInUp" data-wow-duration="0.8s" onclick="showContent('product-page')">
                     <div class="product-photo">
                         <img src="/img/gallery/img filler 5x7.jpg" alt="" width="100%">
                     </div>
@@ -158,7 +158,7 @@
                         <p>ХХ.ХХХ(&#8381;)</p>
                     </div>
                 </div>
-                <div class="product-wrapper" onclick="showContent('product-page')">
+                <div class="product-wrapper wow animate__slideInUp" data-wow-duration="0.8s" onclick="showContent('product-page')">
                     <div class="product-photo">
                         <img src="/img/gallery/img filler 5x7.jpg" alt="" width="100%">
                     </div>

@@ -13,15 +13,16 @@
 		<main>
 			<div id="content"></div>
 		</main>
-		<?php
-			include 'tpl/modal-countries.tpl';
-			include 'tpl/modal-search.tpl';
-			include 'tpl/scripts.tpl';
-		?>
+		
 		<footer>
 			<?php
 				include 'tpl/footer.tpl';
 			?>
 		</footer>
+		<?php
+			include 'tpl/modal-countries.tpl';
+			include 'tpl/modal-search.tpl';
+			include 'tpl/scripts.tpl';
+		?>
 	</body>
 </html>

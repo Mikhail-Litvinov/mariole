@@ -64,6 +64,29 @@ main {
     min-height: 100vh;
 }
 
+.hidden{
+    opacity:0;
+}
+.visible{
+    opacity:1;
+}
+
+::-webkit-scrollbar { /* 1 - скроллбар */
+    width: 6px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track { /* 3 - трек */
+  }
+
+  ::-webkit-scrollbar-track-piece { /* 4 - видимая часть трека */
+  }
+
+  ::-webkit-scrollbar-thumb { /* 5 - ползунок */
+    border-radius: 2px;
+    background-color: #d1d1d1;
+  }
+
+
 /*global style end*/
 /*fonts*/
 

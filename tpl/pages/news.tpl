@@ -5,9 +5,14 @@
 
 <body>
     <div class="content-wrapper-full-width">
+        <div class="mobile-nav-news ">
+            <div class="mobile-nav-button">
+                <img src="/img/button.png" alt="" width="100%" class="mob-open-btn">
+            </div>
+        </div>
         <div class="blog-wrapper flex nowrap">
             <div class="blog-column-left flex wrap">
-                <div class="news-card-wrapper flex wrap relative">
+                <div class="news-card-wrapper flex wrap relative wow animate__slideInUp" data-wow-duration="0.8s">
                     <div class="news-card-img">
                         <img src="/img/gallery/img filler 16x9.jpg" alt="" width="100%">
                     </div>
@@ -73,7 +78,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="news-card-wrapper flex wrap relative">
+                <div class="news-card-wrapper flex wrap relative wow animate__slideInUp" data-wow-duration="0.8s">
                     <div class="news-card-img">
                         <img src="/img/gallery/img filler 16x9.jpg" alt="" width="100%">
                     </div>
@@ -140,7 +145,7 @@
                     </div>
                 </div>
             </div>
-            <div class="blog-column-right flex wrap">
+            <div class="blog-column-right wrap">
                 <div class="blog-nav-element">
                     <div class="blog-search-wrapper">
                         <form action="" class="blog-search-form flex wrap">

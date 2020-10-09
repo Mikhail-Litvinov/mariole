@@ -8,7 +8,7 @@
         <div class="news-container">
             <h2>Название</h2>
             <article class="news-article">
-                <p><img src="/img/gallery/img filler 5x7.jpg" alt="" class="img1"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolorum eos excepturi
+                <p class=" wow animate__slideInUp" data-wow-duration="0.8s"><img src="/img/gallery/img filler 5x7.jpg" alt="" class="img1 wow animate__slideInUp" data-wow-duration="0.8s"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolorum eos excepturi
                     repudiandae omnis quasi, adipisci ducimus ut officia iure quibusdam pariatur
                     repellendus, ipsa unde vitae odio libero dolorem eligendi aspernatur hic quae. Quae
                     neque voluptates blanditiis nemo aut ut a et quis hic. Accusamus, illum natus aperiam,

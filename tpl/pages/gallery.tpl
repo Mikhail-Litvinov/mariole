@@ -5,34 +5,34 @@
 <body>
     <div class="content-wrapper">
         <div class="grid-gallery">
-            <div class="grid-el-1">
+            <div class="grid-el-1 wow animate__slideInUp" data-wow-duration="0.8s">
                 <img src="/img/gallery/fashion/img filler 1x1.jpg" alt="" width="100%"  onclick="openGallery();currentSlide(1)">
             </div>
-            <div class="grid-el-2">
+            <div class="grid-el-2 wow animate__slideInUp" data-wow-duration="0.8s">
                 <img src="/img/gallery/fashion/img filler 5x7.jpg" alt="" width="100%"  onclick="openGallery();currentSlide(2)">
             </div>
-            <div class="grid-el-3">
+            <div class="grid-el-3 wow animate__slideInUp" data-wow-duration="0.8s">
                 <img src="/img/gallery/fashion/img filler 1x1.jpg" alt="" width="100%"  onclick="openGallery();currentSlide(3)">
             </div>
-            <div class="grid-el-4">
+            <div class="grid-el-4 wow animate__slideInUp" data-wow-duration="0.8s">
                 <img src="/img/gallery/fashion/img filler 7x5.jpg" alt="" width="100%"  onclick="openGallery();currentSlide(4)">
             </div>
-            <div class="grid-el-5">
+            <div class="grid-el-5 wow animate__slideInUp" data-wow-duration="0.8s">
                 <img src="/img/gallery/fashion/img filler 7x5.jpg" alt="" width="100%"  onclick="openGallery();currentSlide(5)">
             </div>
-            <div class="grid-el-6">
+            <div class="grid-el-6 wow animate__slideInUp" data-wow-duration="0.8s">
                 <img src="/img/gallery/fashion/img filler 9x16.jpg" alt="" width="100%"  onclick="openGallery();currentSlide(6)">
             </div>
-            <div class="grid-el-7">
+            <div class="grid-el-7 wow animate__slideInUp" data-wow-duration="0.8s">
                 <img src="/img/gallery/fashion/img filler 5x7.jpg" alt="" width="100%"  onclick="openGallery();currentSlide(7)">
             </div>
-            <div class="grid-el-8">
+            <div class="grid-el-8 wow animate__slideInUp" data-wow-duration="0.8s">
                 <img src="/img/gallery/fashion/img filler 5x7.jpg" alt="" width="100%"  onclick="openGallery();currentSlide(8)">
             </div>
-            <div class="grid-el-9">
+            <div class="grid-el-9 wow animate__slideInUp" data-wow-duration="0.8s">
                 <img src="/img/gallery/fashion/img filler 7x2.5.jpg" alt="" width="100%"  onclick="openGallery();currentSlide(9)">
             </div>
-            <div class="grid-el-10">
+            <div class="grid-el-10 wow animate__slideInUp" data-wow-duration="0.8s">
                 <img src="/img/gallery/fashion/img filler 7x5.jpg" alt="" width="100%"  onclick="openGallery();currentSlide(10)">
             </div>
         </div>

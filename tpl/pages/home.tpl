@@ -20,12 +20,12 @@
 					<div class="slide">
 						<img src="/img/carousel/img filler 16x9.jpg" width="100%" draggable="false" class="desktop">
                         <img src="/img/carousel/img filler 9x16.jpg" width="100%" draggable="false" class="mobile">
-                        <p class="slide-text" draggable="false">Надо придумать текст</p>
+                        <p class="slide-text wow animate__slideInUp" draggable="false">Надо придумать текст</p>
                         <div class="slide-btn-cont" draggable="false">
-                            <a onclick="showContent('clothes')"><button class="slide-button">
+                            <a onclick="showContent('clothes')"><button class="slide-button wow animate__slideInUp" data-wow-duration="0.8s">
                                 Одежда
                             </button></a>
-                            <a onclick="showContent('accessories')"><button class="slide-button">
+                            <a onclick="showContent('accessories')"><button class="slide-button wow animate__slideInUp" data-wow-duration="0.8s">
                                 Аксессуары
                             </button></a>
                         </div>
@@ -35,7 +35,7 @@
                         <img src="/img/carousel/img filler 9x16.jpg" width="100%" draggable="false" class="mobile">
                         <p class="slide-text" draggable="false">Надо придумать текст</p>
                         <div class="slide-btn-cont" draggable="false">
-                            <a onclick="showContent('accessories')"><button class="slide-button">
+                            <a onclick="showContent('accessories')"><button class="slide-button wow animate__slideInUp" data-wow-duration="0.8s">
                                 Бижутерия
                             </button></a>
                         </div>
@@ -45,7 +45,7 @@
                         <img src="/img/carousel/img filler 9x16.jpg" width="100%" draggable="false" class="mobile">
                         <p class="slide-text" draggable="false">Надо придумать текст</p>
                         <div class="slide-btn-cont" draggable="false">
-                            <a onclick="showContent('accessories')"><button class="slide-button">
+                            <a onclick="showContent('accessories')"><button class="slide-button wow animate__slideInUp" data-wow-duration="0.8s">
                                 Для дома
                             </button></a>
                         </div>
@@ -55,15 +55,15 @@
        
         <div class="content-wrapper">
             <div class="section-wrapper-grid">
-                <div class="grid-col-1-1-left">
+                <div class="grid-col-1-1-left wow animate__slideInUp" data-wow-duration="0.8s">
                     <img src="/img/home/img filler 5x4.jpg" alt="" width="100%">
                 </div>
-                <div class="grid-col-1-2-right">
+                <div class="grid-col-1-2-right wow animate__slideInUp" data-wow-duration="0.8s">
                     <img src="/img/home/img filler 5x7.jpg" alt="" width="100%">
                 </div>
                 <div class="grid-bottom-1-1-left content-text-left">
-                    <div class="content-text-wrapper-left flex wrap flex-align-middle">
-                        <div class="relative-text-wrapper  flex wrap flex-align-middle">
+                    <div class="content-text-wrapper-left flex wrap flex-align-middle wow animate__slideInUp" data-wow-duration="0.8s">
+                        <div class="relative-text-wrapper flex wrap flex-align-middle">
                             <h2 class="content-text-h2">
                                 Надо придумать название этому
                             </h2>
@@ -76,14 +76,14 @@
         </div>
         <div class="content-wrapper">
             <div class="section-wrapper-grid">
-                <div class="grid-col-1-1-right">
+                <div class="grid-col-1-1-right wow animate__slideInUp" data-wow-duration="0.8s">
                     <img src="/img/home/img filler 5x4.jpg" alt="" width="100%">
                 </div>
-                <div class="grid-col-1-2-left">
+                <div class="grid-col-1-2-left wow animate__slideInUp" data-wow-duration="0.8s">
                     <img src="/img/home/img filler 5x7.jpg" alt="" width="100%">
                 </div>
                 <div class="grid-bottom-1-1-right content-text-right">
-                    <div class="content-text-wrapper-right flex wrap flex-align-middle">
+                    <div class="content-text-wrapper-right flex wrap flex-align-middle wow animate__slideInUp" data-wow-duration="0.8s">
                         <div class="relative-text-wrapper  flex wrap flex-align-middle">
                             <h2 class="content-text-h2">
                                 Надо придумать название этому
@@ -97,22 +97,22 @@
         </div>
         <div class="content-wrapper">
             <div class="section-wrapper-grid">
-                <div class="grid-col-1-2-middle">
+                <div class="grid-col-1-2-middle wow animate__slideInUp" data-wow-duration="0.8s">
                     <div class="relative-text-wrapper  flex wrap flex-align-middle">
                         <h2 class="content-text-h2">
                             Надо придумать название этому
                         </h2>
                         <p class="content-text-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptatum excepturi tempora est quidem aspernatur! Itaque vero accusantium temporibus sit?</p>
-                        <a><button class="content-button">Акции</button></a>
-                        <a><button class="content-button">Новинки</button></a>
+                        <a><button class="content-button wow animate__slideInUp" data-wow-duration="0.8s">Акции</button></a>
+                        <a><button class="content-button wow animate__slideInUp" data-wow-duration="0.8s">Новинки</button></a>
                     </div>
                 </div>
-                <div class="grid-col-1-2-left-2">
+                <div class="grid-col-1-2-left-2 wow animate__slideInUp" data-wow-duration="0.8s">
                     <div class="width-100 height-100 relative overflow-hidden">
                         <img src="/img/home/img filler 5x7.jpg" alt="" width="100%">
                     </div>
                 </div>
-                <div class="grid-col-1-2-right-2">
+                <div class="grid-col-1-2-right-2 wow animate__slideInUp" data-wow-duration="0.8s">
                     <div class="width-100 height-100 relative overflow-hidden">
                         <img src="/img/home/img filler 5x7.jpg" alt="" width="100%">
                     </div>
