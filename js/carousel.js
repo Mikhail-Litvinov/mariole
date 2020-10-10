@@ -64,7 +64,7 @@ function moveCarousel(n, pause) { // Switch slide
 }
 
 function toggleSlide(n) { // Toggle slide
-	let newIndex = validate(n); // Make sure that index is valid
+	let newIndex = validateSlideIndex(n); // Make sure that index is valid
 	let direction = Math.sign(n); // Define direction; -1 is back, 1 is forward, 0 is impossible
 	
 	$(carousel.slides[carousel.active]).css("transform", "translateX(0%)"); // Make sure that active slide is correctly centered
@@ -90,9 +90,7 @@ function translateSlide(newIndex, direction, start, now) { // Translate slide (o
 
 function translateFallSlide(initialPercentage, direction, start, now) { // Translate slide falling (oh shit it's css again)
 	let percentage = initialPercentage * (1 - ((now - start) / carousel.fallAnimationTimeout)); // Calculate current percentage
-	
-	if(direction > 0) percentage = Math.max(0, Math.min(initialPercentage, percentage)); // Border by [0; initial]
-	else if(direction < 0) percentage = Math.max(initialPercentage, Math.min(0, percentage)); // Border by [initial; 0]
+	percentage = direction > 0 ? Math.bound(percentage, 0, initialPercentage) : Math.bound(percentage, initialPercentage, 0);
 	
 	$(carousel.slides[direction > 0 ? carousel.previousSlideIndex : carousel.nextSlideIndex]).css("transform", `translateX(${(direction * percentage - 100) * direction}%)`); // Move needed slide (next if forward, previous if back)
 	$(carousel.slides[carousel.active]).css("transform", `translateX(${percentage}%)`); // Move active slide
@@ -114,7 +112,7 @@ function unpauseCarousel() { // Unpause carousel
 	carousel.unpauseTimer = setTimeout(autoMoveCarousel, carousel.pauseTimeout); // Create new unpause timer
 }
 
-function validate(n) { // Validate new index in range [0; count)
+function validateSlideIndex(n) { // Validate new index in range [0; count)
 	return Math.cycle(carousel.active + n, carousel.count); // Return valid index
 }
 
@@ -134,8 +132,8 @@ function onMouseDown(evt) { // Activates then user clicks on carousel to drag
 }
 
 function prepareSlides() { // Update indexes of next and previous slides
-	carousel.nextSlideIndex = validate(1); // Validate next slide' index
-	carousel.previousSlideIndex = validate(-1); // Validate previous slide' index
+	carousel.nextSlideIndex = validateSlideIndex(1); // Validate next slide' index
+	carousel.previousSlideIndex = validateSlideIndex(-1); // Validate previous slide' index
 }
 
 function onMouseMove(evt) {
@@ -168,7 +166,7 @@ function moveSlide(relativeX) { // Move slide dynamically
 	if(Math.abs(percentage) > 50) { // If slide is too much on left or right side
 		let direction = Math.sign(percentage); // Calculate direction of moving
 		
-		carousel.active = validate(-direction); // Set new active slide
+		carousel.active = validateSlideIndex(-direction); // Set new active slide
 		percentage -= 100 * direction; // Change percentage for new active slide
 		carousel.originalX += carousel.width * direction; // Set new X on which it calculates offset
 		
