@@ -4,14 +4,13 @@ isProductImagesLoaded = false;
 function setActive(index) { $("div.product-slider-wrapper").attr("active", index); }
 function getActive() { return +($("div.product-slider-wrapper").attr("active")); }
 
-function moveSlide(delta) {
-	setActiveSlide(Math.cycle(getActive() + delta, $("#content .product-slide").length));
-}
+function moveSlide(delta) { enableSlide(getActive() + delta); }
 
-function setActiveSlide(index) {
-	setActive(index);
-	$($("#content .product-slide").css("display", "none").get(index)).css("display", "grid");
-	$($("#content .demo").removeClass("active").get(index)).addClass("active");
+function enableSlide(index) {
+	setActive(Math.cycle(index, $("div.product-slide").length));
+	
+	$($("div.product-slide").css("display", "none").get(getActive())).css("display", "grid");
+	$($("img.demo").removeClass("active").get(getActive())).addClass("active");
 }
 
 // TODO: убрать этот срам
@@ -62,7 +61,7 @@ function updateProductImageCarousel() {
 		$(".product-preview > div").append(previewSlide);
 	}
 	if($(".product-slider > .product-slide").length > 1) {
-		$(".product-preview img.demo").each((index, element) => { $(element).click(() => { setActiveSlide(index); }); });
+		$(".product-preview img.demo").each((index, element) => { $(element).click(() => { enableSlide(index); }); });
 	} else {
 		$("a.prev-slide").remove();
 		$("a.next-slide").remove();
