@@ -22,7 +22,7 @@
 					<img src="/img/carousel/img filler 9x16.jpg" width="100%" class="mobile">
 					<p class="slide-text wow animate__slideInUp">Надо придумать текст</p>
 					<div class="slide-btn-cont">
-						<a navid="catalogue/clothes">
+						<a navid="catalogue/clothe">
 							<button class="slide-button wow animate__slideInUp" data-wow-duration="0.8s">Одежда</button>
 						</a>
 						<a navid="catalogue/accessories">

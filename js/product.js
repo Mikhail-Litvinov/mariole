@@ -4,21 +4,14 @@ isProductImagesLoaded = false;
 function setActive(index) { $("div.product-slider-wrapper").attr("active", index); }
 function getActive() { return +($("div.product-slider-wrapper").attr("active")); }
 
-// TODO: починить сломанную карусель
-function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("product-slide");
-    var dots = document.getElementsByClassName("demo");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "grid";
-    dots[slideIndex-1].className += " active";
+function moveSlide(delta) {
+	setActiveSlide(Math.cycle(getActive() + delta, $("#content .product-slide").length));
+}
+
+function setActiveSlide(index) {
+	setActive(index);
+	$($("#content .product-slide").css("display", "none").get(index)).css("display", "grid");
+	$($("#content .demo").removeClass("active").get(index)).addClass("active");
 }
 
 // TODO: убрать этот срам
@@ -69,7 +62,7 @@ function updateProductImageCarousel() {
 		$(".product-preview > div").append(previewSlide);
 	}
 	if($(".product-slider > .product-slide").length > 1) {
-		$(".product-preview img.demo").each((index, element) => { $(element).click(() => { enableSlide(index); }); });
+		$(".product-preview img.demo").each((index, element) => { $(element).click(() => { setActiveSlide(index); }); });
 	} else {
 		$("a.prev-slide").remove();
 		$("a.next-slide").remove();

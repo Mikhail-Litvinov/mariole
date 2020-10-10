@@ -74,7 +74,7 @@
                             <a class="news-card-keyword">Одежда</a>
                         </div>
                         <div class="news-card-button-wrapper">
-                            <button onclick="showContent('post-page')" class="read">Читать далее</button>
+                            <button onclick="console.log('post-page')" class="read">Читать далее</button>
                         </div>
                     </div>
                 </div>
@@ -140,7 +140,7 @@
                             <a class="news-card-keyword">Одежда</a>
                         </div>
                         <div class="news-card-button-wrapper">
-                            <button onclick="showContent('post-page')" class="read">Читать далее</button>
+                            <button onclick="console.log('post-page')" class="read">Читать далее</button>
                         </div>
                     </div>
                 </div>
