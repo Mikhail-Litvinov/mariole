@@ -1,4 +1,4 @@
-
+<p title="home page wow" visible="false">
 <head>
     <link rel="stylesheet" href="/css/home-page.css">
     <link rel="stylesheet" href="/css/media.css">
@@ -6,53 +6,52 @@
 <body>
     <main>
         <div id="carousel">
-				<div id="previous-slide-btn" class="move-slide-btn">
-					<div class="circle">
-						<span class="previous-slide-icon">&lt;</span>
+			<div id="previous-slide-btn" class="move-slide-btn">
+				<div class="circle">
+					<span class="previous-slide-icon">&lt;</span>
+				</div>
+			</div>
+			<div id="next-slide-btn" class="move-slide-btn">
+				<div class="circle">
+					<span class="next-slide-icon">&gt;</span>
+				</div>
+			</div>
+			<div id="slide-container">
+				<div class="slide">
+					<img src="/img/carousel/img filler 16x9.jpg" width="100%" class="desktop">
+					<img src="/img/carousel/img filler 9x16.jpg" width="100%" class="mobile">
+					<p class="slide-text wow animate__slideInUp">Надо придумать текст</p>
+					<div class="slide-btn-cont">
+						<a navid="catalogue/clothes">
+							<button class="slide-button wow animate__slideInUp" data-wow-duration="0.8s">Одежда</button>
+						</a>
+						<a navid="catalogue/accessories">
+							<button class="slide-button wow animate__slideInUp" data-wow-duration="0.8s">Аксессуары</button>
+						</a>
 					</div>
 				</div>
-				<div id="next-slide-btn" class="move-slide-btn">
-					<div class="circle">
-						<span class="next-slide-icon">&gt;</span>
+				<div class="slide">
+					<img src="/img/carousel/img filler 16x9.jpg" width="100%" class="desktop">
+					<img src="/img/carousel/img filler 9x16.jpg" width="100%" class="mobile">
+					<p class="slide-text">Надо придумать текст</p>
+					<div class="slide-btn-cont">
+						<a navid="catalogue/accessories">
+							<button class="slide-button wow animate__slideInUp" data-wow-duration="0.8s">Бижутерия</button>
+						</a>
 					</div>
 				</div>
-				<div id="slide-container">
-					<div class="slide">
-						<img src="/img/carousel/img filler 16x9.jpg" width="100%" draggable="false" class="desktop">
-                        <img src="/img/carousel/img filler 9x16.jpg" width="100%" draggable="false" class="mobile">
-                        <p class="slide-text wow animate__slideInUp" draggable="false">Надо придумать текст</p>
-                        <div class="slide-btn-cont" draggable="false">
-                            <a onclick="showContent('clothes')"><button class="slide-button wow animate__slideInUp" data-wow-duration="0.8s">
-                                Одежда
-                            </button></a>
-                            <a onclick="showContent('accessories')"><button class="slide-button wow animate__slideInUp" data-wow-duration="0.8s">
-                                Аксессуары
-                            </button></a>
-                        </div>
-					</div>
-					<div class="slide">
-						<img src="/img/carousel/img filler 16x9.jpg" width="100%" draggable="false" class="desktop">
-                        <img src="/img/carousel/img filler 9x16.jpg" width="100%" draggable="false" class="mobile">
-                        <p class="slide-text" draggable="false">Надо придумать текст</p>
-                        <div class="slide-btn-cont" draggable="false">
-                            <a onclick="showContent('accessories')"><button class="slide-button wow animate__slideInUp" data-wow-duration="0.8s">
-                                Бижутерия
-                            </button></a>
-                        </div>
-					</div>
-					<div class="slide">
-						<img src="/img/carousel/img filler 16x9.jpg" width="100%" draggable="false" class="desktop">
-                        <img src="/img/carousel/img filler 9x16.jpg" width="100%" draggable="false" class="mobile">
-                        <p class="slide-text" draggable="false">Надо придумать текст</p>
-                        <div class="slide-btn-cont" draggable="false">
-                            <a onclick="showContent('accessories')"><button class="slide-button wow animate__slideInUp" data-wow-duration="0.8s">
-                                Для дома
-                            </button></a>
-                        </div>
+				<div class="slide">
+					<img src="/img/carousel/img filler 16x9.jpg" width="100%" class="desktop">
+					<img src="/img/carousel/img filler 9x16.jpg" width="100%" class="mobile">
+					<p class="slide-text">Надо придумать текст</p>
+					<div class="slide-btn-cont">
+						<a navid="catalogue/accessories">
+							<button class="slide-button wow animate__slideInUp" data-wow-duration="0.8s">Для дома</button>
+						</a>
 					</div>
 				</div>
 			</div>
-       
+		</div>
         <div class="content-wrapper">
             <div class="section-wrapper-grid">
                 <div class="grid-col-1-1-left wow animate__slideInUp" data-wow-duration="0.8s">
@@ -103,8 +102,12 @@
                             Надо придумать название этому
                         </h2>
                         <p class="content-text-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptatum excepturi tempora est quidem aspernatur! Itaque vero accusantium temporibus sit?</p>
-                        <a><button class="content-button wow animate__slideInUp" data-wow-duration="0.8s">Акции</button></a>
-                        <a><button class="content-button wow animate__slideInUp" data-wow-duration="0.8s">Новинки</button></a>
+                        <a navid="catalogue/sale">
+							<button class="content-button wow animate__slideInUp" data-wow-duration="0.8s">Акции</button>
+						</a>
+                        <a navid="catalogue/new">
+							<button class="content-button wow animate__slideInUp" data-wow-duration="0.8s">Новинки</button>
+						</a>
                     </div>
                 </div>
                 <div class="grid-col-1-2-left-2 wow animate__slideInUp" data-wow-duration="0.8s">
