@@ -11,4 +11,4 @@
 <link rel="stylesheet" href="/fonts/Fontello/css/fontello-ie7.css">
 <link rel="stylesheet" href="/fonts/Fontello/css/fontello.css">
 <link rel="stylesheet" href="/js/OverlayScrollbars-master/css/OverlayScrollbars.css">
-<title><?php echo $page['title']; ?></title>
+<title></title>

@@ -1,4 +1,4 @@
-<div id="error-404-modal" class="alert-wrapper flex wrap flex-align-middle">
+<div id="error-404-modal" class="alert-wrapper flex wrap flex-align-middle" style="display: none;">
 	<div class="alert-content flex wrap flex-align-middle">
 		<span id="close-error-404"></span>
 		<div class="error-404-title">

@@ -22,11 +22,16 @@
 								<span id="area-europe" langid="area-europe"></span>
 								<ul class="country-list">
 									<?php
-										foreach($countries_list as $key => $value) {
-											if(!isset($value['area'])) {
-												echo '<li><a href="#" id="country-' . $key . '" class="country-btn" langid="country-' . $key . '"></a></li>' . "\n";
-											}
+										$countries_sorted_list;
+										$format = '<li><a id="country-%s" class="country-btn" langid="country-%s"></a></li>' . "\n";
+										foreach(get_countries_list() as $key => $value) {
+											$countries_sorted_list[
+												!isset($value['area']) ? 'europe' :
+												($value['area'] == 0 ? 'america' : 'asia')
+											][] = sprintf($format, $key, $key);
 										}
+									
+										foreach($countries_sorted_list['europe'] as $value) echo $value;
 									?>
 								</ul>
 							</span>
@@ -37,13 +42,7 @@
 							<span class="country-list-america">
 								<span id="area-america" langid="area-america"></span>
 								<ul class="country-list-2">
-									<?php
-										foreach($countries_list as $key => $value) {
-											if(isset($value['area']) && $value['area'] == 0) {
-												echo '<li><a href="#" id="country-' . $key . '" class="country-btn" langid="country-' . $key . '"></a></li>' . "\n";
-											}
-										}
-									?>
+									<?php foreach($countries_sorted_list['america'] as $value) echo $value; ?>
 								</ul>
 							</span>
 						</div>
@@ -51,13 +50,7 @@
 							<span class="country-list-asia">
 								<span id="area-asia" langid="area-asia"></span>
 								<ul class="country-list-2">
-									<?php
-										foreach($countries_list as $key => $value) {
-											if(isset($value['area']) && $value['area'] == 1) {
-												echo '<li><a href="#" id="country-' . $key . '" class="country-btn" langid="country-' . $key . '"></a></li>' . "\n";
-											}
-										}
-									?>
+									<?php foreach($countries_sorted_list['asia'] as $value) echo $value; ?>
 								</ul>
 							</span>
 						</div>

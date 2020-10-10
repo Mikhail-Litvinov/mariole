@@ -6,7 +6,7 @@
 	<body>
 		<header class="animated">
 			<?php
-				if(!($current_page == '' || in_array($current_page, $pages_list))) { include 'tpl/404.tpl'; }
+				include 'tpl/404.tpl';
 				include 'tpl/header.tpl';
 			?>
 		</header>
