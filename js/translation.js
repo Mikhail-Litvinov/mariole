@@ -13,12 +13,20 @@ let countries = {
 	"getByYMaps": ymaps => Object.entries(countries["list"]).find(item => item[1]["ymaps"] == ymaps)[0], // Find country by YMaps name
 	get latin() { return this["_active"]["latin"] }, // Returns latin name of active country
 	get ymaps() { return this["_active"]["ymaps"] }, // Returns ymaps name of active country
-	get sign() { // Returns currency sign of active country
+	get cursign() { // Returns currency sign of active country
 		switch(this["_active"]["cur"]) {
 			case 0: return "Kč"; // Returns czech koruna sign
 			case 1: return "&#8381;"; // Returns russian rouble sign
 			case 2: return "&#36;"; // Returns dollar sign
 			default: return "&#8364;"; // Returns euro sign
+		}
+	},
+	get curname() {
+		switch(this["_active"]["cur"]) {
+			case 0: return "koruna";
+			case 1: return "rouble";
+			case 2: return "dollar";
+			default: return "euro";
 		}
 	},
 	"list": null // Contains all provided countries
@@ -27,9 +35,11 @@ let countries = {
 function changeLanguage(evt) {
 	$('a.lang-btn.active').removeClass("active"); // Make last language button inactive
 		
-	$.getJSON(`config/lang/${evt.currentTarget.id.replace("lang-", "")}.json`, data => { // Load new language file from server
+	$.getJSON(`/data/language_file/${evt.currentTarget.id.replace("lang-", "")}`, data => { // Load new language file
 		language["_active"] = data; // Set new language in config object
 		translatePage(); // Translate page to a new language
+		
+		$(window).trigger("onlanguagechange");
 	});
 }
 
@@ -50,18 +60,20 @@ function changeCountry(evt) {
 	$(`#country-${countries.latin}`).addClass("active"); // Make new country button active
 	
 	updateCountryLabel(); // Update country label with new country
+	
+	$(window).trigger("oncountrychange");
 }
 
 function updateCountryLabel() {
-	$('#country-name').html(language.get(`country-${countries.latin}`) + ` (${countries.sign})`); // Replace html in DOM with id "country-name"
+	$('#country-name').html(language.get(`country-${countries.latin}`) + ` (${countries.cursign})`); // Replace html in DOM with id "country-name"
 }
 
 $(() => {
 	// If navigator is available, then use it's language, else default
 	let lang = language.validate(navigator ? navigator.language.slice(0, 2).toLowerCase() : "");
 	$.when(
-		$.getJSON("/config/countries.json"), // Load countries list file from server
-		$.getJSON(`/config/lang/${lang}.json`) // Load current language file from server
+		$.getJSON("/data/countries_list"), // Load countries list file from server
+		$.getJSON(`/data/language_file/${lang}`) // Load current language file from server
 	).then((countriesResponse, langResponse) => {
 		countries["list"] = countriesResponse[0]; // Load list of countries into config object
 		
