@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="/css/jquery.nselect.css">
 </head>
 <body>
-    <div class="content-wrapper-full-width flex nowrap">
+    <div id="product-page-wrapper" class="content-wrapper-full-width flex nowrap">
         <div class="card-left">
             <div class="product-slider-wrapper" active="0">
                 <div class="product-slider">

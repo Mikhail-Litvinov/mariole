@@ -30,7 +30,7 @@ function initCarousel() { // Prepare carousel to work
 	
 	$(carousel.slides[0]).css("transform", "translateX(0%)"); // Center first slide
 	carousel.slides.on("mousedown touchstart", onMouseDown); // Bind dragging start event to every slide
-	carousel.slides.each((index, element) => { element.ondragstart = null; }); // Unbind default drag event from every slide
+	carousel.slides.each((index, element) => { element.onselectstart = () => false; element.ondragstart = () => false; }); // Unbind defaults from every slide
 	$(document).on("mousemove touchmove", onMouseMove).on("mouseup touchend", onMouseUp); // Bing mouse move and undragging events to the page
 	
 	$("div#previous-slide-btn").click(() => { moveCarousel(-1, true); }); // Bing switching slide back to back arrow
@@ -172,7 +172,7 @@ function moveSlide(relativeX) { // Move slide dynamically
 	$(carousel.slides[carousel.previousSlideIndex]).css("transform", `translateX(${percentage - 100}%)`); // Move previous slide
 }
 
-$(window).resize(() => {
+$(window).on("onresize.content", () => {
 	$("#carousel").css("height", $(window).height() - $("#headerContainer").height());
 });
 
@@ -180,5 +180,4 @@ $(() => { // When page is loaded
 	initCarousel(); // Initialize carousel
 	carousel.slideTimer = setTimeout(autoMoveCarousel, carousel.slideTimeout); // Start auto switching in some time
 	$("#content #slide-container *").attr("draggable", "false");
-	$(window).resize();
 });
