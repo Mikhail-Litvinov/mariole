@@ -1,16 +1,16 @@
 productData = {};
 isProductImagesLoaded = false;
 
-function setActive(index) { $("div.product-slider-wrapper").attr("active", index); }
-function getActive() { return +($("div.product-slider-wrapper").attr("active")); }
+function setActive(index) { $(".product-slider-wrapper").attr("active", index); }
+function getActive() { return +($(".product-slider-wrapper").attr("active")); }
 
 function moveSlide(delta) { enableSlide(getActive() + delta); }
 
 function enableSlide(index) {
-	setActive(Math.cycle(index, $("div.product-slide").length));
+	setActive(Math.cycle(index, $(".product-slide").length));
 	
-	$($("div.product-slide").css("display", "none").get(getActive())).css("display", "grid");
-	$($("img.demo").removeClass("active").get(getActive())).addClass("active");
+	$($(".product-slide").css("display", "none").get(getActive())).css("display", "grid");
+	$($(".demo").removeClass("active").get(getActive())).addClass("active");
 }
 
 function loadProductData() {
@@ -28,13 +28,9 @@ function loadProductData() {
 	});
 }
 
-function getProductArticle() {
-	return path[1];
-}
+function getProductArticle() { return path[1]; }
 
-function updateProductPrice() {
-	$("#product-data-price").html(`${productData[countries.curname]} ${countries.cursign}`);
-}
+function updateProductPrice() { $("#product-data-price").html(`${productData[countries.curname]} ${countries.cursign}`); }
 
 function updateProductImageCarousel() {
 	for(let i = 0, img = productData["i0"]; img; img = productData[`i${++i}`]) {
@@ -42,29 +38,22 @@ function updateProductImageCarousel() {
 		$(".product-slider").append(slide);
 		
 		let previewSlide = $('<div class="col-1-4 flex-column overflow-hidden"></div>');
-		previewSlide.append($(`<img src="/img/products-previews/${img}.jpg" width="100%" class="demo">`));
-		$(".product-preview > div").append(previewSlide);
+		$(".product-preview > div").append(previewSlide.append($(`<img src="/img/products-previews/${img}.jpg" width="100%" class="demo">`)));
 	}
-	if($(".product-slider > .product-slide").length > 1) {
-		$(".product-preview img.demo").each((index, element) => { $(element).click(() => { enableSlide(index); }); });
-	} else {
-		$("a.prev-slide").remove();
-		$("a.next-slide").remove();
-		$("div.product-preview").remove();
-	}
+	if($(".product-slide").length > 1) $(".product-preview .demo").each((index, element) => { $(element).click(() => { enableSlide(index); }); });
+	else $(".prev-slide, .next-slide, .product-preview").remove();
 	moveSlide(0);
 }
 
-$(window).resize(() => {
+$(window).on("onresize.content", () => {
 	$("#product-page-wrapper").toggleClass("wrap", isMobile || isLowWidth).toggleClass("nowrap", !(isMobile || isLowWidth));
-})
+});
 
 $(() => {
 	$(window).on("onlanguagechange", loadProductData);
 	$(window).on("oncountrychange", updateProductPrice);
-	$("a.prev-slide").click(() => { moveSlide(-1); });
-	$("a.next-slide").click(() => { moveSlide(1); });
+	$(".prev-slide").click(() => { moveSlide(-1); });
+	$(".next-slide").click(() => { moveSlide(1); });
 	
 	loadProductData();
-	$(window).resize();
 });

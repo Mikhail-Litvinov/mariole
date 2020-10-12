@@ -7,6 +7,7 @@ Math.cycle = (num, border) => Math.abs((num >= 0 ? num : num - Math.floor(num / 
 function updateMobileFlags() {
 	isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
 	isLowWidth = $(window).width() <= 1024;
+	$(window).trigger("onresize");
 }
 
 $(() => {

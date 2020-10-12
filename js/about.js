@@ -27,10 +27,6 @@ function pageGallery(n) {
   dots[imagesIndex-1].className += " active";
 }
 
-$(window).resize(() => {
+$(window).on("onresize.content", () => {
 	$(".content-article img").css("width", (isMobile || isLowWidth) ? "100%" : "");
-});
-
-$(() => {
-	$(window).resize();
 });

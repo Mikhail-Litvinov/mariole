@@ -35,10 +35,12 @@ function processError404(pathRoot) {
 function routePagePath(newPath) {
 	if(path[0] != newPath[0]) { // If new path root is different
 		scrollTo(0, 0); // Scroll page to the start
+		$(window).off("onresize.content");
 		$("#content").load(`/tpl/pages/roots/${newPath[0]}.tpl`, () => { // Load new page and then execute function
 			$("title").html($("#content > [title]").attr("title")); // Set website title as written in the page root's HTML
 			wrapPageLinks("#content [navid]");
 			updateContentSelection(newPath);
+			$(window).trigger("onresize.content");
 		});
 	} else updateContentSelection(newPath);
 }
@@ -49,7 +51,7 @@ function updateContentSelection(newPath) {
 			updateCatalogueSelection(newPath);
 			break;
 		case "news":
-			// updateNewsSelection();
+			updateNewsSelection();
 			break;
 	}
 }

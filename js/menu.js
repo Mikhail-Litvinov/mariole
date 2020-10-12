@@ -13,8 +13,7 @@ function actualizeMainMenu(element) {
 	$(`#${element.id}-sub`).height($(`#${element.id}-sub`).get(0).scrollHeight + "px");
 }
 
-$(window).resize(() => {
-	$("#content").css("padding-top", $("#headerContainer").height());
+$(window).on("onresize.mainapp", () => {
 	if (isMobile || isLowWidth) {
 		$(".navigation").detach().prependTo(".mobile-menu-wrapper");
 		$(".countries, .buttons-top-nav").detach().appendTo(".mobile-menu-wrapper");
@@ -27,7 +26,7 @@ $(window).resize(() => {
 		$(".sub-list-element").off("click.navmenu").on("click.navmenu", () => {
 			closeAllMainSubmenus();
 			mobileMenu.removeClass("open");
-			$("#hamburger-1").removeClass("is-active");
+			$(".hamburger").removeClass("is-active");
 		});
 	} else {
 		$(".navigation").detach().appendTo(".nav");
@@ -48,11 +47,11 @@ $(window).resize(() => {
 		});
 		$(".sub-list-element").off("click.navmenu").on("click.navmenu", closeAllMainSubmenus);
 	}
+	$("#content").css("padding-top", $("#headerContainer").height());
 });
 
 $(() => {
-	$("#hamburger-1").on("click.navmenu", (evt) => {
+	$(".hamburger").off("click.navmenu").on("click.navmenu", (evt) => {
 		mobileMenu.toggleClass("open", $(evt.currentTarget).toggleClass("is-active").hasClass("is-active"));
 	});
-	$(window).resize();
 });
