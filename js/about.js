@@ -27,8 +27,10 @@ function pageGallery(n) {
   dots[imagesIndex-1].className += " active";
 }
 
+$(window).resize(() => {
+	$(".content-article img").css("width", (isMobile || isLowWidth) ? "100%" : "");
+});
+
 $(() => {
-	$(window).resize(() => {
-		$(".content-article img").css("width", (isMobile || isLowWidth) ? "100%" : "");
-	}).resize();
+	$(window).resize();
 });

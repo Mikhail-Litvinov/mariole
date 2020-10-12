@@ -55,14 +55,16 @@ function updateProductImageCarousel() {
 	moveSlide(0);
 }
 
+$(window).resize(() => {
+	$("#product-page-wrapper").toggleClass("wrap", isMobile || isLowWidth).toggleClass("nowrap", !(isMobile || isLowWidth));
+})
+
 $(() => {
-	$(window).resize(() => {
-		$("#product-page-wrapper").toggleClass("wrap", isMobile || isLowWidth).toggleClass("nowrap", !(isMobie || isLowWidth));
-	}).resize();
 	$(window).on("onlanguagechange", loadProductData);
 	$(window).on("oncountrychange", updateProductPrice);
 	$("a.prev-slide").click(() => { moveSlide(-1); });
 	$("a.next-slide").click(() => { moveSlide(1); });
 	
 	loadProductData();
+	$(window).resize();
 });

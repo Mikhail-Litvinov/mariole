@@ -48,10 +48,11 @@ $(window).resize(() => {
 		});
 		$(".sub-list-element").off("click.navmenu").on("click.navmenu", closeAllMainSubmenus);
 	}
-}).resize();
+});
 
 $(() => {
 	$("#hamburger-1").on("click.navmenu", (evt) => {
 		mobileMenu.toggleClass("open", $(evt.currentTarget).toggleClass("is-active").hasClass("is-active"));
 	});
+	$(window).resize();
 });

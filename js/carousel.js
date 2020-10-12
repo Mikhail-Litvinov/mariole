@@ -172,11 +172,13 @@ function moveSlide(relativeX) { // Move slide dynamically
 	$(carousel.slides[carousel.previousSlideIndex]).css("transform", `translateX(${percentage - 100}%)`); // Move previous slide
 }
 
+$(window).resize(() => {
+	$("#carousel").css("height", $(window).height() - $("#headerContainer").height());
+});
+
 $(() => { // When page is loaded
-	$(window).resize(() => {
-		$("#carousel").css("height", $(window).height() - $("#headerContainer").height());
-	}).resize();
 	initCarousel(); // Initialize carousel
 	carousel.slideTimer = setTimeout(autoMoveCarousel, carousel.slideTimeout); // Start auto switching in some time
 	$("#content #slide-container *").attr("draggable", "false");
+	$(window).resize();
 });

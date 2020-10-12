@@ -62,6 +62,9 @@ function closeAllSubmenus() {
 	$(".catalogue-sub").height("0px");
 }
 
+$(window).resize(() => {
+	$(".catalogue-button-top-nav").detach().appendTo(`.catalogue-${(isMobile || isLowWidth) ? "left" : "top"}-nav`);
+});
 
 $(() => {
 	$(".sorting").nSelect();
@@ -85,7 +88,5 @@ $(() => {
 	
 	$(window).on("oncountrychange", () => { performNewSortingMethod(sortingMethod); });
 	$(window).on("onlanguagechange", () => { updateCatalogueSelection(path); });
-	$(window).ready(() => { $(window).resize(); }).resize(() => {
-		$(".catalogue-button-top-nav").detach().appendTo(`.catalogue-${(isMobile || isLowWidth) ? "left" : "top"}-nav`);
-	});
+	$(window).resize();
 });
