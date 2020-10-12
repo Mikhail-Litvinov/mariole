@@ -62,20 +62,6 @@ function closeAllSubmenus() {
 	$(".catalogue-sub").height("0px");
 }
 
-// TODO: убрать этот срам
-$(window).ready(function () {
-	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width() <= 1024) {
-		$(".catalogue-button-top-nav").detach().appendTo(".catalogue-left-nav")
-	} else {
-		$(".catalogue-button-top-nav").detach().appendTo(".catalogue-top-nav")
-	}
-}).resize(function () {
-	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width() <= 1024) {
-		$(".catalogue-button-top-nav").detach().appendTo(".catalogue-left-nav")
-	} else {
-		$(".catalogue-button-top-nav").detach().appendTo(".catalogue-top-nav")
-	}
-})
 
 $(() => {
 	$(".sorting").nSelect();
@@ -88,7 +74,6 @@ $(() => {
 		let height = (isActive ? $(this).children(".catalogue-sub")[0].scrollHeight : 0) + "px";
 		$(this).toggleClass("active", isActive).children(".catalogue-sub").height(height);
 	});
-	
 	$(".hamburger").click(function() { $(this).toggleClass("is-active"); });
 	$("#hamburger-4").click(() => { $(".catalogue-left-nav").toggleClass("opened"); });
 	$(".catalogue-button:not(.accordion)").click(closeAllSubmenus);
@@ -100,4 +85,7 @@ $(() => {
 	
 	$(window).on("oncountrychange", () => { performNewSortingMethod(sortingMethod); });
 	$(window).on("onlanguagechange", () => { updateCatalogueSelection(path); });
+	$(window).ready(() => { $(window).resize(); }).resize(() => {
+		$(".catalogue-button-top-nav").detach().appendTo(`.catalogue-${(isMobile || isLowWidth) ? "left" : "top"}-nav`);
+	});
 });

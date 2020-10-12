@@ -27,16 +27,8 @@ function pageGallery(n) {
   dots[imagesIndex-1].className += " active";
 }
 
-$(window).ready(function () {
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width() <= 1024) {
-        $(".content-article img").css("width", "100%")
-    } else {
-        $(".content-article img").css("width", "")
-    }
-    }).resize(function () {
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width() <= 1024) {
-        $(".content-article img").css("width", "100%")
-    }else{
-        $(".content-article img").css("width", "")
-    }   
-    })
+$(() => {
+	$(window).resize(() => {
+		$(".content-article img").css("width", (isMobile || isLowWidth) ? "100%" : "");
+	}).resize();
+});

@@ -13,21 +13,6 @@ function enableSlide(index) {
 	$($("img.demo").removeClass("active").get(getActive())).addClass("active");
 }
 
-// TODO: убрать этот срам
-$(window).ready(function () {
-  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width() <= 1024) {
-      $("#product-page-wrapper").removeClass("nowrap").addClass("wrap")
-  } else {
-      $("#product-page-wrapper").removeClass("wrap").addClass("nowrap")
-  }
-}).resize(function () {
-  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width() <= 1024) {
-      $("#product-page-wrapper").removeClass("nowrap").addClass("wrap")
-  } else {
-      $("#product-page-wrapper").removeClass("wrap").addClass("nowrap")
-  }
-})
-
 function loadProductData() {
 	$.getJSON(`/data/database/product_info/${language.get("lang-code")}/${getProductArticle()}`, (data) => {
 		$("title").html(data["name"]);
@@ -71,10 +56,13 @@ function updateProductImageCarousel() {
 }
 
 $(() => {
-	$("a.prev-slide").click(() => { moveSlide(-1); });
-	$("a.next-slide").click(() => { moveSlide(1); });
+	$(window).resize(() => {
+		$("#product-page-wrapper").toggleClass("wrap", isMobile || isLowWidth).toggleClass("nowrap", !(isMobie || isLowWidth));
+	}).resize();
 	$(window).on("onlanguagechange", loadProductData);
 	$(window).on("oncountrychange", updateProductPrice);
+	$("a.prev-slide").click(() => { moveSlide(-1); });
+	$("a.next-slide").click(() => { moveSlide(1); });
 	
 	loadProductData();
 });

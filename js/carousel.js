@@ -19,11 +19,6 @@ function preInitCarousel() {
 	};
 }
 
-$(window).ready(resizeCarousel).resize(resizeCarousel);
-
-function resizeCarousel() {
-	$("#carousel").css("height", $(window).height() - $("#headerContainer").height());
-}
 
 function initCarousel() { // Prepare carousel to work
 	if(carousel) {
@@ -32,7 +27,6 @@ function initCarousel() { // Prepare carousel to work
 	}
 	
 	preInitCarousel();
-	resizeCarousel();
 	
 	$(carousel.slides[0]).css("transform", "translateX(0%)"); // Center first slide
 	carousel.slides.on("mousedown touchstart", onMouseDown); // Bind dragging start event to every slide
@@ -179,6 +173,9 @@ function moveSlide(relativeX) { // Move slide dynamically
 }
 
 $(() => { // When page is loaded
+	$(window).resize(() => {
+		$("#carousel").css("height", $(window).height() - $("#headerContainer").height());
+	}).resize();
 	initCarousel(); // Initialize carousel
 	carousel.slideTimer = setTimeout(autoMoveCarousel, carousel.slideTimeout); // Start auto switching in some time
 	$("#content #slide-container *").attr("draggable", "false");
