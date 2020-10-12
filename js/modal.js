@@ -63,5 +63,5 @@ $(() => {
 
 	$("#close-error-404").click(close404Modal);
 
-	$(document).on("keydown", onKeyDown);
+	$(window).on("keydown", onKeyDown);
 });

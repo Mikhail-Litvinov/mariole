@@ -1,10 +1,8 @@
-var wow = new WOW(
-  {
-    live: true,
-    boxClass:     'wow',      // класс, скрывающий элемент до момента отображения на экране (по умолчанию, wow)
-    offset:       20,          // расстояние в пикселях от нижнего края браузера до верхней границы элемента, необходимое для начала анимации (по умолчанию, 0)
-  }
-);
+var wow = new WOW({
+    "live": true,
+    "boxClass": "wow", // Class hiding an element until it should be showed on a display ("wow" by default)
+    "offset": 20 // Pixels from the lowest border of a display to the upper border of an element, needed for starting animation (0 by default)
+});
 wow.init();
 
-$(window).scroll(wow.init())
+$(window).scroll(wow.init()); // wtf

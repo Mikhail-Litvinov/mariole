@@ -56,7 +56,7 @@ function updateContentSelection(newPath) {
 
 function wrapPageLinks(selector) {
 	return $(selector).each((index, element) => {
-		$(element).click(() => { switchContent($(element).attr("navid")); });
+		$(element).off("click.navlink").on("click.navlink", () => { switchContent($(element).attr("navid")); });
 	});
 }
 
