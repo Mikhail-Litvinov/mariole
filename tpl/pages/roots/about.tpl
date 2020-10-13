@@ -87,7 +87,7 @@
             <div class="content-title-2">
                 <h2>Наши козы</h2>
             </div>
-            <div class="about-gallery wow animate__slideInUp" data-wow-duration="0.8s">
+            <div class="about-gallery wow animate__slideInUp" data-wow-duration="0.8s" active="0">
                 <div class="aboutSlide fade">
                     <img src="/img/home/img filler 16x4.5.jpg" alt="" width="100%" class="desktop">
                     <img src="/img/home/img filler 5x7.jpg" alt="" width="100%" class="mobile">
@@ -152,14 +152,14 @@
                         </div>
                     </div>
                 </div>
-                <a class="prevImg flex flex-align-middle" onclick="changeSlide(-1)">&#10094;</a>
-                <a class="nextImg flex flex-align-middle" onclick="changeSlide(1)">&#10095;</a>
+                <a class="prevImg flex flex-align-middle">&#10094;</a>
+                <a class="nextImg flex flex-align-middle">&#10095;</a>
             </div>
             <div style="text-align:center; padding-top: 10px;">
-                <span class="dot" onclick="aboutGallery(1)"></span>
-                <span class="dot" onclick="aboutGallery(2)"></span>
-                <span class="dot" onclick="aboutGallery(3)"></span>
-                <span class="dot" onclick="aboutGallery(4)"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
             </div>
         </div>
     </main>
