@@ -1,0 +1,131 @@
+.basket-content {
+    width: 60%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.basket-column-left {
+    width: 70%;
+    position: relative;
+}
+
+.basket-column-right {
+    width: 30%;
+    position: relative;
+}
+
+.product-card {
+    width: 100%;
+    height: auto;
+    box-shadow: 0px 2px 7px 0px black;
+    position: relative;
+    margin: 2vh 0;
+}
+
+.product-card-photo {
+    width: 20vh;
+    height: 20vh;
+    position: relative;
+}
+
+.product-card-content {
+    height: auto;
+    position: relative;
+    align-items: center;
+    margin-left: auto;
+    width: 75%;
+}
+
+.product-card-content .first {
+    justify-content: space-between;
+}
+
+.product-card-title {
+    font-size: 140%;
+    color: #3D210C;
+}
+
+.product-card-price {
+    font-size: 140%;
+    padding: 0 1vh;
+}
+
+.product-card-quantity {
+    width: 100%;
+    justify-content: flex-end;
+    padding-right: 1vh;
+    align-items: center;
+}
+
+.product-card-quantity p {
+    font-size: 120%;
+    margin: 0 1vh;
+    color: #3D210C;
+}
+
+.product-card-quantity button {
+    font-size: 120%;
+    width: 4vh;
+    height: 4vh;
+    background-color: transparent;
+    border: none;
+    color: #3D210C;
+    cursor: pointer;
+}
+
+.product-card-del {
+    width: 100%;
+    justify-content: flex-end;
+    padding-right: 1vh;
+}
+
+.product-card-del button {
+    font-size: 110%;
+    padding: 0.5vh 3vw;
+    color: #3D210C;
+    background-color: transparent;
+    border: 1px solid #3D210C;
+    cursor: pointer;
+}
+
+.product-card-quantity button:hover, .product-card-del button:hover {
+    color: #CD7F32;
+    border-color: #CD7F32;
+}
+
+.payment-content {
+    background-color: rgb(230, 230, 230);
+    width: 90%;
+    margin: 0 auto;
+    padding: 1vh;
+}
+
+.payment-details {
+    width: 100%;
+}
+
+.payment-details-item {
+    width: 100%;
+    justify-content: space-between;
+    font-size: 120%;
+    color: #3D210C;
+}
+
+.payment-order {
+    width: 100%;
+}
+
+.payment-order button {
+    width: 100%;
+    padding: 1vh 0;
+    font-size: 100%;
+    background-color: transparent;
+    margin: 1vh 0;
+    color: #3D210C;
+    border: 1px solid #3D210C;
+}
+
+.payment-order button:hover {
+    color: #CD7F32;
+    border-color: #CD7F32;
+}
