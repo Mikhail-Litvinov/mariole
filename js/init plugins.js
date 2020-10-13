@@ -4,5 +4,3 @@ var wow = new WOW({
     "offset": 20 // Pixels from the lowest border of a display to the upper border of an element, needed for starting animation (0 by default)
 });
 wow.init();
-
-$(window).scroll(wow.init()); // wtf

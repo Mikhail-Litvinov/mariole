@@ -1,6 +1,3 @@
-productData = {};
-isProductImagesLoaded = false;
-
 function setActive(index) { $(".product-slider-wrapper").attr("active", index); }
 function getActive() { return +($(".product-slider-wrapper").attr("active")); }
 
@@ -20,8 +17,8 @@ function loadProductData() {
 		$("#product-data-description").html(data["description"]);
 		
 		productData = data;
-		if(!isProductImagesLoaded) {
-			isProductImagesLoaded = true;
+		if(!areProductImagesLoaded) {
+			areProductImagesLoaded = true;
 			updateProductImageCarousel();
 		}
 		updateProductPrice();
