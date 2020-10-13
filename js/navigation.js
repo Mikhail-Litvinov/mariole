@@ -1,3 +1,5 @@
+pages = {};
+path = [];
 defaultPathRoot = "home";
 
 function switchContent(newPage) {
