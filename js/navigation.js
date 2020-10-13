@@ -1,6 +1,4 @@
-let pages = ["home", "about", "catalogue"]; // Array containing available pages
-let path = []; // Array containing current page path
-let defaultPathRoot = "home";
+defaultPathRoot = "home";
 
 function switchContent(newPage) {
 	let newPath = getPagePath(newPage);
@@ -60,11 +58,6 @@ function wrapPageLinks(selector) {
 	return $(selector).each((index, element) => {
 		$(element).off("click.navlink").on("click.navlink", () => { switchContent($(element).attr("navid")); });
 	});
-}
-
-function showContent(page) { // TODO: remove this
-	console.log(`Showed content: '${page}'`);
-	$("#content").load(`/tpl/pages/${page}.tpl`);
 }
 
 function loadAvailablePagesList(functionWhenReady) {

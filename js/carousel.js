@@ -19,22 +19,22 @@ function preInitCarousel() {
 	};
 }
 
-
 function initCarousel() { // Prepare carousel to work
-	if(carousel) {
-		clearTimeout(carousel.slideTimer);
-		clearTimeout(carousel.unpauseTimer);
-	}
+	clearTimeout(carousel.slideTimer);
+	clearTimeout(carousel.unpauseTimer);
 	
 	preInitCarousel();
 	
 	$(carousel.slides[0]).css("transform", "translateX(0%)"); // Center first slide
 	carousel.slides.on("mousedown touchstart", onMouseDown); // Bind dragging start event to every slide
-	carousel.slides.each((index, element) => { element.onselectstart = () => false; element.ondragstart = () => false; }); // Unbind defaults from every slide
+	carousel.slides.add(".move-slide-btn").each((index, element) => { // Unbind defaults from every slide and arrows
+		element.onselectstart = () => false;
+		element.ondragstart = () => false;
+	});
 	$(document).on("mousemove touchmove", onMouseMove).on("mouseup touchend", onMouseUp); // Bing mouse move and undragging events to the page
 	
-	$("div#previous-slide-btn").click(() => { moveCarousel(-1, true); }); // Bing switching slide back to back arrow
-	$("div#next-slide-btn").click(() => { moveCarousel(1, true); }); // Bing switching slide forward to forward arrow
+	$("#previous-slide-btn").click(() => { moveCarousel(-1, true); }); // Bing switching slide back to back arrow
+	$("#next-slide-btn").click(() => { moveCarousel(1, true); }); // Bing switching slide forward to forward arrow
 	
 	carousel.count = carousel.slides.length; // Write count of slides to the variable
 }
@@ -179,5 +179,5 @@ $(window).on("onresize.content", () => {
 $(() => { // When page is loaded
 	initCarousel(); // Initialize carousel
 	carousel.slideTimer = setTimeout(autoMoveCarousel, carousel.slideTimeout); // Start auto switching in some time
-	$("#content #slide-container *").attr("draggable", "false");
+	$("#content #carousel *").attr("draggable", "false");
 });

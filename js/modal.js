@@ -1,31 +1,31 @@
-let openTimeout = 50;
-let closeTimeout = 300;
-let close404Timeout = 700;
-let escapeKeycode = 27;
+closeModalTimeout = 50;
+closeModalTimeout = 300;
+closeModal404Timeout = 700;
+escapeKeycode = 27;
 
 function toggleLangModal() { $("#btn-lang").hasClass("active") ? closeLangModal() : openLangModal(); }
 
 function openLangModal() {
 	$("#btn-lang").addClass("active");
 	$("#modal-lang").css("display", "flex");
-	setTimeout(() => { $("#modal-lang").addClass("open"); }, openTimeout);
+	setTimeout(() => { $("#modal-lang").addClass("open"); }, closeModalTimeout);
 }
 function closeLangModal() {
 	$("#btn-lang").removeClass("active");
 	$("#modal-lang").removeClass("open");
-	setTimeout(() => { $("#modal-lang").css("display", "none"); }, closeTimeout);
+	setTimeout(() => { $("#modal-lang").css("display", "none"); }, closeModalTimeout);
 }
 
 function openCountryModal() {
 	$("#btn-country").addClass("active");
 	$("#modal-country").css("display", "block");
-	setTimeout(() => { $("#modal-country").addClass("open"); }, openTimeout);
+	setTimeout(() => { $("#modal-country").addClass("open"); }, closeModalTimeout);
 }
 
 function closeCountryModal() {
 	$("#btn-country").removeClass("active");
 	$("#modal-country").removeClass("open");
-	setTimeout(() => { $("#modal-country").css("display", "none"); }, closeTimeout);
+	setTimeout(() => { $("#modal-country").css("display", "none"); }, closeModalTimeout);
 }
 
 function openSearchModal() {
@@ -40,7 +40,7 @@ function closeSearchModal() {
 
 function close404Modal() {
 	$("#error-404-modal").addClass("active");
-	setTimeout(() => { $("#error-404-modal").remove(); }, close404Timeout);
+	setTimeout(() => { $("#error-404-modal").remove(); }, closeModal404Timeout);
 }
 
 function onKeyDown(evt) {
@@ -63,5 +63,5 @@ $(() => {
 
 	$("#close-error-404").click(close404Modal);
 
-	$(window).on("keydown", onKeyDown);
+	$(window).on("keydown.modal", onKeyDown);
 });
