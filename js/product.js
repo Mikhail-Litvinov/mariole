@@ -29,7 +29,6 @@ function loadProductData() {
 }
 
 function getProductArticle() { return path[1]; }
-
 function updateProductPrice() { $("#product-data-price").html(`${productData[countries.curname]} ${countries.cursign}`); }
 
 function updateProductImageCarousel() {
@@ -54,6 +53,7 @@ $(() => {
 	$(window).on("oncountrychange", updateProductPrice);
 	$(".prev-slide").click(() => { moveSlide(-1); });
 	$(".next-slide").click(() => { moveSlide(1); });
+	$("#add-to-cart").click(() => { cookies.addItemToCart(productData["article"], 1); });
 	
 	loadProductData();
 });

@@ -19,7 +19,7 @@
             <div class="product-page-title">
                 <h2 id="product-data-name"></h2>
                 <p id="product-data-price"></p>
-                <button>В корзину</button>
+                <button id="add-to-cart">В корзину</button>
             </div>
             <article>
                 <p id="product-data-description"></p>
@@ -48,5 +48,6 @@
             </div>
         </div>
     </div>
-    <script src="/js/product.js"></script>
+	<script charset="utf-8" type="text/javascript" src="/js/cookies.js"></script>
+    <script charset="utf-8" type="text/javascript" src="/js/product.js"></script>
 </body>
