@@ -17,19 +17,14 @@
 	
 	function process_database($request) {
 		$db = new SQLite3('mariole.db');
+		$language = $db->escapeString(empty($request[1]) ? 'en' : $request[1]);
 		$response;
 		switch($request[0]) {
 			case 'product_query':
 			case 'product_info':
-				$language = $db->escapeString($request[1]);
-				$sql = "
-					SELECT * FROM products 
-						JOIN products_lang_$language ON products.article = products_lang_$language.article 
-						JOIN products_photos ON products.article = products_photos.article
-				";
 				switch($request[0]) {
-					case 'product_query': $response = get_product_query($db, $sql, $language, array_slice($request, 2)); break;
-					case 'product_info': $response = get_product_info($db, $sql, $language, array_slice($request, 2)); break;
+					case 'product_query': $response = get_product_query($db, $language, array_slice($request, 2)); break;
+					case 'product_info': $response = get_product_info($db, $language, array_slice($request, 2)); break;
 				}
 				break;
 			case 'forexample_news_query':
@@ -39,20 +34,38 @@
 		return $response;
 	}
 	
-	function get_product_query($db, $sql, $language, $request) {
-		$type = $db->escapeString($request[0]);
-		$class = $db->escapeString($request[1]);
-		if($type) $sql .= " WHERE products.type = '$type'";
-		if($class) $sql .= " AND products.class = '$class'";
-		$result = $db->query($sql);
+	function get_product_query($db, $language, $request) {
+		$result = $db->query(get_product_query_sql($db, $language, $request));
 		$response = [];
 		while($row = $result->fetchArray(SQLITE3_ASSOC)) $response[] = $row;
 		return $response;
 	}
 	
-	function get_product_info($db, $sql, $language, $request) {
+	function get_product_query_sql($db, $language, $request) {
+		$sql = "
+			SELECT * FROM products
+				JOIN ( SELECT article, i0 FROM products_photos ) USING(article)
+				JOIN ( SELECT article, name FROM products_lang_$language ) USING(article)
+		";
+		switch($request[0]) {
+			case 'cart':
+				$products_list = implode(', ', explode('-', $db->escapeString($request[1])));
+				return $sql . " WHERE products.article IN ({$products_list})";
+			default:
+				$type = $db->escapeString($request[0]);
+				$class = $db->escapeString($request[1]);
+				return $sql . ($type ? " WHERE products.type = '$type'" . ($class ? " AND products.class = '$class'" : '') : '');
+		}
+	}
+	
+	function get_product_info($db, $language, $request) {
 		$article = $db->escapeString($request[0]);
-		$sql .= " WHERE products.article = '$article'";
+		$sql = "
+			SELECT * FROM products
+				JOIN products_photos USING(article)
+				JOIN products_lang_$language USING(article)
+			WHERE products.article = '$article'
+		";
 		return $db->query($sql)->fetchArray(SQLITE3_ASSOC);
 	}
 	
