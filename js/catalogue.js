@@ -47,14 +47,14 @@ function buildSortedProductList() {
 	let newCataloguePage = $("<div>");
 	catalogueProductList.forEach((product) => {
 		let item = $(catalogueItemTemplate);
-		item.attr("navid", `product-page/${product["article"]}`);
+		item.children("a").attr("navid", `product-page/${product["article"]}`);
 		item.find(".product-photo > img").attr("src", `/img/products-images/${product["i0"]}.jpg`);
 		item.find(".product-title > p").html(product["name"]);
 		item.find(".product-price > p").html(`${product[countries.curname]} ${countries.cursign}`);
 		newCataloguePage.append(item);
 	});
-	$("div.catalogue-page").html(newCataloguePage.html());
-	wrapPageLinks("#content div.product-wrapper");
+	$(".catalogue-page").html(newCataloguePage.html());
+	wrapPageLinks("#content .product-wrapper > a[navid]");
 }
 
 function closeAllSubmenus() {

@@ -102,25 +102,31 @@
 	<div class="flex sub-nav-home-wrapper sub-nav" id="home-sub">
 		<div class="sub-home-wrapper">
 				<div class="flex nowrap flex-align-middle mobile-sub">
-					<div navid="about" class="about-container sub-list-element">
-						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-						<div class="about-text flex flex-align-middle">
-							<p class="after-change">О нас</p>
-						</div>
-					</div>
-					<div navid="catalogue/sale" class="sale-container sub-list-element">
-						<div class="sale-img">
+					<div class="about-container sub-list-element">
+						<a navid="about">
 							<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-							<div class="sale-text">
-								<p>Акция</p>
+							<div class="about-text flex flex-align-middle">
+								<p class="after-change">О нас</p>
 							</div>
-						</div>
+						</a>
 					</div>
-					<div navid="catalogue/new" class="new-goods-container sub-list-element">
-						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-						<div class="new-text">
-							<p>Новинки</p>
-						</div>
+					<div class="sale-container sub-list-element">
+						<a navid="catalogue/sale">
+							<div class="sale-img">
+								<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
+								<div class="sale-text">
+									<p>Акция</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="new-goods-container sub-list-element">
+						<a navid="catalogue/new">
+							<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
+							<div class="new-text">
+								<p>Новинки</p>
+							</div>
+						</a>
 					</div>
 				</div>
 		</div>
@@ -128,27 +134,35 @@
 	<div class="flex sub-nav-gallery-wrapper sub-nav" id="gallery-sub">
 		<div class="sub-gallery-wrapper">
 			<div class="sub-gallery-table">
-				<div navid="fashion-gallery" class="clothes-gallery sub-list-element">
-					<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-					<div class="gallery-sub-title">
-						<p>
-							<span>Mariole.fashion</span>
-						</p>
-					</div>
+				<div class="clothes-gallery sub-list-element">
+					<a navid="fashion-gallery">
+						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
+						<div class="gallery-sub-title">
+							<p>
+								<span>Mariole.fashion</span>
+							</p>
+						</div>
+					</a>
 				</div>
-				<div navid="home-gallery" class="home-gallery sub-list-element">
-					<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-					<div class="gallery-sub-title">
-						<p><span>Mariole.home</span></p>
-					</div>
+				<div class="home-gallery sub-list-element">
+					<a navid="home-gallery">
+						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
+						<div class="gallery-sub-title">
+							<p>
+								<span>Mariole.home</span>
+							</p>
+						</div>
+					</a>
 				</div>
-				<div navid="travel-gallery" class="travel-gallery sub-list-element">
-					<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-					<div class="gallery-sub-title">
-						<p>
-							<span>Mariole.travel</span>
-						</p>
-					</div>
+				<div class="travel-gallery sub-list-element">
+					<a navid="travel-gallery">
+						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
+						<div class="gallery-sub-title">
+							<p>
+								<span>Mariole.travel</span>
+							</p>
+						</div>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -176,7 +190,8 @@
 						</li>
 					</ul>
 				</div>
-				<div navid="catalogue/clothe/new" class="new-clothe sub-list-element">
+				<div class="new-clothe sub-list-element">
+					
 					<div class="clothe-table">
 						<div class="clothe-title">
 							<p>Новое</p>
@@ -290,23 +305,29 @@
 	<div class="flex sub-nav-news-wrapper sub-nav" id="news-sub">
 		<div class="news-sub-wrapper">
 			<div class="news-sub-content">
-				<div navid="news" class="last-news-container sub-list-element">
-					<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-					<div class="news-sub-title flex nowrap flex-align-middle">
-						<span>Свежие новости</span>
-					</div>
+				<div class="last-news-container sub-list-element">
+					<a navid="news">
+						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
+						<div class="news-sub-title flex nowrap flex-align-middle">
+							<span>Свежие новости</span>
+						</div>
+					</a>
 				</div>
-				<div navid="news/recommended" class="rec-news-container sub-list-element">
-					<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-					<div class="rec-sub-title flex nowrap">
-						<span>Рекомендованное</span>
-					</div>
+				<div class="rec-news-container sub-list-element">
+					<a navid="news/recommended">
+						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
+						<div class="rec-sub-title flex nowrap">
+							<span>Рекомендованное</span>
+						</div>
+					</a>
 				</div>
-				<div navid="news/press" class="media-news-container sub-list-element">
-					<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
-					<div class="media-sub-title flex nowrap">
-						<span>Мы в прессе</span>
-					</div>
+				<div class="media-news-container sub-list-element">
+					<a navid="news/press">
+						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
+						<div class="media-sub-title flex nowrap">
+							<span>Мы в прессе</span>
+						</div>
+					</a>
 				</div>
 			</div>
 		</div>

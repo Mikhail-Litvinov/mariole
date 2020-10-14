@@ -58,7 +58,10 @@ function updateContentSelection(newPath) {
 
 function wrapPageLinks(selector) {
 	return $(selector).each((index, element) => {
-		$(element).off("click.navlink").on("click.navlink", () => { switchContent($(element).attr("navid")); });
+		$(element).attr("href", "/" + $(element).attr("navid")).off("click.navlink").on("click.navlink", (evt) => {
+			switchContent($(element).attr("navid"));
+			evt.preventDefault();
+		});
 	});
 }
 
