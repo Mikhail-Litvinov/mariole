@@ -7,8 +7,8 @@ function preInitCarousel() {
 		pauseTimeout: 3000, // Duration of pause after manual slide switching
 		animationTimeout: 1000, // Duration of slide switch animation
 		fallAnimationTimeout: 0, // Duration of slide fall animation, changes dynamically, based on switch animation timeout
-		slideTimer: null, // Slide switch timer
-		unpauseTimer: null, // Slide pause timer
+		slideTimer: undefined, // Slide switch timer
+		unpauseTimer: undefined, // Slide pause timer
 		isDragging: false, // Is user dragging slide at the moment
 		isDraggingBlocked: false, // Is dragging blocked by any action
 		isAutoMoveBlocked: false, // Is auto slide switching blocked by any action
@@ -20,9 +20,6 @@ function preInitCarousel() {
 }
 
 function initCarousel() { // Prepare carousel to work
-	clearTimeout(carousel.slideTimer);
-	clearTimeout(carousel.unpauseTimer);
-	
 	preInitCarousel();
 	
 	$(carousel.slides[0]).css("transform", "translateX(0%)"); // Center first slide
@@ -31,8 +28,8 @@ function initCarousel() { // Prepare carousel to work
 		element.onselectstart = () => false;
 		element.ondragstart = () => false;
 	});
-	$(document).on("mousemove touchmove", onMouseMove).on("mouseup touchend", onMouseUp); // Bing mouse move and undragging events to the page
 	
+	$(window).on("mousemove.carousel touchmove.carousel", onMouseMove).on("mouseup.carousel touchend.carousel", onMouseUp);
 	$("#previous-slide-btn").click(() => { moveCarousel(-1, true); }); // Bing switching slide back to back arrow
 	$("#next-slide-btn").click(() => { moveCarousel(1, true); }); // Bing switching slide forward to forward arrow
 	
@@ -174,6 +171,15 @@ function moveSlide(relativeX) { // Move slide dynamically
 
 $(window).on("onresize.content", () => {
 	$("#carousel").css("height", $(window).height() - $("#headerContainer").height());
+});
+
+$(window).on("onunload.content", () => {
+	clearTimeout(carousel.slideTimer);
+	clearTimeout(carousel.unpauseTimer);
+	carousel = undefined;
+	
+	$(window).off("mousemove.carousel touchmove.carousel mouseup.carousel touchend.carousel");
+	$("html").css("cursor", "auto");
 });
 
 $(() => { // When page is loaded
