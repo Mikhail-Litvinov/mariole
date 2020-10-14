@@ -4,7 +4,7 @@ sortingMethod = "default";
 
 function updateCatalogueSelection(newPath, newList) {
 	if(!catalogueItemTemplate) {
-		$.get("/tpl/pages/catalogue-item.tpl", (data) => {
+		$.get("/tpl/pages/catalogue_item.tpl", (data) => {
 			catalogueItemTemplate = data;
 			updateCatalogueSelection(newPath, newList);
 		});
@@ -46,7 +46,7 @@ function sortProductList() {
 function buildSortedProductList() {
 	let newCataloguePage = $("<div>");
 	catalogueProductList.forEach((product) => {
-		let item = $(catalogueItemTemplate).removeClass("new-product-wrapper");
+		let item = $(catalogueItemTemplate);
 		item.attr("navid", `product-page/${product["article"]}`);
 		item.find(".product-photo > img").attr("src", `/img/products-images/${product["i0"]}.jpg`);
 		item.find(".product-title > p").html(product["name"]);
