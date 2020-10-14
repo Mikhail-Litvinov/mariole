@@ -38,3 +38,7 @@ cookies = {
 		cookies.addItemToCart(article, null);
 	}
 };
+
+$(window).on("onunload.content", () => {
+	cookies = undefined;
+});

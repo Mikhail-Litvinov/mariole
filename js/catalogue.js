@@ -1,5 +1,4 @@
-catalogueProductList = [];
-catalogueItemTemplate = null;
+catalogueItemTemplate = window["catalogueItemTemplate"];
 sortingMethod = "default";
 
 function updateCatalogueSelection(newPath, newList) {
@@ -66,6 +65,12 @@ $(window).on("onresize.content", () => {
 	$(".catalogue-button-top-nav").detach().appendTo(`.catalogue-${(isMobile || isLowWidth) ? "left" : "top"}-nav`);
 });
 
+$(window).on("onunload.content", () => {
+	catalogueProductList = undefined;
+	sortingMethod = undefined;
+	$(window).off("oncountrychange.content onlanguagechange.content");
+});
+
 $(() => {
 	$(".sorting").nSelect();
 	
@@ -85,6 +90,6 @@ $(() => {
 		$(element).click(() => { performNewSortingMethod(sortingMethodList[index]); });
 	});
 	
-	$(window).on("oncountrychange", () => { performNewSortingMethod(sortingMethod); });
-	$(window).on("onlanguagechange", () => { updateCatalogueSelection(path); });
+	$(window).on("oncountrychange.content", () => { performNewSortingMethod(sortingMethod); });
+	$(window).on("onlanguagechange.content", () => { updateCatalogueSelection(path); });
 });

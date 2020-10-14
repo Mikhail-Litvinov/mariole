@@ -1,4 +1,5 @@
-areProductImagesLoaded = false;
+productData = undefined;
+areProductImagesLoaded = undefined;
 
 function setActive(index) { $(".product-slider-wrapper").attr("active", index); }
 function getActive() { return +($(".product-slider-wrapper").attr("active")); }
@@ -45,6 +46,11 @@ function updateProductImageCarousel() {
 
 $(window).on("onresize.content", () => {
 	$("#product-page-wrapper").toggleClass("wrap", isMobile || isLowWidth).toggleClass("nowrap", !(isMobile || isLowWidth));
+});
+
+$(window).on("onunload.content", () => {
+	areProductImagesLoaded = undefined;
+	productData = undefined;
 });
 
 $(() => {

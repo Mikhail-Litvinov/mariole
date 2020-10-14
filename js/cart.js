@@ -1,5 +1,4 @@
-cartProductsList = undefined;
-cartItemTemplate = undefined;
+cartItemTemplate = window["cartItemTemplate"];
 
 function updateCartList(newList) {
 	if(!cartItemTemplate) {
@@ -68,9 +67,7 @@ function buildCartList() {
 function calculateFinalSum() {
 	let cookiesCart = cookies.getItemsInCart();
 	let sum = 0.0;
-	cartProductsList.forEach((product) => {
-		sum += product[countries.curname] * (cookiesCart.get(product["article"]) ?? 0);
-	});
+	cartProductsList.forEach((product) => { sum += product[countries.curname] * (cookiesCart.get(product["article"]) ?? 0); });
 	sum = +sum.toFixed(2);
 	let vat = +(0.0).toFixed(2); // TODO: later
 	let finalSum = +(sum + vat).toFixed(2);
@@ -84,8 +81,12 @@ $(window).on("onresize.content", () => {
 	/* do something when resize */
 });
 
+$(window).on("onunload.content", () => {
+	cartProductsList = undefined;
+	$(window).off("oncountrychange.content onlanguagechange.content");
+});
+
 $(() => {
 	updateCartList();
-	$(window).off("oncountrychange.cart").on("oncountrychange.cart", performNewCartCountry);
-	$(window).off("onlanguagechange.cart").on("onlanguagechange.cart", performNewCartLanguage);
+	$(window).on("oncountrychange.content", performNewCartCountry).on("onlanguagechange.content", performNewCartLanguage);
 });
