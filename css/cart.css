@@ -1,15 +1,15 @@
-.basket-content {
+.cart-content {
     width: 60%;
     margin: 0 auto;
     position: relative;
 }
 
-.basket-column-left {
+.cart-column-left {
     width: 70%;
     position: relative;
 }
 
-.basket-column-right {
+.cart-column-right {
     width: 30%;
     position: relative;
 }
