@@ -1,4 +1,4 @@
-<p title="home page wow" visible="false">
+<p title="Главная страница" visible="false">
 <head>
     <link rel="stylesheet" href="/css/home-page.css">
     <link rel="stylesheet" href="/css/media.css">
