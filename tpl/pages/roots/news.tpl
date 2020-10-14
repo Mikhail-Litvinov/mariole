@@ -2,7 +2,6 @@
     <link rel="stylesheet" href="/css/news.css">
     <link rel="stylesheet" href="/css/media.css">
 </head>
-
 <body>
     <div class="content-wrapper-full-width">
         <div class="mobile-nav-news ">
@@ -158,10 +157,8 @@
                 <div class="blog-nav-element">
                     <div class="blog-categories-wrapper flex wrap">
                         <h2>Категории</h2>
-                        <button class="blog-categories-button">Свежие новости <span
-                                class="news-count">(1)</span></button>
-                        <button class="blog-categories-button">Рекомендованное <span
-                                class="news-count">(1)</span></button>
+                        <button class="blog-categories-button">Свежие новости <span class="news-count">(1)</span></button>
+                        <button class="blog-categories-button">Рекомендованное <span class="news-count">(1)</span></button>
                         <button class="blog-categories-button">Мы в прессе <span class="news-count">(1)</span></button>
                         <button class="blog-categories-button">Поездки <span class="news-count">(1)</span></button>
                         <Button class="blog-categories-button">Продукция <span class="news-count">(1)</span></Button>
@@ -185,5 +182,5 @@
             </div>
         </div>
     </div>
-    <script src="/js/news.js"></script>
 </body>
+<script src="/js/news.js"></script>

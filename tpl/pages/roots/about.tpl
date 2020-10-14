@@ -163,5 +163,5 @@
             </div>
         </div>
     </main>
-    <script src="/js/about.js"></script>
 </body>
+<script src="/js/about.js"></script>

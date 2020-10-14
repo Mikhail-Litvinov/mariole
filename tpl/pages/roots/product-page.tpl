@@ -48,6 +48,6 @@
             </div>
         </div>
     </div>
-	<script charset="utf-8" type="text/javascript" src="/js/cookies.js"></script>
-    <script charset="utf-8" type="text/javascript" src="/js/product.js"></script>
 </body>
+<script charset="utf-8" type="text/javascript" src="/js/cookies.js"></script>
+<script charset="utf-8" type="text/javascript" src="/js/product.js"></script>

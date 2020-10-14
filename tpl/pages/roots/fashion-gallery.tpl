@@ -122,5 +122,5 @@
             </div>
         </div>
     </div>
-    <script src="/js/gallery.js"></script>
 </body>
+<script src="/js/gallery.js"></script>

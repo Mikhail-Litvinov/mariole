@@ -36,5 +36,5 @@
             </button>
         </div>
     </div>
-    <script src="/js/faq.js"></script>
 </body>
+<script src="/js/faq.js"></script>

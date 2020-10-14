@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <link rel="stylesheet" href="/css/home-gallery.css">
     <link rel="stylesheet" href="/css/media.css">
 </head>
 <body>
-<div class="content-wrapper">
+	<div class="content-wrapper">
         <div class="grid-gallery">
             <div class="grid-el-1 wow animate__slideInUp" data-wow-duration="0.8s">
                 <img src="/img/gallery/home/img filler 5x7.jpg" alt="" width="100%"  onclick="openGallery();currentSlide(1)">

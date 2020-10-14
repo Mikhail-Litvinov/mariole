@@ -67,7 +67,9 @@
                                 Надо придумать название этому
                             </h2>
                             <p class="content-text-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptatum excepturi tempora est quidem aspernatur! Itaque vero accusantium temporibus sit?</p>
-                            <a><button class="content-button">Просмотреть</button></a>
+                            <a>
+								<button class="content-button">Просмотреть</button>
+							</a>
                         </div>
                     </div>
                 </div>
@@ -88,7 +90,9 @@
                                 Надо придумать название этому
                             </h2>
                             <p class="content-text-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptatum excepturi tempora est quidem aspernatur! Itaque vero accusantium temporibus sit?</p>
-                            <a><button class="content-button">Просмотреть</button></a>
+                            <a>
+								<button class="content-button">Просмотреть</button>
+							</a>
                         </div>
                     </div>
                 </div>
@@ -123,5 +127,5 @@
             </div>
         </div>
     </main>
-    <script type="text/javascript" src="/js/carousel.js"></script>
 </body>
+<script type="text/javascript" src="/js/carousel.js"></script>
