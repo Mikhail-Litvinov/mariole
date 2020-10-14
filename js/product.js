@@ -1,3 +1,5 @@
+areProductImagesLoaded = false;
+
 function setActive(index) { $(".product-slider-wrapper").attr("active", index); }
 function getActive() { return +($(".product-slider-wrapper").attr("active")); }
 
