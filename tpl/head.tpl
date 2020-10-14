@@ -10,5 +10,5 @@
 <link rel="stylesheet" href="/fonts/Fontello/css/fontello-ie7-codes.css">
 <link rel="stylesheet" href="/fonts/Fontello/css/fontello-ie7.css">
 <link rel="stylesheet" href="/fonts/Fontello/css/fontello.css">
-<link rel="stylesheet" href="/js/OverlayScrollbars-master/css/OverlayScrollbars.css">
+<!--<link rel="stylesheet" href="/js/OverlayScrollbars-master/css/OverlayScrollbars.css">-->
 <title></title>
