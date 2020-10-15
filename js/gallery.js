@@ -1,5 +1,5 @@
-function openGallery() { $("#galleryModal").addClass("active"); }
-function closeGallery() { $("#galleryModal").removeClass("active"); }
+function openGallery() { $("#galleryModal").show().addClass("active"); }
+function closeGallery() { $("#galleryModal").hide().removeClass("active"); } // TODO: fix instant hiding
 
 function setActive(index) { $(".grid-gallery").attr("active", index); }
 function getActive() { return +($(".grid-gallery").attr("active")); }
@@ -14,6 +14,7 @@ function enableGallery(index) {
 }
 
 $(() => {
+	closeGallery();
 	$(".prev-slide").click(() => { moveSlide(-1); });
 	$(".next-slide").click(() => { moveSlide(1); });
 	$(".grid-gallery").height($(".grid-gallery").width())
