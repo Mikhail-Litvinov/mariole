@@ -155,7 +155,7 @@ $(window).on("onunload.content", () => {
 	carousel = undefined;
 	initCarousel = undefined;
 	
-	$(window).off("mousemove.carousel touchmove.carousel mouseup.carousel touchend.carousel");
+	$(window).off(".carousel");
 	$("html").css("cursor", "auto");
 });
 
@@ -163,8 +163,11 @@ $(() => { // When page is loaded
 	initCarousel(); // Initialize carousel
 	carousel.start(); // Start auto switching in some time
 	
-	carousel.slides.on("mousedown touchstart", carousel.onStartDrag); // Bind dragging start event to every slide
-	$(window).on("mousemove.carousel touchmove.carousel", carousel.onDrag).on("mouseup.carousel touchend.carousel", carousel.onStopDrag);
+	carousel.slides.on("mousedown.carousel touchstart.carousel", carousel.onStartDrag); // Bind dragging start event to every slide
+	$(window).on({
+		"mousemove.carousel touchmove.carousel": carousel.onDrag,
+		"mouseup.carousel touchend.carousel": carousel.onStopDrag
+	});
 	$("#previous-slide-btn").click(() => { carousel.move(-1, true); }); // Bing switching slide back to back arrow
 	$("#next-slide-btn").click(() => { carousel.move(1, true); }); // Bing switching slide forward to forward arrow
 });
