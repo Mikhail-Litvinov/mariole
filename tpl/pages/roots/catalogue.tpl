@@ -125,5 +125,4 @@
 		</div>
 	</div>
 </body>
-<script src="/js/jquery.nselect.js"></script>
-<script src="/js/catalogue.js"></script>
+<script>loadScripts(["jquery.nselect", "catalogue"]);</script>

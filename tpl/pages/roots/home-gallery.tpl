@@ -128,5 +128,5 @@
             </div>
         </div>
     </div>
-    <script src="/js/gallery.js"></script>
+    <script>loadScripts(["gallery"]);</script>
 </body>

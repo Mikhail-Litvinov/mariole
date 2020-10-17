@@ -164,4 +164,4 @@
         </div>
     </main>
 </body>
-<script src="/js/about.js"></script>
+<script>loadScripts(["about"]);</script>

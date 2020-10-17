@@ -123,4 +123,4 @@
         </div>
     </div>
 </body>
-<script src="/js/gallery.js"></script>
+<script>loadScripts(["gallery"]);</script>

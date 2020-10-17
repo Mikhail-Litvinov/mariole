@@ -128,4 +128,4 @@
         </div>
     </main>
 </body>
-<script type="text/javascript" src="/js/carousel.js"></script>
+<script>loadScripts(["carousel"]);</script>

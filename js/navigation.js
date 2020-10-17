@@ -35,12 +35,12 @@ function processError404(pathRoot) {
 function routePagePath(newPath) {
 	if(path[0] != newPath[0]) { // If new path root is different
 		scrollTo(0, 0); // Scroll page to the start
-		$(window).off("onresize.content").trigger("onunload.content").off("onunload.content");
-		$("#content").load(`/tpl/pages/roots/${newPath[0]}.tpl`, () => { // Load new page and then execute function
+		$(window).trigger("onunload.content").off("onscriptsloadend .content");
+		$.get(`/tpl/pages/roots/${newPath[0]}.tpl`, (data) => {
+			$("#content").html(data);
 			$("title").html($("#content > [title]").attr("title")); // Set website title as written in the page root's HTML
 			wrapPageLinks("#content [navid]");
-			updateContentSelection(newPath);
-			$(window).trigger("onresize.content");
+			$(window).on("onscriptsloadend", () => { updateContentSelection(newPath); });
 		});
 	} else updateContentSelection(newPath);
 }
@@ -65,14 +65,21 @@ function wrapPageLinks(selector) {
 	});
 }
 
-function loadAvailablePagesList(functionWhenReady) {
+function loadAvailablePagesList(callback) {
 	$.getJSON("/data/pages_list", (response) => {
 		pages = response;
-		functionWhenReady();
+		callback();
 	});
 }
 
-$(() => {
+function loadScripts(list) {
+	$.when.apply($, list.map((name) => $.getScript(`/js/${name}.js`))).then(() => {
+		for(let script of list) $(window).trigger(`onload.${script}`);
+		$(window).trigger("onscriptsloadend").trigger("onresize.content");
+	});
+}
+
+$(window).on("navigate", () => {
 	loadAvailablePagesList(switchContent);
 	wrapPageLinks("[navid]");
 	addEventListener("popstate", () => { switchContent() }); // Bind forward/back actions to switchContent

@@ -34,5 +34,4 @@
         </div>
     </div>
 </body>
-<script type="text/javascript" src="/js/cookies.js"></script>
-<script type="text/javascript" src="/js/cart.js"></script>
+<script>loadScripts(["cart"]);</script>

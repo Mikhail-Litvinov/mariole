@@ -6,6 +6,7 @@ cookies = {
 	set: (name, value, options = {}) => {
 		options = {
 			"path": "/",
+			"max-age": 60*60*24*31, // One month
 			...options
 		};
 		if(options["expires"] instanceof Date) options["expires"] = options["expires"].toUTCString();
@@ -29,7 +30,7 @@ cookies = {
 	updateItemsInCart: (newCart) => {
 		let result = [];
 		for(let [article, count] of newCart) if(count) result.push(`${article}-${count}`);
-		cookies.set("cart", result.join("_"), { "max-age": 60*60*24 });
+		cookies.set("cart", result.join("_"));
 	},
 	addItemToCart: (article, count) => {
 		cookies.updateItemsInCart(cookies.getItemsInCart().set(article, count));
@@ -38,7 +39,3 @@ cookies = {
 		cookies.addItemToCart(article, null);
 	}
 };
-
-$(window).on("onunload.content", () => {
-	cookies = undefined;
-});

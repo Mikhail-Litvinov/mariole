@@ -13,7 +13,7 @@ function enableGallery(index) {
 	$("#caption").html($($(".demo").removeClass("active").get(getActive())).addClass("active").attr("alt"));
 }
 
-$(() => {
+$(window).on("onload.gallery", () => {
 	closeGallery();
 	$(".prev-slide").click(() => { moveSlide(-1); });
 	$(".next-slide").click(() => { moveSlide(1); });

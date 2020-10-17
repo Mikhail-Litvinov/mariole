@@ -37,4 +37,4 @@
         </div>
     </div>
 </body>
-<script src="/js/faq.js"></script>
+<script>loadScripts(["faq"]);</script>

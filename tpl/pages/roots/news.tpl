@@ -183,4 +183,4 @@
         </div>
     </div>
 </body>
-<script src="/js/news.js"></script>
+<script>loadScripts(["news"]);</script>

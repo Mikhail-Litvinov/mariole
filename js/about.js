@@ -14,7 +14,7 @@ $(window).on("onresize.content", () => {
 	$(".content-article img").css("width", (isMobile || isLowWidth) ? "100%" : "");
 });
 
-$(() => {
+$(window).on("onload.about", () => {
 	$(".prevImg").click(() => { moveSlide(-1); });
 	$(".nextImg").click(() => { moveSlide(1); });
 	$(".dot").each((index, element) => { $(element).click(() => { enableSlide(index); }); });
