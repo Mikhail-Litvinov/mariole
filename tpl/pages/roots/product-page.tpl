@@ -24,30 +24,8 @@
             <article>
                 <p id="product-data-description"></p>
             </article>
-            <div class="params">
-                <div class="params-row">
-                    <span class="flex"><p>Длина</p></span>
-                    <span class="params-info"><p>xxx см</p></span>
-                </div>
-                <div class="params-row">
-                    <span class="flex"><p>Ширина</p></span>
-                    <span class="params-info"><p>xxx см</p></span>
-                </div>
-                <div class="params-row">
-                    <span class="flex"><p>Ткань</p></span>
-                    <span class="params-info"><p>???</p></span>
-                </div>
-                <div class="params-row">
-                    <span class="flex"><p>Что-нибудь ещё</p></span>
-                    <span class="params-info"><p>xxx см</p></span>
-                </div>
-                <div class="params-row">
-                    <span class="flex"><p>Хоть на всю страницу</p></span>
-                    <span class="params-info"><p>xxx см</p></span>
-                </div>
-            </div>
+            <div class="params"></div>
         </div>
     </div>
 </body>
-<script charset="utf-8" type="text/javascript" src="/js/cookies.js"></script>
-<script charset="utf-8" type="text/javascript" src="/js/product.js"></script>
+<script>loadScripts(["product"]);</script>
