@@ -1,91 +1,118 @@
 let language = {
-	"_active": null, // Contains active language
-	"get": item => language["_active"][item], // Returns requested language field
-	"validate": lang => ["ru", "cs", "it", "zh"].includes(lang) ? lang : "en" // If language is provided, then returns it, else returns default (en)
+	active: undefined, // Contains active language
+	get code() { return this.active["lang-code"]; },
+	get: function(item) { return this.active[item]; }, // Returns requested language field
+	validate: (lang) => ["ru", "cs", "it", "zh"].includes(lang) ? lang : "en" // If language is provided, then returns it, else returns default (en)
 };
 
-let countries = {
-	"_active": null, // Contains active country
-	"change": country => { // Sets new country
-		countries["_active"] = Object.assign({}, countries["list"][country]); // Clones country object
-		countries["_active"]["latin"] = country; // Writes active country latin name
+let country = {
+	active: undefined, // Contains active country
+	get latin() { return this.active.latin; }, // Returns latin name of active country
+	change: function(country) { // Sets new country
+		country = this.validate(country);
+		this.active = { // Clone original country data object and add latin name
+			latin: country,
+			...this.list[country]
+		};
 	},
-	"getByYMaps": ymaps => Object.entries(countries["list"]).find(item => item[1]["ymaps"] == ymaps)[0], // Find country by YMaps name
-	get latin() { return this["_active"]["latin"] }, // Returns latin name of active country
-	get ymaps() { return this["_active"]["ymaps"] }, // Returns ymaps name of active country
-	get cursign() { // Returns currency sign of active country
-		switch(this["_active"]["cur"]) {
+	validate: function(country) { return Object.keys(this.list).includes(country) ? country : "unitedkingdom"; },
+	list: undefined // Contains all provided countries
+}
+
+let currency = {
+	get sign() { // Returns currency sign of active country
+		switch(country.active.cur) {
 			case 0: return "Kč"; // Returns czech koruna sign
 			case 1: return "&#8381;"; // Returns russian rouble sign
 			case 2: return "&#36;"; // Returns dollar sign
 			default: return "&#8364;"; // Returns euro sign
 		}
 	},
-	get curname() {
-		switch(this["_active"]["cur"]) {
+	get name() { // Returns currency name of active country
+		switch(country.active.cur) {
 			case 0: return "koruna";
 			case 1: return "rouble";
 			case 2: return "dollar";
 			default: return "euro";
 		}
-	},
-	"list": null // Contains all provided countries
+	}
 };
 
 function changeLanguage(evt) {
-	$('a.lang-btn.active').removeClass("active"); // Make last language button inactive
+	$(".lang-btn.active").removeClass("active"); // Make last language button inactive
 		
-	$.getJSON(`/data/language_file/${evt.currentTarget.id.replace("lang-", "")}`, data => { // Load new language file
-		language["_active"] = data; // Set new language in config object
+	$.getJSON("/data/language_file/" + evt.currentTarget.id.replace("lang-", ""), (data) => { // Load new language file
+		language.active = data; // Set new language in config object
 		translatePage(); // Translate page to a new language
-		
-		$(window).trigger("onlanguagechange");
 	});
 }
 
-function translatePage() {
-	$('.languageable').html(function() { return language.get(this.id); }); // Translate the page to the new language
-	$('[langid]').html(function() { return language.get(this.getAttribute("langid")); }); // Translate the page to the new language
-	$(`#lang-${language.get("lang-code")}`).addClass("active"); // Make new language button active
+function translatePage(isTriggerable = true) {
+	$(".languageable").html(function() { return language.get(this.id); }); // Translate the page to the new language (OLD WAY, SHOULD BE REMOVED)
+	$("[langid]").html(function() { return language.get(this.getAttribute("langid")); }); // Translate the page to the new language
+	$("#lang-" + language.code).addClass("active"); // Make new language button active
+	
 	updateCountryLabel(); // Update country label with new language
+	
+	if(isTriggerable) $(window).trigger("onlanguagechange");
+	cookies.set("language", language.code, { "max-age": 60*60*24*31 });
 }
 
-function changeCountry(evt) {
-	let country = evt ? ( // If evt is given (method executed by pressing a country button)
-		$('a.country-btn.active').removeClass("active"), // Make last country button inactive
-		evt.currentTarget.id.replace("country-", "") // Remove "country-" part of DOM's id
-	) : countries.latin; // If evt is not given (method executed after page loading), use default country (not Russia)
+function changeCountry(evt, isTriggerable = true) {
+	let newCountry = evt ? ( // If evt is given (method executed by pressing a country button)
+		$("a.country-btn.active").removeClass("active"), // Make last country button inactive
+		evt.currentTarget.id.replace("country-", "") // Remove "country-" part of DOM"s id
+	) : country.latin; // If evt is not given (method executed after page loading), use default country (not Russia)
 	
-	countries.change(country); // Set new country in config object
-	$(`#country-${countries.latin}`).addClass("active"); // Make new country button active
+	country.change(newCountry); // Set new country in config object
+	$(`#country-${country.latin}`).addClass("active"); // Make new country button active
 	
 	updateCountryLabel(); // Update country label with new country
 	
-	$(window).trigger("oncountrychange");
+	if(isTriggerable) $(window).trigger("oncountrychange");
+	cookies.set("country", country.latin, { "max-age": 60*60*24*31 });
 }
 
 function updateCountryLabel() {
-	$('#country-name').html(language.get(`country-${countries.latin}`) + ` (${countries.cursign})`); // Replace html in DOM with id "country-name"
+	$("#country-name").html(language.get(`country-${country.latin}`) + ` (${currency.sign})`); // Replace html in DOM with id "country-name"
 }
 
 $(() => {
-	// If navigator is available, then use it's language, else default
-	let lang = language.validate(navigator ? navigator.language.slice(0, 2).toLowerCase() : "");
-	$.when(
-		$.getJSON("/data/countries_list"), // Load countries list file from server
-		$.getJSON(`/data/language_file/${lang}`) // Load current language file from server
-	).then((countriesResponse, langResponse) => {
-		countries["list"] = countriesResponse[0]; // Load list of countries into config object
-		
-		// If YMaps is available, then check it's country and if it's provided, then use this country or default (GB), else throw an alert
-		YMaps.location ? countries.change(countries.getByYMaps(YMaps.location.country) ?? "greatbritain") : alert(language.get("geoerror"));
+	let init = (_country, _language) => {
+		$.when(
+			$.getJSON("/data/countries_list"),
+			$.getJSON("/data/language_file/" + language.validate(_language ?? window.navigator?.language?.slice(0, 2).toLowerCase() ?? ""))
+		).then((countriesResponse, langResponse) => {
+			$("script#ymaps-placeholder").remove();
+			
+			language.active = langResponse[0];
+			country.list = countriesResponse[0];
+			country.change(_country);
+			
+			$(".country-btn").click(changeCountry);
+			$(".lang-btn").click(changeLanguage);
+			
+			changeCountry(undefined, false); // Initial country update, doesn't trigger oncountrychange
+			translatePage(false); // Initial language update, doesn't trigger onlanguagechange
+			
+			$(window).trigger("navigate").off("navigate"); // Init navigation module
+		});
+	};
+	
+	
+	let cookiedCountry = cookies.get("country"), cookiedLanguage = cookies.get("language");
+	if(cookiedCountry) init(cookiedCountry, cookiedLanguage); // If country is in cookie
+	else { // Else load YMaps and use it's country
+		$(window).on("ymaps", () => { // One-time intermediate event, will be executed when YMaps will be loaded, but only base
+			ymaps?.ready(() => { // This will be executed when YMaps.geolocation will be loaded
+				init(ymaps.geolocation?.country.toLowerCase().replace(" ", ""), cookiedLanguage);
+				ymaps = undefined;
+			});
+		});
+		$("script#ymaps-placeholder").attr({
+			"src": "https://api-maps.yandex.ru/2.0-stable/?load=geolocation&lang=en-US", // YMaps module
+			"onload": "$(window).trigger('ymaps').off('ymaps');" // This will be executed after YMaps primary loading
+		});
+	}
 
-		language["_active"] = langResponse[0]; // Set default language in config object
-		
-		$('a.country-btn').click(changeCountry); // Country buttons onclick function binding
-		$('a.lang-btn').click(changeLanguage); // Language buttons onclick function binding
-
-		changeCountry(); // Initial country update
-		translatePage(); // Initial language update
-	});
 });
