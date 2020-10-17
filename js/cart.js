@@ -1,22 +1,21 @@
 cartItemTemplate = window["cartItemTemplate"];
 
-function updateCartList(newList) {
+function updateCartList(newList, handler) {
 	if(!cartItemTemplate) {
 		$.get("/tpl/pages/cart_item.tpl", (data) => {
 			cartItemTemplate = data;
-			updateCartList(newList);
+			updateCartList(newList, handler);
 		});
 		return;
 	} else if(!newList) {
 		let cartItems = Array.from(cookies.getItemsInCart().keys()).join("-");
-		let link = `/data/database/product_query/${language.get("lang-code")}/cart/${cartItems}`; // TODO
-		$.getJSON(link, (data) => { updateCartList(data); });
+		let link = `/data/database/product_query/${language.code}/cart/${cartItems}`; // TODO
+		$.getJSON(link, (data) => { updateCartList(data, handler); });
 		return;
 	}
 	
 	cartProductsList = newList;
-	buildCartList();
-	calculateFinalSum();
+	handler();
 }
 
 function changeProductQuantity(article, delta) {
@@ -32,28 +31,18 @@ function changeProductQuantity(article, delta) {
 function deleteProductFromCart(article) {
 	cookies.removeItemFromCart(article);
 	$(`.product-card[article="${article}"]`).remove();
+	cartProductsList = cartProductsList.filter((product) => product.data.article != article);
 	calculateFinalSum();
-}
-
-function performNewCartCountry() {
-	buildCartList();
-	calculateFinalSum();
-}
-
-function performNewCartLanguage() {
-	updateCartList();
 }
 
 function buildCartList() {
 	let newCartList = $("<div>");
 	let cookieCart = cookies.getItemsInCart();
 	cartProductsList.forEach((product) => {
-		let article = product["article"];
+		let article = product.data.article;
 		let item = $(cartItemTemplate).attr("article", article);
-		item.find(".product-card-title").attr("navid", `product-page/${article}`);
-		item.find(".product-card-photo > img").attr("src", `/img/products-images/${product["i0"]}.jpg`);
-		item.find(".product-card-title > a").html(product["name"]);
-		item.find(".product-card-price > p").html(`${product[countries.curname]} ${countries.cursign}`);
+		item.find(".product-card-title > a").attr("navid", `product-page/${article}`);
+		item.find(".product-card-photo > img").attr("src", `/img/products-images/${product.images[0]}.jpg`);
 		item.find(".quantity").html(cookieCart.get(article));
 		item.find(".decrease-quantity").click(() => { changeProductQuantity(article, -1); });
 		item.find(".increase-quantity").click(() => { changeProductQuantity(article, 1); });
@@ -61,20 +50,20 @@ function buildCartList() {
 		newCartList.append(item);
 	});
 	newCartList.children().detach().appendTo($(".cart-column-left").html(""));
-	wrapPageLinks("#content .product-card .product-card-title");
+	wrapPageLinks(".product-card-title a[navid]");
+	$(window).trigger("oncountrychange.content").trigger("onlanguagechange.content");
 }
 
 function calculateFinalSum() {
 	let cookiesCart = cookies.getItemsInCart();
-	let sum = 0.0;
-	cartProductsList.forEach((product) => { sum += product[countries.curname] * (cookiesCart.get(product["article"]) ?? 0); });
-	sum = +sum.toFixed(2);
-	let vat = +(0.0).toFixed(2); // TODO: later
-	let finalSum = +(sum + vat).toFixed(2);
+	let sum = 0;
+	cartProductsList.forEach((product) => { sum += product.prices[currency.name] * (cookiesCart.get(product.data.article) ?? 0); });
+	let vat = 0; // TODO: later
+	let finalSum = sum + vat;
 	
-	$(".payment-sum").html(`${sum} ${countries.cursign}`);
-	$(".payment-vat").html(`${vat} ${countries.cursign}`);
-	$(".payment-final-sum").html(`${finalSum} ${countries.cursign}`);
+	$(".payment-sum").html(`${(sum / 100).toFixed(2)} ${currency.sign}`);
+	$(".payment-vat").html(`${(vat / 100).toFixed(2)} ${currency.sign}`);
+	$(".payment-final-sum").html(`${(finalSum / 100).toFixed(2)} ${currency.sign}`);
 }
 
 $(window).on("onresize.content", () => {
@@ -83,10 +72,30 @@ $(window).on("onresize.content", () => {
 
 $(window).on("onunload.content", () => {
 	cartProductsList = undefined;
-	$(window).off("oncountrychange.content onlanguagechange.content");
 });
 
-$(() => {
-	updateCartList();
-	$(window).on("oncountrychange.content", performNewCartCountry).on("onlanguagechange.content", performNewCartLanguage);
+$(window).on("onload.cart", () => {
+	$(window).on({
+		"oncountrychange.content": () => {
+			cartProductsList.forEach((product) => {
+				$(`.product-card[article="${product.data.article}"]`)
+					.find(".product-card-price > p")
+					.html((product.prices[currency.name] / 100).toFixed(2) + ` ${currency.sign}`);
+			});
+			calculateFinalSum();
+		},
+		"onlanguagechange.content": () => {
+			updateCartList(undefined, () => {
+				cartProductsList.forEach((product) => {
+					$(`.product-card[article="${product.data.article}"]`)
+							.find(".product-card-title > a")
+							.html(product.language.name);
+				});
+			});
+		}
+	});
+	updateCartList(undefined, () => {
+		buildCartList();
+		calculateFinalSum();
+	});
 });

@@ -9,7 +9,7 @@ function updateCatalogueSelection(newPath, newList) {
 		});
 		return;
 	} else if(!newList) {
-		let link = `/data/database/product_query/${language.get("lang-code")}/${newPath[1] ?? ""}/${newPath[2] ?? ""}`;
+		let link = `/data/database/product_query/${language.code}/${newPath[1] ?? ""}/${newPath[2] ?? ""}`;
 		$.getJSON(link, (data) => { updateCatalogueSelection(newPath, data); });
 		return;
 	}
@@ -28,13 +28,13 @@ function sortProductList() {
 	let compatator;
 	switch(sortingMethod) {
 		case "price_1-0":
-			comparator = (first, second) => second[countries.curname] - first[countries.curname];
+			comparator = (first, second) => second.prices[currency.name] - first.prices[currency.name];
 			break;
 		case "price_0-1":
-			comparator = (first, second) => first[countries.curname] - second[countries.curname];
+			comparator = (first, second) => first.prices[currency.name] - second.prices[currency.name];
 			break;
 		case "alphabetic_A-Z":
-			comparator = (first, second) => (first["name"] > second["name"]) ? 1 : ((first["name"] < second["name"]) ? -1 : 0);
+			comparator = (first, second) => (first.language.name > second.language.name) ? 1 : ((first.language.name < second.language.name) ? -1 : 0);
 			break;
 		default:
 			comparator = (first, second) => first > second;
@@ -46,10 +46,10 @@ function buildSortedProductList() {
 	let newCataloguePage = $("<div>");
 	catalogueProductList.forEach((product) => {
 		let item = $(catalogueItemTemplate);
-		item.children("a").attr("navid", `product-page/${product["article"]}`);
-		item.find(".product-photo > img").attr("src", `/img/products-images/${product["i0"]}.jpg`);
-		item.find(".product-title > p").html(product["name"]);
-		item.find(".product-price > p").html(`${product[countries.curname]} ${countries.cursign}`);
+		item.children("a").attr("navid", `product-page/${product.data.article}`);
+		item.find(".product-photo > img").attr("src", `/img/products-images/${product.images[0]}.jpg`);
+		item.find(".product-title > p").html(product.language.name);
+		item.find(".product-price > p").html((product.prices[currency.name] / 100).toFixed(2) + ` ${currency.sign}`);
 		newCataloguePage.append(item);
 	});
 	$(".catalogue-page").html(newCataloguePage.html());
@@ -68,10 +68,9 @@ $(window).on("onresize.content", () => {
 $(window).on("onunload.content", () => {
 	catalogueProductList = undefined;
 	sortingMethod = undefined;
-	$(window).off("oncountrychange.content onlanguagechange.content");
 });
 
-$(() => {
+$(window).on("onload.catalogue", () => {
 	$(".sorting").nSelect();
 	
 	$(".accordion").click(function () {
@@ -90,6 +89,8 @@ $(() => {
 		$(element).click(() => { performNewSortingMethod(sortingMethodList[index]); });
 	});
 	
-	$(window).on("oncountrychange.content", () => { performNewSortingMethod(sortingMethod); });
-	$(window).on("onlanguagechange.content", () => { updateCatalogueSelection(path); });
+	$(window).on({
+		"oncountrychange.content": () => { performNewSortingMethod(sortingMethod); },
+		"onlanguagechange.content": () => { updateCatalogueSelection(path); }
+	});
 });
