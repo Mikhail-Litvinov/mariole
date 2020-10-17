@@ -3,147 +3,163 @@ initCarousel = () => { // Prepare carousel to work
 		slides: $("#slide-container > .slide"), // Array containing slide's DOMs
 		active: 0, // Index of active slide
 		count: 0, // Count of slides
-		slideTimeout: 5000, // Time between auto moving slides
-		pauseTimeout: 3000, // Duration of pause after manual slide switching
+		mobileDragBorder: 0.2, // When dragging starts on mobile
+		slideTimeout: 4000, // Time between auto moving slides
+		pauseTimeout: 5000, // Duration of pause after manual slide switching
 		animationTimeout: 1000, // Duration of slide switch animation
 		fallAnimationTimeout: 0, // Duration of slide fall animation, changes dynamically, based on switch animation timeout
-		slideTimer: undefined, // Slide switch timer
-		unpauseTimer: undefined, // Slide pause timer
+		slideTimer: undefined,
+		autoMoveTimer: undefined,
+		isSwitchable: true, // Can user switch slide with arrows at the moment
 		isDragging: false, // Is user dragging slide at the moment
-		isDraggingBlocked: false, // Is dragging blocked by any action
-		isAutoMoveBlocked: false, // Is auto slide switching blocked by any action
+		isMoving: false, // Is carousel moving at the moment
 		originalX: 0, // Cursor X when dragging started
 		width: 0, // Slide container's width
-		nextSlideIndex: 0, // Next slide index
-		previousSlideIndex: 0, // Previous slide index
-		start: () => { // Start carousel
-			carousel.unpauseTimer = setTimeout(carousel.autoMove, carousel.pauseTimeout); // Create new unpause timer
+		nextSlideIndex: 0,
+		previousSlideIndex: 0,
+		get currentPercentage() { return +(this.slides[this.active].style.transform.slice(11, -2)); }, // Sorry
+		start(timeout = this.pauseTimeout) {
+			this.autoMoveTimer = setTimeout(() => {
+				this.autoMove();
+			}, timeout);
 		},
-		stop: () => { // Stop carousel
-			clearTimeout(carousel.slideTimer); // Stop slide timer
-			clearTimeout(carousel.unpauseTimer); // Stop unpause timer
+		pause() {
+			clearTimeout(this.autoMoveTimer);
 		},
-		validate: (delta) => { // Validate new index in range [0; count)
-			return Math.cycle(carousel.active + delta, carousel.count); // Return valid index
+		inanimate() { cancelAnimationFrame(this.slideTimer); },
+		stop() {
+			this.pause();
+			this.inanimate();
 		},
-		autoMove: () => { // Intervaled switching slide forward
-			carousel.move(1); // Move slides forward
-			carousel.slideTimer = setTimeout(carousel.autoMove, carousel.slideTimeout); // Restart function after some time
+		validate(delta) { return Math.cycle(this.active + delta, this.count); },
+		autoMove() { // Intervaled switching slide forward
+			this.isSwitchable = false;
+			this.move(1); // Move slides forward
+			this.autoMoveTimer = setTimeout(() => {
+				this.stop();
+				this.autoMove();
+			}, this.slideTimeout + this.animationTimeout); // Restart function after some time
 		},
-		move: (delta, isStopNeeded) => { // Switch slide
-			if(!carousel.isAutoMoveBlocked) { // If auto switching isn't blocked at the moment
-				carousel.isAutoMoveBlocked = true; // Block auto switching
-				carousel.isDraggingBlocked = true; // Block dragging
-				
-				carousel.toggleSlide(delta); // Toggle slide
-				if(isStopNeeded) { // If need to stop carousel
-					carousel.stop(); // stop carousel
-					carousel.start(); // Unpause carousel after some time
-				}
+		move(delta) { // Switch slide
+			this.moveSlides(0);
+			
+			this.slideTimer = requestAnimationFrame((time) => {
+				this.translateSlide(this.validate(delta), Math.sign(delta), performance.now(), time);
+			});
+		},
+		transformSlide(index, percentage) { $(this.slides[index]).css("transform", `translateX(${percentage}%)`); },
+		translateSlide(newIndex, direction, start, now) { // Translate slide (oh shit it's css)
+			let percentage = 100 * Math.bound((now - start) / this.animationTimeout, 0, 1); // Bound percentage in range [0; 100]
+			
+			this.moveSlides(percentage * -direction)
+			
+			if((now - start) <= this.animationTimeout) { // If has to continue animation
+				this.slideTimer = requestAnimationFrame((time) => { this.translateSlide(newIndex, direction, start, time); });
+			} else {
+				this.active = newIndex;
+				this.isSwitchable = true;
 			}
 		},
-		toggleSlide: (delta) => { // Toggle slide
-			let newIndex = carousel.validate(delta); // Make sure that index is valid
-			let direction = Math.sign(delta); // Define direction; -1 is back, 1 is forward, 0 is impossible
-			
-			$(carousel.slides[carousel.active]).css("transform", "translateX(0%)"); // Make sure that active slide is correctly centered
-			$(carousel.slides[newIndex]).css("transform", `translateX(${100 * direction}%)`); // Make sure that new slide has correct offset
-			
-			requestAnimationFrame(time => { carousel.translateSlide(newIndex, direction, performance.now(), time); }); // Translate slide in some time
+		prepareSlides() { // Update indexes of next and previous slides
+			this.previousSlideIndex = this.validate(-1); // Validate previous slide' index
+			this.nextSlideIndex = this.validate(1); // Validate next slide' index
 		},
-		translateSlide: (newIndex, direction, start, now) => { // Translate slide (oh shit it's css)
-			let percentage = 100 * Math.bound((now - start) / carousel.animationTimeout, 0, 1); // Bound percentage in range [0; 100]
-			
-			$(carousel.slides[newIndex]).css("transform", `translateX(${(100 - percentage) * direction}%)`); // Move new slide
-			$(carousel.slides[carousel.active]).css("transform", `translateX(${percentage * -direction}%)`); // Move active slide
-			
-			if((now - start) < carousel.animationTimeout) { // If animation still happens
-				requestAnimationFrame(time => { carousel?.translateSlide(newIndex, direction, start, time); }); // Continue translation
-			} else { // If animation ended
-				carousel.active = newIndex; // Set new slide active
-				carousel.isAutoMoveBlocked = false; // Unblock auto slide switching
-				carousel.isDraggingBlocked = false; // Unblock slide dragging
-			}
-		},
-		prepareSlides: () => { // Update indexes of next and previous slides
-			carousel.previousSlideIndex = carousel.validate(-1); // Validate previous slide' index
-			carousel.nextSlideIndex = carousel.validate(1); // Validate next slide' index
-		},
-		moveSlide: (relativeX) => { // Move slide dynamically
-			let percentage = (relativeX / carousel.width) * 100; // Calculate percentage of offset
-			
+		moveSlide(percentage) {
 			if(Math.abs(percentage) > 50) { // If slide is too much on left or right side
 				let direction = Math.sign(percentage); // Calculate direction of moving
 				
-				carousel.active = carousel.validate(-direction); // Set new active slide
+				this.active = this.validate(-direction); // Set new active slide
 				percentage -= 100 * direction; // Change percentage for new active slide
-				carousel.originalX += carousel.width * direction; // Set new X on which it calculates offset
+				this.originalX += this.width * direction; // Set new X on which it calculates offset
 				
-				carousel.prepareSlides(); // Prepare slides
+				this.prepareSlides(); // Prepare slides
 			}
-			
-			$(carousel.slides[carousel.nextSlideIndex]).css("transform", `translateX(${percentage + 100}%)`); // Move next slide
-			$(carousel.slides[carousel.active]).css("transform", `translateX(${percentage}%)`); // Move active slide
-			$(carousel.slides[carousel.previousSlideIndex]).css("transform", `translateX(${percentage - 100}%)`); // Move previous slide
+			this.moveSlides(percentage);
 		},
-		fallSlide: () => {
-			let percentage = +(carousel.slides[carousel.active].style.transform.slice(11, -2)); // Calculate current slide's offset percentage
-			carousel.fallAnimationTimeout = (Math.abs(percentage) / 100) * carousel.animationTimeout; // Calculate duration of fall animation
-			
-			requestAnimationFrame(time => { carousel?.translateFallSlide(percentage, Math.sign(percentage), performance.now(), time); });
+		moveSlides(percentage) { // Move slide dynamically
+			this.prepareSlides();
+			this.transformSlide(this.nextSlideIndex, percentage + 100);
+			this.transformSlide(this.active, percentage);
+			this.transformSlide(this.previousSlideIndex, percentage - 100);
 		},
-		translateFallSlide: (initialPercentage, direction, start, now) => { // Translate slide falling (oh shit it's css again)
-			let percentage = initialPercentage * (1 - ((now - start) / carousel.fallAnimationTimeout)); // Calculate current percentage
-			percentage = direction > 0 ? Math.bound(percentage, 0, initialPercentage) : Math.bound(percentage, initialPercentage, 0);
+		fallSlide() {
+			let percentage = this.currentPercentage; // Calculate current slide's offset percentage
+			this.fallAnimationTimeout = Math.abs(this.animationTimeout * percentage * 0.01); // Calculate duration of fall animation
 			
-			$(carousel.slides[direction > 0 ? carousel.previousSlideIndex : carousel.nextSlideIndex]).css("transform", `translateX(${(direction * percentage - 100) * direction}%)`); // Move needed slide (next if forward, previous if back)
-			$(carousel.slides[carousel.active]).css("transform", `translateX(${percentage}%)`); // Move active slide
-			
-			if((now - start) < carousel.fallAnimationTimeout) { // If animation still happens
-				requestAnimationFrame(time => { carousel.translateFallSlide(initialPercentage, direction, start, time); }); // Continue translation
-			} else { // If animation ended
-				carousel.isAutoMoveBlocked = false; // Unblock auto slide switching
-				carousel.isDraggingBlocked = false; // Unblock slide dragging
-			}
+			requestAnimationFrame(time => { this.translateSlideFall(percentage, Math.sign(percentage), performance.now(), time); });
 		},
-		onStartDrag: (evt) => { // Activates then user clicks on carousel to drag
-			if(!carousel.isDragging && !carousel.isDraggingBlocked) { // If not dragging at the moment and if dragging isn't blocked
-				carousel.stop(); // Stop carousel
-				carousel.isDragging = true; // Set flag that it's dragging at the moment
-				carousel.isAutoMoveBlocked = true; // Block auto slide switching
-				carousel.width = $("#carousel").width(); // Write current carousel width
-				carousel.originalX = (evt.type == "touchstart" ? evt.touches[0] : evt).screenX;
+		translateSlideFall(initialPercentage, direction, start, now) { // Translate slide falling (oh shit it's css again)
+			this.moveSlides(Math.bound(initialPercentage * (1 - ((now - start) / this.fallAnimationTimeout)), 0, initialPercentage));
+			
+			if((now - start) <= this.fallAnimationTimeout) { // If has to continue animation
+				this.slideTimer = requestAnimationFrame(time => { this.translateSlideFall(initialPercentage, direction, start, time); });
+			} else this.isSwitchable = true;
+		},
+		onStartDrag(evt) { // Activates then user clicks on carousel to drag
+			if(!this.isDragging) { // If not dragging at the moment and if dragging isn't blocked
+				this.stop();
 				
-				carousel.prepareSlides(); // Prepare slides
+				this.isDragging = true; // Set flag that it's dragging at the moment
+				this.width = $("#carousel").width(); // Write current carousel width
+				this.originalX = evt.screenX - this.width * this.currentPercentage / 100;
+				
+				this.prepareSlides(); // Prepare slides
 				
 				$("html").css("cursor", "grabbing"); // Change cursor for all page
 				$("#carousel").css("cursor", "grabbing"); // Change cursor for carousel
 			}
 		},
-		onDrag: (evt) => {
-			if(carousel.isDragging) carousel.moveSlide((evt.type == "touchmove" ? evt.touches[0] : evt).screenX - carousel.originalX); // If it's dragging at the moment then move slide
+		onPrepareDragMobile(evt) { this.originalX = evt.touches[0].clientX;},
+		onDrag(evt) { if(this.isDragging) this.moveSlide(100 * (evt.screenX - this.originalX) / this.width); },
+		onDragMobile(evt) {
+			evt.screenX = evt.touches[0].clientX;
+			if(this.isDragging) this.onDrag(evt);
+			else if((Math.abs(evt.screenX - this.originalX) / this.width) > this.mobileDragBorder) this.onStartDrag(evt);
 		},
-		onStopDrag: (evt) => {
-			if(carousel.isDragging) { // If it's dragging at the moment
-				carousel.start(); // Unpause carousel
-				carousel.isDragging = false; // Set flag that it's not dragging yet
-				carousel.isDraggingBlocked = true; // Block dragging while fall animation happens
+		onStopDrag(evt) {
+			if(this.isDragging) { // If it's dragging at the moment
+				this.isDragging = false; // Set flag that it's not dragging yet
 						
 				$("html").css("cursor", "auto"); // Set 'auto' cursor for the page
 				$("#carousel").css("cursor", "grab"); // Set 'grab' cursor for carousel
 				
-				carousel.fallSlide(); // Run slide fall animation
+				this.fallSlide(); // Run slide fall animation
+				this.start(this.pauseTimeout + this.fallAnimationTimeout);
 			}
 		},
 	};
 	
 	carousel.count = carousel.slides.length; // Write count of slides to the variable
-	$(carousel.slides[0]).css("transform", "translateX(0%)"); // Center first slide
+	carousel.moveSlides(0);
 	$("#carousel *").attr("draggable", "false").each((index, element) => { // Unbind defaults from every slide and arrows
 		element.onselectstart = () => false;
 		element.ondragstart = () => false;
 	});
-	
+	carousel.slides.on({
+		"mousedown.carousel": (evt) => { carousel.onStartDrag(evt); }, // Desktop drag start
+		"touchmove.carousel": (evt) => { carousel.onDragMobile(evt); }, // Mobile dragging
+		"touchstart.carousel": (evt) => { carousel.onPrepareDragMobile(evt); } // Mobile drag preparation
+	});
+	$(window).on({
+		"mousemove.carousel": (evt) => { carousel.onDrag(evt); }, // Desktop dragging
+		"mouseup.carousel touchend.carousel": (evt) => { carousel.onStopDrag(evt); } // Universal drag stop
+	});
+	$("#previous-slide-btn").click(() => {
+		if(carousel.isSwitchable) {
+			carousel.isSwitchable = false;
+			carousel.stop();
+			carousel.move(-1);
+			carousel.start(carousel.pauseTimeout + carousel.animationTimeout);
+		}
+	});
+	$("#next-slide-btn").click(() => {
+		if(carousel.isSwitchable) {
+			carousel.isSwitchable = false;
+			carousel.stop();
+			carousel.move(1);
+			carousel.start(carousel.pauseTimeout + carousel.animationTimeout);
+		}
+	});
 }
 
 $(window).on("onresize.content", () => {
@@ -159,15 +175,7 @@ $(window).on("onunload.content", () => {
 	$("html").css("cursor", "auto");
 });
 
-$(() => { // When page is loaded
+$(window).on("onload.carousel", () => { // When page is loaded
 	initCarousel(); // Initialize carousel
 	carousel.start(); // Start auto switching in some time
-	
-	carousel.slides.on("mousedown.carousel touchstart.carousel", carousel.onStartDrag); // Bind dragging start event to every slide
-	$(window).on({
-		"mousemove.carousel touchmove.carousel": carousel.onDrag,
-		"mouseup.carousel touchend.carousel": carousel.onStopDrag
-	});
-	$("#previous-slide-btn").click(() => { carousel.move(-1, true); }); // Bing switching slide back to back arrow
-	$("#next-slide-btn").click(() => { carousel.move(1, true); }); // Bing switching slide forward to forward arrow
 });
