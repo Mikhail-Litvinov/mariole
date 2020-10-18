@@ -1,55 +1,57 @@
-modals = {
+app.modals = {
 	timeouts: {
 		open: 50,
 		close: 300,
 		close404: 700
 	},
 	escapeKeycode: 27,
-	toggleLang: (state) => {
+	toggleLang(state) {
 		$("#btn-lang").toggleClass("active", state);
 		if(state) {
 			$("#modal-lang").css("display", "flex");
-			setTimeout(() => { $("#modal-lang").addClass("open"); }, modals.timeouts.open);
+			setTimeout(() => { $("#modal-lang").addClass("open"); }, this.timeouts.open);
 		} else {
 			$("#modal-lang").removeClass("open");
-			setTimeout(() => { $("#modal-lang").css("display", "none"); }, modals.timeouts.close);
+			setTimeout(() => { $("#modal-lang").css("display", "none"); }, this.timeouts.close);
 		}
 	},
-	toggleCountry: (state) => {
+	toggleCountry(state) {
 		$("#btn-country").toggleClass("active", state);
 		if(state) {
 			$("#modal-country").css("display", "block");
-			setTimeout(() => { $("#modal-country").addClass("open"); }, modals.timeouts.open);
+			setTimeout(() => { $("#modal-country").addClass("open"); }, this.timeouts.open);
 		} else {
 			$("#modal-country").removeClass("open");
-			setTimeout(() => { $("#modal-country").css("display", "none"); }, modals.timeouts.close);
+			setTimeout(() => { $("#modal-country").css("display", "none"); }, this.timeouts.close);
 		}
 	},
-	toggleSearch: (state) => {
+	toggleSearch(state) {
 		$("#open-search").toggleClass("active", state);
 		$("#modal-search").toggleClass("open", state);
 	},
-	close404: () => {
+	close404() {
 		$("#error-404-modal").addClass("active");
-		setTimeout(() => { $("#error-404-modal").remove(); }, modals.timeouts.close404);
+		setTimeout(() => { $("#error-404-modal").remove(); }, this.timeouts.close404);
 	},
-	onKeyDown: (evt) => {
-		if(evt.keyCode == modals.escapeKeycode) {
-			modals.toggleLang(false);
-			modals.toggleCountry(false);
-			modals.toggleSearch(false);
-			modals.close404();
+	onKeyDown(evt) {
+		if(evt.keyCode == this.escapeKeycode) {
+			this.toggleLang(false);
+			this.toggleCountry(false);
+			this.toggleSearch(false);
+			this.close404();
 		}
 	}
 };
 
 $(() => {
-    $("#btn-lang").click(() => { modals.toggleLang(!$("#btn-lang").hasClass("active")); });
-	$("#btn-country").click(() => { modals.toggleCountry(true); });
-	$("#close-country, .country-btn").click(() => { modals.toggleCountry(false); });
-	$("#open-search").click(() => { modals.toggleSearch(true); });
-	$("#close-search").click(() => { modals.toggleSearch(false); });
-	$("#close-error-404").click(modals.close404);
+    $("#btn-lang").click(() => { app.modals.toggleLang(!$("#btn-lang").hasClass("active")); });
+	$("#btn-country").click(() => { app.modals.toggleCountry(true); });
+	$("#close-country, .country-btn").click(() => { app.modals.toggleCountry(false); });
+	$("#open-search").click(() => { app.modals.toggleSearch(true); });
+	$("#close-search").click(() => { app.modals.toggleSearch(false); });
+	$("#close-error-404").click(() => { app.modals.close404(); });
 	
-	$(window).on("keydown.modal", modals.onKeyDown);
+	$(window).on({
+		"keydown.modal": (evt) => { app.modals.onKeyDown(evt); }
+	});
 });

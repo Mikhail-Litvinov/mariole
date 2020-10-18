@@ -1,5 +1,5 @@
-initCarousel = () => { // Prepare carousel to work
-	carousel = {
+$(window).on("onload.init_carousel", () => {
+	app.carousel = {
 		slides: $("#slide-container").children(".slide"), // Array containing slide's DOMs
 		slideCache: {}, // Don't have to use selectors any time carousel need its slide
 		active: 0, // Index of active slide
@@ -15,14 +15,8 @@ initCarousel = () => { // Prepare carousel to work
 		originalX: 0, // Cursor X when dragging started
 		width: 0, // Slide container's width
 		get currentPercentage() { return +this.slideCache.active.attr("style").match(/translateX\((.+?)%\)/i)[1]; }, // Oh yeah it's RegExp
-		start(timeout = this.pauseTimeout) {
-			this.autoMoveTimer = setTimeout(() => {
-				this.autoMove();
-			}, timeout);
-		},
-		pause() {
-			clearTimeout(this.autoMoveTimer);
-		},
+		start(timeout = this.pauseTimeout) { this.autoMoveTimer = setTimeout(() => { this.autoMove(); }, timeout); },
+		pause() { clearTimeout(this.autoMoveTimer); },
 		inanimate() { cancelAnimationFrame(this.slideTimer); },
 		stop() {
 			this.pause();
@@ -64,8 +58,7 @@ initCarousel = () => { // Prepare carousel to work
 			requestAnimationFrame(time => {
 				this.translate(
 					this.currentPercentage,
-					performance.now(),
-					time,
+					performance.now(), time,
 					Math.abs(this.animationTimeout * this.currentPercentage * 0.01)
 				);
 			});
@@ -123,55 +116,53 @@ initCarousel = () => { // Prepare carousel to work
 		},
 	};
 	
-	carousel.count = carousel.slides.length; // Write count of slides to the variable
-	carousel.recacheSlides();
-	carousel.moveSlides(0);
+	app.carousel.count = app.carousel.slides.length; // Write count of slides to the variable
+	app.carousel.recacheSlides();
+	app.carousel.moveSlides(0);
 	
 	$("#carousel").find("*").attr("draggable", "false").each((index, element) => { // Unbind defaults from every slide and arrows
 		element.onselectstart = () => false;
 		element.ondragstart = () => false;
 	});
-	carousel.slides.on({
-		"mousedown.carousel": (evt) => { carousel.onStartDrag(evt); }, // Desktop drag start
-		"touchmove.carousel": (evt) => { carousel.onDragMobile(evt); }, // Mobile dragging
-		"touchstart.carousel": (evt) => { carousel.onPrepareDragMobile(evt); } // Mobile drag preparation
+	app.carousel.slides.on({
+		"mousedown.carousel": (evt) => { app.carousel.onStartDrag(evt); }, // Desktop drag start
+	}).each((index, element) => {
+		element.addEventListener("touchstart", (evt) => { app.carousel.onPrepareDragMobile(evt); }, { passive: true });
+		element.addEventListener("touchmove", (evt) => { app.carousel.onDragMobile(evt); }, { passive: true });
 	});
 	$(window).on({
-		"mousemove.carousel": (evt) => { carousel.onDrag(evt); }, // Desktop dragging
-		"mouseup.carousel touchend.carousel": (evt) => { carousel.onStopDrag(evt); } // Universal drag stop
+		"mousemove.carousel": (evt) => { app.carousel.onDrag(evt); }, // Desktop dragging
+		"mouseup.carousel touchend.carousel": (evt) => { app.carousel.onStopDrag(evt); } // Universal drag stop
 	});
 	$("#previous-slide-btn").click(() => {
-		if(carousel.isSwitchable) {
-			carousel.isSwitchable = false;
-			carousel.stop();
-			carousel.move(-1);
-			carousel.start(carousel.pauseTimeout + carousel.animationTimeout);
+		if(app.carousel.isSwitchable) {
+			app.carousel.isSwitchable = false;
+			app.carousel.stop();
+			app.carousel.move(-1);
+			app.carousel.start(app.carousel.pauseTimeout + app.carousel.animationTimeout);
 		}
 	});
 	$("#next-slide-btn").click(() => {
-		if(carousel.isSwitchable) {
-			carousel.isSwitchable = false;
-			carousel.stop();
-			carousel.move(1);
-			carousel.start(carousel.pauseTimeout + carousel.animationTimeout);
+		if(app.carousel.isSwitchable) {
+			app.carousel.isSwitchable = false;
+			app.carousel.stop();
+			app.carousel.move(1);
+			app.carousel.start(app.carousel.pauseTimeout + app.carousel.animationTimeout);
 		}
 	});
-}
-
-$(window).on("onresize.content", () => {
-	$("#carousel").css("height", $(window).height() - $("#headerContainer").height());
-});
-
-$(window).on("onunload.content", () => {
-	carousel.stop();
-	carousel.cursor();
-	carousel = undefined;
-	initCarousel = undefined;
 	
-	$(window).off(".carousel");
-});
-
-$(window).on("onload.carousel", () => { // When page is loaded
-	initCarousel(); // Initialize carousel
-	carousel.start(); // Start auto switching in some time
+	app.carousel.start(); // Start auto switching
+	
+	$(window).on({
+		"onresize.content": () => {
+			$("#carousel").css("height", $(window).height() - $("#headerContainer").height());
+		},
+		"onunload.content": () => {
+			app.carousel.stop();
+			app.carousel.cursor();
+			app.carousel = undefined;
+			
+			$(window).off(".carousel");
+		}
+	});
 });

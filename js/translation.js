@@ -1,4 +1,4 @@
-translator = {
+app.translation = {
 	language: {
 		active: undefined, // Contains active language
 		get code() { return this.active["lang-code"]; },
@@ -15,7 +15,12 @@ translator = {
 		change(isTriggerable = true) {
 			if(isTriggerable) $(window).trigger("onlanguagechange");
 			cookies.set("language", this.code);
-			translator.translate();
+			this.translate();
+		},
+		translate() {
+			$(".languageable").html(function() { return app.translation.language.get(this.id); }); // Translate the page to the new language (OLD WAY, SHOULD BE REMOVED)
+			$("[langid]").html(function() { return app.translation.language.get(this.getAttribute("langid")); }); // Translate the page to the new language
+			app.translation.country.updateLabel(); // Update country label with new language
 		}
 	},
 	country: {
@@ -40,12 +45,12 @@ translator = {
 			}
 		},
 		updateLabel() {
-			$("#country-name").html(translator.language.get(`country-${this.latin}`) + ` (${translator.currency.sign})`);
+			$("#country-name").html(app.translation.language.get(`country-${this.latin}`) + ` (${app.translation.currency.sign})`);
 		}
 	},
 	currency: {
 		get name() { // Returns currency name of active country
-			switch(translator.country.rawCurrency) {
+			switch(app.translation.country.rawCurrency) {
 				case 0: return "koruna";
 				case 1: return "rouble";
 				case 2: return "dollar";
@@ -60,13 +65,6 @@ translator = {
 				case "euro": return "&#8364;";
 			}
 		}
-	},
-	translate(isTriggerable = true) {
-		$(".languageable").html(function() { return translator.language.get(this.id); }); // Translate the page to the new language (OLD WAY, SHOULD BE REMOVED)
-		$("[langid]").html(function() { return translator.language.get(this.getAttribute("langid")); }); // Translate the page to the new language
-		$("#lang-" + translator.language.code).addClass("active"); // Make new language button active
-		
-		this.country.updateLabel(); // Update country label with new language
 	}
 }
 
@@ -74,19 +72,19 @@ $(() => {
 	let init = (_country, _language) => {
 		$.when(
 			$.getJSON("/data/countries_list"),
-			$.getJSON("/data/language_file/" + translator.language.validate(_language ?? window.navigator?.language?.slice(0, 2).toLowerCase()))
+			$.getJSON("/data/language_file/" + app.translation.language.validate(_language ?? window.navigator?.language?.slice(0, 2).toLowerCase()))
 		).then((countriesResponse, langResponse) => {
 			$("script#ymaps-placeholder").remove();
 			
-			translator.country.list = countriesResponse[0];
-			translator.language.active = langResponse[0];
+			app.translation.country.list = countriesResponse[0];
+			app.translation.language.active = langResponse[0];
 			
 			$(".country-btn").each((index, element) => {
 				let id = element.id;
 				$(element).click(() => {
 					$(".country-btn.active").removeClass("active");
 					$(element).addClass("active");
-					translator.country.change(id.replace("country-", ""));
+					app.translation.country.change(id.replace("country-", ""));
 				});
 			});
 			$(".lang-btn").each((index, element) => {
@@ -94,12 +92,12 @@ $(() => {
 				$(element).click(() => {
 					$(".lang-btn.active").removeClass("active");
 					$(element).addClass("active");
-					translator.language.prepare(id.replace("lang-", ""));
+					app.translation.language.prepare(id.replace("lang-", ""));
 				});
 			});
 			
-			translator.country.change(_country, false); // Initial country update, doesn't trigger oncountrychange
-			translator.language.change(false); // Initial language update, doesn't trigger onlanguagechange
+			app.translation.country.change(_country, false); // Initial country update, doesn't trigger oncountrychange
+			app.translation.language.change(false); // Initial language update, doesn't trigger onlanguagechange
 			
 			$(window).trigger("navigate").off("navigate"); // Init navigation module
 		});
