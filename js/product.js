@@ -22,7 +22,7 @@ function loadProductData() {
 		});
 		return;
 	}
-	$.getJSON(`/data/database/product_info/${language.code}/${getProductArticle()}`, (data) => {
+	$.getJSON(`/data/database/product_info/${translator.language.code}/${getProductArticle()}`, (data) => {
 		$("title").html(data.language.name);
 		$("#product-data-name").html(data.language.name);
 		$("#product-data-description").html(data.language.description);
@@ -38,7 +38,10 @@ function loadProductData() {
 }
 
 function getProductArticle() { return path[1]; }
-function updateProductPrice() { $("#product-data-price").html((productData.prices[currency.name] / 100).toFixed(2) + ` ${currency.sign}`); }
+
+function updateProductPrice() {
+	$("#product-data-price").html((productData.prices[translator.currency.name] / 100).toFixed(2) + ` ${translator.currency.sign}`);
+}
 
 function updateProductImageCarousel() {
 	for(let img of productData.images) {//let i = 0, img = productData["i0"]; img; img = productData[`i${++i}`]) {

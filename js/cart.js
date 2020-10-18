@@ -9,7 +9,7 @@ function updateCartList(newList, handler) {
 		return;
 	} else if(!newList) {
 		let cartItems = Array.from(cookies.getItemsInCart().keys()).join("-");
-		let link = `/data/database/product_query/${language.code}/cart/${cartItems}`; // TODO
+		let link = `/data/database/product_query/${translator.language.code}/cart/${cartItems}`; // TODO
 		$.getJSON(link, (data) => { updateCartList(data, handler); });
 		return;
 	}
@@ -57,13 +57,13 @@ function buildCartList() {
 function calculateFinalSum() {
 	let cookiesCart = cookies.getItemsInCart();
 	let sum = 0;
-	cartProductsList.forEach((product) => { sum += product.prices[currency.name] * (cookiesCart.get(product.data.article) ?? 0); });
+	cartProductsList.forEach((product) => { sum += product.prices[translator.currency.name] * (cookiesCart.get(product.data.article) ?? 0); });
 	let vat = 0; // TODO: later
 	let finalSum = sum + vat;
 	
-	$(".payment-sum").html(`${(sum / 100).toFixed(2)} ${currency.sign}`);
-	$(".payment-vat").html(`${(vat / 100).toFixed(2)} ${currency.sign}`);
-	$(".payment-final-sum").html(`${(finalSum / 100).toFixed(2)} ${currency.sign}`);
+	$(".payment-sum").html(`${(sum / 100).toFixed(2)} ${translator.currency.sign}`);
+	$(".payment-vat").html(`${(vat / 100).toFixed(2)} ${translator.currency.sign}`);
+	$(".payment-final-sum").html(`${(finalSum / 100).toFixed(2)} ${translator.currency.sign}`);
 }
 
 $(window).on("onresize.content", () => {
@@ -80,7 +80,7 @@ $(window).on("onload.cart", () => {
 			cartProductsList.forEach((product) => {
 				$(`.product-card[article="${product.data.article}"]`)
 					.find(".product-card-price > p")
-					.html((product.prices[currency.name] / 100).toFixed(2) + ` ${currency.sign}`);
+					.html((product.prices[translator.currency.name] / 100).toFixed(2) + ` ${translator.currency.sign}`);
 			});
 			calculateFinalSum();
 		},

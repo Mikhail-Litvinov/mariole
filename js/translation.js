@@ -1,99 +1,105 @@
-let language = {
-	active: undefined, // Contains active language
-	get code() { return this.active["lang-code"]; },
-	get: function(item) { return this.active[item]; }, // Returns requested language field
-	validate: (lang) => ["ru", "cs", "it", "zh"].includes(lang) ? lang : "en" // If language is provided, then returns it, else returns default (en)
-};
-
-let country = {
-	active: undefined, // Contains active country
-	get latin() { return this.active.latin; }, // Returns latin name of active country
-	change: function(country) { // Sets new country
-		country = this.validate(country);
-		this.active = { // Clone original country data object and add latin name
-			latin: country,
-			...this.list[country]
-		};
-	},
-	validate: function(country) { return Object.keys(this.list).includes(country) ? country : "unitedkingdom"; },
-	list: undefined // Contains all provided countries
-}
-
-let currency = {
-	get sign() { // Returns currency sign of active country
-		switch(country.active.cur) {
-			case 0: return "Kč"; // Returns czech koruna sign
-			case 1: return "&#8381;"; // Returns russian rouble sign
-			case 2: return "&#36;"; // Returns dollar sign
-			default: return "&#8364;"; // Returns euro sign
+translator = {
+	language: {
+		active: undefined, // Contains active language
+		get code() { return this.active["lang-code"]; },
+		get(item) { return this.active[item]; }, // Returns requested language field
+		validate(language) { return ["ru", "cs", "it", "zh"].includes(language) ? language : "en"; },
+		prepare(language) {
+			if(language !== this.code) {
+				$.getJSON(`/data/language_file/${language}`, (data) => {
+					this.active = data;
+					this.change(true);
+				});
+			}
+		},
+		change(isTriggerable = true) {
+			if(isTriggerable) $(window).trigger("onlanguagechange");
+			cookies.set("language", this.code);
+			translator.translate();
 		}
 	},
-	get name() { // Returns currency name of active country
-		switch(country.active.cur) {
-			case 0: return "koruna";
-			case 1: return "rouble";
-			case 2: return "dollar";
-			default: return "euro";
+	country: {
+		active: undefined, // Contains active country
+		get rawCurrency() { return this.active?.cur; },
+		get latin() { return this.active?.latin; }, // Returns latin name of active country
+		validate(country) { return Object.keys(this.list).includes(country) ? country : "unitedkingdom"; },
+		list: undefined, // Contains all provided countries
+		prepare(country) { // Sets new country
+			country = this.validate(country); // Check if country available
+			this.active = { // Clone original country data object and add latin name
+				latin: country,
+				...this.list[country]
+			};
+		},
+		change(country, isTriggerable = true) {
+			if(country !== this.latin) {
+				this.prepare(country);
+				if(isTriggerable) $(window).trigger("oncountrychange");
+				cookies.set("country", this.latin);
+				this.updateLabel(); // Update country label with new country
+			}
+		},
+		updateLabel() {
+			$("#country-name").html(translator.language.get(`country-${this.latin}`) + ` (${translator.currency.sign})`);
 		}
-	}
-};
-
-function changeLanguage(evt) {
-	$(".lang-btn.active").removeClass("active"); // Make last language button inactive
+	},
+	currency: {
+		get name() { // Returns currency name of active country
+			switch(translator.country.rawCurrency) {
+				case 0: return "koruna";
+				case 1: return "rouble";
+				case 2: return "dollar";
+				default: return "euro";
+			}
+		},
+		get sign() { // Returns currency sign of active country
+			switch(this.name) {
+				case "koruna": return "Kč";
+				case "rouble": return "&#8381;";
+				case "dollar": return "&#36;";
+				case "euro": return "&#8364;";
+			}
+		}
+	},
+	translate(isTriggerable = true) {
+		$(".languageable").html(function() { return translator.language.get(this.id); }); // Translate the page to the new language (OLD WAY, SHOULD BE REMOVED)
+		$("[langid]").html(function() { return translator.language.get(this.getAttribute("langid")); }); // Translate the page to the new language
+		$("#lang-" + translator.language.code).addClass("active"); // Make new language button active
 		
-	$.getJSON("/data/language_file/" + evt.currentTarget.id.replace("lang-", ""), (data) => { // Load new language file
-		language.active = data; // Set new language in config object
-		translatePage(); // Translate page to a new language
-	});
-}
-
-function translatePage(isTriggerable = true) {
-	$(".languageable").html(function() { return language.get(this.id); }); // Translate the page to the new language (OLD WAY, SHOULD BE REMOVED)
-	$("[langid]").html(function() { return language.get(this.getAttribute("langid")); }); // Translate the page to the new language
-	$("#lang-" + language.code).addClass("active"); // Make new language button active
-	
-	updateCountryLabel(); // Update country label with new language
-	
-	if(isTriggerable) $(window).trigger("onlanguagechange");
-	cookies.set("language", language.code, { "max-age": 60*60*24*31 });
-}
-
-function changeCountry(evt, isTriggerable = true) {
-	let newCountry = evt ? ( // If evt is given (method executed by pressing a country button)
-		$("a.country-btn.active").removeClass("active"), // Make last country button inactive
-		evt.currentTarget.id.replace("country-", "") // Remove "country-" part of DOM"s id
-	) : country.latin; // If evt is not given (method executed after page loading), use default country (not Russia)
-	
-	country.change(newCountry); // Set new country in config object
-	$(`#country-${country.latin}`).addClass("active"); // Make new country button active
-	
-	updateCountryLabel(); // Update country label with new country
-	
-	if(isTriggerable) $(window).trigger("oncountrychange");
-	cookies.set("country", country.latin, { "max-age": 60*60*24*31 });
-}
-
-function updateCountryLabel() {
-	$("#country-name").html(language.get(`country-${country.latin}`) + ` (${currency.sign})`); // Replace html in DOM with id "country-name"
+		this.country.updateLabel(); // Update country label with new language
+	}
 }
 
 $(() => {
 	let init = (_country, _language) => {
 		$.when(
 			$.getJSON("/data/countries_list"),
-			$.getJSON("/data/language_file/" + language.validate(_language ?? window.navigator?.language?.slice(0, 2).toLowerCase() ?? ""))
+			$.getJSON("/data/language_file/" + translator.language.validate(_language ?? window.navigator?.language?.slice(0, 2).toLowerCase()))
 		).then((countriesResponse, langResponse) => {
 			$("script#ymaps-placeholder").remove();
 			
-			language.active = langResponse[0];
-			country.list = countriesResponse[0];
-			country.change(_country);
+			translator.country.list = countriesResponse[0];
+			translator.language.active = langResponse[0];
 			
-			$(".country-btn").click(changeCountry);
-			$(".lang-btn").click(changeLanguage);
+			$(".country-btn").each((index, element) => {
+				let id = element.id;
+				$(element).click(() => {
+					$(".country-btn.active").removeClass("active");
+					$(element).addClass("active");
+					translator.country.change(id.replace("country-", ""));
+				});
+			});
+			$(".lang-btn").each((index, element) => {
+				let id = element.id;
+				$(element).click(() => {
+					$(".lang-btn.active").removeClass("active");
+					$(element).addClass("active");
+					translator.language.prepare(id.replace("lang-", ""));
+				});
+			});
 			
-			changeCountry(undefined, false); // Initial country update, doesn't trigger oncountrychange
-			translatePage(false); // Initial language update, doesn't trigger onlanguagechange
+			translator.country.change(_country, false); // Initial country update, doesn't trigger oncountrychange
+			translator.language.change(false); // Initial language update, doesn't trigger onlanguagechange
 			
 			$(window).trigger("navigate").off("navigate"); // Init navigation module
 		});

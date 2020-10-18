@@ -9,7 +9,7 @@ function updateCatalogueSelection(newPath, newList) {
 		});
 		return;
 	} else if(!newList) {
-		let link = `/data/database/product_query/${language.code}/${newPath[1] ?? ""}/${newPath[2] ?? ""}`;
+		let link = `/data/database/product_query/${translator.language.code}/${newPath[1] ?? ""}/${newPath[2] ?? ""}`;
 		$.getJSON(link, (data) => { updateCatalogueSelection(newPath, data); });
 		return;
 	}
@@ -28,10 +28,10 @@ function sortProductList() {
 	let compatator;
 	switch(sortingMethod) {
 		case "price_1-0":
-			comparator = (first, second) => second.prices[currency.name] - first.prices[currency.name];
+			comparator = (first, second) => second.prices[translator.currency.name] - first.prices[translator.currency.name];
 			break;
 		case "price_0-1":
-			comparator = (first, second) => first.prices[currency.name] - second.prices[currency.name];
+			comparator = (first, second) => first.prices[translator.currency.name] - second.prices[translator.currency.name];
 			break;
 		case "alphabetic_A-Z":
 			comparator = (first, second) => (first.language.name > second.language.name) ? 1 : ((first.language.name < second.language.name) ? -1 : 0);
@@ -49,7 +49,7 @@ function buildSortedProductList() {
 		item.children("a").attr("navid", `product-page/${product.data.article}`);
 		item.find(".product-photo > img").attr("src", `/img/products-images/${product.images[0]}.jpg`);
 		item.find(".product-title > p").html(product.language.name);
-		item.find(".product-price > p").html((product.prices[currency.name] / 100).toFixed(2) + ` ${currency.sign}`);
+		item.find(".product-price > p").html((product.prices[translator.currency.name] / 100).toFixed(2) + ` ${translator.currency.sign}`);
 		newCataloguePage.append(item);
 	});
 	$(".catalogue-page").html(newCataloguePage.html());
