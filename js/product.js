@@ -62,7 +62,7 @@ $(window).on("onload.init_product", () => {
 	
 	$(".prev-slide").click(() => { app.product.moveSlide(-1); });
 	$(".next-slide").click(() => { app.product.moveSlide(1); });
-	$("#add-to-cart").click(() => { cookies.addItemToCart(app.product.article, 1); });
+	$("#add-to-cart").click(() => { app.cookies.cart.addItem(app.product.article, 1); });
 	
 	app.product.load();
 	

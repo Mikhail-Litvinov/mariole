@@ -14,7 +14,7 @@ app.translation = {
 		},
 		change(isTriggerable = true) {
 			if(isTriggerable) $(window).trigger("onlanguagechange");
-			cookies.set("language", this.code);
+			app.cookies.base.set("language", this.code);
 			this.translate();
 		},
 		translate() {
@@ -40,7 +40,7 @@ app.translation = {
 			if(country !== this.latin) {
 				this.prepare(country);
 				if(isTriggerable) $(window).trigger("oncountrychange");
-				cookies.set("country", this.latin);
+				app.cookies.base.set("country", this.latin);
 				this.updateLabel(); // Update country label with new country
 			}
 		},
@@ -104,7 +104,7 @@ $(() => {
 	};
 	
 	
-	let cookiedCountry = cookies.get("country"), cookiedLanguage = cookies.get("language");
+	let cookiedCountry = app.cookies.base.get("country"), cookiedLanguage = app.cookies.base.get("language");
 	if(cookiedCountry) init(cookiedCountry, cookiedLanguage); // If country is in cookie
 	else { // Else load YMaps and use it's country
 		$(window).on("ymaps", () => { // One-time intermediate event, will be executed when YMaps will be loaded, but only base

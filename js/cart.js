@@ -9,7 +9,7 @@ $(window).on("onload.init_cart", () => {
 				});
 				return;
 			} else if(!newList) {
-				let cartItems = Array.from(app.cookies.getItemsInCart().keys()).join("-");
+				let cartItems = Array.from(app.cookies.cart.getItems().keys()).join("-");
 				let link = `/data/database/product_query/${app.translation.language.code}/cart/${cartItems}`; // TODO
 				$.getJSON(link, (data) => { this.updateList(data, callback); });
 				return;
@@ -19,23 +19,23 @@ $(window).on("onload.init_cart", () => {
 			callback();
 		},
 		changeProductQuantity(article, delta) {
-			let cookiesCart = app.cookies.getItemsInCart();
+			let cookiesCart = app.cookies.cart.getItems();
 			let newQuantity = cookiesCart.get(article) + delta;
 			if(newQuantity > 0) {
-				app.cookies.updateItemsInCart(cookiesCart.set(article, newQuantity));
+				app.cookies.cart.updateItems(cookiesCart.set(article, newQuantity));
 				$(`.product-card[article="${article}"] .quantity`).html(newQuantity);
 				this.calculateFinalSum();
 			} else this.deleteProduct(article);
 		},
 		deleteProduct(article) {
-			app.cookies.removeItemFromCart(article);
+			app.cookies.cart.removeItem(article);
 			$(`.product-card[article="${article}"]`).remove();
 			this.list = this.list.filter((product) => product.data.article != article);
 			this.calculateFinalSum();
 		},
 		buildList() {
 			let newCartList = $("<div>");
-			let cookieCart = app.cookies.getItemsInCart();
+			let cookieCart = app.cookies.cart.getItems();
 			this.list.forEach((product) => {
 				let article = product.data.article;
 				let item = $(app.templates.cartItem).attr("article", article);
@@ -52,7 +52,7 @@ $(window).on("onload.init_cart", () => {
 			$(window).trigger("oncountrychange.content").trigger("onlanguagechange.content");
 		},
 		calculateFinalSum() {
-			let cookiesCart = app.cookies.getItemsInCart();
+			let cookiesCart = app.cookies.cart.getItems();
 			let sum = 0;
 			this.list.forEach((product) => { sum += product.prices[app.translation.currency.name] * (cookiesCart.get(product.data.article) ?? 0); });
 			let vat = 0; // TODO: later
