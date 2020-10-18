@@ -1,5 +1,5 @@
-<script charset="UTF-8" src="/js/cookies.js"></script>
 <script charset="UTF-8" src="/js/main.js"></script>
+<script charset="UTF-8" src="/js/cookies.js"></script>
 <script charset="UTF-8" src="/js/menu.js"></script>
 <script charset="UTF-8" src="/js/modals.js"></script>
 <script charset="UTF-8" src="/js/translation.js"></script>
