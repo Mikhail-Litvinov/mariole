@@ -1,5 +1,5 @@
 <?php
-	$request = explode('/', $_GET['q']); // Explode query by /
+	$request = explode('/', $_GET['q']); // 'q' is URL after domain, e.g. 'catalogue/accessories/gloves'
 	switch($request[0]) {
 		case 'data': echo json_encode(get_data_response(array_slice($request, 1))); break; // If this is client-side data request
 		case 'sitemap.xml': include 'sitemap.php'; break;
@@ -10,10 +10,10 @@
 	function get_data_response($request) {
 		switch($request[0]) {
 			case 'database': 
-				header('Expires: ' . gmdate('D, d M Y H:i:s', time() - 1) . ' GMT'); // Force no caching
+				header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 60 * 60) . ' GMT'); // 1-hour caching
 				return process_database(array_slice($request, 1));
 			default:
-				header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 60*60*24) . ' GMT'); // 1-day caching
+				header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 60 * 60 * 24) . ' GMT'); // 1-day caching
 				switch($request[0]) {
 					case 'language_file': return get_language_file($request[1]);
 					case 'countries_list': return get_countries_list();
@@ -23,19 +23,24 @@
 	}
 	
 	function process_database($request) {
-		$db = new SQLite3('mariole.db'); // Open connection to DB
-		$language = $db->escapeString(empty($request[1]) ? 'en' : $request[1]); // Use provided or english language
-		$response; // Deslacation of finish response var
+		$db = new SQLite3('mariole.db');
+		$language = $db->escapeString($request[1]);
+		$response;
 		switch($request[0]) {
-			case 'product_query': $response = get_product_query($db, $language, array_slice($request, 2)); break; // For multiple products
-			case 'product_info': $response = get_product_info($db, $language, array_slice($request, 2)); break; // For single product
+			case 'product_query': // For multiple products, contains only first of images and only 'name' language's field
+				$response = get_product_query($db, $language, array_slice($request, 2));
+				break;
+			case 'product_info': // For single product, contains all images and full language fields
+				$response = get_product_info($db, $language, array_slice($request, 2));
+				break;
 		}
-		$db->close(); // Close connection to DB
+		$db->close();
 		return $response;
 	}
 	
 	function get_product_query($db, $language, $request) {
-		return wrap_products_info($db, $language, get_product_query_sql($db, $language, $request)); // Format response in pretty-use style
+		// Wraps all products' fields into interact-convenient object
+		return wrap_products_info($db, $language, get_product_query_sql($db, $language, $request));
 	}
 	
 	function get_product_query_sql($db, $language, $request) { // Returns valid SQL request with given parameters
@@ -44,10 +49,10 @@
 				JOIN ( SELECT article, name FROM products_lang_$language ) USING(article)
 		";
 		switch($request[0]) {
-			case 'cart':
+			case 'cart': // Multiple products for cart, e.g. '1-2-3-4', where 1, 2, 3 and 4 - products' articles
 				$products_list = str_replace('-', ', ', $db->escapeString($request[1]));
 				return $sql . " WHERE products.article IN ({$products_list})";
-			default:
+			default: // Another cases, selecting by type (e.g. clothe) and class (e.g. gloves)
 				$type = $db->escapeString($request[0]);
 				$class = $db->escapeString($request[1]);
 				return $sql . ($type ? " WHERE products.type = '$type'" . ($class ? " AND products.class = '$class'" : '') : '');
@@ -61,7 +66,7 @@
 				JOIN products_lang_$language USING(article)
 			WHERE products.article = '$article'
 		";
-		return wrap_products_info($db, $language, $sql, true)[0]; // Format response in pretty-use style with saving products' parameters
+		return wrap_products_info($db, $language, $sql, true)[0]; // Wrap with saving products' parameters
 	}
 	
 	function wrap_products_info($db, $language, $sql, $has_params = false) {
@@ -81,17 +86,17 @@
 				if(count($row[$type]) == 0) unset($row[$type]); // If wrapper has no values then remove it
 			}
 			
-			$row['images'] = json_decode($row['images']);
+			$row['images'] = json_decode($row['images']); // Transform JSON images' list into an indexed array
 			
 			if($has_params) { // If need to save product's parameters
 				$row['params'] = get_product_params( // Translate parameters and wrap them
 					$db, $language,
-					array_merge(json_decode($row['uni_params'], true), json_decode($row['params'], true) ?? []) // Combine universal and common parameters
+					array_merge(json_decode($row['uni_params'], true), json_decode($row['params'], true) ?? []) // Combine unified and common parameters
 				);
 			} else unset($row['params']); // If don't need to save parameters then remove this field
-			unset($row['uni_params']); // Remove universal parameter's array
+			unset($row['uni_params']); // Remove unified parameters' array
 			
-			$response[] = $row; // Add wrapper product to the response
+			$response[] = $row;
 		}
 		return $response;
 	}
@@ -106,10 +111,10 @@
 		$response = [];
 		while($row = $result->fetchArray(SQLITE3_ASSOC)) {
 			if($row['is_uni']) { // If parameter's value is unified for all languages
-				$exploded_name = explode(':', $row[$language]);
+				$exploded_name = explode(':', $row[$language]); // Splice parameter's name (e.g. 'Width:cm')
 				$row['name'] = $exploded_name[0];
 				$row['unit'] = $exploded_name[1];
-			} else $row['name'] = $row[$language]; 
+			} else $row['name'] = $row[$language];
 			$row['value'] = $params[$row['id']];
 			unset($row[$language], $row['id'], $row['is_uni']);
 			$response[] = $row;
@@ -122,7 +127,7 @@
 	}
 	
 	function get_language_file($language) {
-		return json_decode(file_get_contents('config/lang/' . ($language ?? 'en') . '.json', true));
+		return json_decode(file_get_contents("config/lang/$language.json", true));
 	}
 	
 	function get_pages_list() {
