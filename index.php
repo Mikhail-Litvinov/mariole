@@ -41,7 +41,6 @@
 	function get_product_query_sql($db, $language, $request) { // Returns valid SQL request with given parameters
 		$sql = "
 			SELECT * FROM products
-				JOIN ( SELECT article, i0 FROM products_photos ) USING(article)
 				JOIN ( SELECT article, name FROM products_lang_$language ) USING(article)
 		";
 		switch($request[0]) {
@@ -59,7 +58,6 @@
 		$article = $db->escapeString($request[0]);
 		$sql = "
 			SELECT * FROM products
-				JOIN products_photos USING(article)
 				JOIN products_lang_$language USING(article)
 			WHERE products.article = '$article'
 		";
@@ -73,8 +71,7 @@
 			foreach([ // Category name => category's values
 				'data' => ['article', 'type', 'class'], // Wrap article, type and class in field 'data'
 				'language' => ['name', 'description'], // Wrap name and description in field 'language'
-				'prices' => ['euro', 'dollar', 'rouble', 'koruna'], // Wrap all prices in field 'prices'
-				'images' => ['i0', 'i1', 'i2', 'i3', 'i4', 'i5'] // Wrap all images in field 'images'
+				'prices' => ['euro', 'dollar', 'rouble', 'koruna'] // Wrap all prices in field 'prices'
 			] as $type => $columns) { // $type = category name, $columns = category's values
 				$row[$type] = []; // Make new wrapper for category
 				foreach($columns as $column_name) { // For all category's values
@@ -84,7 +81,7 @@
 				if(count($row[$type]) == 0) unset($row[$type]); // If wrapper has no values then remove it
 			}
 			
-			$row['images'] = array_values($row['images']); // Remove keys of field 'images'
+			$row['images'] = json_decode($row['images']);
 			
 			if($has_params) { // If need to save product's parameters
 				$row['params'] = get_product_params( // Translate parameters and wrap them
@@ -108,7 +105,7 @@
 		
 		$response = [];
 		while($row = $result->fetchArray(SQLITE3_ASSOC)) {
-			if($row['is_uni']) { // If parameter's value shouldn't be translated (width, for example)
+			if($row['is_uni']) { // If parameter's value is unified for all languages
 				$exploded_name = explode(':', $row[$language]);
 				$row['name'] = $exploded_name[0];
 				$row['unit'] = $exploded_name[1];
