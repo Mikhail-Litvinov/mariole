@@ -1,9 +1,17 @@
 <head>
 	<link rel="stylesheet" href="/css/catalogue.css">
 	<link rel="stylesheet" href="/css/jquery.nselect.css">
+	<link rel="stylesheet" href="/css/media.css">
 </head>
 <body>
 	<div class="catalogue-content">
+		<div id="openCatNav" class="mobile">
+            <div class="hamburger mobile-cat-nav" id="hamburger-4">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+        </div>
 		<aside class="catalogue-left-nav">
 			<div class="categories-title">
 				<p id="categories-title">Категории</p>
@@ -124,5 +132,10 @@
 			-->
 		</div>
 	</div>
+	<script>
+		$(".mobile-cat-nav").click(function () {
+			$(this).toggleClass("is-active")
+		})
+	</script>
 </body>
 <script>app.loadScripts(["jquery.nselect", "catalogue"]);</script>
