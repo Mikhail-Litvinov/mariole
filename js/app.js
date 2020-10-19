@@ -6,14 +6,14 @@ app = {
 	templates: {},
 	loadScripts(list, type = "init") {
 		let uniqueDeferredList = list.filter((name) => !this.cachedScripts.includes(name));
-		uniqueDeferredList.forEach((name) => { this.cachedScripts.push(name); });
-		uniqueDeferredList = uniqueDeferredList.map(
-			(name) => $.ajax({
+		uniqueDeferredList = uniqueDeferredList.map((name) => {
+			this.cachedScripts.push(name);
+			return $.ajax({
 				url: `/js/${name}.js`,
 				dataType: "script",
 				cache: true
-			})
-		);
+			});
+		});
 		
 		$.when.apply($, uniqueDeferredList).then(() => {
 			for(let name of list) $(window).trigger(`onload.${type}_${name}`);
