@@ -11,13 +11,35 @@ $(window).on("onload.init_product", () => {
 			$($(".demo").removeClass("active").get(this.active)).addClass("active");
 		},
 		load() {
-			if(!app.templates.productParamItem) {
-				$.get("/tpl/pages/product_parameter.tpl", (data) => {
-					app.templates.productParamItem = data;
+			if(!app.templates.product) {
+				$.when(
+					$.get("/tpl/pages/product_parameter.tpl"),
+					$.get("/tpl/pages/product_slide.tpl"),
+					$.get("/tpl/pages/product_slide_preview.tpl")
+				).then((parameter, slide, slidePreview) => {
+					app.templates.product = {
+						_parameter: parameter[0],
+						parameter(name, value) {
+							return this._parameter
+								.replace("${name}", name)
+								.replace("${value}", value);
+						},
+						_slide: slide[0],
+						slide(img) {
+							return this._slide
+								.replace("${img}", img);
+						},
+						_slidePreview: slidePreview[0],
+						slidePreview(img) {
+							return this._slidePreview
+								.replace("${img}", img);
+						}
+					};
 					this.load();
 				});
 				return;
 			}
+			
 			$.getJSON(`/data/database/product_info/${app.translation.language.code}/${this.article}`, (data) => {
 				$("title").html(data.language.name);
 				$("#product-data-name").html(data.language.name);
@@ -37,26 +59,20 @@ $(window).on("onload.init_product", () => {
 			$("#product-data-price").html((this.data.prices[app.translation.currency.name] / 100).toFixed(2) + ` ${app.translation.currency.sign}`);
 		},
 		buildImageCarousel() {
-			for(let img of this.data.images) {//let i = 0, img = productData["i0"]; img; img = productData[`i${++i}`]) {
-				let slide = $(`<div class="product-slide fade"><img src="/img/products-images/${img}.jpg" width="100%"></div>`);
-				$(".product-slider").append(slide);
-				
-				let previewSlide = $('<div class="col-1-4 flex-column overflow-hidden"></div>');
-				$(".product-preview > div").append(previewSlide.append($(`<img src="/img/products-previews/${img}.jpg" width="100%" class="demo">`)));
+			for(let img of this.data.images) {
+				$(".product-slider:first").append($(app.templates.product.slide(img)));
+				$(".product-preview:first").children("div").append($(app.templates.product.slidePreview(img)));
 			}
 			if($(".product-slide").length > 1) $(".product-preview .demo").each((index, element) => { $(element).click(() => { this.enableSlide(index); }); });
 			else $(".prev-slide, .next-slide, .product-preview").remove();
 			this.moveSlide(0);
 		},
 		buildParamsList() {
-			let newParamsList = $("<div>");
+			let newParamsList = "";
 			this.data.params.sort((first, second) => first.priority - second.priority).forEach((data) => {
-				let param = $(app.templates.productParamItem);
-				param.find(".param-name > p").html(data.name);
-				param.find(".params-info > p").html(data.value + (data.unit ? `&nbsp;${data.unit}` : ""));
-				newParamsList.append(param);
+				newParamsList += app.templates.product.parameter(data.name, data.value + (data.unit ? `&nbsp;${data.unit}` : ""));
 			});
-			$(".params").html(newParamsList.html());
+			$(".params").html(newParamsList);
 		}
 	};
 	

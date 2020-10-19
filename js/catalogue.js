@@ -3,9 +3,21 @@ $(window).on("onload.init_catalogue", () => {
 		list: [],
 		sortingMethod: "default",
 		updateSelection(newPath, newList) {
-			if(!app.templates.catalogueItem) {
-				$.get("/tpl/pages/catalogue_item.tpl", (data) => {
-					app.templates.catalogueItem = data;
+			if(!app.templates.catalogue) {
+				$.when(
+					$.get("/tpl/pages/catalogue_item.tpl")
+				).then((item) => {
+					app.templates.catalogue = {
+						_item: item,
+						item(article, img, title, price, currency) {
+							return this._item
+								.replace("${article}", article)
+								.replace("${img}", img)
+								.replace("${title}", title)
+								.replace("${price}", price)
+								.replace("${currency}", currency);
+						}
+					};
 					this.updateSelection(newPath, newList);
 				});
 				return;
@@ -25,15 +37,20 @@ $(window).on("onload.init_catalogue", () => {
 		},
 		sortList() {
 			let compatator;
+			let currencyName = app.translation.currency.name;
 			switch(this.sortingMethod) {
 				case "price_1-0":
-					comparator = (first, second) => second.prices[app.translation.currency.name] - first.prices[app.translation.currency.name];
+					comparator = (first, second) => second.prices[currencyName] - first.prices[currencyName];
 					break;
 				case "price_0-1":
-					comparator = (first, second) => first.prices[app.translation.currency.name] - second.prices[app.translation.currency.name];
+					comparator = (first, second) => first.prices[currencyName] - second.prices[currencyName];
 					break;
 				case "alphabetic_A-Z":
-					comparator = (first, second) => (first.language.name > second.language.name) ? 1 : ((first.language.name < second.language.name) ? -1 : 0);
+					comparator = (first, second) => {
+						if(first.language.name > second.language.name) return 1;
+						else if(first.language.name < second.language.name) return -1;
+						else return 0;
+					}
 					break;
 				default:
 					comparator = (first, second) => first > second;
@@ -41,16 +58,17 @@ $(window).on("onload.init_catalogue", () => {
 			this.list.sort(comparator);
 		},
 		buildList() {
-			let newCataloguePage = $("<div>");
-			this.list.forEach((product) => {
-				let item = $(app.templates.catalogueItem);
-				item.children("a").attr("navid", `product-page/${product.data.article}`);
-				item.find(".product-photo > img").attr("src", `/img/products-images/${product.images[0]}.jpg`);
-				item.find(".product-title > p").html(product.language.name);
-				item.find(".product-price > p").html((product.prices[app.translation.currency.name] / 100).toFixed(2) + ` ${app.translation.currency.sign}`);
-				newCataloguePage.append(item);
-			});
-			$(".catalogue-page").html(newCataloguePage.html());
+			let newCatalogueList = "";
+			for(let product of this.list) {
+				newCatalogueList += app.templates.catalogue.item(
+					product.data.article,
+					product.images[0],
+					product.language.name,
+					(product.prices[app.translation.currency.name] / 100).toFixed(2),
+					app.translation.currency.sign
+				);
+			}
+			$(".catalogue-page").html(newCatalogueList);
 			app.navigation.wrapPageLinks("#content .product-wrapper > a[navid]");
 		},
 		closeSubmenus() {
