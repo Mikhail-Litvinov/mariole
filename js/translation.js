@@ -107,15 +107,15 @@ $(window).on("onload.app_translation", () => {
 	let cookiedCountry = app.cookies.base.get("country"), cookiedLanguage = app.cookies.base.get("language");
 	if(cookiedCountry) init(cookiedCountry, cookiedLanguage); // If country is in cookie
 	else { // Else load YMaps and use it's country
-		$(window).on("ymaps", () => { // One-time intermediate event, will be executed when YMaps will be loaded, but only base
-			ymaps?.ready(() => { // This will be executed when YMaps.geolocation will be loaded
+		$("script#ymaps-placeholder").attr({
+			"charset": "UTF-8", // Just in case
+			"type": "text/javascript", // Just in case too
+			"src": "https://api-maps.yandex.ru/2.0-stable/?load=geolocation&lang=en-US", // YMaps module
+		}).on("load", () => {
+			ymaps?.ready(() => { // This will be executed when YMaps.geolocation is loaded
 				init(ymaps.geolocation?.country.toLowerCase().replace(" ", ""), cookiedLanguage);
 				ymaps = undefined;
 			});
-		});
-		$("script#ymaps-placeholder").attr({
-			"src": "https://api-maps.yandex.ru/2.0-stable/?load=geolocation&lang=en-US", // YMaps module
-			"onload": "$(window).trigger('ymaps').off('ymaps');" // This will be executed after YMaps primary loading
 		});
 	}
 

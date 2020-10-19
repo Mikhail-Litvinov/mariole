@@ -16,6 +16,7 @@
 		</footer>
 		<?php include 'tpl/modal-countries.tpl'; ?>
 		<?php include 'tpl/modal-search.tpl'; ?>
-		<?php include 'tpl/scripts.tpl'; ?>
+		<script id="ymaps-placeholder"></script>
+		<script src="/js/app.js"></script>
 	</body>
 </html>

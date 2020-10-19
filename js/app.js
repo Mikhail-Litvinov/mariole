@@ -39,3 +39,5 @@ $(window).on({
 		}).init();
 	}
 });
+
+app.loadScripts(["cookies", "menu", "modals", "translation", "navigation", "wow"], "app");
