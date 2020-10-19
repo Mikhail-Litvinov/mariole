@@ -14,9 +14,10 @@ app.menu = {
 };
 
 $(window).on("onresize.menu", () => {
-	if(app.main.isMobile || app.main.isLowWidth) {
+	if(app.main.isMobile || app.main.isLowWidth) {		
 		$(".navigation").detach().prependTo(".mobile-menu-wrapper");
 		$(".countries, .buttons-top-nav").detach().appendTo(".mobile-menu-wrapper");
+		$(".logo").detach().prependTo(".icon-container");
 		$(".modal-search-bg").addClass("digital-search").removeClass("desktop-search");
 		app.menu.menus.off("click.navmenu").on("click.navmenu", (evt) => {
 			app.menu.closeSubmenus();
@@ -33,7 +34,7 @@ $(window).on("onresize.menu", () => {
 	} else {
 		$(".navigation").detach().appendTo(".nav");
 		$(".countries").detach().prependTo(".nav-top-cont");
-		$(".buttons-top-nav").detach().appendTo(".nav-top-cont");
+		$(".logo, .buttons-top-nav").detach().appendTo(".nav-top-cont");
 		$(".modal-search-bg").addClass("desktop-search").removeClass("digital-search");		
 		app.menu.menus.off("mouseenter.navmenu mouseleave.navmenu").on("mouseenter.navmenu mouseleave.navmenu", (evt) => {
 			switch(evt.type) {
