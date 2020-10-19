@@ -74,5 +74,5 @@ app.navigation = {
 $(window).on("navigate", () => {
 	app.navigation.loadAvailablePagesList(() => { app.navigation.switchContent(); });
 	app.navigation.wrapPageLinks("[navid]");
-	addEventListener("popstate", () => { app.navigation.switchContent() }); // Bind forward/back actions to switchContent
+	$(window).on("popstate", () => { app.navigation.switchContent(); });
 });

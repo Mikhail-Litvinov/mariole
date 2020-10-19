@@ -14,10 +14,8 @@
 		<footer>
 			<?php include 'tpl/footer.tpl'; ?>
 		</footer>
-		<?php include 'tpl/modal-countries.tpl'; ?>
-		<?php include 'tpl/modal-search.tpl'; ?>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script id="ymaps-placeholder"></script>
-		<script src="/js/app.js"></script>
+		<?php include 'tpl/modal_countries.tpl'; ?>
+		<?php include 'tpl/modal_search.tpl'; ?>
+		<?php include 'tpl/scripts.tpl' ?>
 	</body>
 </html>
