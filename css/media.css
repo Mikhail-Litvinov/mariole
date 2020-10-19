@@ -721,6 +721,15 @@
         left: 0;
     }
 
+    .buttons-top-nav {
+        width: 50%;
+        justify-content: flex-start;
+    }
+
+    .buttons-top-nav-list li {
+        margin: 0 20%;
+    }
+
 }
 
 @media screen and (min-width:0px) and (max-width: 280px) {

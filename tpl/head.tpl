@@ -11,4 +11,10 @@
 <link rel="stylesheet" href="/fonts/Fontello/css/fontello-ie7-codes.css">
 <link rel="stylesheet" href="/fonts/Fontello/css/fontello-ie7.css">
 <link rel="stylesheet" href="/fonts/Fontello/css/fontello.css">
+<link rel="stylesheet" href="/fonts/fontello-8780be14/css/animation.css">
+<link rel="stylesheet" href="/fonts/fontello-8780be14/css/fontello-codes.css">
+<link rel="stylesheet" href="/fonts/fontello-8780be14/css/fontello-embedded.css">
+<link rel="stylesheet" href="/fonts/fontello-8780be14/css/fontello-ie7-codes.css">
+<link rel="stylesheet" href="/fonts/fontello-8780be14/css/fontello-ie7.css">
+<link rel="stylesheet" href="/fonts/fontello-8780be14/css/fontello.css">
 <title></title>

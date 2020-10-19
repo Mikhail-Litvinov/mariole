@@ -42,7 +42,7 @@
 						</div>
 					</div>
 				</button>
-				<a navid="cart">Корзина</a>
+				
 			</div>
 			<div class="logo flex">
 				<div class="logo-cont">
@@ -59,6 +59,11 @@
 					<li>
 						<a href="https://www.instagram.com/mario__le/" target="_blank">
 							<span class="inst-icon"></span>
+						</a>
+					</li>
+					<li>
+						<a navid="cart">
+							<span class="cart-icon"></span>
 						</a>
 					</li>
 				</ul>

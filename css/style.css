@@ -131,7 +131,6 @@ header {
 
 .countries, .logo, .buttons-top-nav {
     width: 33%;
-    height: 100%;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -195,7 +194,7 @@ header {
 .buttons-top-nav-list {
     display: grid;
     margin: 0;
-    grid-template-columns: repeat(2,3fr);
+    grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(1,max-content);
 }
 
@@ -1388,6 +1387,20 @@ header {
 
 #close-error-404::before {
     content: "\2716";
+}
+
+.cart-icon {
+    color: #3D210C;
+}
+
+.cart-icon:hover {
+    color: #CD7F32;
+}
+
+.cart-icon::before {
+    font-family: 'fontello';
+    content: '\e800';
+    font-size: 30px;
 }
 
 /* alerts end */
