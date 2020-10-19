@@ -70,7 +70,8 @@ $(window).on("onload.init_product", () => {
 		"onlanguagechange.content": () => { app.product.load(); },
 		"oncountrychange.content": () => { app.product.updatePrice(); },
 		"onresize.content": () => {
-			$("#product-page-wrapper").toggleClass("wrap", app.isMobile || app.isLowWidth).toggleClass("nowrap", !(app.isMobile || app.isLowWidth));
+			let mobile = (app.main.isMobile || app.main.isLowWidth);
+			$("#product-page-wrapper").toggleClass("wrap", mobile).toggleClass("nowrap", !mobile);
 		},
 		"onunload.content": () => { app.product = undefined; }
 	});

@@ -18,7 +18,7 @@ $(window).on("onload.init_about", () => {
 	
 	$(window).on({
 		"onresize.content": () => {
-			$(".content-article img").css("width", (app.isMobile || app.isLowWidth) ? "100%" : "");
+			$(".content-article img").css("width", (app.main.isMobile || app.main.isLowWidth) ? "100%" : "");
 		},
 		"onunload.content": () => { app.about = undefined; }
 	});

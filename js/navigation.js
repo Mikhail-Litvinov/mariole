@@ -32,10 +32,15 @@ app.navigation = {
 		if(this.path[0] != newPath[0]) { // If new this.path root is different
 			scrollTo(0, 0); // Scroll page to the start
 			$(window).trigger("onunload.content").off("onscriptsloadend .content");
-			$("#content").load(`/tpl/pages/roots/${newPath[0]}.tpl`, () => {
-				$("title").html($("#content > [title]").attr("title")); // Set website title as written in the page root's HTML
-				this.wrapPageLinks("#content a[navid]");
-				$(window).on("onscriptsloadend", () => { this.updateContentSelection(newPath); });
+			$.ajax({
+				url: `/tpl/pages/roots/${newPath[0]}.tpl`,
+				cache: true,
+				success: (data) => {
+					$("#content").html(data);
+					$("title:first").html($("#content").children("[title]:first").attr("title")); // Set website title as written in the page root's HTML
+					this.wrapPageLinks("#content a[navid]");
+					$(window).on("onscriptsloadend", () => { this.updateContentSelection(newPath); });
+				}
 			});
 		} else this.updateContentSelection(newPath);
 	},
@@ -65,17 +70,6 @@ app.navigation = {
 		});
 	}
 };
-
-function loadScripts(list) {
-	let uniqueDeferredList = list.filter((name) => !app.navigation.cachedScripts.includes(name));
-	uniqueDeferredList.forEach((name) => { app.navigation.cachedScripts.push(name); });
-	uniqueDeferredList = uniqueDeferredList.map((name) => $.getScript(`/js/${name}.js`));
-	
-	$.when.apply($, uniqueDeferredList).then(() => {
-		for(let name of list) $(window).trigger(`onload.init_${name}`);
-		$(window).trigger("onscriptsloadend").trigger("onresize.content");
-	});
-}
 
 $(window).on("navigate", () => {
 	app.navigation.loadAvailablePagesList(() => { app.navigation.switchContent(); });

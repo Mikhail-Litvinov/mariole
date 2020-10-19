@@ -81,7 +81,7 @@ $(window).on("onload.init_catalogue", () => {
 		"oncountrychange.content": () => { app.catalogue.performNewSortingMethod(app.catalogue.sortingMethod); },
 		"onlanguagechange.content": () => { app.catalogue.updateSelection(app.navigation.path); },
 		"onresize.content": () => {
-			$(".catalogue-button-top-nav").detach().appendTo(`.catalogue-${(app.isMobile || app.isLowWidth) ? "left" : "top"}-nav`);
+			$(".catalogue-button-top-nav").detach().appendTo(`.catalogue-${(app.main.isMobile || app.main.isLowWidth) ? "left" : "top"}-nav`);
 		},
 		"onunload.content": () => { app.catalogue = undefined; }
 	});
