@@ -68,7 +68,7 @@ app.translation = {
 	}
 }
 
-$(() => {
+$(window).on("onload.app_translation", () => {
 	let init = (_country, _language) => {
 		$.when(
 			$.getJSON("/data/countries_list"),

@@ -43,8 +43,8 @@ app.modals = {
 	}
 };
 
-$(() => {
-    $("#btn-lang").click(() => { app.modals.toggleLang(!$("#btn-lang").hasClass("active")); });
+$(window).on("onload.app_modals", () => {
+	$("#btn-lang").click(() => { app.modals.toggleLang(!$("#btn-lang").hasClass("active")); });
 	$("#btn-country").click(() => { app.modals.toggleCountry(true); });
 	$("#close-country, .country-btn").click(() => { app.modals.toggleCountry(false); });
 	$("#open-search").click(() => { app.modals.toggleSearch(true); });

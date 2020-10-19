@@ -14,7 +14,7 @@ app.menu = {
 };
 
 $(window).on("onresize.menu", () => {
-	if(app.isMobile || app.isLowWidth) {
+	if(app.main.isMobile || app.main.isLowWidth) {
 		$(".navigation").detach().prependTo(".mobile-menu-wrapper");
 		$(".countries, .buttons-top-nav").detach().appendTo(".mobile-menu-wrapper");
 		$(".modal-search-bg").addClass("digital-search").removeClass("desktop-search");
@@ -52,7 +52,7 @@ $(window).on("onresize.menu", () => {
 	$("#content").css("padding-top", $("#headerContainer").height());
 });
 
-$(() => {
+$(window).on("onload.app_menu", () => {
 	$(".hamburger").off("click.navmenu").on("click.navmenu", (evt) => {
 		app.menu.mobileMenu.toggleClass("open", $(evt.currentTarget).toggleClass("is-active").hasClass("is-active"));
 	});
