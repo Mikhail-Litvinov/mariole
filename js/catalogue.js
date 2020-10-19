@@ -87,7 +87,10 @@ $(window).on("onload.init_catalogue", () => {
 		let height = (isActive ? $(this).children(".catalogue-sub")[0].scrollHeight : 0) + "px";
 		$(this).toggleClass("active", isActive).children(".catalogue-sub").height(height);
 	});
-	$("#hamburger-4").click(() => { $(".catalogue-left-nav").toggleClass("opened"); });
+	$("#hamburger-4").click((evt) => {
+		$(evt.currentTarget).toggleClass("is-active");
+		$(".catalogue-left-nav").toggleClass("opened");
+	});
 	$(".catalogue-button:not(.accordion)").on("click.catalogue", () => { app.catalogue.closeSubmenus(); });
 	
 	let sortingMethodList = ["default", "price_1-0", "price_0-1", "alphabetic_A-Z", "new"];

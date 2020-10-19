@@ -132,10 +132,5 @@
 			-->
 		</div>
 	</div>
-	<script>
-		$(".mobile-cat-nav").click(function () {
-			$(this).toggleClass("is-active")
-		})
-	</script>
 </body>
 <script>app.loadScripts(["jquery.nselect", "catalogue"]);</script>
