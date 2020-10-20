@@ -54,7 +54,7 @@ $(window).on("onload.init_product", () => {
 				this.updatePrice();
 			});
 		},
-		get article() { return app.navigation.path[1]; },
+		get article() { return +app.navigation.path[1]; },
 		updatePrice() {
 			$("#product-data-price").html((this.data.prices[app.translation.currency.name] / 100).toFixed(2) + ` ${app.translation.currency.sign}`);
 		},
@@ -78,7 +78,7 @@ $(window).on("onload.init_product", () => {
 	
 	$(".prev-slide").click(() => { app.product.moveSlide(-1); });
 	$(".next-slide").click(() => { app.product.moveSlide(1); });
-	$("#add-to-cart").click(() => { app.cookies.cart.addItem(app.product.article, 1); });
+	$("#add-to-cart").click(() => { app.cookies.cart.addItem(app.product.article); });
 	
 	app.product.load();
 	

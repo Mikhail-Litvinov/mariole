@@ -22,8 +22,9 @@ app.cookies = {
 	cart: {
 		getItems() {
 			let result = new Map();
-			if(app.cookies.base.get("cart")) {
-				for(let item of app.cookies.base.get("cart").split("_")) {
+			let cart = app.cookies.base.get("cart");
+			if(cart) {
+				for(let item of cart.split("_")) {
 					let record = item.split("-");
 					result.set(+record[0], +record[1]);
 				}
@@ -32,14 +33,17 @@ app.cookies = {
 		},
 		updateItems(newCart) {
 			let result = [];
-			for(let [article, count] of newCart) if(count) result.push(`${article}-${count}`);
+			for(let [article, quantity] of newCart) if(quantity) result.push(`${article}-${quantity}`);
 			app.cookies.base.set("cart", result.join("_"));
 		},
-		addItem(article, count) {
-			this.updateItems(this.getItems().set(article, count));
+		addItem(article) {
+			if(!this.getItems().has(article)) this.changeItem(article, 1);
+		},
+		changeItem(article, quantity) {
+			this.updateItems(this.getItems().set(article, quantity));
 		},
 		removeItem(article) {
-			this.addItem(article, null);
+			this.changeItem(article, 0);
 		}
 	}
 };

@@ -32,7 +32,7 @@ $(window).on("onload.init_cart", () => {
 			let cookiesCart = app.cookies.cart.getItems();
 			let newQuantity = cookiesCart.get(article) + delta;
 			if(newQuantity > 0) {
-				app.cookies.cart.updateItems(cookiesCart.set(article, newQuantity));
+				app.cookies.cart.changeItem(article, newQuantity);
 				$(`.product-card[article="${article}"] .quantity`).html(newQuantity);
 				this.calculateFinalSum();
 			} else this.deleteProduct(article);

@@ -5,12 +5,12 @@ app.translation = {
 		get(item) { return this.active[item]; }, // Returns requested language field
 		validate(language) { return ["ru", "cs", "it", "zh"].includes(language) ? language : "en"; },
 		prepare(language) {
-			if(language !== this.code) {
-				$.getJSON(`/data/language_file/${language}`, (data) => {
-					this.active = data;
-					this.change(true);
-				});
-			}
+			if(language === this.code) return;
+			
+			$.getJSON(`/data/language_file/${language}`, (data) => {
+				this.active = data;
+				this.change(true);
+			});
 		},
 		change(isTriggerable = true) {
 			if(isTriggerable) $(window).trigger("onlanguagechange");
@@ -18,9 +18,9 @@ app.translation = {
 			this.translate();
 		},
 		translate() {
-			$(".languageable").html(function() { return app.translation.language.get(this.id); }); // Translate the page to the new language (OLD WAY, SHOULD BE REMOVED)
-			$("[langid]").html(function() { return app.translation.language.get(this.getAttribute("langid")); }); // Translate the page to the new language
-			app.translation.country.updateLabel(); // Update country label with new language
+			for(let element of $(".languageable")) element.innerHTML = app.translation.language.get(element.getAttribute("id")); // DEPRECATED
+			for(let element of $("[langid]")) element.innerHTML = app.translation.language.get(element.getAttribute("langid"));
+			app.translation.country.updateLabel();
 		}
 	},
 	country: {
@@ -37,12 +37,12 @@ app.translation = {
 			};
 		},
 		change(country, isTriggerable = true) {
-			if(country !== this.latin) {
-				this.prepare(country);
-				if(isTriggerable) $(window).trigger("oncountrychange");
-				app.cookies.base.set("country", this.latin);
-				this.updateLabel(); // Update country label with new country
-			}
+			if(country === this.latin) return;
+			
+			this.prepare(country);
+			if(isTriggerable) $(window).trigger("oncountrychange");
+			app.cookies.base.set("country", this.latin);
+			this.updateLabel(); // Update country label with new country
 		},
 		updateLabel() {
 			$("#country-name").html(app.translation.language.get(`country-${this.latin}`) + ` (${app.translation.currency.sign})`);
@@ -70,9 +70,10 @@ app.translation = {
 
 $(window).on("onload.app_translation", () => {
 	let init = (_country, _language) => {
+		let languageFileName = app.translation.language.validate(_language ?? window.navigator?.language?.slice(0, 2).toLowerCase());
 		$.when(
 			$.getJSON("/data/countries_list"),
-			$.getJSON("/data/language_file/" + app.translation.language.validate(_language ?? window.navigator?.language?.slice(0, 2).toLowerCase()))
+			$.getJSON("/data/language_file/" + languageFileName)
 		).then((countriesResponse, langResponse) => {
 			$("script#ymaps-placeholder").remove();
 			
@@ -103,8 +104,9 @@ $(window).on("onload.app_translation", () => {
 		});
 	};
 	
+	let cookiedCountry = app.cookies.base.get("country");
+	let cookiedLanguage = app.cookies.base.get("language");
 	
-	let cookiedCountry = app.cookies.base.get("country"), cookiedLanguage = app.cookies.base.get("language");
 	if(cookiedCountry) init(cookiedCountry, cookiedLanguage); // If country is in cookie
 	else { // Else load YMaps and use it's country
 		$("script#ymaps-placeholder").attr({
@@ -118,5 +120,4 @@ $(window).on("onload.app_translation", () => {
 			});
 		});
 	}
-
 });
