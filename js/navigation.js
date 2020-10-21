@@ -31,7 +31,7 @@ app.navigation = {
 	routePagePath(newPath) {
 		if(this.path[0] != newPath[0]) { // If new this.path root is different
 			scrollTo(0, 0); // Scroll page to the start
-			$(window).trigger("onunload.content").off("onscriptsloadend .content");
+			$(window).trigger("onunload.content").off(".content");
 			$.ajax({
 				url: `/tpl/pages/roots/${newPath[0]}.tpl`,
 				cache: true,
@@ -39,7 +39,7 @@ app.navigation = {
 					$("#content").html(data);
 					$("title:first").html($("#content").children("[title]:first").attr("title")); // Set website title as written in the page root's HTML
 					this.wrapPageLinks("#content a[navid]");
-					$(window).on("onscriptsloadend", () => { this.updateContentSelection(newPath); });
+					$(window).one("onscriptsloadend", () => { this.updateContentSelection(newPath); });
 				}
 			});
 		} else this.updateContentSelection(newPath);
@@ -71,7 +71,7 @@ app.navigation = {
 	}
 };
 
-$(window).on("navigate", () => {
+$(window).one("navigate", () => {
 	app.navigation.loadAvailablePagesList(() => { app.navigation.switchContent(); });
 	app.navigation.wrapPageLinks("[navid]");
 	$(window).on("popstate", () => { app.navigation.switchContent(); });

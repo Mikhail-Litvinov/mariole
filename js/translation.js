@@ -100,7 +100,7 @@ $(window).on("onload.app_translation", () => {
 			app.translation.country.change(_country, false); // Initial country update, doesn't trigger oncountrychange
 			app.translation.language.change(false); // Initial language update, doesn't trigger onlanguagechange
 			
-			$(window).trigger("navigate").off("navigate"); // Init navigation module
+			$(window).trigger("navigate"); // Init navigation module
 		});
 	};
 	

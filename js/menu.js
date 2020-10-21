@@ -19,14 +19,14 @@ $(window).on("onresize.menu", () => {
 		$(".countries, .buttons-top-nav").detach().appendTo(".mobile-menu-wrapper");
 		$(".logo").detach().prependTo(".icon-container");
 		$(".modal-search-bg").addClass("digital-search").removeClass("desktop-search");
-		app.menu.menus.off("click.navmenu").on("click.navmenu", (evt) => {
+		app.menu.menus.off(".navmenu").on("click.navmenu", (evt) => {
 			app.menu.closeSubmenus();
 			app.menu.actualize(evt.currentTarget);
 		});
-		$(window).off("mouseup.navmenu").on("mouseup.navmenu", (evt) => {
+		$(window).off(".navmenu").on("mouseup.navmenu", (evt) => {
 			if(!app.menu.menus.add(app.menu.subMenus).is(evt.target)) app.menu.subMenus.height(0);
 		});
-		$(".sub-list-element").off("click.navmenu").on("click.navmenu", () => {
+		$(".sub-list-element").off(".navmenu").on("click.navmenu", () => {
 			app.menu.closeSubmenus();
 			app.menu.mobileMenu.removeClass("open");
 			$(".hamburger").removeClass("is-active");
@@ -36,25 +36,25 @@ $(window).on("onresize.menu", () => {
 		$(".countries").detach().prependTo(".nav-top-cont");
 		$(".logo, .buttons-top-nav").detach().appendTo(".nav-top-cont");
 		$(".modal-search-bg").addClass("desktop-search").removeClass("digital-search");		
-		app.menu.menus.off("mouseenter.navmenu mouseleave.navmenu").on("mouseenter.navmenu mouseleave.navmenu", (evt) => {
+		app.menu.menus.off(".navmenu").on("mouseenter.navmenu mouseleave.navmenu", (evt) => {
 			switch(evt.type) {
 				case "mouseenter": app.menu.actualize(evt.currentTarget); break;
 				case "mouseleave": app.menu.closeSubmenusTimer = setTimeout(() => { app.menu.closeSubmenus(); }, 50); break;
 			}
 		});
-		app.menu.subMenus.off("mouseenter.navmenu mouseleave.navmenu").on("mouseenter.navmenu mouseleave.navmenu", (evt) => {
+		app.menu.subMenus.off(".navmenu").on("mouseenter.navmenu mouseleave.navmenu", (evt) => {
 			switch(evt.type) {
 				case "mouseenter": clearTimeout(app.menu.closeSubmenusTimer); break;
 				case "mouseleave": app.menu.closeSubmenus(); break;
 			}
 		});
-		$(".sub-list-element").off("click.navmenu").on("click.navmenu", () => { app.menu.closeSubmenus(); });
+		$(".sub-list-element").off(".navmenu").on("click.navmenu", () => { app.menu.closeSubmenus(); });
 	}
 	$("#content").css("padding-top", $("#headerContainer").height());
 });
 
 $(window).on("onload.app_menu", () => {
-	$(".hamburger").off("click.navmenu").on("click.navmenu", (evt) => {
+	$(".hamburger").off(".navmenu").on("click.navmenu", (evt) => {
 		app.menu.mobileMenu.toggleClass("open", $(evt.currentTarget).toggleClass("is-active").hasClass("is-active"));
 	});
 });

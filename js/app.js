@@ -8,13 +8,11 @@ app = {
 		let uniqueDeferredList = list.reduce((accumulator, script) => {
 			if(!this.cachedScripts.includes(script)) { // If script isn't loaded already
 				this.cachedScripts.push(script);
-				accumulator.push(
-					$.ajax({ // Create new Deferred
-						url: `/js/${script}.js`,
-						dataType: "script",
-						cache: true
-					})
-				);
+				accumulator.push($.ajax({ // Create new Deferred
+					url: `/js/${script}.js`,
+					dataType: "script",
+					cache: true
+				}));
 			}
 			return accumulator;
 		}, []);
@@ -27,13 +25,13 @@ app = {
 	main: {
 		updateMobileFlags() {
 			this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-			this.isLowWidth = $(window).width() <= 1024;
+			this.isLowWidth = $(window).outerWidth() <= 1024;
 			$(window).trigger("onresize");
 		}
 	}
 };
 
-$(window).on({
+$(window).one({
 	"onscriptsloadend.app": () => { $(window).resize(() => { app.main.updateMobileFlags(); }).resize(); },
 	"onload.app_wow": () => {
 		new WOW({
