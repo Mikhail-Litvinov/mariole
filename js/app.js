@@ -5,15 +5,19 @@ app = {
 	cachedScripts: [],
 	templates: {},
 	loadScripts(list, type = "init") {
-		let uniqueDeferredList = list.filter((name) => !this.cachedScripts.includes(name));
-		uniqueDeferredList = uniqueDeferredList.map((name) => {
-			this.cachedScripts.push(name);
-			return $.ajax({
-				url: `/js/${name}.js`,
-				dataType: "script",
-				cache: true
-			});
-		});
+		let uniqueDeferredList = list.reduce((accumulator, script) => {
+			if(!this.cachedScripts.includes(script)) { // If script isn't loaded already
+				this.cachedScripts.push(script);
+				accumulator.push(
+					$.ajax({ // Create new Deferred
+						url: `/js/${script}.js`,
+						dataType: "script",
+						cache: true
+					})
+				);
+			}
+			return accumulator;
+		}, []);
 		
 		$.when.apply($, uniqueDeferredList).then(() => {
 			for(let name of list) $(window).trigger(`onload.${type}_${name}`);
@@ -22,8 +26,8 @@ app = {
 	},
 	main: {
 		updateMobileFlags() {
-			app.main.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-			app.main.isLowWidth = $(window).width() <= 1024;
+			this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+			this.isLowWidth = $(window).width() <= 1024;
 			$(window).trigger("onresize");
 		}
 	}
