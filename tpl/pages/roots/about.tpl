@@ -163,5 +163,5 @@
 			</div>
 		</div>
 	</main>
-	<script>app.loadScripts(["about"]);</script>
 </body>
+<script>app.loadScripts(["about"]);</script>

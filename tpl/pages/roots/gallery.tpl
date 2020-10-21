@@ -119,6 +119,5 @@
 			</div>
 		</div>
 	</div>
-	<script>app.loadScripts(["gallery"]);</script>
-	
 </body>
+<script>app.loadScripts(["gallery"]);</script>
