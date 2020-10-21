@@ -4,16 +4,14 @@ $(window).on("onload.app_scrollmagic", () => {
 		start() {
 			this._instance = new ScrollMagic.Controller();
 		},
-		update() {
+		update(depth = 1) {
 			this.stop();
 			this.start();
-			for(let level = 1; level <= 3; level++) {
-				if($(`#scroll-${level}`).length && $(`.scroll${level}`).length) {
-					new ScrollMagic
-						.Scene({ triggerElement: `#scroll-${level}` })
-						.setClassToggle(`.scroll${level}`, "fade-in")
-						.addTo(this._instance);
-				}
+			for(let level = 1; level <= depth; level++) {
+				new ScrollMagic
+					.Scene({ triggerElement: `#scroll-${level}` })
+					.setClassToggle(`.scroll${level}`, "fade-in")
+					.addTo(this._instance);
 			}
 		},
 		stop() {

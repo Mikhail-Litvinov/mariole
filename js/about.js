@@ -23,5 +23,5 @@ $(window).on("onload.init_about", () => {
 		"onunload.content": () => { app.about = undefined; }
 	});
 	
-	app.scrollmagic.update();
+	app.scrollmagic.update(2);
 });
