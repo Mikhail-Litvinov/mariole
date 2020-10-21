@@ -18,8 +18,8 @@ app.translation = {
 			this.translate();
 		},
 		translate() {
-			for(let element of $(".languageable")) element.innerHTML = app.translation.language.get(element.getAttribute("id")); // DEPRECATED
-			for(let element of $("[langid]")) element.innerHTML = app.translation.language.get(element.getAttribute("langid"));
+			for(let element of $(".languageable")) element.innerHTML = this.get(element.getAttribute("id")); // DEPRECATED
+			for(let element of $("[langid]")) element.innerHTML = this.get(element.getAttribute("langid"));
 			app.translation.country.updateLabel();
 		}
 	},
