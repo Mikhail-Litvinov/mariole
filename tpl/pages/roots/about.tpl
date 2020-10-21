@@ -87,7 +87,7 @@
 			<div class="content-title-2">
 				<h2>Наши козы</h2>
 			</div>
-			<div class="about-gallery">
+			<div class="about-gallery" active="0">
 				<div class="aboutSlide fade">
 					<img src="/img/home/img filler 16x4.5.jpg" alt="" width="100%" class="desktop">
 					<img src="/img/home/img filler 5x7.jpg" alt="" width="100%" class="mobile">
