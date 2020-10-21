@@ -10,4 +10,6 @@ $(window).on("onload.init_news", () => {
 	$(window).on({
 		"onunload.content": () => { app.news = undefined; }
 	});
+	
+	app.scrollmagic.update();
 });

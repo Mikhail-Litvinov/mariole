@@ -29,16 +29,6 @@ $(window).on("onload.init_gallery", () => {
 	$(window).on({
 		"onunload.content": () => { app.gallery = undefined; }
 	});
-});
-
-$(document).ready(function () {
-    //Init scrollmagic
-    var controller = new ScrollMagic.Controller();
-
-    //scene
-    new ScrollMagic.Scene({
-        triggerElement: '#scroll-1'
-    })
-    .setClassToggle('.scroll1', 'fade-in')
-    .addTo(controller);
+	
+	app.scrollmagic.update();
 });
