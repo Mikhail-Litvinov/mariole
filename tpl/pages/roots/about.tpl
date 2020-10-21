@@ -5,11 +5,11 @@
 
 <body>
 	<main>
-		<div class="content-wrapper">
+		<div class="content-wrapper" id="scroll-1">
 			<div class="content-title">
 				<h2>О нас</h2>
 			</div>
-			<article class="content-article wow animate__slideInUp" data-wow-duration="0.8s">
+			<article class="content-article scroll1">
 				<p>
 					<img src="/img/home/img filler 5x4.jpg" alt="" class="float-left p-right-20">
 					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur vitae molestias alias quibusdam
@@ -35,16 +35,16 @@
 				</p>
 			</article>
 		</div>
-		<div class="content-wrapper-full-width">
+		<div class="content-wrapper-full-width" id="scroll-2">
 			<div class="content-title-2">
 				<h2>Наша ткань</h2>
 			</div>
-			<div class="wool-wrapper">
+			<div class="wool-wrapper scroll2">
 				<div class="wool-img">
 					<img src="/img/home/img filler 16x4.5.jpg" alt="" width="100%" class="desktop">
 					<img src="/img/home/img filler 4.5x16.jpg" alt="" width="100%" class="mobile">
 				</div>
-				<div class="wool-text wow animate__slideInUp" data-wow-duration="0.8s">
+				<div class="wool-text">
 					<div class="wool-text-wrapper">
 						<div class="wool-text-el">
 							<div class="relative flex width-100 height-100 wrap flex-align-middle">
@@ -87,7 +87,7 @@
 			<div class="content-title-2">
 				<h2>Наши козы</h2>
 			</div>
-			<div class="about-gallery wow animate__slideInUp" data-wow-duration="0.8s" active="0">
+			<div class="about-gallery">
 				<div class="aboutSlide fade">
 					<img src="/img/home/img filler 16x4.5.jpg" alt="" width="100%" class="desktop">
 					<img src="/img/home/img filler 5x7.jpg" alt="" width="100%" class="mobile">
@@ -163,5 +163,5 @@
 			</div>
 		</div>
 	</main>
+	<script>app.loadScripts(["about"]);</script>
 </body>
-<script>app.loadScripts(["about"]);</script>

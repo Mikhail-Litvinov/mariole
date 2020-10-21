@@ -11,7 +11,7 @@
 		</div>
 		<div class="blog-wrapper flex nowrap">
 			<div class="blog-column-left flex wrap">
-				<div class="news-card-wrapper flex wrap relative wow animate__slideInUp" data-wow-duration="0.8s">
+				<div class="news-card-wrapper flex wrap relative scroll1" id="scroll-1">
 					<div class="news-card-img">
 						<img src="/img/gallery/img filler 16x9.jpg" alt="" width="100%">
 					</div>
@@ -77,7 +77,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="news-card-wrapper flex wrap relative wow animate__slideInUp" data-wow-duration="0.8s">
+				<div class="news-card-wrapper flex wrap relative scroll2" id="scroll-2">
 					<div class="news-card-img">
 						<img src="/img/gallery/img filler 16x9.jpg" alt="" width="100%">
 					</div>
@@ -182,5 +182,24 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		$(document).ready(function () {
+		//Init scrollmagic
+		var controller = new ScrollMagic.Controller();
+
+		//scene
+		new ScrollMagic.Scene({
+			triggerElement: '#scroll-1'
+		})
+		.setClassToggle('.scroll1', 'fade-in')
+		.addTo(controller);
+		
+		new ScrollMagic.Scene({
+				triggerElement: '#scroll-2'
+		})
+		.setClassToggle('.scroll2', 'fade-in')
+		.addTo(controller);
+		});
+	</script>
 </body>
 <script>app.loadScripts(["news"]);</script>

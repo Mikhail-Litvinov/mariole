@@ -4,35 +4,35 @@
 </head>
 <body>
 	<div class="content-wrapper">
-		<div class="grid-gallery" active="0">
-			<div class="grid-el-1 wow animate__slideInUp" data-wow-duration="0.8s">
+		<div class="grid-gallery" active="0" id="scroll-1">
+			<div class="grid-el-1 scroll1">
 				<img src="/img/gallery/fashion/img filler 1x1.jpg" alt="" width="100%">
 			</div>
-			<div class="grid-el-2 wow animate__slideInUp" data-wow-duration="0.8s">
+			<div class="grid-el-2 scroll1">
 				<img src="/img/gallery/fashion/img filler 5x7.jpg" alt="" width="100%">
 			</div>
-			<div class="grid-el-3 wow animate__slideInUp" data-wow-duration="0.8s">
+			<div class="grid-el-3 scroll1">
 				<img src="/img/gallery/fashion/img filler 1x1.jpg" alt="" width="100%">
 			</div>
-			<div class="grid-el-4 wow animate__slideInUp" data-wow-duration="0.8s">
+			<div class="grid-el-4 scroll1">
 				<img src="/img/gallery/fashion/img filler 7x5.jpg" alt="" width="100%">
 			</div>
-			<div class="grid-el-5 wow animate__slideInUp" data-wow-duration="0.8s">
+			<div class="grid-el-5 scroll1">
 				<img src="/img/gallery/fashion/img filler 7x5.jpg" alt="" width="100%">
 			</div>
-			<div class="grid-el-6 wow animate__slideInUp" data-wow-duration="0.8s">
+			<div class="grid-el-6 scroll1">
 				<img src="/img/gallery/fashion/img filler 9x16.jpg" alt="" width="100%">
 			</div>
-			<div class="grid-el-7 wow animate__slideInUp" data-wow-duration="0.8s">
+			<div class="grid-el-7 scroll1">
 				<img src="/img/gallery/fashion/img filler 5x7.jpg" alt="" width="100%">
 			</div>
-			<div class="grid-el-8 wow animate__slideInUp" data-wow-duration="0.8s">
+			<div class="grid-el-8 scroll1">
 				<img src="/img/gallery/fashion/img filler 5x7.jpg" alt="" width="100%">
 			</div>
-			<div class="grid-el-9 wow animate__slideInUp" data-wow-duration="0.8s">
+			<div class="grid-el-9 scroll1">
 				<img src="/img/gallery/fashion/img filler 7x2.5.jpg" alt="" width="100%">
 			</div>
-			<div class="grid-el-10 wow animate__slideInUp" data-wow-duration="0.8s">
+			<div class="grid-el-10 scroll1">
 				<img src="/img/gallery/fashion/img filler 7x5.jpg" alt="" width="100%">
 			</div>
 		</div>
@@ -119,5 +119,6 @@
 			</div>
 		</div>
 	</div>
+	<script>app.loadScripts(["gallery"]);</script>
+	
 </body>
-<script>app.loadScripts(["gallery"]);</script>

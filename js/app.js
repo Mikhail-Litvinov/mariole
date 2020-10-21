@@ -42,4 +42,4 @@ $(window).one({
 	}
 });
 
-app.loadScripts(["cookies", "menu", "modals", "translation", "navigation", "wow"], "app");
+app.loadScripts(["cookies", "menu", "modals", "translation", "navigation"], "app");

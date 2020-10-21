@@ -4,38 +4,38 @@
 </head>
 <body>
 	<div class="content-wrapper">
-		<div class="grid-gallery">
-			<div class="grid-el-1 wow animate__slideInUp" data-wow-duration="0.8s">
+		<div class="grid-gallery" id="scroll-1">
+			<div class="grid-el-1 scroll1">
 				<img src="/img/gallery/travel/img filler 5x7.jpg" alt="" width="100%" onclick="openGallery();currentSlide(1)">
 			</div>
-			<div class="grid-el-2 wow animate__slideInUp" data-wow-duration="0.8s">
+			<div class="grid-el-2 scroll1">
 				<img src="/img/gallery/travel/img filler 2.5x7.jpg" alt="" width="100%" onclick="openGallery();currentSlide(2)">
 			</div>
-			<div class="grid-el-3 wow animate__slideInUp" data-wow-duration="0.8s">
+			<div class="grid-el-3 scroll1">
 				<img src="/img/gallery/travel/img filler 1x1.jpg" alt="" width="100%" onclick="openGallery();currentSlide(3)">
 			</div>
-			<div class="grid-el-4 wow animate__slideInUp" data-wow-duration="0.8s">
+			<div class="grid-el-4 scroll1">
 				<img src="/img/gallery/travel/img filler 7x5.jpg" alt="" width="100%" onclick="openGallery();currentSlide(4)">
 			</div>
-			<div class="grid-el-5 wow animate__slideInUp" data-wow-duration="0.8s">
+			<div class="grid-el-5 scroll1">
 				<img src="/img/gallery/travel/img filler 1x1.jpg" alt="" width="100%" onclick="openGallery();currentSlide(5)">
 			</div>
-			<div class="grid-el-6 wow animate__slideInUp" data-wow-duration="0.8s">
+			<div class="grid-el-6 scroll1">
 				<img src="/img/gallery/travel/img filler 5x7.jpg" alt="" width="100%" onclick="openGallery();currentSlide(6)">
 			</div>
-			<div class="grid-el-7 wow animate__slideInUp" data-wow-duration="0.8s">
+			<div class="grid-el-7 scroll1">
 				<img src="/img/gallery/travel/img filler 2.5x7.jpg" alt="" width="100%" onclick="openGallery();currentSlide(7)">
 			</div>
-			<div class="grid-el-8 wow animate__slideInUp" data-wow-duration="0.8s">
+			<div class="grid-el-8 scroll1">
 				<img src="/img/gallery/travel/img filler 7x2.5.jpg" alt="" width="100%" onclick="openGallery();currentSlide(8)">
 			</div>
-			<div class="grid-el-9 wow animate__slideInUp" data-wow-duration="0.8s">
+			<div class="grid-el-9 scroll1">
 				<img src="/img/gallery/travel/img filler 7x2.5.jpg" alt="" width="100%" onclick="openGallery();currentSlide(9)">
 			</div>
-			<div class="grid-el-10 wow animate__slideInUp" data-wow-duration="0.8s">
+			<div class="grid-el-10 scroll1">
 				<img src="/img/gallery/travel/img filler 16x9.jpg" alt="" width="100%" onclick="openGallery();currentSlide(10)">
 			</div>
-			<div class="grid-el-11 wow animate__slideInUp" data-wow-duration="0.8s">
+			<div class="grid-el-11 scroll1">
 				<img src="/img/gallery/travel/img filler 7x2.5.jpg" alt="" width="100%" onclick="openGallery();currentSlide(11)">
 			</div>
 		</div>
