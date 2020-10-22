@@ -75,27 +75,27 @@
 			<ul class="nav-list">
 				<li>
 					<a navid="home" rel="noopener noreferrer" class="menu-btn" id="home">
-						<span id="home-page" class="languageable">Главная</span>
+						<span id="home-page" class="languageable" langid="home-menu">Главная</span>
 					</a>
 				</li>
 				<li>
 					<a navid="gallery" rel="noopener noreferrer" class="menu-btn" id="gallery">
-						<span id="gallery-page" class="languageable">Галерея</span>
+						<span id="gallery-page" class="languageable" langid="gallery-menu">Галерея</span>
 					</a>
 				</li>
 				<li>
 					<a navid="catalogue/clothe" rel="noopener noreferrer" class="menu-btn" id="clothes">
-						<span id="clothes-page" class="languageable">Одежда</span>
+						<span id="clothes-page" class="languageable" langid="clothe-menu">Одежда</span>
 					</a>
 				</li>
 				<li>
 					<a navid="catalogue/accessories" rel="noopener noreferrer" class="menu-btn" id="accessories">
-						<span id="accessories-page" class="languageable">Аксессуары</span>
+						<span id="accessories-page" class="languageable" langid="accessories-menu">Аксессуары</span>
 					</a>
 				</li>
 				<li>
 					<a navid="news" rel="noopener noreferrer" class="menu-btn" id="news">
-						<span id="news-page" class="languageable">Новости</span>
+						<span id="news-page" class="languageable" langid="news-menu">Новости</span>
 					</a>
 				</li>
 			</ul>
@@ -111,7 +111,7 @@
 						<a navid="about">
 							<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
 							<div class="about-text flex flex-align-middle">
-								<p class="after-change">О нас</p>
+								<p class="after-change" langid="about-sub">О нас</p>
 							</div>
 						</a>
 					</div>
@@ -120,7 +120,7 @@
 							<div class="sale-img">
 								<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
 								<div class="sale-text">
-									<p>Акция</p>
+									<p langid="sale">Акция</p>
 								</div>
 							</div>
 						</a>
@@ -129,7 +129,7 @@
 						<a navid="catalogue/new">
 							<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
 							<div class="new-text">
-								<p>Новинки</p>
+								<p langid="new-sub">Новинки</p>
 							</div>
 						</a>
 					</div>
@@ -144,7 +144,7 @@
 						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
 						<div class="gallery-sub-title">
 							<p>
-								<span>Mariole.fashion</span>
+								<span langid="fashion-gallery">Mariole.fashion</span>
 							</p>
 						</div>
 					</a>
@@ -154,7 +154,7 @@
 						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
 						<div class="gallery-sub-title">
 							<p>
-								<span>Mariole.home</span>
+								<span langid="home-gallery">Mariole.home</span>
 							</p>
 						</div>
 					</a>
@@ -164,7 +164,7 @@
 						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
 						<div class="gallery-sub-title">
 							<p>
-								<span>Mariole.travel</span>
+								<span langid="travel-gallery">Mariole.travel</span>
 							</p>
 						</div>
 					</a>
@@ -177,20 +177,20 @@
 			<div class="flex nowrap flex-align-middle mobile-sub">
 				<div class="women-clothe">
 					<ul>
-						<p>Для женщин</p>
+						<p langid="for-women">Для женщин</p>
 						<li>
 							<a navid="catalogue/clothe/trousers" class="sub-list-element">
-								<span>Брюки</span>
+								<span langid="trousers">Брюки</span>
 							</a>
 						</li>
 						<li>
 							<a navid="catalogue/clothe/jumpers" class="sub-list-element">
-								<span>Джемпера</span>
+								<span langid="jumpers">Джемпера</span>
 							</a>
 						</li>
 						<li>
 							<a navid="catalogue/clothe/cardigans" class="sub-list-element">
-								<span>Кардиганы</span>
+								<span langid="cardigans">Кардиганы</span>
 							</a>
 						</li>
 					</ul>
@@ -199,12 +199,12 @@
 					
 					<div class="clothe-table">
 						<div class="clothe-title">
-							<p>Новое</p>
+							<p langid="new-sub">Новое</p>
 						</div>
 						<div class="clothe-img">
 							<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
 							<div class="new-clothe-text">
-								<p>Новинки</p>
+								<p langid="new-sub">Новинки</p>
 							</div>
 						</div>
 					</div>
@@ -217,40 +217,40 @@
 			<div class="accessories-content flex nowrap">
 				<div class="ul-for-women flex nowrap">
 					<ul>
-						<p>Для женщин</p>
+						<p langid="for-women">Для женщин</p>
 						<li>
 							<a navid="catalogue/accessories/mittens" class="sub-list-element">
-								<span>Варежки</span>
+								<span langid="mittens">Варежки</span>
 							</a>
 						</li>
 						<li>
 							<a navid="catalogue/accessories/headwear" class="sub-list-element">
-								<span>Головные уборы</span>
+								<span langid="headwear">Головные уборы</span>
 							</a>
 						</li>
 						<li>
 							<a navid="catalogue/accessories/socks" class="sub-list-element">
-								<span>Носочки</span>
+								<span langid="socks">Носочки</span>
 							</a>
 						</li>
 						<li>
 							<a navid="catalogue/accessories/stoles" class="sub-list-element">
-								<span>Палантины</span>
+								<span langid="tippet">Палантины</span>
 							</a>
 						</li>
 						<li>
 							<a navid="catalogue/accessories/gloves" class="sub-list-element">
-								<span>Перчатки</span>
+								<span langid="gloves">Перчатки</span>
 							</a>
 						</li>
 						<li>
 							<a navid="catalogue/accessories/headscarves" class="sub-list-element">
-								<span>Платки</span>
+								<span langid="headscarf">Платки</span>
 							</a>
 						</li>
 						<li>
 							<a navid="catalogue/accessories/shawls" class="sub-list-element">
-								<span>Шали</span>
+								<span langid="shawl">Шали</span>
 							</a>
 						</li>
 					</ul>
@@ -260,10 +260,10 @@
 				</div>
 				<div class="ul-for-home flex nowrap">
 					<ul>
-						<p>Для дома</p>
+						<p langid="for-home">Для дома</p>
 						<li>
 							<a navid="catalogue/accessories/plaids" class="sub-list-element">
-								<span>Пледы</span>
+								<span langid="plaids">Пледы</span>
 							</a>
 						</li>
 					</ul>
@@ -273,30 +273,30 @@
 				</div>
 				<div class="ul-for-jewelry flex nowrap">
 					<ul>
-						<p>Бижутерия</p>
+						<p langid="bijouterie">Бижутерия</p>
 						<li>
 							<a navid="catalogue/accessories/bracelets" class="sub-list-element">
-								<span>Браслеты</span>
+								<span langid="bracelets">Браслеты</span>
 							</a>
 						</li>
 						<li>
 							<a navid="catalogue/accessories/brooches" class="sub-list-element">
-								<span>Броши</span>
+								<span langid="brooches">Броши</span>
 							</a>
 						</li>
 						<li>
 							<a navid="catalogue/accessories/necklace" class="sub-list-element">
-								<span>Колье</span>
+								<span langid="necklace">Колье</span>
 							</a>
 						</li>
 						<li>
 							<a navid="catalogue/accessories/pendants" class="sub-list-element">
-								<span>Кулоны</span>
+								<span langid="pendants">Кулоны</span>
 							</a>
 						</li>
 						<li>
 							<a navid="catalogue/accessories/earrings" class="sub-list-element">
-								<span>Серьги</span>
+								<span langid="earrings">Серьги</span>
 							</a>
 						</li>
 					</ul>
@@ -314,7 +314,7 @@
 					<a navid="news">
 						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
 						<div class="news-sub-title flex nowrap flex-align-middle">
-							<span>Свежие новости</span>
+							<span langid="news-sub">Свежие новости</span>
 						</div>
 					</a>
 				</div>
@@ -322,7 +322,7 @@
 					<a navid="news/recommended">
 						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
 						<div class="rec-sub-title flex nowrap">
-							<span>Рекомендованное</span>
+							<span langid="recommended">Рекомендованное</span>
 						</div>
 					</a>
 				</div>
@@ -330,7 +330,7 @@
 					<a navid="news/press">
 						<img src="/img/menu/img filler 1x1.jpg" alt="" width="100%">
 						<div class="media-sub-title flex nowrap">
-							<span>Мы в прессе</span>
+							<span langid="press">Мы в прессе</span>
 						</div>
 					</a>
 				</div>
