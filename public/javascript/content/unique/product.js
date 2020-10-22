@@ -19,18 +19,18 @@ $(window).on("onload.init_unique/product", () => {
 				).then((parameter, slide, slidePreview) => {
 					app.templates.product = {
 						_parameter: parameter[0],
-						parameter(name, value) {
+						createParameter(name, value) {
 							return this._parameter
 								.replace("${name}", name)
 								.replace("${value}", value);
 						},
 						_slide: slide[0],
-						slide(img) {
+						createSlide(img) {
 							return this._slide
 								.replace("${img}", img);
 						},
 						_slidePreview: slidePreview[0],
-						slidePreview(img) {
+						createSlidePreview(img) {
 							return this._slidePreview
 								.replace("${img}", img);
 						}
@@ -60,17 +60,18 @@ $(window).on("onload.init_unique/product", () => {
 		},
 		buildImageCarousel() {
 			for(let img of this.data.images) {
-				$(".product-slider:first").append($(app.templates.product.slide(img)));
-				$(".product-preview:first").children("div").append($(app.templates.product.slidePreview(img)));
+				$(".product-slider:first").append($(app.templates.product.createSlide(img)));
+				$(".product-preview:first").children("div").append($(app.templates.product.createSlidePreview(img)));
 			}
-			if($(".product-slide").length > 1) $(".product-preview .demo").each((index, element) => { $(element).click(() => { this.enableSlide(index); }); });
-			else $(".prev-slide, .next-slide, .product-preview").remove();
+			if($(".product-slide").length > 1) {
+				$(".product-preview .demo").each((index, element) => { $(element).click(() => { this.enableSlide(index); }); });
+			} else $(".prev-slide, .next-slide, .product-preview").remove();
 			this.moveSlide(0);
 		},
 		buildParamsList() {
 			let newParamsList = "";
 			this.data.params.sort((first, second) => first.priority - second.priority).forEach((data) => {
-				newParamsList += app.templates.product.parameter(data.name, data.value + (data.unit ? `&nbsp;${data.unit}` : ""));
+				newParamsList += app.templates.product.createParameter(data.name, data.value + (data.unit ? `&nbsp;${data.unit}` : ""));
 			});
 			$(".params").html(newParamsList);
 		}

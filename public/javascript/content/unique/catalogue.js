@@ -9,7 +9,7 @@ $(window).on("onload.init_unique/catalogue", () => {
 				).then((item) => {
 					app.templates.catalogue = {
 						_item: item,
-						item(article, img, title, price, currency) {
+						getItem(article, img, title, price, currency) {
 							return this._item
 								.replace("${article}", article)
 								.replace("${img}", img)
@@ -60,7 +60,7 @@ $(window).on("onload.init_unique/catalogue", () => {
 		buildList() {
 			let newCatalogueList = "";
 			for(let product of this.list) {
-				newCatalogueList += app.templates.catalogue.item(
+				newCatalogueList += app.templates.catalogue.getItem(
 					product.data.article,
 					product.images[0],
 					product.language.name,
