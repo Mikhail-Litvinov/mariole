@@ -103,7 +103,7 @@
     transform: translate(-50%, 30%);
 }
 
-.slide-button {
+.slide-button, .slide-button-dark {
     width: 100%;
     height: 50px;
     margin: 10px 0;
@@ -114,7 +114,12 @@
     cursor: pointer;
 }
 
-.slide-button:hover {
+.slide-button-dark {
+    color: #3D210C; 
+    border-color: #3D210C;
+}
+
+.slide-button:hover, .slide-button-dark:hover {
     color: #CD7F32;
     background-color: rgba(0, 0, 0, 0.2);
     border: 1px solid #CD7F32;
