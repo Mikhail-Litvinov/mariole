@@ -15,8 +15,6 @@
 			default:
 				header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 60 * 60 * 24) . ' GMT'); // 1-day caching
 				switch($request[0]) {
-					case 'language_file': return get_language_file($request[1]);
-					case 'countries_list': return get_countries_list();
 					case 'pages_list': return get_pages_list();
 				}
 		}
@@ -32,6 +30,12 @@
 				break;
 			case 'product_info': // For single product, contains all images and full language fields
 				$response = get_product_info($db, $language, array_slice($request, 2));
+				break;
+			case 'language_file':
+				$response = get_language_file($db, $language);
+				break;
+			case 'countries_list':
+				$response = get_countries_list($db);
 				break;
 		}
 		$db->close();
@@ -122,12 +126,27 @@
 		return $response;
 	}
 	
-	function get_countries_list() {
-		return json_decode(file_get_contents('private/config/countries_list.json'), true);
+	function get_countries_list($db) {
+		$sql = "SELECT * FROM app_countries";
+		$result = $db->query($sql);
+		$response = [];
+		while($row = $result->fetchArray(SQLITE3_ASSOC)) {
+			$response[$row['latin']] = [
+				'currency' => $row['currency'],
+				'area' => $row['area']
+			];
+		}
+		return $response;
 	}
 	
-	function get_language_file($language) {
-		return json_decode(file_get_contents("private/config/language_$language.json", true));
+	function get_language_file($db, $language) {
+		$sql = "SELECT langid, $language FROM app_languages";
+		$result = $db->query($sql);
+		$response = [];
+		while($row = $result->fetchArray(SQLITE3_ASSOC)) {
+			$response[$row['langid']] = $row[$language];
+		}
+		return $response;
 	}
 	
 	function get_pages_list() {
