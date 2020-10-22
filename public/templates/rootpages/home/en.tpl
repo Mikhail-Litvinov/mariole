@@ -17,21 +17,21 @@
 			</div>
 			<div id="slide-container">
 				<div class="slide">
-					<img src="/public/images/carousel/img filler 16x9.jpg" width="100%" class="desktop">
-					<img src="/public/images/carousel/img filler 9x16.jpg" width="100%" class="mobile">
+					<img src="/public/images/carousel/102.jpg" width="100%" class="desktop">
+					<img src="/public/images/carousel/102m.jpg" width="100%" class="mobile">
 					<p class="slide-text">Have to write text</p>
 					<div class="slide-btn-cont">
 						<a navid="catalogue/clothe">
-							<button class="slide-button">Clothes</button>
+							<button class="slide-button-dark">Clothes</button>
 						</a>
 						<a navid="catalogue/accessories">
-							<button class="slide-button">Accessories</button>
+							<button class="slide-button-dark">Accessories</button>
 						</a>
 					</div>
 				</div>
 				<div class="slide">
-					<img src="/public/images/carousel/img filler 16x9.jpg" width="100%" class="desktop">
-					<img src="/public/images/carousel/img filler 9x16.jpg" width="100%" class="mobile">
+					<img src="/public/images/carousel/156.jpg" width="100%" class="desktop">
+					<img src="/public/images/carousel/156m.jpg" width="100%" class="mobile">
 					<p class="slide-text">Have to write text</p>
 					<div class="slide-btn-cont">
 						<a navid="catalogue/accessories">
@@ -40,12 +40,12 @@
 					</div>
 				</div>
 				<div class="slide">
-					<img src="/public/images/carousel/img filler 16x9.jpg" width="100%" class="desktop">
-					<img src="/public/images/carousel/img filler 9x16.jpg" width="100%" class="mobile">
+					<img src="/public/images/carousel/IMG_6298.jpg" width="100%" class="desktop">
+					<img src="/public/images/carousel/IMG_6298m.jpg" width="100%" class="mobile">
 					<p class="slide-text">Have to write text</p>
 					<div class="slide-btn-cont">
 						<a navid="catalogue/accessories">
-							<button class="slide-button">For home</button>
+							<button class="slide-button">For house</button>
 						</a>
 					</div>
 				</div>
@@ -54,10 +54,10 @@
 		<div class="content-wrapper">
 			<div class="section-wrapper-grid" id="scroll-1">
 				<div class="grid-col-1-1-left scroll1">
-					<img src="/public/images/home/img filler 5x4.jpg" alt="" width="100%">
+					<img src="/public/images/home/IMG_6317-2.JPG" alt="" width="100%">
 				</div>
 				<div class="grid-col-1-2-right scroll1">
-					<img src="/public/images/home/img filler 5x7.jpg" alt="" width="100%">
+					<img src="/public/images/home/IMG_8978-26-12-18-05-24.JPG" alt="" width="100%">
 				</div>
 				<div class="grid-bottom-1-1-left content-text-left">
 					<div class="content-text-wrapper-left flex wrap flex-align-middle scroll1">
@@ -77,10 +77,10 @@
 		<div class="content-wrapper">
 			<div class="section-wrapper-grid" id="scroll-2">
 				<div class="grid-col-1-1-right scroll2">
-					<img src="/public/images/home/img filler 5x4.jpg" alt="" width="100%">
+					<img src="/public/images/home/IMG_6379-2.JPG" alt="" width="100%">
 				</div>
 				<div class="grid-col-1-2-left scroll2">
-					<img src="/public/images/home/img filler 5x7.jpg" alt="" width="100%">
+					<img src="/public/images/home/74.jpg" alt="" width="100%">
 				</div>
 				<div class="grid-bottom-1-1-right content-text-right">
 					<div class="content-text-wrapper-right flex wrap flex-align-middle scroll2">
@@ -115,12 +115,12 @@
 				</div>
 				<div class="grid-col-1-2-left-2 scroll3">
 					<div class="width-100 height-100 relative overflow-hidden">
-						<img src="/public/images/home/img filler 5x7.jpg" alt="" width="100%">
+						<img src="/public/images/home/IMG_6380-2.JPG" alt="" width="100%">
 					</div>
 				</div>
 				<div class="grid-col-1-2-right-2 scroll3">
 					<div class="width-100 height-100 relative overflow-hidden">
-						<img src="/public/images/home/img filler 5x7.jpg" alt="" width="100%">
+						<img src="/public/images/home/IMG_6366.JPG" alt="" width="100%">
 					</div>
 				</div>
 			</div>
