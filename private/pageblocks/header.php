@@ -47,7 +47,7 @@
 			<div class="logo flex">
 				<div class="logo-cont">
 					<a navid="home">
-						<img src="/public/images/logo.png" alt="mario'le logo" srcset="" width="60px">
+						<img src="/public/images/logo.png" alt="mario'le logo" srcset="" width="80px">
 					</a>
 				</div>
 			</div>
