@@ -19,7 +19,7 @@
 		<div class="flex col-1-3 footer-column">
 			<ul>
 				<li>
-					<a navid="returns_and_exchanges" langid="returns-and-exchanges">Возврат и обмен</a>
+					<a navid="returns-and-exchanges" langid="returns-and-exchanges">Возврат и обмен</a>
 				</li>
 				<li>
 					<a navid="delivery" langid="delivery">Доставка</a>
@@ -32,7 +32,7 @@
 		<div class="flex col-1-3 footer-column">
 			<ul>
 				<li>
-					<a navid="legal_information" langid="legal-information">Юридическая информация</a>
+					<a navid="legal-information" langid="legal-information">Юридическая информация</a>
 				</li>
 			</ul>
 		</div>
