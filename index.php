@@ -2,9 +2,9 @@
 	$request = explode('/', $_GET['q']); // 'q' is URL after domain, e.g. 'catalogue/accessories/gloves'
 	switch($request[0]) {
 		case 'data': echo json_encode(get_data_response(array_slice($request, 1))); break; // If this is client-side data request
-		case 'sitemap.xml': include 'sitemap.php'; break;
-		case 'robots.txt': include 'robots.php'; break;
-		default: include 'tpl/index.tpl';
+		case 'sitemap.xml': include 'private/sitemap.php'; break;
+		case 'robots.txt': include 'private/robots.php'; break;
+		default: include 'private/index.php';
 	}
 	
 	function get_data_response($request) {
@@ -23,7 +23,7 @@
 	}
 	
 	function process_database($request) {
-		$db = new SQLite3('mariole.db');
+		$db = new SQLite3('private/mariole.sqlite3');
 		$language = $db->escapeString($request[1]);
 		$response;
 		switch($request[0]) {
@@ -123,13 +123,13 @@
 	}
 	
 	function get_countries_list() {
-		return json_decode(file_get_contents('config/countries.json'), true);
+		return json_decode(file_get_contents('private/config/countries_list.json'), true);
 	}
 	
 	function get_language_file($language) {
-		return json_decode(file_get_contents("config/lang/$language.json", true));
+		return json_decode(file_get_contents("private/config/language_$language.json", true));
 	}
 	
 	function get_pages_list() {
-		return str_replace('.tpl', '', array_slice(scandir('tpl/pages/roots'), 2));
+		return str_replace('.tpl', '', array_slice(scandir('public/templates/rootpages'), 2));
 	}

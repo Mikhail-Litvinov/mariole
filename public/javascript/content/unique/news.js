@@ -1,0 +1,15 @@
+$(window).on("onload.init_unique/news", () => {
+	app.news = {
+		updateSelection() {
+			console.log("Make a view that news were updated");
+		}
+	};
+	
+	$(".mobile-nav-button").click(() => { $(".blog-column-right").toggleClass("openned"); });
+	
+	$(window).on({
+		"onunload.content": () => { app.news = undefined; }
+	});
+	
+	app.scrollmagic.update(2);
+});
