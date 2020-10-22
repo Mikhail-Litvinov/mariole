@@ -7,7 +7,7 @@ app.translation = {
 		prepare(language) {
 			if(language === this.code) return;
 			
-			$.getJSON(`/data/language_file/${language}`, (data) => {
+			$.getJSON(`/data/database/language_file/${language}`, (data) => {
 				this.active = data;
 				this.change(true);
 			});
@@ -19,14 +19,13 @@ app.translation = {
 		},
 		translate() {
 			$("html:first").attr("lang", this.code);
-			for(let element of $(".languageable")) element.innerHTML = this.get(element.getAttribute("id")); // DEPRECATED
 			for(let element of $("[langid]")) element.innerHTML = this.get(element.getAttribute("langid"));
 			app.translation.country.updateLabel();
 		}
 	},
 	country: {
 		active: undefined, // Contains active country
-		get rawCurrency() { return this.active?.cur; },
+		get rawCurrency() { return this.active?.currency; },
 		get latin() { return this.active?.latin; }, // Returns latin name of active country
 		validate(country) { return Object.keys(this.list).includes(country) ? country : "unitedkingdom"; },
 		list: undefined, // Contains all provided countries
@@ -52,18 +51,18 @@ app.translation = {
 	currency: {
 		get name() { // Returns currency name of active country
 			switch(app.translation.country.rawCurrency) {
-				case 0: return "koruna";
-				case 1: return "rouble";
-				case 2: return "dollar";
-				default: return "euro";
+				case 0: return "euro";
+				case 1: return "dollar";
+				case 2: return "rouble";
+				case 3: return "koruna";
 			}
 		},
 		get sign() { // Returns currency sign of active country
 			switch(this.name) {
-				case "koruna": return "Kč";
-				case "rouble": return "&#8381;";
-				case "dollar": return "&#36;";
 				case "euro": return "&#8364;";
+				case "dollar": return "&#36;";
+				case "rouble": return "&#8381;";
+				case "koruna": return "Kč";
 			}
 		}
 	}
@@ -73,8 +72,8 @@ $(window).on("onload.app_translation", () => {
 	let init = (_country, _language) => {
 		let languageFileName = app.translation.language.validate(_language ?? window.navigator?.language?.slice(0, 2).toLowerCase());
 		$.when(
-			$.getJSON("/data/countries_list"),
-			$.getJSON("/data/language_file/" + languageFileName)
+			$.getJSON("/data/database/countries_list"),
+			$.getJSON("/data/database/language_file/" + languageFileName)
 		).then((countriesResponse, langResponse) => {
 			$("script#ymaps-placeholder").remove();
 			
@@ -82,11 +81,11 @@ $(window).on("onload.app_translation", () => {
 			app.translation.language.active = langResponse[0];
 			
 			$(".country-btn").each((index, element) => {
-				let id = element.id;
+				let langid = element.getAttribute("langid");
 				$(element).click(() => {
 					$(".country-btn.active").removeClass("active");
 					$(element).addClass("active");
-					app.translation.country.change(id.replace("country-", ""));
+					app.translation.country.change(langid.replace("country-", ""));
 				});
 			});
 			$(".lang-btn").each((index, element) => {

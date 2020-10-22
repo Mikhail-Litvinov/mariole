@@ -3,36 +3,36 @@
 		<div class="flex col-1-3 footer-column">
 			<ul>
 				<li>
-					<a navid="catalogue" langid="catalogue-footer">Каталог</a>
+					<a navid="catalogue" langid="catalogue-footer"></a>
 				</li>
 				<li>
-					<a navid="contacts" langid="contact-footer">Связаться с нами</a>
+					<a navid="contacts" langid="contacts-footer"></a>
 				</li>
 				<li>
-					<a navid="gallery" langid="gallery-menu">Галерея</a>
+					<a navid="gallery" langid="gallery-menu"></a>
 				</li>
 				<li>
-					<a navid="news" langid="news-footer">Блог</a>
-				</li>
-			</ul>
-		</div>
-		<div class="flex col-1-3 footer-column">
-			<ul>
-				<li>
-					<a navid="returns-and-exchanges" langid="returns-and-exchanges">Возврат и обмен</a>
-				</li>
-				<li>
-					<a navid="delivery" langid="delivery">Доставка</a>
-				</li>
-				<li>
-					<a navid="FAQ" langid="faq">Вопросы и ответы</a>
+					<a navid="news" langid="news-footer"></a>
 				</li>
 			</ul>
 		</div>
 		<div class="flex col-1-3 footer-column">
 			<ul>
 				<li>
-					<a navid="legal-information" langid="legal-information">Юридическая информация</a>
+					<a navid="returns-and-exchanges" langid="returns-and-exchanges"></a>
+				</li>
+				<li>
+					<a navid="delivery" langid="delivery"></a>
+				</li>
+				<li>
+					<a navid="FAQ" langid="faq"></a>
+				</li>
+			</ul>
+		</div>
+		<div class="flex col-1-3 footer-column">
+			<ul>
+				<li>
+					<a navid="legal-information" langid="legal-information"></a>
 				</li>
 			</ul>
 		</div>
