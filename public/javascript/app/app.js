@@ -8,7 +8,6 @@ app = {
 		let uniqueDeferredList = list.reduce((accumulator, script) => {
 			if(!this.cachedScripts.includes(script)) { // If script isn't loaded already
 				this.cachedScripts.push(script);
-				console.log(`/public/javascript/${folder}/${script}.js`);
 				accumulator.push($.ajax({ // Create new Deferred
 					url: `/public/javascript/${folder}/${script}.js`,
 					dataType: "script",
