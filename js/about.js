@@ -22,22 +22,6 @@ $(window).on("onload.init_about", () => {
 		},
 		"onunload.content": () => { app.about = undefined; }
 	});
-});
-
-$(document).ready(function () {
-    //Init scrollmagic
-    var controller = new ScrollMagic.Controller();
-
-    //scene
-    new ScrollMagic.Scene({
-        triggerElement: '#scroll-1'
-    })
-    .setClassToggle('.scroll1', 'fade-in')
-    .addTo(controller);
-    
-    new ScrollMagic.Scene({
-            triggerElement: '#scroll-2'
-    })
-    .setClassToggle('.scroll2', 'fade-in')
-    .addTo(controller);
+	
+	app.scrollmagic.update(2);
 });

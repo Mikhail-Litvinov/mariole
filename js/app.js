@@ -33,13 +33,6 @@ app = {
 
 $(window).one({
 	"onscriptsloadend.app": () => { $(window).resize(() => { app.main.updateMobileFlags(); }).resize(); },
-	"onload.app_wow": () => {
-		new WOW({
-			"live": true,
-			"boxClass": "wow", // Class hiding an element until it should be showed on a display ("wow" by default)
-			"offset": 20 // Pixels from the lowest border of a display to the upper border of an element, needed for starting animation (0 by default)
-		}).init();
-	}
 });
 
-app.loadScripts(["cookies", "menu", "modals", "translation", "navigation"], "app");
+app.loadScripts(["cookies", "scrollmagic/ScrollMagic", "scrollmagic", "menu", "modals", "translation", "navigation"], "app");

@@ -127,7 +127,5 @@
 			</div>
 		</div>
 	</main>
-	<script>app.loadScripts(["carousel"]);</script>
-	<script src="/js/scrollmagic-init.js"></script>
 </body>
-
+<script>app.loadScripts(["carousel", "home"]);</script>
