@@ -28,12 +28,12 @@ app.navigation = {
 	processError404(pathRoot) {
 		this.pages.includes(pathRoot) ? $("#error-404-modal").remove() : $("#error-404-modal").show();
 	},
-	routePagePath(newPath) {
-		if(this.path[0] != newPath[0]) { // If new path root is different
+	routePagePath(newPath, forceUpdate = false) {
+		if((this.path[0] != newPath[0]) || forceUpdate) { // If new path root is different
 			scrollTo(0, 0); // Scroll page to the start
 			$(window).trigger("onunload.content").off(".content");
 			$.ajax({
-				url: `/public/templates/rootpages/${newPath[0]}.tpl`,
+				url: `/public/templates/rootpages/${newPath[0]}/${app.translation.language.code}.tpl`,
 				cache: true,
 				success: (data) => {
 					$("#content").html(data);
@@ -74,5 +74,8 @@ app.navigation = {
 $(window).one("navigate", () => {
 	app.navigation.loadAvailablePagesList(() => { app.navigation.switchContent(); });
 	app.navigation.wrapPageLinks("[navid]");
-	$(window).on("popstate", () => { app.navigation.switchContent(); });
+	$(window).on({
+		"popstate": () => { app.navigation.switchContent(); },
+		"onlanguagechange.navigation": () => { app.navigation.routePagePath(app.navigation.path, true); }
+	});
 });
