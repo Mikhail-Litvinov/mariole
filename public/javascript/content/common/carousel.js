@@ -5,9 +5,9 @@ $(window).on("onload.init_common/carousel", () => {
 		active: 0, // Index of active slide
 		count: 0, // Count of slides
 		mobileDragBorder: 0.2, // When dragging starts on mobile
-		slideTimeout: 4000, // Time between auto moving slides
+		slideTimeout: 6000, // Time between auto moving slides
 		pauseTimeout: 5000, // Duration of pause after manual slide switching
-		animationTimeout: 1000, // Duration of slide switch animation
+		animationTimeout: 600, // Duration of slide switch animation
 		slideTimer: undefined,
 		autoMoveTimer: undefined,
 		isSwitchable: true, // Can user switch slide with arrows at the moment
