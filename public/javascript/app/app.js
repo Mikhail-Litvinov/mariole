@@ -2,9 +2,11 @@ Math.bound = (num, a, b) => Math.max(Math.min(num, Math.max(a, b)), Math.min(a, 
 Math.cycle = (num, border) => border ? +Math.abs((num >= 0 ? num : num - Math.floor(num / border) * border) % border).toFixed(8) : num;
 
 app = {
+	activeScripts: [],
 	cachedScripts: [],
 	templates: {},
 	loadScripts(list, type = "init", folder = "content") {
+		if(type == "init") this.activeScripts = list;
 		let uniqueDeferredList = list.reduce((accumulator, script) => {
 			if(!this.cachedScripts.includes(script)) { // If script isn't loaded already
 				this.cachedScripts.push(script);
