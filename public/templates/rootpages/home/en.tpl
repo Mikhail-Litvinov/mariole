@@ -1,4 +1,4 @@
-<p title="Home page" visible="false">
+<p title="Home" visible="false">
 <head>
 	<link rel="stylesheet" href="/public/css/content/home.css">
 </head>

@@ -1,4 +1,4 @@
-<p title="Главная страница" visible="false">
+<p title="Главная" visible="false">
 <head>
 	<link rel="stylesheet" href="/public/css/content/home.css">
 </head>
