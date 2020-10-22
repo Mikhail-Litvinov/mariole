@@ -81,6 +81,11 @@ $(window).on("onload.init_unique/cart", () => {
 	app.cart.updateList(undefined, () => {
 		app.cart.buildList();
 		app.cart.calculateFinalSum();
+		for(product of app.cart.list) {
+			$(`.product-card[article="${product.data.article}"]`)
+					.find(".product-card-title > a")
+					.html(product.language.name);
+		}
 	});
 	
 	$(window).on({
@@ -93,15 +98,15 @@ $(window).on("onload.init_unique/cart", () => {
 			}
 			app.cart.calculateFinalSum();
 		},
-		"onlanguagechange.content": () => {
-			app.cart.updateList(undefined, () => {
-				for(product of app.cart.list) {
-					$(`.product-card[article="${product.data.article}"]`)
-							.find(".product-card-title > a")
-							.html(product.language.name);
-				}
-			});
-		},
+		// "onlanguagechange.content": () => {
+			// app.cart.updateList(undefined, () => {
+				// for(product of app.cart.list) {
+					// $(`.product-card[article="${product.data.article}"]`)
+							// .find(".product-card-title > a")
+							// .html(product.language.name);
+				// }
+			// });
+		// },
 		"onresize.content": () => { /* something */ },
 		"onunload.content": () => { app.cart = undefined; }
 	});
