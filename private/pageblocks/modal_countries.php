@@ -23,12 +23,12 @@
 								<ul class="country-list">
 									<?php
 										$countries_sorted_list;
-										$format = '<li><a id="country-%s" class="country-btn" langid="country-%s"></a></li>' . "\n";
-										foreach(get_countries_list() as $key => $value) {
+										$format = '<li><a class="country-btn" langid="country-%s"></a></li>' . "\n";
+										foreach(process_database(['countries_list']) as $key => $value) {
 											$countries_sorted_list[
-												!isset($value['area']) ? 'europe' :
-												($value['area'] == 0 ? 'america' : 'asia')
-											][] = sprintf($format, $key, $key);
+												$value['area'] == 0 ? 'europe' :
+												($value['area'] == 1 ? 'america' : 'asia')
+											][] = sprintf($format, $key);
 										}
 									
 										foreach($countries_sorted_list['europe'] as $value) echo $value;
