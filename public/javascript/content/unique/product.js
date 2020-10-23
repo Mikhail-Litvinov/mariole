@@ -41,7 +41,7 @@ $(window).on("onload.init_unique/product", () => {
 			}
 			
 			$.getJSON(`/data/database/product_info/${app.translation.language.code}/${this.article}`, (data) => {
-				$("title").html(data.language.name);
+				app.navigation.performContentTitle(data.language.name);
 				$("#product-data-name").html(data.language.name);
 				$("#product-data-description").html(data.language.description);
 				

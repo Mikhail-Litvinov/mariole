@@ -36,8 +36,7 @@ app.navigation = {
 				url: `/public/templates/rootpages/${newPath[0]}/${app.translation.language.code}.tpl`,
 				cache: true,
 				success: (data) => {
-					$("#content").html(data);
-					$("title:first").html($("#content").children("[title]:first").attr("title")); // Set website title as written in the page root's HTML
+					$("#content").html(this.processContent(data));
 					this.wrapPageLinks("#content a[navid]");
 					$(window).one("onscriptsloadend", () => { this.updateContentSelection(newPath); });
 				}
@@ -53,6 +52,34 @@ app.navigation = {
 				app.news.updateSelection();
 				break;
 		}
+	},
+	processContent(data) {
+		let styles = data.match(/Styles: (.+?);/);
+		this.performContentStyles(styles ? styles[1].split(", ") : []);
+		
+		let scripts = data.match(/Scripts: (.+?);/);
+		if(scripts) this.performContentScripts(scripts[1].split(", "));
+		
+		let title = data.match(/Title: (.+?);/);
+		if(title) this.performContentTitle(title[1]);
+		
+		return data.replace(/(Styles|Scripts|Title): .+?;/g, "");
+	},
+	performContentStyles(styles) {
+		let head = $("head:first");
+		head.children("link[content-style]").remove();
+		if(!styles.length) return;
+		
+		let styleTemplate = "<link content-style rel=\"stylesheet\" href=\"/public/css/content/${style}.css\"/>";
+		for(let style of styles) {
+			head.append($(styleTemplate.replace("${style}", style)));
+		}
+	},
+	performContentScripts(scripts) {
+		if(scripts) app.loadScripts(scripts);
+	},
+	performContentTitle(title) {
+		$("head:first").children("title:first").html(`Mario'le | ${title}`);
 	},
 	wrapPageLinks(selector) {
 		for(let element of document.querySelectorAll(selector)) { // Not jQuery because of 6-time speed difference
