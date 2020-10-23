@@ -18,13 +18,13 @@ Title: Каталог;
 			<div class="catalogue-sub">
 				<ul>
 					<li>
-						<a navid="catalogue/clothe/trousers">Брюки</a>
+						<a navid="catalogue/clothes/trousers">Брюки</a>
 					</li>
 					<li>
-						<a navid="catalogue/clothe/jumpers">Джемпера</a>
+						<a navid="catalogue/clothes/jumpers">Джемпера</a>
 					</li>
 					<li>
-						<a navid="catalogue/clothe/cardigans">Кардиганы</a>
+						<a navid="catalogue/clothes/cardigans">Кардиганы</a>
 					</li>
 				</ul>
 			</div>

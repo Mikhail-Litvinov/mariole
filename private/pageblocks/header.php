@@ -84,7 +84,7 @@
 					</a>
 				</li>
 				<li>
-					<a navid="catalogue/clothe" rel="noopener noreferrer" class="menu-btn" id="clothes">
+					<a navid="catalogue/clothes" rel="noopener noreferrer" class="menu-btn" id="clothes">
 						<span langid="clothes-menu"></span>
 					</a>
 				</li>
@@ -175,35 +175,35 @@
 	<div class="flex sub-nav-clothes-wrapper sub-nav" id="clothes-sub">
 		<div class="sub-clothes-wrapper">
 			<div class="flex nowrap flex-align-middle mobile-sub">
-				<div class="women-clothe">
+				<div class="women-clothes">
 					<ul>
 						<p langid="for-women"></p>
 						<li>
-							<a navid="catalogue/clothe/trousers" class="sub-list-element">
+							<a navid="catalogue/clothes/trousers" class="sub-list-element">
 								<span langid="trousers"></span>
 							</a>
 						</li>
 						<li>
-							<a navid="catalogue/clothe/jumpers" class="sub-list-element">
+							<a navid="catalogue/clothes/jumpers" class="sub-list-element">
 								<span langid="jumpers"></span>
 							</a>
 						</li>
 						<li>
-							<a navid="catalogue/clothe/cardigans" class="sub-list-element">
+							<a navid="catalogue/clothes/cardigans" class="sub-list-element">
 								<span langid="cardigans"></span>
 							</a>
 						</li>
 					</ul>
 				</div>
-				<div class="new-clothe sub-list-element">
+				<div class="new-clothes sub-list-element">
 					
-					<div class="clothe-table">
-						<div class="clothe-title">
+					<div class="clothes-table">
+						<div class="clothes-title">
 							<p langid="new-sub"></p>
 						</div>
-						<div class="clothe-img">
+						<div class="clothes-img">
 							<img src="/public/images/menu/img filler 1x1.jpg" alt="" width="100%">
-							<div class="new-clothe-text">
+							<div class="new-clothes-text">
 								<p langid="new-sub"></p>
 							</div>
 						</div>

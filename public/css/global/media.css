@@ -442,13 +442,13 @@
         z-index: 1;
     }
 
-    .about-container, .sale-container, .new-goods-container, .clothe-img {
+    .about-container, .sale-container, .new-goods-container, .clothes-img {
         width: 20vh;
         height: 20vh;
         margin: 2vh 0;
     }
 
-    .sale-text, .new-text, .new-clothe-text {
+    .sale-text, .new-text, .new-clothes-text {
         width: 24vh;
         bottom: 19%;
         left: 9%;
@@ -490,14 +490,14 @@
         font-size: 130%;
     }
 
-    .women-clothe {
+    .women-clothes {
         margin-left: 0;
         margin-right: 0;
         margin-top: 0;
         font-size: 130%;
     }
 
-    .clothe-title {
+    .clothes-title {
         font-size: 120%;
         width: 100%;
     }
@@ -819,11 +819,11 @@
         font-size: 180%;
     }
 
-    .clothe-table {
+    .clothes-table {
         display: block;
     }
 
-    .women-clothe {
+    .women-clothes {
         width: 100%;
     }
 
@@ -890,7 +890,7 @@
         font-size: 300%;
     }
 
-    .sale-text, .new-text, .new-clothe-text {
+    .sale-text, .new-text, .new-clothes-text {
         font-size: 260%;
     }
 
@@ -904,7 +904,7 @@
         font-size: 240%;
     }
 
-    .women-clothe {
+    .women-clothes {
         font-size: 250%;
         width: 100%;
     }
@@ -914,7 +914,7 @@
         height: 5px;
     }
 
-    .clothe-table {
+    .clothes-table {
         display: block;
         width: 20vh;
     }
@@ -958,11 +958,11 @@
         font-size: 180%;
     }
 
-    .clothe-table {
+    .clothes-table {
         display: block;
     }
 
-    .women-clothe {
+    .women-clothes {
         width: 100%;
     }
 

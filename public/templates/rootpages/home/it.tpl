@@ -18,7 +18,7 @@ Title: Главная;
 			<img src="/public/images/carousel/102m.jpg" width="100%" class="mobile">
 			<p class="slide-text">Надо придумать текст</p>
 			<div class="slide-btn-cont">
-				<a navid="catalogue/clothe">
+				<a navid="catalogue/clothes">
 					<button class="slide-button-dark">Одежда</button>
 				</a>
 				<a navid="catalogue/accessories">

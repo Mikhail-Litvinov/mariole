@@ -56,7 +56,7 @@
 			case 'cart': // Multiple products for cart, e.g. '1-2-3-4', where 1, 2, 3 and 4 - products' articles
 				$products_list = str_replace('-', ', ', $db->escapeString($request[1]));
 				return $sql . " WHERE products.article IN ({$products_list})";
-			default: // Another cases, selecting by type (e.g. clothe) and class (e.g. gloves)
+			default: // Another cases, selecting by type (e.g. clothes) and class (e.g. gloves)
 				$type = $db->escapeString($request[0]);
 				$class = $db->escapeString($request[1]);
 				return $sql . ($type ? " WHERE products.type = '$type'" . ($class ? " AND products.class = '$class'" : '') : '');
