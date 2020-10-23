@@ -1,11 +1,11 @@
 Styles: about;
 Scripts: unique/about;
 Title: О нас;
-<div class="content-wrapper" id="scroll-1">
+<div class="content-wrapper">
 	<div class="content-title">
 		<h2>О нас</h2>
 	</div>
-	<article class="content-article scroll1">
+	<article class="content-article scrollable">
 		<p>
 			<img src="/public/images/home/img filler 5x4.jpg" alt="" class="float-left p-right-20">
 			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur vitae molestias alias quibusdam
@@ -31,11 +31,11 @@ Title: О нас;
 		</p>
 	</article>
 </div>
-<div class="content-wrapper-full-width" id="scroll-2">
+<div class="content-wrapper-full-width">
 	<div class="content-title-2">
 		<h2>Наша ткань</h2>
 	</div>
-	<div class="wool-wrapper scroll2">
+	<div class="wool-wrapper scrollable">
 		<div class="wool-img">
 			<img src="/public/images/home/img filler 16x4.5.jpg" alt="" width="100%" class="desktop">
 			<img src="/public/images/home/img filler 4.5x16.jpg" alt="" width="100%" class="mobile">
@@ -83,7 +83,7 @@ Title: О нас;
 	<div class="content-title-2">
 		<h2>Наши козы</h2>
 	</div>
-	<div class="about-gallery" active="0">
+	<div class="about-gallery scrollable" active="0">
 		<div class="aboutSlide fade">
 			<img src="/public/images/home/img filler 16x4.5.jpg" alt="" width="100%" class="desktop">
 			<img src="/public/images/home/img filler 5x7.jpg" alt="" width="100%" class="mobile">
@@ -158,3 +158,4 @@ Title: О нас;
 		<span class="dot"></span>
 	</div>
 </div>
+<script src="/public/javascript/app/scrollmagic.js"></script>

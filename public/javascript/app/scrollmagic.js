@@ -1,21 +1,18 @@
-$(window).on("onload.app_scrollmagic", () => {
-	app.scrollmagic = {
-		_instance: undefined,
-		start() {
-			this._instance = new ScrollMagic.Controller();
-		},
-		update(depth = 1) {
-			this.stop();
-			this.start();
-			for(let level = 1; level <= depth; level++) {
-				new ScrollMagic
-					.Scene({ triggerElement: `#scroll-${level}` })
-					.setClassToggle(`.scroll${level}`, "fade-in")
-					.addTo(this._instance);
-			}
-		},
-		stop() {
-			this._instance?.destroy();
+$(document).ready(function () {
+	var controller = new ScrollMagic.Controller({
+		globalSceneOptions: {
+			triggerHook: 'onEnter'
 		}
-	};
+	});
+
+    $(".scrollable").each(function () {
+        var tween = TweenMax.from($(this), 0.3, {autoAlpha:0, scale:0.5, y:'+100', easy:Linear.easyNone})
+
+        var scene = new ScrollMagic.Scene({
+			triggerElement: this,
+        })
+        .setTween(tween)
+        .addTo(controller)
+        .addIndicators()
+    })
 });

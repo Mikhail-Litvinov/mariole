@@ -11,5 +11,5 @@ $(window).on("onload.init_unique/news", () => {
 		"onunload.content": () => { app.news = undefined; }
 	});
 	
-	app.scrollmagic.update(2);
+	// app.scrollmagic.update(2);
 });
