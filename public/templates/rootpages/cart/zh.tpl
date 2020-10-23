@@ -14,20 +14,20 @@
 					<div class="payment-details flex wrap">
 						<div class="payment-details-item flex nowrap">
 							<p>Товаров на:</p>
-							<p class="payment-sum"></p>
+							<p class="payment-sum js-payment-sum"></p>
 						</div>
 						<div class="payment-details-item flex nowrap">
 							<p>Включая НДС:</p>
-							<p class="payment-vat"></p>
+							<p class="payment-vat js-payment-vat"></p>
 						</div>
 						<div class="payment-details-item flex nowrap">
 							<p>Итого:</p>
-							<p class="payment-final-sum"></p>
+							<p class="payment-final-sum js-payment-final-sum"></p>
 						</div>
 					</div>
 					<div class="payment-order flex wrap">
-						<button>Оплатить</button>
-						<button>Назад в магазин</button>
+						<button class="js-payment-pay">Оплатить</button>
+						<button class="js-payment-back">Назад в магазин</button>
 					</div>
 				</div>
 			</div>

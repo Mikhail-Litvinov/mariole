@@ -33,7 +33,7 @@ $(window).on("onload.init_unique/cart", () => {
 			let newQuantity = cookiesCart.get(article) + delta;
 			if(newQuantity > 0) {
 				app.cookies.cart.changeItem(article, newQuantity);
-				$(`.product-card[article="${article}"] .quantity`).html(newQuantity);
+				$(`.product-card[article="${article}"] .js-product-quantity`).html(newQuantity);
 				this.calculateFinalSum();
 			} else this.deleteProduct(article);
 		},
@@ -53,9 +53,9 @@ $(window).on("onload.init_unique/cart", () => {
 					product.images[0],
 					cookieCart.get(article)
 				));
-				item.find(".decrease-quantity").click(() => { this.changeProductQuantity(article, -1); });
-				item.find(".increase-quantity").click(() => { this.changeProductQuantity(article, 1); });
-				item.find(".product-card-del > button").click(() => { this.deleteProduct(article); });
+				item.find(".js-product-decrease-quantity:first").click(() => { this.changeProductQuantity(article, -1); });
+				item.find(".js-product-increase-quantity:first").click(() => { this.changeProductQuantity(article, 1); });
+				item.find(".js-product-delete:first").click(() => { this.deleteProduct(article); });
 
 				newCartList.append(item);
 			};
@@ -71,9 +71,9 @@ $(window).on("onload.init_unique/cart", () => {
 			let vat = 0; // TODO: later
 			let finalSum = sum + vat;
 			
-			$(".payment-sum").html(this.formatPrice(sum));
-			$(".payment-vat").html(this.formatPrice(vat));
-			$(".payment-final-sum").html(this.formatPrice(finalSum));
+			$(".js-payment-sum").html(this.formatPrice(sum));
+			$(".js-payment-vat").html(this.formatPrice(vat));
+			$(".js-payment-final-sum").html(this.formatPrice(finalSum));
 		},
 		formatPrice(rawPrice) { return `${(rawPrice / 100).toFixed(2)}&nbsp;${app.translation.currency.sign}`; }
 	};
@@ -83,7 +83,7 @@ $(window).on("onload.init_unique/cart", () => {
 		app.cart.calculateFinalSum();
 		for(product of app.cart.list) {
 			$(`.product-card[article="${product.data.article}"]`)
-					.find(".product-card-title > a")
+					.find(".js-product-title:first")
 					.html(product.language.name);
 		}
 	});
@@ -93,7 +93,7 @@ $(window).on("onload.init_unique/cart", () => {
 			let currencyName = app.translation.currency.name
 			for(product of app.cart.list) {
 				$(`.product-card[article="${product.data.article}"]`)
-					.find(".product-card-price > p")
+					.find(".js-product-price:first")
 					.html(app.cart.formatPrice(product.prices[currencyName]));
 			}
 			app.cart.calculateFinalSum();
