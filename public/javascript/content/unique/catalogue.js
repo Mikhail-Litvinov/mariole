@@ -11,7 +11,7 @@ $(window).on("onload.init_unique/catalogue", () => {
 						_item: item,
 						getItem(article, img, title, price, currency) {
 							return this._item
-								.replace("${article}", article)
+								.replace(/\${article}/gi, article)
 								.replace("${img}", img)
 								.replace("${title}", title)
 								.replace("${price}", price)
@@ -69,7 +69,7 @@ $(window).on("onload.init_unique/catalogue", () => {
 				);
 			}
 			$(".catalogue-page").html(newCatalogueList);
-			app.navigation.wrapPageLinks("#content .product-wrapper > a[navid]");
+			app.navigation.wrapPageLinks(".product-wrapper > a[navid]");
 		},
 		closeSubmenus() {
 			$(".accordion").removeClass("active");

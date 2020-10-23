@@ -1,4 +1,4 @@
-<div class="product-wrapper">
+<div class="product-wrapper" article="${article}">
 	<a navid="product/${article}">
 		<div class="product-photo">
 			<img src="/public/images/products-images/${img}.jpg" width="100%">
