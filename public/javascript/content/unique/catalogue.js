@@ -27,6 +27,11 @@ $(window).on("onload.init_unique/catalogue", () => {
 				return;
 			}
 			
+			app.navigation.performContentTitle([
+				app.translation.language.get("catalogue-footer"),
+				app.translation.language.get(newPath[1] + "-menu")
+			].join(" - "));
+			
 			this.list = newList;
 			this.performNewSortingMethod(this.sortingMethod);
 		},
