@@ -70,9 +70,8 @@ app.navigation = {
 		head.children("link[content-style]").remove();
 		if(!styles.length) return;
 		
-		let styleTemplate = "<link content-style rel=\"stylesheet\" href=\"/public/css/content/${style}.css\"/>";
 		for(let style of styles) {
-			head.append($(styleTemplate.replace("${style}", style)));
+			head.append(app.templates.navigation.getStyle(style));
 		}
 	},
 	performContentScripts(scripts) {
@@ -99,6 +98,13 @@ app.navigation = {
 };
 
 $(window).one("navigate", () => {
+	app.templates.navigation = {
+		_style: "<link content-style rel=\"stylesheet\" href=\"/public/css/content/${style}.css\"/>",
+		getStyle(style) {
+			return this._style
+				.replace("${style}", style);
+		}
+	};
 	app.navigation.loadAvailablePagesList(() => { app.navigation.switchContent(); });
 	app.navigation.wrapPageLinks("[navid]");
 	$(window).on({
