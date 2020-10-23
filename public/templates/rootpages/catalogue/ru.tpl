@@ -43,7 +43,7 @@ Title: Каталог;
 						<a navid="catalogue/accessories/socks">Носочки</a>
 					</li>
 					<li>
-						<a navid="catalogue/accessories/stoles">Палантины</a>
+						<a navid="catalogue/accessories/tippets">Палантины</a>
 					</li>
 					<li>
 						<a navid="catalogue/accessories/gloves">Перчатки</a>
@@ -73,7 +73,7 @@ Title: Каталог;
 						<a navid="catalogue/accessories/brooches">Броши</a>
 					</li>
 					<li>
-						<a navid="catalogue/accessories/necklace">Колье</a>
+						<a navid="catalogue/accessories/necklaces">Колье</a>
 					</li>
 					<li>
 						<a navid="catalogue/accessories/pendants">Кулоны</a>
