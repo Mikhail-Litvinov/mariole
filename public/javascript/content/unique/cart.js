@@ -4,7 +4,7 @@ $(window).on("onload.init_unique/cart", () => {
 		updateList(newList, callback) {
 			if(!app.templates.cart) {
 				$.when(
-					$.get("/public/templates/subtemplates/cart_item.tpl")
+					$.get("/public/templates/subtemplates/cart/item.tpl")
 				).then((item) => {
 					app.templates.cart = {
 						_item: item,

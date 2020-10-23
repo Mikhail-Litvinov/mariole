@@ -13,9 +13,9 @@ $(window).on("onload.init_unique/product", () => {
 		load() {
 			if(!app.templates.product) {
 				$.when(
-					$.get("/public/templates/subtemplates/product_parameter.tpl"),
-					$.get("/public/templates/subtemplates/product_slide.tpl"),
-					$.get("/public/templates/subtemplates/product_slide_preview.tpl")
+					$.get("/public/templates/subtemplates/product/parameter.tpl"),
+					$.get("/public/templates/subtemplates/product/slide.tpl"),
+					$.get("/public/templates/subtemplates/product/slide_preview.tpl")
 				).then((parameter, slide, slidePreview) => {
 					app.templates.product = {
 						_parameter: parameter[0],

@@ -5,7 +5,7 @@ $(window).on("onload.init_unique/catalogue", () => {
 		updateSelection(newPath, newList) {
 			if(!app.templates.catalogue) {
 				$.when(
-					$.get("/public/templates/subtemplates/catalogue_item.tpl")
+					$.get("/public/templates/subtemplates/catalogue/item.tpl")
 				).then((item) => {
 					app.templates.catalogue = {
 						_item: item,
