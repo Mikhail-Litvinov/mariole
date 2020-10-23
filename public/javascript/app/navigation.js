@@ -15,7 +15,7 @@ app.navigation = {
 		this.path = newPath;
 	},
 	getPagePath(page) {
-		let path = (page ?? location.pathname.slice(1)).split("/"); // Explode given or current address to array by /
+		let path = (page ?? location.pathname.slice(1)).toLowerCase().split("/"); // Explode given or current address to array by /
 		path[0] = this.validateEmptyPathRoot(path[0]); // Check if this.path is null
 		return path;
 	},
