@@ -37,30 +37,27 @@ $(window).on("onload.init_common/carousel", () => {
 			
 			this.active = this.validate(delta);
 			this.recacheSlides();
+			
+			let start = performance.now();
 			this.slideTimer = requestAnimationFrame((time) => {
-				this.translate(
-					Math.sign(delta) * 100,
-					performance.now(),
-					time,
-					this.animationTimeout
-				);
+				this.translate(Math.sign(delta) * 100, start, start + this.animationTimeout, time);
 			});
 		},
-		translate(initialPercentage, start, now, duration) {
-			let percentage = Math.bound(initialPercentage * (1 - (now - start) / duration), 0, initialPercentage);
-			this.moveSlides(percentage);
-			
-			if((now - start) <= duration) this.slideTimer = requestAnimationFrame((time) => { this.translate(initialPercentage, start, time, duration); });
-			else this.isSwitchable = true;
+		translate(from, start, end, now) {
+			if(now <= end) {
+				this.moveSlides(Math.bound(from * (1 - (now - start) / (end - start)), 0, from));
+				this.slideTimer = requestAnimationFrame((time) => { this.translate(from, start, end, time); });
+			} else {
+				this.moveSlides(0);
+				this.isSwitchable = true;
+			}
 		},
 		transform(slide, percentage) { slide.css("transform", `translateX(${percentage}%)`); }, // Oh shit it's css
-		fall() {			
-			requestAnimationFrame(time => {
-				this.translate(
-					this.currentPercentage,
-					performance.now(), time,
-					Math.abs(this.animationTimeout * this.currentPercentage * 0.01)
-				);
+		fall() {
+			let start = performance.now();
+			let duration = Math.abs(this.animationTimeout * this.currentPercentage * 0.01);
+			requestAnimationFrame((time) => {
+				this.translate(this.currentPercentage, start, start + duration, time);
 			});
 		},
 		recacheSlides() {
