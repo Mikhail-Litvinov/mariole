@@ -18,7 +18,7 @@
 				<button class="increase-quantity js-product-increase-quantity">+</button>
 			</div>
 			<div class="product-card-del flex">
-				<button class="js-product-delete">Удалить</button>
+				<button class="js-product-delete">${delete_text}</button>
 			</div>
 		</div>
 	</div>

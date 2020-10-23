@@ -4,15 +4,21 @@ $(window).on("onload.init_unique/cart", () => {
 		updateList(newList, callback) {
 			if(!app.templates.cart) {
 				$.when(
+					$.getJSON("/public/templates/subtemplates/cart/localization.json"),
 					$.get("/public/templates/subtemplates/cart/item.tpl")
-				).then((item) => {
+				).then((localization, item) => {
 					app.templates.cart = {
-						_item: item,
-						getItem(article, img, quantity) {
+						_localization: localization[0],
+						getLocalization(id) {
+							return this._localization[app.translation.language.code][id];
+						},
+						_item: item[0],
+						createItem(article, img, quantity) {
 							return this._item
 								.replace(/\${article}/gi, article)
 								.replace("${img}", img)
-								.replace("${quantity}", quantity);
+								.replace("${quantity}", quantity)
+								.replace("${delete_text}", this.getLocalization("delete_text"));
 						}
 					};
 					this.updateList(newList, callback);
@@ -48,7 +54,7 @@ $(window).on("onload.init_unique/cart", () => {
 			let cookieCart = app.cookies.cart.getItems();
 			for(product of this.list) {
 				let article = product.data.article;
-				let item = $(app.templates.cart.getItem(
+				let item = $(app.templates.cart.createItem(
 					article,
 					product.images[0],
 					cookieCart.get(article)
