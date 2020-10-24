@@ -37,4 +37,13 @@ $(window).one({
 	"onscriptsloadend.app": () => { $(window).resize(() => { app.main.updateMobileFlags(); }).resize(); },
 });
 
-app.loadScripts(["cookies", "menu", "modals", "translation", "navigation"], "app", "app");
+app.loadScripts([
+	"scrollmagic/plugins/debug.addIndicators",
+	"scrollmagic/plugins/animation.gsap",
+	"scrollmagic",
+	"cookies",
+	"menu",
+	"modals",
+	"translation", 
+	"navigation"
+], "app", "app");

@@ -112,4 +112,6 @@ $(window).on("onload.init_unique/catalogue", () => {
 		},
 		"onunload.content": () => { app.catalogue = undefined; }
 	});
+	
+	app.scrollmagic.update();
 });

@@ -122,4 +122,3 @@ Title: Главная;
 		</div>
 	</div>
 </div>
-<script src="/public/javascript/app/scrollmagic.js"></script>

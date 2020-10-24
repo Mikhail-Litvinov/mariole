@@ -22,4 +22,6 @@ $(window).on("onload.init_unique/about", () => {
 		},
 		"onunload.content": () => { app.about = undefined; }
 	});
+	
+	app.scrollmagic.update();
 });

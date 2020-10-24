@@ -158,4 +158,3 @@ Title: О нас;
 		<span class="dot"></span>
 	</div>
 </div>
-<script src="/public/javascript/app/scrollmagic.js"></script>
