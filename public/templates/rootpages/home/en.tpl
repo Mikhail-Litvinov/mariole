@@ -1,5 +1,5 @@
 Styles: home;
-Scripts: common/carousel, unique/home;
+Scripts: common/OJCarousel, unique/home;
 Title: Home;
 <div id="carousel">
 	<div id="previous-slide-btn" class="move-slide-btn">

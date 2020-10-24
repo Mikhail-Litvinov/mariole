@@ -1,5 +1,5 @@
 Styles: home;
-Scripts: common/carousel, unique/home;
+Scripts: common/OJCarousel, unique/home;
 Title: Главная;
 <div id="carousel">
 	<div id="previous-slide-btn" class="move-slide-btn">
