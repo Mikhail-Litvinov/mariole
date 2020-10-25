@@ -1,7 +1,7 @@
 Title: Returns and exchanges;
 <div class="content-wrapper" style="padding: 1vh 0;">
 	<div class="title-middle">
-		<h2>Возврат и обмен</h2>
+		<h2>Returns and exchanges</h2>
 	</div>
 	<article class="ligal-article">
 		<h2>Как можно вернуть или обменять товар?</h2>

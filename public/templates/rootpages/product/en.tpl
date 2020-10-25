@@ -16,7 +16,7 @@ Scripts: unique/product;
 		<div class="product-page-title">
 			<h2 id="product-data-name"></h2>
 			<p id="product-data-price"></p>
-			<button id="add-to-cart">В корзину</button>
+			<button id="add-to-cart">Add to cart</button>
 		</div>
 		<article>
 			<p id="product-data-description"></p>

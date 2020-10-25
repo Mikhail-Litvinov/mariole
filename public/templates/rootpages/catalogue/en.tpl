@@ -11,103 +11,103 @@ Title: Catalogue;
 	</div>
 	<aside class="catalogue-left-nav">
 		<div class="categories-title">
-			<p id="categories-title">Категории</p>
+			<p id="categories-title">Categories</p>
 		</div>
 		<button class="catalogue-button accordion">
-			<p>Одежда <span class="btn-ind"></span></p>
+			<p>Clothes <span class="btn-ind"></span></p>
 			<div class="catalogue-sub">
 				<ul>
 					<li>
-						<a navid="catalogue/clothes/trousers">Брюки</a>
+						<a navid="catalogue/clothes/trousers">Trousers</a>
 					</li>
 					<li>
-						<a navid="catalogue/clothes/jumpers">Джемпера</a>
+						<a navid="catalogue/clothes/jumpers">Jumpers</a>
 					</li>
 					<li>
-						<a navid="catalogue/clothes/cardigans">Кардиганы</a>
+						<a navid="catalogue/clothes/cardigans">Cardigans</a>
 					</li>
 				</ul>
 			</div>
 		</button>
 		<button class="catalogue-button accordion">
-			<p>Аксессуары <span class="btn-ind"></span></p>
+			<p>Accessories <span class="btn-ind"></span></p>
 			<div class="catalogue-sub">
 				<ul>
 					<li>
-						<a navid="catalogue/accessories/mittens">Варежки</a>
+						<a navid="catalogue/accessories/mittens">Mittens</a>
 					</li>
 					<li>
-						<a navid="catalogue/accessories/headwear">Головные уборы</a>
+						<a navid="catalogue/accessories/headwear">Headwear</a>
 					</li>
 					<li>
-						<a navid="catalogue/accessories/socks">Носочки</a>
+						<a navid="catalogue/accessories/socks">Socks</a>
 					</li>
 					<li>
-						<a navid="catalogue/accessories/tippets">Палантины</a>
+						<a navid="catalogue/accessories/tippets">Tippets</a>
 					</li>
 					<li>
-						<a navid="catalogue/accessories/gloves">Перчатки</a>
+						<a navid="catalogue/accessories/gloves">Gloves</a>
 					</li>
 					<li>
-						<a navid="catalogue/accessories/headscarves">Платки</a>
+						<a navid="catalogue/accessories/headscarves">Headscarves</a>
 					</li>
 					<li>
-						<a navid="catalogue/accessories/shawls">Шали</a>
+						<a navid="catalogue/accessories/shawls">Shawls</a>
 					</li>
 				</ul>
 			</div>
 		</button>
 		<button class="catalogue-button">
 			<a navid="catalogue/accessories/plaids">
-				<p>Для дома</p>
+				<p>For the house</p>
 			</a>
 		</button>
 		<button class="catalogue-button accordion">
-			<p>Бижутерия <span class="btn-ind"></span></p>
+			<p>Bijouterie <span class="btn-ind"></span></p>
 			<div class="catalogue-sub">
 				<ul>
 					<li>
-						<a navid="catalogue/accessories/bracelets">Браслеты</a>
+						<a navid="catalogue/accessories/bracelets">Bracelets</a>
 					</li>
 					<li>
-						<a navid="catalogue/accessories/brooches">Броши</a>
+						<a navid="catalogue/accessories/brooches">Brooches</a>
 					</li>
 					<li>
-						<a navid="catalogue/accessories/necklaces">Колье</a>
+						<a navid="catalogue/accessories/necklaces">Necklaces</a>
 					</li>
 					<li>
-						<a navid="catalogue/accessories/pendants">Кулоны</a>
+						<a navid="catalogue/accessories/pendants">Pendants</a>
 					</li>
 					<li>
-						<a navid="catalogue/accessories/earrings">Серьги</a>
+						<a navid="catalogue/accessories/earrings">Earrings</a>
 					</li>
 				</ul>
 			</div>
 		</button>
 		<button class="catalogue-button">
 			<a navid="catalogue/sale">
-				<p>Акции</p>
+				<p>Sales</p>
 			</a>
 		</button>
 	</aside>
 	<div class="catalogue-top-nav">
 		<div class="catalogue-button-top-nav">
-			<p>Сортировка:</p>
+			<p>Sorting:</p>
 			<select class="sorting">
 				<option value="1" selected>
-					<p>По умолчанию</p>
+					<p>By default</p>
 				</option>
 				<option value="2">
-					<p>Цена: убывание</p>
+					<p>Price: decreasing</p>
 				</option>
 				<option value="3">
-					<p>Цена: возрастание</p>
+					<p>Price: increasing</p>
 				</option>
 				<option value="4">
-					<p>Алфавитный (А-Я)</p>
+					<p>Alphabetical (A-Z)</p>
 				</option>
 				<option value="5">
-					<p>Сначала новое</p>
+					<p>New first</p>
 				</option>
 			</select>
 		</div>

@@ -3,7 +3,7 @@ Scripts: unique/about;
 Title: About us;
 <div class="content-wrapper" id="scroll-1">
 	<div class="content-title">
-		<h2>О нас</h2>
+		<h2>About us</h2>
 	</div>
 	<article class="content-article scroll1">
 		<p>
@@ -33,7 +33,7 @@ Title: About us;
 </div>
 <div class="content-wrapper-full-width" id="scroll-2">
 	<div class="content-title-2">
-		<h2>Наша ткань</h2>
+		<h2>Our wool</h2>
 	</div>
 	<div class="wool-wrapper scroll2">
 		<div class="wool-img">
@@ -81,7 +81,7 @@ Title: About us;
 </div>
 <div class="content-wrapper-full-width">
 	<div class="content-title-2">
-		<h2>Наши козы</h2>
+		<h2>Our goats</h2>
 	</div>
 	<div class="about-gallery" active="0">
 		<div class="aboutSlide fade">

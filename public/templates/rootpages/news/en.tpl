@@ -62,7 +62,7 @@ Title: News;
 							magni nulla dolore quibusdam rerum deleniti, earum excepturi. Sapiente repudiandae,
 							numquam eaque exercitationem molestias nam inventore amet doloribus labore omnis.</p>
 					</article>
-					<button class="read-more">Показать полностью</button>
+					<button class="read-more">Show in full</button>
 				</div>
 				<div class="news-card-footer flex nowrap">
 					<div class="news-card-keywords-wrapper">
@@ -71,7 +71,7 @@ Title: News;
 						<a class="news-card-keyword">Одежда</a>
 					</div>
 					<div class="news-card-button-wrapper">
-						<button onclick="console.log('post-page')" class="read">Читать далее</button>
+						<button onclick="console.log('post-page')" class="read">Read further</button>
 					</div>
 				</div>
 			</div>
@@ -128,7 +128,7 @@ Title: News;
 							magni nulla dolore quibusdam rerum deleniti, earum excepturi. Sapiente repudiandae,
 							numquam eaque exercitationem molestias nam inventore amet doloribus labore omnis.</p>
 					</article>
-					<button class="read-more">Показать полностью</button>
+					<button class="read-more">Show in full</button>
 				</div>
 				<div class="news-card-footer flex nowrap">
 					<div class="news-card-keywords-wrapper">
@@ -137,7 +137,7 @@ Title: News;
 						<a class="news-card-keyword">Одежда</a>
 					</div>
 					<div class="news-card-button-wrapper">
-						<button onclick="console.log('post-page')" class="read">Читать далее</button>
+						<button onclick="console.log('post-page')" class="read">Read further</button>
 					</div>
 				</div>
 			</div>
@@ -146,35 +146,35 @@ Title: News;
 			<div class="blog-nav-element">
 				<div class="blog-search-wrapper">
 					<form action="" class="blog-search-form flex wrap">
-						<input type="text" placeholder="ключевые слова" class="blog-search-input"><span
+						<input type="text" placeholder="keywords" class="blog-search-input"><span
 							class="blog-search"></span>
 					</form>
-					<button class="blog-search-button">Поиск</button>
+					<button class="blog-search-button">Search</button>
 				</div>
 			</div>
 			<div class="blog-nav-element">
 				<div class="blog-categories-wrapper flex wrap">
-					<h2>Категории</h2>
-					<button class="blog-categories-button">Свежие новости <span class="news-count">(1)</span></button>
-					<button class="blog-categories-button">Рекомендованное <span class="news-count">(1)</span></button>
-					<button class="blog-categories-button">Мы в прессе <span class="news-count">(1)</span></button>
-					<button class="blog-categories-button">Поездки <span class="news-count">(1)</span></button>
-					<Button class="blog-categories-button">Продукция <span class="news-count">(1)</span></Button>
-					<button class="blog-categories-button">Акции <span class="news-count">(1)</span></button>
+					<h2>Categories</h2>
+					<button class="blog-categories-button">Fresh news <span class="news-count">(1)</span></button>
+					<button class="blog-categories-button">Recommended <span class="news-count">(1)</span></button>
+					<button class="blog-categories-button">We and media <span class="news-count">(1)</span></button>
+					<button class="blog-categories-button">Trips <span class="news-count">(1)</span></button>
+					<Button class="blog-categories-button">Products <span class="news-count">(1)</span></Button>
+					<button class="blog-categories-button">Sales <span class="news-count">(1)</span></button>
 				</div>
 			</div>
 			<div class="blog-nav-element">
 				<div class="key-words-wrapper flex wrap">
-					<button class="blog-keywords-button">Продукт</button>
-					<button class="blog-keywords-button">Акция</button>
-					<button class="blog-keywords-button">Поездки</button>
-					<button class="blog-keywords-button">Новинки</button>
+					<button class="blog-keywords-button">Product</button>
+					<button class="blog-keywords-button">Sale</button>
+					<button class="blog-keywords-button">Trips</button>
+					<button class="blog-keywords-button">New</button>
 					<button class="blog-keywords-button">Mariole life-style</button>
-					<button class="blog-keywords-button">Дизайн</button>
-					<button class="blog-keywords-button">Фото</button>
-					<button class="blog-keywords-button">Одежда</button>
-					<button class="blog-keywords-button">Аксессуары</button>
-					<button class="blog-keywords-button">Пресса</button>
+					<button class="blog-keywords-button">Design</button>
+					<button class="blog-keywords-button">Photo</button>
+					<button class="blog-keywords-button">Clothes</button>
+					<button class="blog-keywords-button">Accessories</button>
+					<button class="blog-keywords-button">Media</button>
 				</div>
 			</div>
 		</div>
