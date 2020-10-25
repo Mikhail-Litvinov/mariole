@@ -51,18 +51,18 @@ app.translation = {
 	currency: {
 		get name() { // Returns currency name of active country
 			switch(app.translation.country.rawCurrency) {
-				case 0: return "euro";
-				case 1: return "dollar";
-				case 2: return "rouble";
-				case 3: return "koruna";
+				case 0: return "EUR";
+				case 1: return "USD";
+				case 2: return "RUB";
+				case 3: return "CZK";
 			}
 		},
 		get sign() { // Returns currency sign of active country
 			switch(this.name) {
-				case "euro": return "&#8364;";
-				case "dollar": return "&#36;";
-				case "rouble": return "&#8381;";
-				case "koruna": return "Kč";
+				case "EUR": return "&#8364;";
+				case "USD": return "&#36;";
+				case "RUB": return "&#8381;";
+				case "CZK": return "Kč";
 			}
 		}
 	}

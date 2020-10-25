@@ -80,7 +80,7 @@
 			foreach([ // Category name => category's values
 				'data' => ['article', 'type', 'class'], // Wrap article, type and class in field 'data'
 				'language' => ['name', 'description'], // Wrap name and description in field 'language'
-				'prices' => ['euro', 'dollar', 'rouble', 'koruna'] // Wrap all prices in field 'prices'
+				'prices' => ['EUR', 'USD', 'RUB', 'CZK'] // Wrap all prices in field 'prices'
 			] as $type => $columns) { // $type = category name, $columns = category's values
 				$row[$type] = []; // Make new wrapper for category
 				foreach($columns as $column_name) { // For all category's values
