@@ -150,5 +150,5 @@
 	}
 	
 	function get_pages_list() {
-		return str_replace('.tpl', '', array_slice(scandir('public/templates/rootpages'), 2));
+		return array_slice(scandir('public/templates/rootpages'), 2);
 	}

@@ -13,7 +13,7 @@ app = {
 			if(!this.cachedScripts.includes(script)) { // If script isn't loaded already
 				this.cachedScripts.push(script);
 				accumulator.push($.ajax({ // Create new Deferred
-					url: `/public/javascript/${folder}/${script}.js`,
+					url: `/public/javascript/${folder}/${script}.js`, // + `?v=${Math.random()}`,
 					dataType: "script",
 					cache: true
 				}));

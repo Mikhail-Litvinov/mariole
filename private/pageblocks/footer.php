@@ -25,7 +25,7 @@
 					<a navid="delivery" langid="delivery"></a>
 				</li>
 				<li>
-					<a navid="FAQ" langid="faq"></a>
+					<a navid="faq" langid="faq"></a>
 				</li>
 			</ul>
 		</div>
