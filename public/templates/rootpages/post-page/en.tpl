@@ -96,7 +96,7 @@ Title: template 2;
 				adipisci consequatur? Asperiores esse quidem officia provident explicabo laudantium
 				porro excepturi.
 			</p>
-			<div class="js-simpleslider" active="0">
+			<div class="js-simpleslider">
 				<div class="js-simpleslider-slide">
 					<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
 				</div>

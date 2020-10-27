@@ -56,7 +56,7 @@ Title: Template 1;
 				magni nulla dolore quibusdam rerum deleniti, earum excepturi. Sapiente repudiandae,
 				numquam eaque exercitationem molestias nam inventore amet doloribus labore omnis.
 			</p>
-			<div class="js-simpleslider" active="0">
+			<div class="js-simpleslider">
 				<div class="js-simpleslider-slide">
 					<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
 				</div>
