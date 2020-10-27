@@ -227,10 +227,27 @@
     font-size: 120%;
 }
 
-.img1 {
+.imgV1 {
     width: 20%;
     float: left;
     margin-right: 1vh;
+}
+
+.imgV2 {
+    width: 20%;
+    float: right;
+    margin-left: 1vh;
+}
+
+.imgV3 {
+    width: 40%;
+    float: left;
+    margin-right: 1vh;
+}
+
+.imgV4 {
+    width: 100%;
+    margin: 1vh 0;
 }
 
 .news-footer {
@@ -244,3 +261,221 @@
     margin: 0 1vh 0 0;
 }
 
+.js-simpleslider {
+    margin-top: 1vh;
+    width: 100%;
+    position: relative;
+}
+
+.js-simpleslider-previous-slide, .js-simpleslider-next-slide {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 50%;
+    user-select: none;
+    transform: translate(0, -50%);
+
+    -webkit-user-select: none;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.js-simpleslider-previous-slide {
+    left: 20px;
+}
+
+.js-simpleslider-next-slide {
+    right: 20px;
+}
+
+.js-simpleslider-previous-slide:hover, .js-simpleslider-next-slide:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: translate(0, -50%);
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+/* media */
+
+@media screen and (min-width:0px) and (max-width:1024px) {
+
+    .news-container, .news-article {
+        padding: 0 1vw;
+    }
+    .blog-wrapper {
+        width: 100%;
+    }
+
+    .blog-column-left {
+        width: 100%;
+        padding: 1vh 2vh;
+    }
+
+    .blog-column-right {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background-color: #e6e6e6;
+        z-index: 1;
+        right: -100%;
+        transition: 0.5s ease-in-out;
+    }
+
+    .blog-column-right.openned {
+        right: 0;
+    }
+
+    .content-wrapper-full-width {
+        padding: 0;
+    }
+
+    .blog-search::before {
+        font-size: 120%;
+    }
+
+    .mobile-nav-news {
+        background-color: #e6e6e6;
+        width: 100%;
+        height: 6vh;
+        display: flex;
+        position: relative;
+        align-items: center;
+    }
+
+    .mobile-nav-button {
+        background-color: transparent;
+        width: 5vh;
+        height: 5vh;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: auto;
+        margin-right: 2vh;
+    }
+
+    .blog-nav-element {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .news-card-content {
+        height: 35vh;
+    }
+
+    .read {
+        height: auto;
+    }
+
+    .imgV1, .imgV2, .imgV3 {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width:0px) and (max-width: 280px) {
+
+}
+
+@media screen and (min-width:281px) and (max-width: 320px) {
+
+}
+
+@media screen and (min-width:321px) and (max-width: 360px) {
+
+}
+
+@media screen and (min-width:361px) and (max-width: 375px) {
+
+}
+
+@media screen and (min-width:376px) and (max-width: 411px) {
+
+}
+
+@media screen and (min-width:412px) and (max-width: 414px) {
+
+}
+
+@media screen and (min-width:415px) and (max-width: 540px) {
+
+}
+
+@media screen and (min-width:541px) and (max-width: 768px) { 
+    .content-wrapper {
+        padding: 2vh 0;
+    }
+
+    .imgV1, .imgV2 {
+        width: 20%;
+    }
+
+    .imgV3 {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width:769px) and (max-width: 1024px) {
+    .news-card-content h2 {
+        font-size: 250%;
+    }
+
+    .news-card-content-article {
+        font-size: 200%;
+    }
+
+    .read-more {
+        font-size: 160%;
+    }
+
+    .news-card-keyword {
+        font-size: 150%;
+    }
+
+    .read {
+        font-size: 150%;
+    }
+
+    .blog-categories-button, .blog-keywords-button, .blog-search-button, .blog-search-input {
+        font-size: 200%;
+    }
+
+    .blog-nav-element h2 {
+        font-size: 240%;
+    }
+
+    .news-back {
+        font-size: 180%;
+    }
+
+    .news-container h2 {
+        font-size: 250%;
+    }
+
+    .news-page-keyword {
+        font-size: 140%;
+    }
+
+    .news-container, .news-article {
+        font-size: 140%;
+    }
+
+    .imgV1, .imgV2 {
+        width: 20%;
+    }
+
+    .imgV3 {
+        width: 40%;
+    }
+}
+
+/* media end */

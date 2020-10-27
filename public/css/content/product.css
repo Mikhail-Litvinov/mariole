@@ -118,3 +118,92 @@
     transform: translate(0, -40%);
 }
 
+/* media */
+
+@media screen and (min-width:0px) and (max-width:1024px) {
+    .card-left {
+        padding-left: 0;
+    }
+
+    .card-right {
+        padding-right: 1%
+    }
+
+    .product-slider-wrapper {
+        width: 100%;
+    }
+
+    .product-page-title {
+        flex-wrap: wrap;
+    }
+
+    .product-page-title button {
+        width: 100%;
+    }
+
+    .card-right article {
+        width: 100%;
+    }
+
+    .params {
+        width: 100%;
+    }
+
+    .params span:first-child {
+        width: 70%;
+    }
+
+    .params-row span {
+        width: 30%;
+    }
+}
+
+@media screen and (min-width:0px) and (max-width: 280px) {
+
+}
+
+@media screen and (min-width:281px) and (max-width: 320px) {
+
+}
+
+@media screen and (min-width:321px) and (max-width: 360px) {
+
+}
+
+@media screen and (min-width:361px) and (max-width: 375px) {
+
+}
+
+@media screen and (min-width:376px) and (max-width: 411px) {
+
+}
+
+@media screen and (min-width:412px) and (max-width: 414px) {
+
+}
+
+@media screen and (min-width:415px) and (max-width: 540px) {
+
+}
+
+@media screen and (min-width:541px) and (max-width: 768px) { 
+    .params span:first-child {
+        width: 80%;
+    }
+
+    .params-row span {
+        width: 20%;
+    }
+}
+
+@media screen and (min-width:769px) and (max-width: 1024px) {
+    .params span:first-child {
+        width: 80%;
+    }
+
+    .params-row span {
+        width: 20%;
+    }
+}
+
+/* media end */

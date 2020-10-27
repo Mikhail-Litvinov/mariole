@@ -1,3 +1,4 @@
+
 .nselect {
   position: relative;
   box-sizing: border-box;
@@ -104,7 +105,7 @@
     background: transparent;
     border-radius: 2px;
     padding: 7px 24px 7px 11px;
-    height: 31px;
+    height: auto;
     color: #3D210C; }
     .nselect.nsOrange .nselect__head:after {
       right: 10px;
@@ -124,7 +125,7 @@
     left: 0;
     z-index: 15;
     width: 190px;
-    max-height: 330px;
+    max-height: max-content;
     box-sizing: border-box;
     background: whitesmoke;
     margin: 0;
@@ -166,3 +167,5 @@
         .nselect.nsOrange .nselect__list LI SPAN:hover {
           color: #CD7F32;
           background: rgb(230, 230, 230); }
+
+         

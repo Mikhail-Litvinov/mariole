@@ -1403,6 +1403,19 @@ header {
     font-size: 30px;
 }
 
+.cart-quantity-wrapper {
+    position: absolute;
+    background-color: rgba(245, 245, 245, 0.8);
+    width: 3vh;
+    height: 3vh;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: -20%;
+    right: 5%;
+}
+
 /* alerts end */
 
 /* animation */
