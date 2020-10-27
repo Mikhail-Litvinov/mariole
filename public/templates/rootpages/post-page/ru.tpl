@@ -1,12 +1,16 @@
 Styles: news;
-Scripts: common/gallery;
+Scripts: common/gallery, common/SimpleSlider, unique/post-page;
 Title: Template 1;
 <div class="content-wrapper" style="padding-top: 1vh;">
 	<button class="news-back">Назад</button>
 	<div class="news-container">
 		<h2>Название</h2>
 		<article class="news-article">
-			<p class=""><div class="imgV1"><img src="/public/images/gallery/img filler 5x7.jpg" alt="" width="100%"></div> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolorum eos excepturi
+			<p class="">
+				<div class="imgV1">
+					<img src="/public/images/gallery/img filler 5x7.jpg" alt="" width="100%">
+				</div>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolorum eos excepturi
 				repudiandae omnis quasi, adipisci ducimus ut officia iure quibusdam pariatur
 				repellendus, ipsa unde vitae odio libero dolorem eligendi aspernatur hic quae. Quae
 				neque voluptates blanditiis nemo aut ut a et quis hic. Accusamus, illum natus aperiam,
@@ -50,41 +54,42 @@ Title: Template 1;
 				facere dicta iste, velit expedita ab eius autem distinctio nobis laboriosam at, numquam
 				magni enim harum. Veritatis eum maxime amet illo fugiat magni facilis, earum vitae. Quo
 				magni nulla dolore quibusdam rerum deleniti, earum excepturi. Sapiente repudiandae,
-				numquam eaque exercitationem molestias nam inventore amet doloribus labore omnis.</p>
-				<div class="simpleSlider">
-					<div class="simpleSlider-slide">
-						<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
-					</div>
-					<div class="simpleSlider-slide">
-						<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
-					</div>
-					<div class="simpleSlider-slide">
-						<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
-					</div>
-					<div class="simpleSlider-slide">
-						<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
-					</div>
-					<div class="simpleSlider-slide">
-						<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
-					</div>
-					<div class="simpleSlider-slide">
-						<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
-					</div>
-					<div class="simpleSlider-slide">
-						<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
-					</div>
-					<div class="simpleSlider-slide">
-						<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
-					</div>
-					<div class="simpleSlider-slide">
-						<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
-					</div>
-					<div class="simpleSlider-slide">
-						<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
-					</div>
-					<a class="prev-slide">&#10094;</a>
-					<a class="next-slide">&#10095;</a>
+				numquam eaque exercitationem molestias nam inventore amet doloribus labore omnis.
+			</p>
+			<div class="js-simpleslider" active="0">
+				<div class="js-simpleslider-slide">
+					<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
 				</div>
+				<div class="js-simpleslider-slide">
+					<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
+				</div>
+				<div class="js-simpleslider-slide">
+					<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
+				</div>
+				<div class="js-simpleslider-slide">
+					<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
+				</div>
+				<div class="js-simpleslider-slide">
+					<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
+				</div>
+				<div class="js-simpleslider-slide">
+					<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
+				</div>
+				<div class="js-simpleslider-slide">
+					<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
+				</div>
+				<div class="js-simpleslider-slide">
+					<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
+				</div>
+				<div class="js-simpleslider-slide">
+					<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
+				</div>
+				<div class="js-simpleslider-slide">
+					<img src="/public/images/gallery/fashion/img filler 16x9.jpg" alt="" width="100%">
+				</div>
+				<a class="js-simpleslider-previous-slide">&#10094;</a>
+				<a class="js-simpleslider-next-slide">&#10095;</a>
+			</div>
 		</article>
 		<div class="news-footer">
 			<div class="news-page-keywords-wrapper">
@@ -95,4 +100,3 @@ Title: Template 1;
 		</div>
 	</div>
 </div>
-<script src="/public/javascript/content/common/simpleSLider.js"></script>
