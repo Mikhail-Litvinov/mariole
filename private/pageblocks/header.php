@@ -63,7 +63,11 @@
 					</li>
 					<li>
 						<a navid="cart">
-							<span class="cart-icon"></span>
+							<span class="cart-icon">
+								<div class="cart-quantity-wrapper">
+										0
+								</div>
+							</span>
 						</a>
 					</li>
 				</ul>
