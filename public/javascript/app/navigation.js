@@ -84,8 +84,10 @@ app.navigation = {
 		for(let element of document.querySelectorAll(selector)) { // Not jQuery because of 6-time speed difference
 			element.setAttribute("href", "/" + element.getAttribute("navid"));
 			element.onclick = (evt) => {
+				if(evt.altKey || evt.ctrlKey || evt.shiftKey) return;
+				
 				this.switchContent(element.getAttribute("navid"));
-				evt.preventDefault()
+				evt.preventDefault();
 			};
 		}
 	},
