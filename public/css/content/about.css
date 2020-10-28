@@ -208,6 +208,10 @@
     .aboutSlide-text-right p, .aboutSlide-text-left p {
         font-size: 100%;
     }
+
+    .p-right-20 {
+        padding-right: 0;
+    }
 }
 
 @media screen and (min-width:0px) and (max-width: 280px) {

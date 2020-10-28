@@ -35,14 +35,14 @@ Title: О нас;
 	<div class="content-title-2">
 		<h2>Наша ткань</h2>
 	</div>
-	<div class="wool-wrapper scrollable">
+	<div class="wool-wrapper">
 		<div class="wool-img">
 			<img src="/public/images/home/img filler 16x4.5.jpg" alt="" width="100%" class="desktop">
 			<img src="/public/images/home/img filler 4.5x16.jpg" alt="" width="100%" class="mobile">
 		</div>
 		<div class="wool-text">
 			<div class="wool-text-wrapper">
-				<div class="wool-text-el">
+				<div class="wool-text-el scrollable">
 					<div class="relative flex width-100 height-100 wrap flex-align-middle">
 						<div class="wool-title">
 							<span class="icon-x"></span>
@@ -53,7 +53,7 @@ Title: О нас;
 						</div>
 					</div>
 				</div>
-				<div class="wool-text-el">
+				<div class="wool-text-el scrollable">
 					<div class="relative flex width-100 height-100 wrap flex-align-middle">
 						<div class="wool-title">
 							<span class="icon-x"></span>
@@ -64,7 +64,7 @@ Title: О нас;
 						</div>
 					</div>
 				</div>
-				<div class="wool-text-el">
+				<div class="wool-text-el scrollable">
 					<div class="relative flex width-100 height-100 wrap flex-align-middle">
 						<div class="wool-title">
 							<span class="icon-x"></span>

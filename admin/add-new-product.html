@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="admin-navbar">
+        <a><button class="admin-navbar-btn">Статистика</button></a>
+        <a><button class="admin-navbar-btn">Товары</button></a>
+        <a><button class="admin-navbar-btn active">Добавить товар</button></a>
+        <a><button class="admin-navbar-btn">Добавить статью</button></a>
+        <a><button class="admin-navbar-btn">Управление акциями</button></a>
+    </div>
+    <div class="admin-title-bar">
+        <h2>Создание нового товара</h2>
+    </div>
+    <div class="admin-content-wrapper" id="adminContent">
+        <div class="add-product-container">
+            <div class="add-admin-navbar">
+                <button class="lang-choose active">РУ</button>
+                <button class="lang-choose">EN</button>
+                <button class="lang-choose">ČZ</button>
+                <button class="lang-choose">IT</button>
+                <button class="lang-choose">ZH</button>
+            </div>
+            <div class="add-product-img">
+                <img src="img/img filler 1x1.jpg" alt="" width="100%">
+                <div class="add-product-img-demo">
+                    <img src="img/img filler 1x1.jpg" alt="" width="25%">
+                    <img src="img/img filler 1x1.jpg" alt="" width="25%">
+                    <img src="img/img filler 1x1.jpg" alt="" width="25%">
+                    <img src="img/img filler 1x1.jpg" alt="" width="25%">
+                </div>
+            </div>
+            <div class="add-product-ru productCreate" style="height: max-content;">
+               <form action="" class="add-product-form">
+                   <input type="text" placeholder="Название" class="add-title">
+                   <textarea name="" id="" cols="30" rows="10"placeholder="Описание товара" class="add-description"></textarea>
+               </form>
+               <div class="add-product-params params">
+                    <div class="params-row">
+                        <span class="flex param-name"><input type="text" placeholder="параметр" class="param-input"></span>
+                        <span class="params-info"><input type="text" placeholder="значение" class="param-input-2"></span>
+                    </div>
+                    <button class="add-params-btn">Добавить параметр</button>
+                </div>
+                <div class="add-product-price">
+                    <h2>Введите цену</h2>
+                    <form action="">
+                        <input type="number" placeholder="0">
+                        <span class="price-value">&#8381;</span>
+                    </form>
+                </div>
+            </div>
+            <div class="add-product-en productCreate">
+                <form action="" class="add-product-form">
+                    <input type="text" placeholder="Название" class="add-title">
+                    <textarea name="" id="" cols="30" rows="10"placeholder="Описание товара" class="add-description"></textarea>
+                </form>
+                <div class="add-product-params params">
+                     <div class="params-row">
+                         <span class="flex param-name"><input type="text" placeholder="параметр" class="param-input"></span>
+                         <span class="params-info"><input type="text" placeholder="значение" class="param-input-2"></span>
+                     </div>
+                     <button class="add-params-btn">Добавить параметр</button>
+                 </div>
+                 <div class="add-product-price">
+                     <h2>Введите цену</h2>
+                     <form action="">
+                         <input type="number" placeholder="0">
+                         <span class="price-value">&#36;</span>
+                     </form>
+                 </div>
+             </div>
+             <div class="add-product-cz productCreate">
+                <form action="" class="add-product-form">
+                    <input type="text" placeholder="Название" class="add-title">
+                    <textarea name="" id="" cols="30" rows="10"placeholder="Описание товара" class="add-description"></textarea>
+                </form>
+                <div class="add-product-params params">
+                     <div class="params-row">
+                         <span class="flex param-name"><input type="text" placeholder="параметр" class="param-input"></span>
+                         <span class="params-info"><input type="text" placeholder="значение" class="param-input-2"></span>
+                     </div>
+                     <button class="add-params-btn">Добавить параметр</button>
+                 </div>
+                 <div class="add-product-price">
+                     <h2>Введите цену</h2>
+                     <form action="">
+                         <input type="number" placeholder="0">
+                         <span class="price-value">Kč</span>
+                     </form>
+                 </div>
+             </div>
+             <div class="add-product-it productCreate">
+                <form action="" class="add-product-form">
+                    <input type="text" placeholder="Название" class="add-title">
+                    <textarea name="" id="" cols="30" rows="10"placeholder="Описание товара" class="add-description"></textarea>
+                </form>
+                <div class="add-product-params params">
+                     <div class="params-row">
+                         <span class="flex param-name"><input type="text" placeholder="параметр" class="param-input"></span>
+                         <span class="params-info"><input type="text" placeholder="значение" class="param-input-2"></span>
+                     </div>
+                     <button class="add-params-btn">Добавить параметр</button>
+                 </div>
+                 <div class="add-product-price">
+                     <h2>Введите цену</h2>
+                     <form action="">
+                         <input type="number" placeholder="0">
+                         <span class="price-value">&euro;</span>
+                     </form>
+                 </div>
+             </div>
+             <div class="add-product-zh productCreate">
+                <form action="" class="add-product-form">
+                    <input type="text" placeholder="Название" class="add-title">
+                    <textarea name="" id="" cols="30" rows="10"placeholder="Описание товара" class="add-description"></textarea>
+                </form>
+                <div class="add-product-params params">
+                     <div class="params-row">
+                         <span class="flex param-name"><input type="text" placeholder="параметр" class="param-input"></span>
+                         <span class="params-info"><input type="text" placeholder="значение" class="param-input-2"></span>
+                     </div>
+                     <button class="add-params-btn">Добавить параметр</button>
+                 </div>
+                 <div class="add-product-price">
+                     <h2>Введите цену</h2>
+                     <form action="">
+                         <input type="number" placeholder="0">
+                         <span class="price-value">&#36;</span>
+                     </form>
+                 </div>
+             </div>
+            <div class="admin-add-footer">
+                <button class="admin-navbar-btn">Предпросмотр</button>
+                <button class="admin-navbar-btn" style="float: right;">Удалить</button>
+                <button class="admin-navbar-btn" style="float: right;">Схранить</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="javascript/admin.js"></script>
+</body>
+</html>

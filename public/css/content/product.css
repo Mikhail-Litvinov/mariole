@@ -89,12 +89,14 @@
 }
 
 .params-row span {
-    width: 10%;
+    width: max-content;
     position: relative;
+    padding-right: 1vh
 }
 
 .params span:first-child {
-    width: 87%;
+    width: 100%;
+    margin-right: 1vh;
 }
 
 .params span p {
@@ -123,6 +125,7 @@
 @media screen and (min-width:0px) and (max-width:1024px) {
     .card-left {
         padding-left: 0;
+        width: 100%;
     }
 
     .card-right {
@@ -194,6 +197,9 @@
     .params-row span {
         width: 20%;
     }
+    .product-page-title button, .product-page-title h2, .product-page-title p, .params span p, .card-right article {
+        font-size: 150%;
+    }
 }
 
 @media screen and (min-width:769px) and (max-width: 1024px) {
@@ -203,6 +209,10 @@
 
     .params-row span {
         width: 20%;
+    }
+
+    .product-page-title button, .product-page-title h2, .product-page-title p, .params span p, .card-right article {
+        font-size: 200%;
     }
 }
 
