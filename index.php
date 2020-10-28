@@ -4,6 +4,7 @@
 		case 'data': echo json_encode(get_data_response(array_slice($request, 1))); break; // If this is client-side data request
 		case 'sitemap.xml': include 'private/sitemap.php'; break;
 		case 'robots.txt': include 'private/robots.php'; break;
+		case 'admin': include 'admin/admin.php'; break;
 		default: include 'private/index.php';
 	}
 	
