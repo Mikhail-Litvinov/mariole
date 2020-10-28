@@ -79,7 +79,10 @@ $(window).on("onload.init_unique/product", () => {
 	
 	$(".prev-slide").click(() => { app.product.moveSlide(-1); });
 	$(".next-slide").click(() => { app.product.moveSlide(1); });
-	$("#add-to-cart").click(() => { app.cookies.cart.addItem(app.product.article); });
+	$("#add-to-cart").click(() => {
+		app.cookies.cart.addItem(app.product.article);
+		app.menu.updateCartItemsCount();
+	});
 	
 	app.product.load();
 	

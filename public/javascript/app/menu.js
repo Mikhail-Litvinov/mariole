@@ -10,6 +10,9 @@ app.menu = {
 	actualize(element) {
 		$(element).addClass("active");
 		$(`#${element.id}-sub`).height($(`#${element.id}-sub`).get(0).scrollHeight + "px");
+	},
+	updateCartItemsCount(newCount = app.cookies.cart.getItems().size) {
+		$(".cart-quantity-wrapper").html(newCount);
 	}
 };
 
@@ -57,4 +60,5 @@ $(window).on("onload.app_menu", () => {
 	$(".hamburger").off(".navmenu").on("click.navmenu", (evt) => {
 		app.menu.mobileMenu.toggleClass("open", $(evt.currentTarget).toggleClass("is-active").hasClass("is-active"));
 	});
+	app.menu.updateCartItemsCount();
 });

@@ -48,6 +48,7 @@ $(window).on("onload.init_unique/cart", () => {
 			$(`.product-card[article="${article}"]`).remove();
 			this.list = this.list.filter((product) => product.data.article != article);
 			this.calculateFinalSum();
+			app.menu.updateCartItemsCount(this.list.length);
 		},
 		buildList() {
 			let newCartList = $("<div>");
