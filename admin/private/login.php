@@ -18,7 +18,15 @@
 	<body>
 		<div class="login-form-wrapper">
 			<form class="login-form" method="POST">
-				<input type="password" name="password"/>
+				<label>
+					Логин:
+					<input type="text" name="login"/>
+				</label><br/><br/>
+				<label>
+					Пароль:
+					<input type="password" name="password"/>
+				</label><br/><br/>
+				<input type="hidden" name="session" value="<?= time() + 60; ?>"/>
 				<input type="submit" name="submit" value="Войти"/>
 			</form>
 		</div>
