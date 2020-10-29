@@ -26,7 +26,7 @@
 					Пароль:
 					<input type="password" name="password"/>
 				</label><br/><br/>
-				<input type="hidden" name="session" value="<?= time() + 60; ?>"/>
+				<input type="hidden" name="session" value="<?= time() + 3600; ?>"/>
 				<input type="submit" name="submit" value="Войти"/>
 			</form>
 		</div>
