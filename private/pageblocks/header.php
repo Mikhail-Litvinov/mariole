@@ -110,7 +110,7 @@
 				<div class="flex nowrap flex-align-middle mobile-sub">
 					<div class="about-container sub-list-element">
 						<a navid="about">
-							<img src="/public/images/menu/img filler 1x1.jpg" alt="" width="100%">
+							<img src="/public/images/menu/about.jpg" alt="" width="100%">
 							<div class="about-text flex flex-align-middle">
 								<p class="after-change" langid="about-sub"></p>
 							</div>
@@ -119,7 +119,7 @@
 					<div class="sale-container sub-list-element">
 						<a navid="catalogue/sale">
 							<div class="sale-img">
-								<img src="/public/images/menu/img filler 1x1.jpg" alt="" width="100%">
+								<img src="/public/images/menu/action.jpg" alt="" width="100%">
 								<div class="sale-text">
 									<p langid="sale"></p>
 								</div>
@@ -128,7 +128,7 @@
 					</div>
 					<div class="new-goods-container sub-list-element">
 						<a navid="catalogue/new">
-							<img src="/public/images/menu/img filler 1x1.jpg" alt="" width="100%">
+							<img src="/public/images/menu/new.jpg" alt="" width="100%">
 							<div class="new-text">
 								<p langid="new-sub"></p>
 							</div>
@@ -142,7 +142,7 @@
 			<div class="sub-gallery-table">
 				<div class="clothes-gallery sub-list-element">
 					<a navid="fashion-gallery">
-						<img src="/public/images/menu/img filler 1x1.jpg" alt="" width="100%">
+						<img src="/public/images/menu/fachion.jpg" alt="" width="100%">
 						<div class="gallery-sub-title">
 							<p>
 								<span langid="fashion-gallery"></span>
@@ -152,7 +152,7 @@
 				</div>
 				<div class="home-gallery sub-list-element">
 					<a navid="home-gallery">
-						<img src="/public/images/menu/img filler 1x1.jpg" alt="" width="100%">
+						<img src="/public/images/menu/home.jpg" alt="" width="100%">
 						<div class="gallery-sub-title">
 							<p>
 								<span langid="home-gallery"></span>
@@ -162,7 +162,7 @@
 				</div>
 				<div class="travel-gallery sub-list-element">
 					<a navid="travel-gallery">
-						<img src="/public/images/menu/img filler 1x1.jpg" alt="" width="100%">
+						<img src="/public/images/menu/travel.jpg" alt="" width="100%">
 						<div class="gallery-sub-title">
 							<p>
 								<span langid="travel-gallery"></span>
@@ -203,7 +203,7 @@
 							<p langid="new-sub"></p>
 						</div>
 						<div class="clothes-img">
-							<img src="/public/images/menu/img filler 1x1.jpg" alt="" width="100%">
+							<img src="/public/images/menu/new.jpg" alt="" width="100%">
 							<div class="new-clothes-text">
 								<p langid="new-sub"></p>
 							</div>
@@ -256,7 +256,7 @@
 						</li>
 					</ul>
 					<div class="ul-sub-img">
-						<img src="/public/images/menu/img filler 1x1.jpg" alt="" width="100%">
+						<img src="/public/images/menu/women.jpg" alt="" width="100%">
 					</div>
 				</div>
 				<div class="ul-for-home flex nowrap">
@@ -269,7 +269,7 @@
 						</li>
 					</ul>
 					<div class="ul-sub-img">
-						<img src="/public/images/menu/img filler 1x1.jpg" alt="" width="100%">
+						<img src="/public/images/menu/pledi.jpg" alt="" width="100%">
 					</div>
 				</div>
 				<div class="ul-for-jewelry flex nowrap">
@@ -302,7 +302,7 @@
 						</li>
 					</ul>
 					<div class="ul-sub-img">
-						<img src="/public/images/menu/img filler 1x1.jpg" alt="" width="100%">
+						<img src="/public/images/menu/bij.jpg" alt="" width="100%">
 					</div>
 				</div>
 			</div>
@@ -313,7 +313,7 @@
 			<div class="news-sub-content">
 				<div class="last-news-container sub-list-element">
 					<a navid="news">
-						<img src="/public/images/menu/img filler 1x1.jpg" alt="" width="100%">
+						<img src="/public/images/menu/news.jpg" alt="" width="100%">
 						<div class="news-sub-title flex nowrap flex-align-middle">
 							<span langid="news-sub"></span>
 						</div>
@@ -321,7 +321,8 @@
 				</div>
 				<div class="rec-news-container sub-list-element">
 					<a navid="news/recommended">
-						<img src="/public/images/menu/img filler 1x1.jpg" alt="" width="100%">
+						<img src="/public/images/menu/news2.jpg" alt="" width="100%" class="desktop">
+						<img src="/public/images/menu/news.jpg" alt="" width="100%" class="mobile">
 						<div class="rec-sub-title flex nowrap">
 							<span langid="recommended"></span>
 						</div>
@@ -329,7 +330,8 @@
 				</div>
 				<div class="media-news-container sub-list-element">
 					<a navid="news/press">
-						<img src="/public/images/menu/img filler 1x1.jpg" alt="" width="100%">
+						<img src="/public/images/menu/news2.jpg" alt="" width="100%" class="desktop">
+						<img src="/public/images/menu/news.jpg" alt="" width="100%" class="mobile">
 						<div class="media-sub-title flex nowrap">
 							<span langid="press"></span>
 						</div>

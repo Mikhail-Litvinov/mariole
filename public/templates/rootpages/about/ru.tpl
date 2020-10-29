@@ -1,33 +1,17 @@
 Styles: about;
 Scripts: unique/about;
 Title: О нас;
-<div class="content-wrapper">
+<div class="content-wrapper" style="min-height: 70vh;">
 	<div class="content-title">
 		<h2>О нас</h2>
 	</div>
 	<article class="content-article scrollable">
 		<p>
-			<img src="/public/images/home/img filler 5x4.jpg" alt="" class="float-left p-right-20">
-			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur vitae molestias alias quibusdam
-			laborum dolorum cupiditate laboriosam doloremque consequatur. Perspiciatis similique amet, consequatur
-			ad quae iste quaerat quam porro ab fugit exercitationem quos sunt unde culpa reiciendis ullam eos
-			quibusdam, recusandae dolorem quasi, quas sit! Quaerat eligendi repudiandae a labore est! Sapiente velit
-			dignissimos officia! Sed natus voluptatem beatae reiciendis sequi quaerat voluptatibus placeat quis,
-			aliquid excepturi cum impedit suscipit nihil porro cupiditate iure eum fugiat! Explicabo quibusdam ea
-			exercitationem incidunt reprehenderit dolorem, odio inventore, adipisci tempore nisi nemo nobis ad hic
-			necessitatibus qui nihil facere reiciendis recusandae id pariatur? Recusandae rem harum eveniet, vitae
-			ullam veniam. Ea quam et quia molestias distinctio. Excepturi nobis saepe corrupti harum impedit, sed
-			qui explicabo similique ipsum voluptas sit consectetur, est laudantium possimus laborum aut quia
-			officiis odit esse beatae molestiae officia, debitis sunt provident? Iure officia repudiandae
-			voluptates! Ratione, illum fugiat quis praesentium quam sint consequatur nemo dolore. Doloribus
-			voluptates iure officiis quas nobis, velit eos accusantium tempore ratione, aspernatur recusandae
-			tempora ipsum ad corporis odio odit iste exercitationem harum officia id aperiam repudiandae quaerat!
-			Voluptas quaerat vitae explicabo eum voluptatum quasi nihil placeat! Quis distinctio, voluptatem nemo
-			excepturi ea neque. Alias, deserunt. Magnam dolorum doloribus error! Possimus velit animi molestiae
-			reiciendis distinctio illo sit, ipsum consequatur maiores deserunt! Error voluptate odio debitis tempora
-			temporibus vel consequuntur voluptatibus dicta, nulla aspernatur? Ut dolores aliquam iste distinctio
-			quae consequatur ad! Odio hic, quisquam quidem, illo placeat dolor excepturi fugit consequatur quo odit
-			provident.
+			<img src="/public/images/about/IMG_6369.JPG" alt="" class="float-left p-right-20">
+			Mario’le - это эксклюзивная вязанная одежда и аксессуары ручной работы из пуха знаменитых Оренбургских коз.
+			Ремесло, история которого в России насчитывает более 250 лет, с помощью современных технологий, обретает
+			новую жизнь. Опираясь на вековые традиции и следуя тенденциям современного дизайна, мы гарантируем
+			исключительно высокое качество наших изделий.
 		</p>
 	</article>
 </div>
@@ -37,8 +21,8 @@ Title: О нас;
 	</div>
 	<div class="wool-wrapper">
 		<div class="wool-img">
-			<img src="/public/images/home/img filler 16x4.5.jpg" alt="" width="100%" class="desktop">
-			<img src="/public/images/home/img filler 4.5x16.jpg" alt="" width="100%" class="mobile">
+			<img src="/public/images/about/IMG_6298.JPG" alt="" width="100%" class="desktop">
+			<img src="/public/images/about/IMG_6298m.jpg" alt="" width="100%" class="mobile">
 		</div>
 		<div class="wool-text">
 			<div class="wool-text-wrapper">
@@ -46,10 +30,10 @@ Title: О нас;
 					<div class="relative flex width-100 height-100 wrap flex-align-middle">
 						<div class="wool-title">
 							<span class="icon-x"></span>
-							<h3>Title</h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam cumque, nemo quis,
-								accusantium obcaecati omnis deleniti quos nisi expedita dolore debitis numquam
-								voluptatem, cupiditate est? Excepturi aspernatur aliquam iure harum?</p>
+							<!-- <h3>Title</h3> -->
+							<p>Наш секрет - уникальные свойства используемого сырья.
+								На своих фермах в Оренбургской области мы разводим коз реликтовой породы, пух которых
+								удивительно тонок и эластичен.</p>
 						</div>
 					</div>
 				</div>
@@ -57,10 +41,10 @@ Title: О нас;
 					<div class="relative flex width-100 height-100 wrap flex-align-middle">
 						<div class="wool-title">
 							<span class="icon-x"></span>
-							<h3>Title</h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam cumque, nemo quis,
-								accusantium obcaecati omnis deleniti quos nisi expedita dolore debitis numquam
-								voluptatem, cupiditate est? Excepturi aspernatur aliquam iure harum?</p>
+							<!-- <h3>Title</h3> -->
+							<p>Неповторимые свойства пуха позволяют нам изготавливать превосходную пряжу ручного
+								прядения.
+								Лёгкую и невесомую словно кружево.</p>
 						</div>
 					</div>
 				</div>
@@ -68,10 +52,15 @@ Title: О нас;
 					<div class="relative flex width-100 height-100 wrap flex-align-middle">
 						<div class="wool-title">
 							<span class="icon-x"></span>
-							<h3>Title</h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam cumque, nemo quis,
-								accusantium obcaecati omnis deleniti quos nisi expedita dolore debitis numquam
-								voluptatem, cupiditate est? Excepturi aspernatur aliquam iure harum?</p>
+							<!-- <h3>Title</h3> -->
+							<p>Характеристика сырья для наших изделий:
+								Толщина пуха 13 -14 мнм.
+								<br>
+								<br>
+								Не теряет эластичность.
+								<br>
+								<br>
+								Не грубеет с течением времени.</p>
 						</div>
 					</div>
 				</div>
@@ -90,12 +79,9 @@ Title: О нас;
 			<div class="gradient-bg height-100">
 				<div class="width-100 height-100 relative flex">
 					<div class="aboutSlide-text-right">
-						<h3>Title</h3>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus tenetur, 
-							adipisci, minus magnam porro aliquid veritatis ex, mollitia earum esse 
-							laborum vero saepe dolores voluptatum! Optio reprehenderit omnis facilis perspiciatis, 
-							laboriosam quae doloremque quam laudantium beatae officia illum vero voluptatem soluta 
-							nisi placeat sed dicta nesciunt reiciendis molestiae possimus! Eius?</p>
+						<!-- <h3>Title</h3> -->
+						<p>На наших фермах в Оренбургской области живут козы реликтовой породы, пух которых ещё в 19веке
+							был признан самым тонким в мире.</p>
 					</div>
 				</div>
 			</div>
@@ -106,12 +92,9 @@ Title: О нас;
 			<div class="gradient-bg-left height-100">
 				<div class="width-100 height-100 relative flex">
 					<div class="aboutSlide-text-left">
-						<h3>Title</h3>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus tenetur, 
-							adipisci, minus magnam porro aliquid veritatis ex, mollitia earum esse 
-							laborum vero saepe dolores voluptatum! Optio reprehenderit omnis facilis perspiciatis, 
-							laboriosam quae doloremque quam laudantium beatae officia illum vero voluptatem soluta 
-							nisi placeat sed dicta nesciunt reiciendis molestiae possimus! Eius?</p>
+						<!-- <h3>Title</h3> -->
+						<p>Оренбургские пуховые козы дальние потомки кашмирских коз, которые через Киргизию пришли в
+							Оренбургские степи с Тибета.</p>
 					</div>
 				</div>
 			</div>
@@ -122,12 +105,13 @@ Title: О нас;
 			<div class="gradient-bg height-100">
 				<div class="width-100 height-100 relative flex">
 					<div class="aboutSlide-text-right">
-						<h3>Title</h3>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus tenetur, 
-							adipisci, minus magnam porro aliquid veritatis ex, mollitia earum esse 
-							laborum vero saepe dolores voluptatum! Optio reprehenderit omnis facilis perspiciatis, 
-							laboriosam quae doloremque quam laudantium beatae officia illum vero voluptatem soluta 
-							nisi placeat sed dicta nesciunt reiciendis molestiae possimus! Eius?</p>
+						<!-- <h3>Title</h3> -->
+						<p>Исторический факт: в 1818году известный востоковед, профессор турецкого языка в Париже Жубер
+							вместе с учёными провели тщательного сопоставления анатомо -физиологических признаков
+							оренбургской козы и тибетской . Данное исследование позволило заключить, что оренбургская
+							пуховая коза это подлинный потомок кашмирской , которая благодаря народной селекции и
+							своеобразным условиям климата превзошла по многим показателям. Пух оказался качественней,
+							чем у чистопородной тибетской.</p>
 					</div>
 				</div>
 			</div>
@@ -138,12 +122,11 @@ Title: О нас;
 			<div class="gradient-bg-left height-100">
 				<div class="width-100 height-100 relative flex">
 					<div class="aboutSlide-text-left">
-						<h3>Title</h3>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus tenetur, 
-							adipisci, minus magnam porro aliquid veritatis ex, mollitia earum esse 
-							laborum vero saepe dolores voluptatum! Optio reprehenderit omnis facilis perspiciatis, 
-							laboriosam quae doloremque quam laudantium beatae officia illum vero voluptatem soluta 
-							nisi placeat sed dicta nesciunt reiciendis molestiae possimus! Eius?</p>
+						<!-- <h3>Title</h3> -->
+						<p>Наши пуховые козочки уникальны не только своей породой, но и условиями содержания. Всё лето
+							они вольно гуляют по живописным местам, едят сочную траву и пьют прозрачную воду из горных
+							речек. Всё это несомненно влияет на качество пуха. Поэтому кашемир ручного прядения
+							Mariolewool - невероятно мягкий и нежный.</p>
 					</div>
 				</div>
 			</div>
