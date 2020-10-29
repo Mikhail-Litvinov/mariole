@@ -1,5 +1,4 @@
 .grid-el-1 {
-    background-color: #929292;
     grid-column-start: 1;
     grid-column-end: 5;
     grid-row-start: 1;
@@ -7,7 +6,6 @@
 }
 
 .grid-el-2 {
-    background-color: #929292;
     grid-column-start: 5;
     grid-column-end: 9;
     grid-row-start: 1;
@@ -15,7 +13,6 @@
 }
 
 .grid-el-3 {
-    background-color: #929292;
     grid-column-start: 1;
     grid-column-end: 5;
     grid-row-start: 3;
@@ -23,7 +20,6 @@
 }
 
 .grid-el-4 {
-    background-color: #929292;
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 4;
@@ -31,7 +27,6 @@
 }
 
 .grid-el-5 {
-    background-color: #929292;
     grid-column-start: 2;
     grid-column-end: 6;
     grid-row-start: 4;
@@ -39,7 +34,6 @@
 }
 
 .grid-el-6 {
-    background-color: #929292;
     grid-column-start: 6;
     grid-column-end: 9;
     grid-row-start: 4;
@@ -47,7 +41,6 @@
 }
 
 .grid-el-7 {
-    background-color: #929292;
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 8;
@@ -55,7 +48,6 @@
 }
 
 .grid-el-8 {
-    background-color: #929292;
     grid-column-start: 3;
     grid-column-end: 6;
     grid-row-start: 8;
@@ -63,7 +55,6 @@
 }
 
 .grid-el-9 {
-    background-color: #929292;
     grid-column-start: 6;
     grid-column-end: 9;
     grid-row-start: 6;
