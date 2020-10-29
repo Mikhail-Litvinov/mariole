@@ -51,6 +51,8 @@
 
 .wool-title p {
     font-size: 120%;
+    background-color: rgb(27 27 27 / 0.8);
+    border-radius: 30px;
 }
 
 .icon-x {
