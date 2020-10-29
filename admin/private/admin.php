@@ -15,11 +15,13 @@
 	if(check_admin($login, $password)) {
 		if(!$is_cookied) {
 			$cookie_data = '; Max-Age=3600; Path=/admin/';
-			header('Set-Cookie: admin-login=' . $login . $cookie_data);
+			header('Set-Cookie: admin-login=' . $login . $cookie_data, false);
 			header('Set-Cookie: admin-password=' . $password . $cookie_data, false);
 		}
 		header('Expires: ' . gmdate('D, d M Y H:i:s', time() - 1) . ' GMT', false); // No caching
-		include 'admin/private/pages/' . ($request[1] ?? 'index') . '.html';
+		
+		$page = $request[1] ? implode('/', array_slice($request, 1)) : 'index';
+		include 'admin/private/pages/' . $page . '.html';
 	} else include 'admin/private/login.php';
 	
 	function check_admin($login, $password) {
