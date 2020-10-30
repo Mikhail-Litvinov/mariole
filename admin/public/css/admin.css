@@ -97,7 +97,7 @@ textarea {
     width: 20%;
 }
 
-.add-product-ru, .add-product-en, .add-product-cz, .add-product-it, .add-product-zh {
+.add-product-ru, .add-product-en, .add-product-cs, .add-product-it, .add-product-zh {
     width: 70%;
     padding: 0 1vh;
     display: flex;
