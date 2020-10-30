@@ -269,4 +269,32 @@ textarea {
     cursor: pointer;
 }
 
+.add-title-wrapper {
+    width: 100%;
+}
+
+.js-post-name {
+    width: 60%;
+}
+
+.template-1 .js-post-text {
+    width: 79%;
+    height: 40vh;
+}
+
+.template-2 .js-post-text_1 {
+    width: 79%;
+    height: 45vh;
+}
+
+.template-2 .js-post-text_2 {
+    width: 59%;
+    height: 45vh;
+}
+
+.template-3 .js-post-text_1, .template-3 .js-post-text_2 {
+    width: 100%;
+    height: 40vh;
+}
+
 /* add post end */
