@@ -53,12 +53,10 @@
 					</select>
 				</div>
 				<div class="add-product-img js-product-images">
-					<img src="/admin/public/img/img filler 1x1.jpg" width="40%"/>
-					<img src="/admin/public/img/img filler 1x1.jpg" width="40%"/>
-					<img src="/admin/public/img/img filler 1x1.jpg" width="40%"/>
-					<img src="/admin/public/img/img filler 1x1.jpg" width="40%"/>
-					<img src="/admin/public/img/img filler 1x1.jpg" width="40%"/>
-					<img src="/admin/public/img/img filler 1x1.jpg" width="40%"/>
+					<form enctype="multipart/form-data">
+						<input type="file" multiple accept="image/jpeg" class="js-image-uploader"/>
+					</form>
+					<button class="js-upload-images-btn">Загрузить</button>
 				</div>
 				<div class="js-product-datas">
 					<div class="productCreate js-data-template" style="height: max-content;">
