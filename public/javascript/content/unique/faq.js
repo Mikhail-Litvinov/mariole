@@ -1,7 +1,15 @@
 $(window).on("onload.init_unique/faq", () => {
-	$(".faq-btn").click((evt) => {
-		let button = $(evt.currentTarget).toggleClass("oppened");
-		let height = (button.hasClass("oppened") ? button.children(".faq-content").get(0).scrollHeight : 0) + "px";
-		button.children(".faq-content").height(height);
-	});
+	let faqButtons = $('.faq-btn');
+	let faqContent = $('.faq-content');
+	let faqContainer = $('.faq-answ-container')
+	faqButtons.each ((index, button) => {
+		$(button).on("click.faq", () => {
+			$(faqButtons.removeClass("active").get(index)).addClass("active");
+			$(faqContent.removeClass("active").height(0).get(index)).height(faqContent[index].scrollHeight + "px").addClass("active")
+			$(faqContainer).removeClass("active").addClass("active")
+		})
+	})
+	$(".closeAnswer").click(function () {
+		$(faqContainer).removeClass("active")
+	})
 });

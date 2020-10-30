@@ -1,0 +1,78 @@
+.contacts-phone-container, .contacts-email-container, .contacts-org-container, .company-name {
+    margin-bottom: 1vh;
+}
+
+.contacts-phone-container a, .contacts-email-container a, .contacts-data, .contacts-title  {
+    font-size: 120%;
+    padding: 0 1vh;
+}
+
+.contacts-phone-container a, .contacts-email-container a {
+    font-size: 130%;
+}
+
+.bank-requisites h2 {
+    width: 100%;
+}
+
+.bank-requisites ul {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 0 1vh;
+}
+
+.bank-requisites ul li {
+    width: 50%;
+    border-bottom: 1px solid;
+    margin: 1vh 0;
+    font-size: 110%;
+    position: relative;
+}
+
+.tinkoff {
+    background-image: url(/public/images/tinkoff/513f36a0-d533-4240-902c-86f082781f41.png);
+    width: 7vh;
+    height: 7vh;
+    background-size: cover;
+    position: absolute;
+    top: -3vh;
+    right: 30vh;
+}
+
+/* media */
+
+@media screen and (min-width:0px) and (max-width:1024px) {
+    .conacts-container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .contacts-phone-container a, .contacts-email-container a, .contacts-data, .contacts-title {
+        padding: 0;
+    }
+}
+
+@media screen and (min-width:541px) and (max-width: 768px) {
+    .contacts-phone-container a, .contacts-email-container a, .contacts-data, .contacts-title {
+        font-size: 150%;
+        padding: 0;
+    }
+
+    .conacts-container h2 {
+        font-size: 150%;
+    }
+}
+
+@media screen and (min-width:769px) and (max-width: 1024px) {
+    .contacts-phone-container a, .contacts-email-container a, .contacts-data, .contacts-title {
+        font-size: 200%;
+        padding: 0;
+    }
+
+    .conacts-container h2 {
+        font-size: 200%;
+    }
+}
+
+/* media end */

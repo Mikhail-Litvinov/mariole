@@ -11,7 +11,7 @@
 		<main>
 			<div id="content"></div>
 		</main>
-		<footer>
+		<footer id="footer">
 			<?php include 'private/pageblocks/footer.php'; ?>
 		</footer>
 		<?php include 'private/pageblocks/modal_countries.php'; ?>

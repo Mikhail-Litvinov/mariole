@@ -902,71 +902,7 @@ header {
     margin-left: 1vh;
 }
 
-.faq-btn {
-    width: 100%;
-    height: 5vh;
-    text-align: left;
-    padding: 1vh 1vh;
-    font-size: 120%;
-    background-color: transparent;
-    border: none;
-    border-top: 1px solid gray;
-    border-bottom: 1px solid gray;
-    color: #3D210C;
-    cursor: pointer;
-    position: relative;
-    margin-top: 1vh;
-    transition: 0.5s ease-in-out;
-}
 
-.faq-btn.oppened {
-    border-bottom: none;
-    color: #CD7F32;
-    height: 100%;
-}
-
-.faq-btn p {
-    position: relative;
-}
-
-.faq-btn:hover {
-    color: #CD7F32;
-    border-color: #CD7F32;
-}
-
-.faq-btn-ind {
-    position: absolute;
-    right: 3vh;
-    height: 100%;
-    top: 50%;
-    transform: translate(0vh, -50%);
-}
-
-.faq-btn-ind::before {
-    content: '\f105';
-    font-family: Fontello;
-    position: absolute;
-    transform: rotate(0deg);
-    transition: 0.3s ease-in-out;
-}
-
-.oppened .faq-btn-ind::before {
-    transform: rotate(90deg);
-}
-
-.faq-content {
-    width: 100%;
-    height: 0;
-    overflow: hidden;
-    margin: 0;
-    transition: 0.5s ease-in-out;
-}
-
-.oppened .faq-content {
-    color: #3D210C;
-    margin-top: 1vh;
-    border-bottom: 1px solid gray;
-}
 
 
 /* legal pages, FAQ end */
