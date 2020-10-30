@@ -261,6 +261,19 @@ textarea {
     float: right;
 }
 
+.non-changable {
+    width: 80%;
+    margin-left: auto;
+    padding: 0 1vh;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.params-wrapper-2 {
+    width: 42%;
+    padding-left: 2vh;
+}
+
 /* add product end */
 
 /* add post start */
