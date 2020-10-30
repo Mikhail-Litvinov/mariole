@@ -14,8 +14,8 @@ Title: Главная;
 	</div>
 	<div id="slide-container">
 		<div class="slide">
-			<img src="/public/images/carousel/102.jpg" width="100%" class="desktop">
-			<img src="/public/images/carousel/102m.jpg" width="100%" class="mobile">
+			<img src="/public/images/carousel/166.jpg" width="100%" class="desktop">
+			<img src="/public/images/carousel/166m.jpg" width="100%" class="mobile">
 			<p class="slide-text">Надо придумать текст</p>
 			<div class="slide-btn-cont">
 				<a navid="catalogue/clothes">
