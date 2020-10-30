@@ -69,6 +69,7 @@ function bindEvents() {
 	$(".js-choose-language").on("change", () => { toggleProductData(getActiveLanguage()); });
 	$(".js-add-param-btn").on("click", () => { paramTemplate.clone().appendTo(".js-params-list"); });
 	$(".js-add-uni-param-btn").on("click", () => { paramTemplate.clone().appendTo(".js-uni-params-list"); });
+	$(".js-upload-images-btn").on("click", () => { uploadImages(); });
 }
 
 function findTemplates() {
@@ -78,10 +79,10 @@ function findTemplates() {
 function save() {
 	// console.log(getProductDataAsJSON("create"));
 	$.post({
-		url: "/data/admin/edit_product",
+		url: "/data/admin/database/edit_product",
 		data: { "product_data": getProductDataAsJSON("create") },
 		success: (data) => {
-			console.log(data);
+			$("#adminContent").html("Товар успешно создан");
 		}
 	});
 }
@@ -100,6 +101,27 @@ function getProductLanguageData(language = languages[1]) {
 
 function getProductDataAsJSON(action) {
 	return JSON.stringify(crawler.crawl(action));
+}
+
+function uploadImages() {
+	let data = new FormData();
+	$.each($(".js-image-uploader")[0].files, (index, file) => { data.append(index, file); });
+	
+	$.ajax({
+		url: "/data/admin/load/img/jpg/product",
+		type: "POST",
+		data: data,
+		cache: false,
+		processData: false,
+		contentType: false,
+		dataType: "json",
+		success: (response) => {
+			let result = JSON.parse(response);
+			$(".js-product-images").html(result.reduce((html, link) => {
+				return html + `<img src="/${link}" width="100px"/>`;
+			}, ""));
+		}
+	});
 }
 
 $(() => {
