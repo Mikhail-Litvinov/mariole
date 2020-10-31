@@ -4,12 +4,17 @@
 		case 'data': echo json_encode(get_data_response(array_slice($request, 1))); break; // If this is client-side data request
 		case 'sitemap.xml': include 'private/sitemap.php'; break;
 		case 'robots.txt': include 'private/robots.php'; break;
+		case 'admin': include 'admin/private/admin.php'; break;
 		default: include 'private/index.php';
 	}
 	
 	function get_data_response($request) {
 		switch($request[0]) {
-			case 'database': 
+			case 'admin':
+				header('Expires: ' . gmdate('D, d M Y H:i:s', time() - 1) . ' GMT'); // Force no caching
+				include 'admin/private/utils.php';
+				return process_admin(array_slice($request, 1));
+			case 'database':
 				header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 60 * 60) . ' GMT'); // 1-hour caching
 				return process_database(array_slice($request, 1));
 			default:

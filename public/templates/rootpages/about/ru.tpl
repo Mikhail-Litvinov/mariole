@@ -17,7 +17,7 @@ Title: О нас;
 </div>
 <div class="content-wrapper-full-width">
 	<div class="content-title-2">
-		<h2>Наша ткань</h2>
+		<h2>Секрет Mario’le.</h2>
 	</div>
 	<div class="wool-wrapper">
 		<div class="wool-img">
@@ -70,7 +70,7 @@ Title: О нас;
 </div>
 <div class="content-wrapper-full-width">
 	<div class="content-title-2">
-		<h2>Наши козы</h2>
+		<h2>Наши гордость</h2>
 	</div>
 	<div class="about-gallery scrollable" active="0">
 		<div class="aboutSlide fade">

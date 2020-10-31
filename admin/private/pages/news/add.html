@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/admin/public/css/style.css">
+		<link rel="stylesheet" href="/admin/public/css/stylesheet.css">
+		<link rel="stylesheet" href="/admin/public/css/media.css">
+		<link rel="stylesheet" href="/admin/public/css/admin.css">
+		<link rel="stylesheet" href="/admin/public/css/news.css">
+	</head>
+	<body>
+		<div class="admin-navbar">
+			<a>
+				<button class="admin-navbar-btn">Статистика</button>
+			</a>
+			<a>
+				<button class="admin-navbar-btn">Товары</button>
+			</a>
+			<a>
+				<button class="admin-navbar-btn">Добавить товар</button>
+			</a>
+			<a>
+				<button class="admin-navbar-btn active">Добавить статью</button>
+			</a>
+			<a>
+				<button class="admin-navbar-btn">Управление акциями</button>
+			</a>
+		</div>
+		<div class="admin-title-bar">
+			<h2>Создание новости</h2>
+		</div>
+		<div class="admin-content-wrapper" id="adminContent">
+			<div class="add-post-container">
+				<div class="add-admin-navbar">
+					<select class="choose-template js-choose-template">
+						<option value="1">Шаблон 1</option>
+						<option value="2">Шаблон 2</option>
+						<option value="3">Шаблон 3</option>
+					</select>
+					<select class="js-choose-language">
+						<option value="ru">Русский</option>
+						<option value="en">Английский</option>
+						<option value="cs">Чешский</option>
+						<option value="it">Итальянский</option>
+						<option value="zh">Китайский</option>
+					</select>
+				</div>
+
+				<div class="add-title-wrapper">
+					<input type="text" class="js-post-name" placeholder="Название"/>
+				</div>
+
+				<div class="js-post-datas">
+					<div class="js-post-data js-post-data-template">
+						<div class="template-1 js-post-template js-post-template_1">
+							<div class="news-container">
+								<article class="news-article">
+									<div class="imgV1">
+										<img src="/admin/public/img/img filler 5x7.jpg" alt="" width="100%">
+									</div>
+									<textarea cols="100" rows="17" placeholder="Текст" class="js-post-text"></textarea>
+									<!--SimpleSlider-->
+								</article>
+							</div>
+						</div>
+						<div class="template-2 js-post-template js-post-template_2">
+							<div class="news-container">
+								<article class="news-article">
+									<div class="imgV2">
+										<img src="/admin/public/img/img filler 5x7.jpg" alt="" width="100%">
+									</div>
+									<textarea cols="100" rows="20" placeholder="Первый текст" class="js-post-text_1"></textarea>
+									<div class="imgV3">
+										<img src="/admin/public/img/img filler 7x5.jpg" alt="" width="100%">
+									</div>
+									<textarea cols="100" rows="20" placeholder="Второй текст" class="js-post-text_2"></textarea>
+									<!--SimpleSlider-->
+								</article>
+							</div>
+						</div>
+						<div class="template-3 js-post-template js-post-template_3">
+							<div class="news-container">
+								<article class="news-article">
+									<textarea cols="100" rows="20" placeholder="Первый текст" class="js-post-text_1"></textarea>
+									<div class="imgV4">
+										<img src="/admin/public/img/img filler 16x4.5.jpg" width="100%">
+									</div>
+									<textarea cols="100" rows="20" placeholder="Второй текст" class="js-post-text_2"></textarea>
+									<!--SimpleSlider-->
+								</article>
+							</div>
+						</div>
+					</div>
+					<div class="news-footer">
+						<div class="js-post-tags">
+							<label>
+								<input type="checkbox" value="Новинки"/>
+								Новинки
+							</label>
+							<label>
+								<input type="checkbox" value="Mariole life-style"/>
+								Mariole life-style
+							</label>
+							<label>
+								<input type="checkbox" value="Одежда"/>
+								Одежда
+							</label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="admin-add-footer">
+					<button class="admin-navbar-btn" style="float: left;">Предпросмотр (???)</button>
+					<button class="admin-navbar-btn" style="float: right;">Создать</button>
+				</div>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="/admin/public/javascript/news/add.js"></script>
+	</body>
+</html>

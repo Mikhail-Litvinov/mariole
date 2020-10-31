@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" href="/admin/public/css/style.css"/>
+		<link rel="stylesheet" href="/admin/public/css/stylesheet.css"/>
+		<link rel="stylesheet" href="/admin/public/css/media.css"/>
+		<link rel="stylesheet" href="/admin/public/css/admin.css"/>
+	</head>
+	<body>
+		<div class="admin-navbar">
+			<a>
+				<button class="admin-navbar-btn">Статистика</button>
+			</a>
+			<a>
+				<button class="admin-navbar-btn">Товары</button>
+			</a>
+			<a>
+				<button class="admin-navbar-btn active">Добавить товар</button>
+			</a>
+			<a>
+				<button class="admin-navbar-btn">Добавить статью</button>
+			</a>
+			<a>
+				<button class="admin-navbar-btn">Управление акциями</button>
+			</a>
+		</div>
+		<div class="admin-title-bar">
+			<h2>Создание нового товара</h2>
+		</div>
+		<div class="admin-content-wrapper" id="adminContent">
+			<div class="add-product-container">
+				<div class="add-admin-navbar">
+					<div class="js-product-category">
+						<select class="js-product-type">
+							<option value="clothes">Одежда</option>
+							<option value="accessories">Аксессуары</option>
+						</select>
+						<select class="js-product-class">
+							<option value="trousers">Брюки</option>
+							<option value="jumpers">Джемпера</option>
+							<option value="cardigans">Кардиганы</option>
+							<!-- ... -->
+						</select>
+					</div>
+					<select class="js-choose-language">
+						<option value="ru" selected>Русский</option>
+						<option value="en">Английский</option>
+						<option value="cs">Чешский</option>
+						<option value="it">Итальянский</option>
+						<option value="zh">Китайский</option>
+					</select>
+				</div>
+				<div class="add-product-img js-product-images">
+					<form enctype="multipart/form-data">
+						<input type="file" multiple accept="image/jpeg" class="js-image-uploader"/>
+					</form>
+					<button class="js-upload-images-btn">Загрузить</button>
+				</div>
+				<div class="js-product-datas">
+					<div class="productCreate js-data-template" style="height: max-content;">
+						<input type="text" placeholder="Название" class="add-title js-product-name"/>
+						<textarea cols="30" rows="10" placeholder="Описание" class="add-description js-product-description"></textarea>
+						<div class="params-wrapper">
+							<div class="add-product-params params js-params-wrapper">
+								<p>Параметры с буквенными значениями:</p>
+								<div class="js-params-list"></div>
+								<button class="add-params-btn js-add-param-btn">Добавить параметр</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="non-changable">
+					<div class="params-wrapper-2">
+						<div class="add-product-params params">
+							<p>Параметры с числовыми значениями:</p>
+							<div class="js-uni-params-list"></div>
+							<button class="add-params-btn js-add-uni-param-btn">Добавить параметр</button>
+						</div>
+					</div>
+					<div class="add-product-price">
+						<h2>Введите цены:</h2>
+						<div class="js-prices">
+							<label class="js-price_rub">
+								<span class="add-value">Российские рубли:</span>
+								<input type="number" placeholder="0.0"/>
+							</label><br/>
+							<label class="js-price_czk">
+								<span class="add-value">Чешские кроны:</span>
+								<input type="number" placeholder="0.0"/>
+							</label><br/>
+							<label class="js-price_usd">
+								<span class="add-value">Доллары:</span>
+								<input type="number" placeholder="0.0"/>
+							</label><br/>
+							<label class="js-price_eur">
+								<span class="add-value">Евро:</span>
+								<input type="number" placeholder="0.0"/>
+							</label><br/>
+						</div>
+					</div>
+				</div>
+				<div class="admin-add-footer">
+					<!--<button class="admin-navbar-btn" style="background-color: #b6e7ff; border-radius: 10%;">Предпросмотр</button>
+					<button class="admin-navbar-btn" style="float: right; background-color: #b6e7ff; border-radius: 10%; margin: 0 1%;">Удалить</button>-->
+					<button class="admin-navbar-btn js-button-save" >Сохранить</button>
+				</div>
+			</div>
+		</div>
+		<div class="js-templates">
+			<div class="params-row js-param-template">
+				<!-- <input type="text" placeholder="параметр" class="param-input js-param-name"/> -->
+				<select class="js-param-name">
+					<option value="material">Материал</option>
+					<option value="composition">Состав</option>
+					<option value="color">Цвет</option>
+					<option value="size">Размер</option>
+					<option value="length_mm">Длина (мм)</option>
+					<option value="length_cm">Длина (см)</option>
+					<option value="width_mm">Ширина (мм)</option>
+					<option value="width_cm">Ширина (см)</option>
+				</select>
+				<input type="text" placeholder="значение" class="param-input-2 js-param-value"/>
+				<button class="js-delete-param-btn">X</button>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="/admin/public/javascript/products/add.js"></script>
+	</body>
+</html>
