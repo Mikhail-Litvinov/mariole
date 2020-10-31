@@ -85,13 +85,13 @@ function findTemplates() {
 }
 
 function save() {
-	console.log(getProductDataAsJSON("create"));
+	// console.log(getProductDataAsJSON("create"));
 	$.post({
 		url: "/data/admin/database/edit_product",
 		data: { "product_data": getProductDataAsJSON("create") },
 		success: (data) => {
-			console.log(data);
-			//$("#adminContent").html("Товар успешно создан");
+			// console.log(data);
+			$("#adminContent").html("Товар успешно создан");
 		}
 	});
 }
