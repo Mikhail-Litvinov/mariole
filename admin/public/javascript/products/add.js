@@ -67,8 +67,16 @@ function toggleProductData(language = languages[0]) {
 function bindEvents() {
 	$(".js-button-save").on("click", () => { save(); });
 	$(".js-choose-language").on("change", () => { toggleProductData(getActiveLanguage()); });
-	$(".js-add-param-btn").on("click", () => { paramTemplate.clone().appendTo(".js-params-list"); });
-	$(".js-add-uni-param-btn").on("click", () => { paramTemplate.clone().appendTo(".js-uni-params-list"); });
+	$(".js-add-param-btn").on("click", () => {
+		paramTemplate.clone().appendTo(".js-params-list").find(".js-delete-param-btn").on("click", (evt) => {
+			$(evt.currentTarget).parent().remove();
+		});
+	});
+	$(".js-add-uni-param-btn").on("click", () => {
+		paramTemplate.clone().appendTo(".js-uni-params-list").find(".js-delete-param-btn").on("click", (evt) => {
+			$(evt.currentTarget).parent().remove();
+		});
+	});
 	$(".js-upload-images-btn").on("click", () => { uploadImages(); });
 }
 
@@ -77,12 +85,13 @@ function findTemplates() {
 }
 
 function save() {
-	// console.log(getProductDataAsJSON("create"));
+	console.log(getProductDataAsJSON("create"));
 	$.post({
 		url: "/data/admin/database/edit_product",
 		data: { "product_data": getProductDataAsJSON("create") },
 		success: (data) => {
-			$("#adminContent").html("Товар успешно создан");
+			console.log(data);
+			//$("#adminContent").html("Товар успешно создан");
 		}
 	});
 }
@@ -96,7 +105,7 @@ function getProductLanguageData(language = languages[1]) {
 		params: crawler.getParams(data.find(".js-params-list"))
 	};
 	
-	return (Object.values(result).every(value => value.length > 0) || language === languages[1]) ? result : getProductLanguageData();
+	return ((result.name + result.description).length > 0 || language === languages[1]) ? result : getProductLanguageData();
 }
 
 function getProductDataAsJSON(action) {
