@@ -110,8 +110,19 @@
 		</div>
 		<div class="js-templates">
 			<div class="params-row js-param-template">
-				<input type="text" placeholder="параметр" class="param-input js-param-name"/>
+				<!-- <input type="text" placeholder="параметр" class="param-input js-param-name"/> -->
+				<select class="js-param-name">
+					<option value="material">Материал</option>
+					<option value="composition">Состав</option>
+					<option value="color">Цвет</option>
+					<option value="size">Размер</option>
+					<option value="length_mm">Длина (мм)</option>
+					<option value="length_cm">Длина (см)</option>
+					<option value="width_mm">Ширина (мм)</option>
+					<option value="width_cm">Ширина (см)</option>
+				</select>
 				<input type="text" placeholder="значение" class="param-input-2 js-param-value"/>
+				<button class="js-delete-param-btn">X</button>
 			</div>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
