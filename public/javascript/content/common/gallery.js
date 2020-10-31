@@ -23,7 +23,7 @@ $(window).on("onload.init_common/gallery", () => {
 			app.gallery.open();
 		});
 	});
-	$(".slider-preview").find("div > div").each((index, element) => { $(element).click(() => { /*enableSlide(index);*/ }); });
+	$(".slider-preview").find("div > div").each((index, element) => { $(element).click(() => { app.gallery.enable(index); }); });
 	$("#closeGallery").click(() => { app.gallery.close(); });
 	
 	$(window).on({
