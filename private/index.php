@@ -10,6 +10,7 @@
 		</header>
 		<main>
 			<div id="content"></div>
+			<?php include 'private/pageblocks/cookies_msg.php'; ?>
 		</main>
 		<footer id="footer">
 			<?php include 'private/pageblocks/footer.php'; ?>
