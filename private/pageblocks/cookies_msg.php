@@ -1,7 +1,7 @@
 <div id="cookies-msg-wrapper" class="cookies-wrapper">
     <div class="cookies-content flex wrap flex-align-middle">
         <!-- <span id="close-cookies-msg"></span> -->
-        <div class="cookies-title">
+        <div class="cookies-title flex flex-align-middle">
             <h2 langid="cookiesTitle">Политика cookies</h2>
         </div>
         <div class="cookies-msg">

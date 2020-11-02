@@ -1352,10 +1352,11 @@ header {
 .cookies-title, .cookies-msg, .cookies-footer {
     margin: 1vh 0;
     color: #3D210C;
+    width: 100%;
 }
 
 .cookies-msg {
-    font-size: 100%;
+    font-size: 120%;
 }
 
 .cookies-msg p {
