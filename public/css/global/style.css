@@ -1339,6 +1339,7 @@ header {
     box-shadow: 0 0 20px 0px black;
     transform: translateX(-50%);
     transition: 0.8s ease-in-out;
+    z-index: 1;
 }
 
 .cookies-wrapper.disable {
