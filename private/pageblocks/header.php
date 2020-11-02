@@ -77,27 +77,27 @@
 			<ul class="nav-list">
 				<li>
 					<a navid="home" rel="noopener noreferrer" class="menu-btn" id="home">
-						<span langid="home-menu"></span>
+						<span langid="home-menu"></span><span class="menu-ind mobile"></span>
 					</a>
 				</li>
 				<li>
 					<a navid="gallery" rel="noopener noreferrer" class="menu-btn" id="gallery">
-						<span langid="gallery-menu"></span>
+						<span langid="gallery-menu"></span><span class="menu-ind mobile"></span>
 					</a>
 				</li>
 				<li>
 					<a navid="catalogue/clothes" rel="noopener noreferrer" class="menu-btn" id="clothes">
-						<span langid="clothes-menu"></span>
+						<span langid="clothes-menu"></span><span class="menu-ind mobile"></span>
 					</a>
 				</li>
 				<li>
 					<a navid="catalogue/accessories" rel="noopener noreferrer" class="menu-btn" id="accessories">
-						<span langid="accessories-menu"></span>
+						<span langid="accessories-menu"></span><span class="menu-ind mobile"></span>
 					</a>
 				</li>
 				<li>
 					<a navid="news" rel="noopener noreferrer" class="menu-btn" id="news">
-						<span langid="news-menu"></span>
+						<span langid="news-menu"></span><span class="menu-ind mobile"></span>
 					</a>
 				</li>
 			</ul>
