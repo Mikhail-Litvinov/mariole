@@ -27,8 +27,8 @@ Title: Главная;
 			</div>
 		</div>
 		<div class="slide">
-			<img src="/public/images/carousel/156.jpg" width="100%" class="desktop">
-			<img src="/public/images/carousel/156m.jpg" width="100%" class="mobile">
+			<img src="/public/images/carousel/IMG_9714.JPG" width="100%" class="desktop">
+			<img src="/public/images/carousel/IMG_9714m.jpgs" width="100%" class="mobile">
 			<p class="slide-text">Надо придумать текст</p>
 			<div class="slide-btn-cont">
 				<a navid="catalogue/accessories">
