@@ -62,9 +62,10 @@ Title: Новости;
 							magni nulla dolore quibusdam rerum deleniti, earum excepturi. Sapiente repudiandae,
 							numquam eaque exercitationem molestias nam inventore amet doloribus labore omnis.</p>
 					</article>
-					<button class="read-more">Показать полностью</button>
 				</div>
 				<div class="news-card-footer flex nowrap">
+					<button class="read-more js-read-more-btn">Показать полностью</button>
+					<button class="js-hide-btn">Скрыть</button>
 					<div class="news-card-keywords-wrapper">
 						<a class="news-card-keyword">Новинки</a>
 						<a class="news-card-keyword">Mariole life-style</a>
@@ -128,9 +129,10 @@ Title: Новости;
 							magni nulla dolore quibusdam rerum deleniti, earum excepturi. Sapiente repudiandae,
 							numquam eaque exercitationem molestias nam inventore amet doloribus labore omnis.</p>
 					</article>
-					<button class="read-more">Показать полностью</button>
 				</div>
 				<div class="news-card-footer flex nowrap">
+					<button class="read-more js-read-more-btn">Показать полностью</button>
+					<button class="js-hide-btn">Скрыть</button>
 					<div class="news-card-keywords-wrapper">
 						<a class="news-card-keyword">Новинки</a>
 						<a class="news-card-keyword">Mariole life-style</a>
