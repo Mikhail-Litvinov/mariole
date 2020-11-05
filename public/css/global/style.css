@@ -234,15 +234,6 @@ header {
     cursor: pointer;
 }
 
-.menu-ind::before {
-    content: '\f105';
-    font-family: Fontello;
-    position: absolute;
-    right: 10%;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
 .nav-list li a::after {
     background-color: #CD7F32;
     display: block;
@@ -261,6 +252,29 @@ header {
 
 .nav-list li a:hover::after {
     width: 100%;
+}
+
+.mobile-links {
+    display: grid;
+    grid-template-columns: repeat(2,max-content);
+    grid-template-rows: repeat(5,max-content);
+    position: relative;
+    grid-gap: 2vh 0;
+    margin-bottom: 2vh;
+}
+
+.mobile-links li {
+    margin: 0;
+}
+
+.mobile-link-wrapper {
+    padding: 0 4vw;
+    font-size: 160%;
+}
+
+.menu-ind::before {
+    content: '\f105';
+    font-family: Fontello;
 }
 
 /* sub menu */

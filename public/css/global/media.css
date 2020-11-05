@@ -566,6 +566,10 @@
    .cookies-title, .cookies-msg, .cookies-footer {
         font-size: 150%;
     }
+
+    .mobile-link-wrapper {
+        font-size: 200%;
+    }
 }
 
 @media screen and (min-width:769px) and (max-width: 1024px) {
@@ -689,6 +693,10 @@
 
     .cookies-title, .cookies-msg, .cookies-footer {
         font-size: 200%;
+    }
+
+    .mobile-link-wrapper {
+        font-size: 300%;
     }
 
 }

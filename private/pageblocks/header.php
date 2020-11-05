@@ -10,7 +10,41 @@
 			</div>
 		</div>
 		<div class="mobile-menu mobile modal" id="mobile-menu">
-			<div class="mobile-menu-wrapper"></div>
+			<div class="mobile-menu-wrapper">
+				<ul class="mobile-links">
+					<li><div class="mobile-link-wrapper">
+						<a rel="noopener noreferrer" class="menu-btn" id="home" langid="home-menu">Главная</a>
+					</div></li>
+					<li><div class="mobile-link-wrapper">
+						<a class="menu-btn"><span class="menu-ind mobile" navid="home"></span></a>
+					</div></li>
+					<li><div class="mobile-link-wrapper">
+						<a rel="noopener noreferrer" class="menu-btn" id="gallery" langid="gallery-menu">Галерея</a>
+					</div></li>
+					<li><div class="mobile-link-wrapper">
+						<a class="menu-btn"><span class="menu-ind mobile" navid="gallery"></span></a>
+					</div></li>
+					<li><div class="mobile-link-wrapper">
+						<a rel="noopener noreferrer" class="menu-btn" id="clothes" langid="clothes-menu">Одежда</a>
+					</div></li>
+					<li><div class="mobile-link-wrapper">
+						<a class="menu-btn"><span class="menu-ind mobile" navid="catalogue/clothes"></span></a>
+					</div></li>
+					<li><div class="mobile-link-wrapper">
+						<a rel="noopener noreferrer" class="menu-btn" id="accessories" langid="accessories-menu">Аксессуары</a>
+					</div></li>
+					<li><div class="mobile-link-wrapper">
+						<a class="menu-btn"><span class="menu-ind mobile" navid="catalogue/accessories"></span></a>
+					</div></li>
+					<li><div class="mobile-link-wrapper">
+						<a rel="noopener noreferrer" class="menu-btn" id="news" langid="news-menu">Новости</a>
+					</div></li>
+					<li>
+						<div class="mobile-link-wrapper">
+							<a class="menu-btn"><span class="menu-ind mobile" navid="news"></span></a>
+						</div></li>
+				</ul>
+			</div>
 		</div>
 		<div class="nav-top-cont flex nowrap">
 			<div class="countries flex">
@@ -73,31 +107,31 @@
 		</div>
 	</div>
 	<div class="flex-row nav flex-align-middle wrap">
-		<div class="flex nav-wrapper navigation">
+		<div class="flex nav-wrapper navigation desktop">
 			<ul class="nav-list">
 				<li>
 					<a navid="home" rel="noopener noreferrer" class="menu-btn" id="home">
-						<span langid="home-menu"></span><span class="menu-ind mobile"></span>
+						<span langid="home-menu"></span>
 					</a>
 				</li>
 				<li>
 					<a navid="gallery" rel="noopener noreferrer" class="menu-btn" id="gallery">
-						<span langid="gallery-menu"></span><span class="menu-ind mobile"></span>
+						<span langid="gallery-menu"></span>
 					</a>
 				</li>
 				<li>
 					<a navid="catalogue/clothes" rel="noopener noreferrer" class="menu-btn" id="clothes">
-						<span langid="clothes-menu"></span><span class="menu-ind mobile"></span>
+						<span langid="clothes-menu"></span>
 					</a>
 				</li>
 				<li>
 					<a navid="catalogue/accessories" rel="noopener noreferrer" class="menu-btn" id="accessories">
-						<span langid="accessories-menu"></span><span class="menu-ind mobile"></span>
+						<span langid="accessories-menu"></span>
 					</a>
 				</li>
 				<li>
 					<a navid="news" rel="noopener noreferrer" class="menu-btn" id="news">
-						<span langid="news-menu"></span><span class="menu-ind mobile"></span>
+						<span langid="news-menu"></span>
 					</a>
 				</li>
 			</ul>
