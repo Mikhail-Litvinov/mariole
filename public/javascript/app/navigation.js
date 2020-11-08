@@ -49,7 +49,7 @@ app.navigation = {
 				app.catalogue.updateSelection(newPath);
 				break;
 			case "news":
-				app.news.updateSelection();
+				app.news.loadPosts(newPath);
 				break;
 		}
 	},
