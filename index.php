@@ -36,6 +36,15 @@
 			case 'product_info': // For single product, contains all images and full language fields
 				$response = get_product_info($db, $language, array_slice($request, 2));
 				break;
+			case 'post_search':
+				$response = get_post_search($db, $language, array_slice($request, 2));
+				break;
+			case 'post_query':
+				$response = get_post_query($db, $language, array_slice($request, 2));
+				break;
+			case 'post_info':
+				$response = get_post_info($db, $language, array_slice($request, 2));
+				break;
 			case 'language_file':
 				$response = get_language_file($db, $language);
 				break;
@@ -128,6 +137,97 @@
 			unset($row[$language], $row['id'], $row['is_uni']);
 			$response[] = $row;
 		}
+		return $response;
+	}
+	
+	function get_post_search($db, $language, $request) {
+		$result = get_post_query($db, $language, $request, false)['posts'];
+		$search_regexp = '/(' . implode('|', array_slice(explode(' ', mb_strtolower($_GET['search'])), 0, 20)) . ')/i'; // Wow regexp
+		
+		$response = [];
+		foreach($result as $post) {
+			$lower = [
+				'name' => mb_strtolower($post['name']),
+				'texts' => array_map('mb_strtolower', $post['texts']),
+				'tags' => array_map('mb_strtolower', array_values($post['tags']))
+			];
+			
+			$filtered_post = implode(' ', array_merge([$lower['name']], $lower['texts'], $lower['tags']));
+			if(preg_match($search_regexp, $filtered_post) === 1) $response[] = $post;
+		}
+		return ['posts' => $response];
+	}
+	
+	function get_post_query($db, $language, $request, $write_counts = true) {
+		$sql = "
+			SELECT * FROM news
+			ORDER BY create_time DESC
+		";
+		return decode_post_data($db, $sql, $language, $write_counts);
+	}
+	
+	function get_post_info($db, $language, $request) {
+		$article = $db->escapeString($request[0]);
+		$sql = "
+			SELECT * FROM news
+			WHERE article = '$article'
+		";
+		return decode_post_data($db, $sql, $language)['posts'][0];
+	}
+	
+	function decode_post_data($db, $sql, $language, $write_counts = false) {
+		$tags_result = $db->query("SELECT id, $language FROM news_tags");
+		$decoded_tags = [];
+		while($tag = $tags_result->fetchArray(SQLITE3_ASSOC)) $decoded_tags[$tag['id']] = $tag[$language];
+		
+		$counts = [
+			'recommended' => 0,
+			'products' => 0,
+			'fresh' => 0,
+			'media' => 0,
+			'trips' => 0,
+			'sales' => 0
+		];
+		
+		$request_tags = [];
+		if(strlen($_GET['tags']) > 0) $request_tags = explode('-', $_GET['tags']);
+		
+		$result = $db->query($sql);
+		$decoded_data = [];
+		while($raw_post = $result->fetchArray(SQLITE3_ASSOC)) {
+			$post = [
+				'article' => $raw_post['article'],
+				'template' => $raw_post['template'],
+				'tags' => [],
+				'preview' => $raw_post['preview']
+			];
+			$post['images'] = json_decode($raw_post['images'], true);
+			$data = json_decode($raw_post[$language], true);
+			$post['name'] = $data['name'];
+			$post['texts'] = $data['texts'];
+			
+			foreach(json_decode($raw_post['tags'], true) as $id) $post['tags'][$id] = $decoded_tags[$id];
+			
+			if($write_counts) {
+				// I'm so sorry
+				if(array_key_exists('product', $post['tags'])) $counts['products'] += 1;
+				if(array_key_exists('media', $post['tags'])) $counts['media'] += 1;
+				if(array_key_exists('trips', $post['tags'])) $counts['trips'] += 1;
+				if(array_key_exists('sale', $post['tags'])) $counts['sales'] += 1;
+			}
+			
+			// Shit
+			$are_tags_ok = true;
+			foreach($request_tags as $tag) {
+				if(!array_key_exists($tag, $post['tags'])) $are_tags_ok = false;
+			}
+			if($are_tags_ok) $decoded_data[] = $post;
+		}
+		
+		$response = ['posts' => $decoded_data];
+		
+		if($write_counts) $response['counts'] = $counts;
+		
 		return $response;
 	}
 	
