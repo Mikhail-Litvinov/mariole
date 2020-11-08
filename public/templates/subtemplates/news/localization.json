@@ -1,0 +1,32 @@
+{
+	"en": {
+		"open_post": "Read full",
+		"read_more": "Read more",
+		"hide": "Hide",
+		"back": "Back"
+	},
+	"ru": {
+		"open_post": "Читать далее",
+		"read_more": "Показать полностью",
+		"hide": "Скрыть",
+		"back": "Назад"
+	},
+	"cs": {
+		"open_post": "cs__open_post",
+		"read_more": "cs__read_more",
+		"hide": "cs__hide",
+		"back": "cs__back"
+	},
+	"it": {
+		"open_post": "it__open_post",
+		"read_more": "it__read_more",
+		"hide": "it__hide",
+		"back": "it__back"
+	},
+	"zh": {
+		"open_post": "zh__open_post",
+		"read_more": "zh__read_more",
+		"hide": "zh__hide",
+		"back": "zh__back"
+	}
+}
