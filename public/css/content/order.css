@@ -1,0 +1,423 @@
+.content-wrapper-full-width {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.flex-column {
+    width: max-content;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 3vh;
+}
+
+.order-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 4vh 0;
+}
+
+.left-column {
+    width: 75%;
+    margin-right: 1vh;
+}
+
+.right-column {
+    width: 25%;
+    margin-left: 1vh;
+    position: relative;
+}
+
+.in-order-wrapper, .buyer-wrapper, .adress-wrapper, .delivery-wrapper, .payment-wrapper, .all-price-wrapper{
+    width: 100%;
+    border: 1px solid #d4d4d4;
+    padding: 4vh 0;
+    margin-bottom: 4vh;
+}
+
+.product-card {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    border: 1px solid #d4d4d4;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.in-order-img {
+    width: 20vh;
+    overflow: hidden;
+}
+
+.in-order-content {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.product-name, .product-color {
+    margin-bottom: 2vh;
+}
+
+.product-size, .product-color {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.product-name h2, .product-price p {
+    font-size: 130%;
+} 
+
+.product-price p {
+    color: #3D210C;
+}
+
+.product-color, .product-size, .in-order-quantity, .in-order-price {
+    color: #828181;
+    font-size: 110%;
+}
+
+.in-order-price {
+    color: #3D210C;
+}
+
+.in-order-wrapper .title {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 4vh;
+    color: #3D210C;
+}
+
+.product-card-wrapper {
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid #d4d4d4;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    margin-bottom: 4vh;
+}
+
+.buyer-content, .adress-content, .delivery-content, .payment-content {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.buyer-content .title, .adress-content .title, .delivery-content .title, .payment-content .title, .all-price-wrapper .title {
+    margin-bottom: 4vh;
+    color: #3D210C;
+}
+
+.content-wrapper-full-width .title {
+    color: #3D210C;
+}
+
+.buyer-personal, .adress-form, .delivery-btn-wrapper {
+    border: 1px solid #d4d4d4;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.name, .email, .phone, .geopos, .index, .delivery-form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 35%;
+    margin: 2vh;
+    margin-right: 4vh;
+    margin-left: 0;
+}
+
+.geopos, .index {
+    width: 60%;
+}
+
+.name label, .name input, .email label, .email input, .phone label, .phone input, .geopos input, .geopos label, .index input, .index label,
+.delivery-form label, .delivery-form textarea {
+    width: 100%;
+    font-size: 120%;
+    color: #3D210C;
+}
+
+.name label span:first-child, .email label span:first-child, .phone label span:first-child, .geopos label span:first-child, .index label span:first-child,
+.delivery-form label span:first-child {
+    font-size: 70%;
+    margin-right: 5px;
+    color: red;
+}
+
+.delivery-form label span:nth-child(2) {
+    font-size: 90%;
+    color: #828181;
+}
+
+.name input, .email input, .phone input, .geopos input, .index input, .delivery-form textarea, .comment-order textarea {
+    height: 4vh;
+    background-color: transparent;
+    border: 1px solid #d4d4d4;
+    font-size: 130%;
+    padding-left: 1vh;
+}
+
+.name label, .email label, .phone label, .geopos label, .index label, .delivery-form label {
+    margin-bottom: 1vh;
+}
+
+.name input:hover, .email input:hover, .phone input:hover, .name input:focus, .email input:focus, .phone input:focus,
+.geopos input:hover, .index input:hover, .geopos input:focus, .index input:focus, .delivery-form:hover textarea, .comment-order textarea:hover {
+    color: #CD7F32;
+    border-color: #CD7F32;
+}
+
+.delivery-form {
+    width: 50%;
+}
+
+.delivery-form textarea, .comment-order textarea {
+    resize: none;
+    height: 15vh;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+.deliver-btn, .payment-btn {
+    width: 30vh;
+    height: 15vh;
+    margin: 4vh 0;
+    margin-right: 4vh;
+    position: relative;
+    padding: 2%;
+    background-color: transparent;
+    border: 1px solid #d4d4d4;
+}
+
+.deliver-btn:hover, .deliver-btn.selected, .payment-btn:hover, .payment-btn.selected {
+    background-color: #eaeaea;
+    border-color: #eaeaea;
+}
+
+.deliver-btn input, .payment-btn input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-appearance: none;
+}
+
+.delivery-ind, .payment-ind {
+    width: 20%;
+    background-color: #eaeaea;
+    border-radius: 50%;
+    padding: 3%;
+}
+
+.deliver-btn:hover .delivery-ind, .payment-btn.selected .payment-ind, .payment-btn:hover .payment-ind, .payment-btn.selected .payment-ind {
+    background-color: whitesmoke
+}
+
+.payment-type-name {
+    font-size: 140%;
+    color: #3D210C;
+    margin-top: 1vh;
+    text-align: left;
+}
+
+.delivery-description, .payment-description {
+    border-bottom: 1px solid #d4d4d4;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2vh 0;
+}
+
+.delivery-description-title, .payment-description-title {
+    width: 100%;
+    padding: 0 0 2vh 0;
+    border-bottom: 1px solid #d4d4d4;
+    font-size: 90%;
+    color: #3D210C;
+}
+
+.delivery-description p, .payment-description p {
+    margin-top: 2vh;
+    font-size: 110%;
+    line-height: 1.5;
+    color: #828181;
+}
+
+.delivery-price {
+    width: 100%;
+    margin-top: 2vh;
+    color: #3D210C;
+}
+
+.delivery-price h2 {
+    font-size: 120%;
+}
+
+.delivery-price p {
+    color: #828181;
+    margin-top: 1vh;
+}
+
+.end-of-order-wrapper {
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.comment-order {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.comment-description {
+    width: 30%;
+    color: #3D210C;
+}
+
+.comment-description .title {
+    font-size: 90%;
+}
+
+.comment-description .title p {
+    font-size: 110%;
+    color: #828181;
+}
+
+.comment-order textarea {
+    width: 70%;
+    padding: 1vh;
+}
+
+.order-agreement {
+    width: 30%;
+}
+
+.order-agreement form {
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative; 
+}
+
+.order-agreement form input {
+    display: none;
+}
+
+.custom-checkbox::before {
+    content: "";
+    background: #fff;
+    border: 1px solid #c4c4c4;
+    display: block;
+    width: 16px;
+    height: 16px;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+.order-agreement form label {
+    margin-left: 1vh;
+    color: #828181;
+}
+
+.order-agreement form label p:nth-child(1) {
+    margin-bottom: 1vh;
+}
+
+.check-mark {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 0;
+    background-color: #c4c4c4;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.order-btn-cont {
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.order-btn-cont button {
+    width: 40vh;
+    height: 8vh;
+    border: 1px solid #1a1a1a;
+    background-color: #1a1a1a;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 120%;
+    color: whitesmoke;
+    padding: 0 4vh;
+    cursor: pointer;
+}
+
+.order-btn-cont button:hover {
+    border: 1px solid #353535;
+    background-color: #353535;
+}
+
+.btn-ind {
+    width: 11%;
+    overflow: hidden;
+}
+
+.all-price-wrapper {
+    padding: 4vh 2vh;
+}
+
+.all-price-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 4vh;
+    margin-bottom: 4vh;
+    border-bottom: 1px solid #c4c4c4;
+    color: #828181;
+    width: 100%;
+}
+
+.all-price-row p:nth-child(2) {
+    color: #3D210C;
+    font-size: 120%;
+}
+
+.full-price-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.full-price-wrapper button {
+    width: 70%;
+    height: 6vh;
+    color: #3D210C;
+    border: 1px solid #3D210C;
+    background-color: transparent;
+    font-size: 100%;
+    cursor: pointer;
+}
+
+.full-price-wrapper button:hover {
+    color: #CD7F32;
+    border-color: #CD7F32;
+}
+
+#trigger {
+    position: absolute;
+    top: 57vh;
+}
