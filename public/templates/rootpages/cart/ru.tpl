@@ -24,7 +24,7 @@ Title: Корзина;
 					</div>
 				</div>
 				<div class="payment-order flex wrap">
-					<button class="js-payment-pay">Оплатить</button>
+					<a navid="order" style="width:100%;"><button class="js-payment-pay">Оформить</button></a>
 					<button class="js-payment-back">Назад в магазин</button>
 				</div>
 			</div>
