@@ -70,7 +70,7 @@ $(window).on("onload.init_unique/news", () => {
 			
 			$(".js-read-more-btn").click((evt) => {
 				let button = $(evt.currentTarget);
-				let content = button.parent().siblings(".news-card-content");
+				let content = button.parents(".js-post-preview-wrapper").find(".news-card-content");
 				let [lastX, lastY] = [window.scrollX, window.scrollY];
 				
 				content.children(".news-card-content-article").height("auto");

@@ -1,4 +1,4 @@
-<div class="news-card-wrapper flex wrap relative scroll1" id="scroll-1">
+<div class="news-card-wrapper flex wrap relative scroll1 js-post-preview-wrapper" id="scroll-1">
 	<div class="news-card-img">
 		<img src="/public/images/news/${image}.jpeg" alt="" width="100%">
 	</div>
