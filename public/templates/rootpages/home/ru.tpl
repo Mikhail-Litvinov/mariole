@@ -14,22 +14,22 @@ Title: Главная;
 	</div>
 	<div id="slide-container">
 		<div class="slide">
-			<img src="/public/images/carousel/166.jpg" width="100%" class="desktop">
-			<img src="/public/images/carousel/166m.jpg" width="100%" class="mobile">
+			<img src="/public/images/carousel/DSC_0013-(2).jpg" width="100%" class="desktop">
+			<img src="/public/images/carousel/DSC_0013-(2)m.jpg" width="100%" class="mobile">
 			<p class="slide-text">Надо придумать текст</p>
 			<div class="slide-btn-cont">
 				<a navid="catalogue/clothes">
-					<button class="slide-button-dark">Одежда</button>
+					<button class="slide-button">Одежда</button>
 				</a>
 				<a navid="catalogue/accessories">
-					<button class="slide-button-dark">Аксессуары</button>
+					<button class="slide-button">Аксессуары</button>
 				</a>
 			</div>
 		</div>
 		<div class="slide">
 			<img src="/public/images/carousel/170.jpg" width="100%" class="desktop">
 			<img src="/public/images/carousel/170m.jpg" width="100%" class="mobile">
-			<p class="slide-text">Надо придумать текст</p>
+			<p class="slide-text">Верность традициям.</p>
 			<div class="slide-btn-cont">
 				<a navid="catalogue/accessories">
 					<button class="slide-button">Бижутерия</button>
