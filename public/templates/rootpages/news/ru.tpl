@@ -82,7 +82,7 @@ Title: Новости;
 			<div class="blog-nav-element">
 				<div class="blog-search-wrapper">
 					<form action="" class="blog-search-form flex wrap">
-						<input type="text" placeholder="убейте меня" class="blog-search-input js-search-value"/>
+						<input type="text" placeholder="поиск" class="blog-search-input js-search-value"/>
 						<span class="blog-search"></span>
 					</form>
 					<button class="blog-search-button js-search-btn">Поиск</button>
@@ -113,45 +113,45 @@ Title: Новости;
 			</div>
 			<div class="blog-nav-element">
 				<div class="key-words-wrapper flex wrap">
-					<form action="" class="js-tags-form">
+					<form action="" class="js-tags-form flex wrap">
 						<label class="blog-keywords-button">
-							<input name="product" type="checkbox"/>
-							Продукт
+							<input name="product" type="checkbox" class="checkbox-keywords"/>
+							<span>Продукт</span>
 						</label>
 						<label class="blog-keywords-button">
-							<input name="sale" type="checkbox"/>
+							<input name="sale" type="checkbox" class="checkbox-keywords"/>
 							Акция
 						</label>
 						<label class="blog-keywords-button">
-							<input name="trips" type="checkbox"/>
+							<input name="trips" type="checkbox" class="checkbox-keywords"/>
 							Поездки
 						</label>
 						<label class="blog-keywords-button">
-							<input name="new" type="checkbox"/>
+							<input name="new" type="checkbox" class="checkbox-keywords"/>
 							Новинки
 						</label>
 						<label class="blog-keywords-button">
-							<input name="mariole_life_style" type="checkbox"/>
+							<input name="mariole_life_style" type="checkbox" class="checkbox-keywords"/>
 							Mariole life-style
 						</label>
 						<label class="blog-keywords-button">
-							<input name="design" type="checkbox"/>
+							<input name="design" type="checkbox" class="checkbox-keywords"/>
 							Дизайн
 						</label>
 						<label class="blog-keywords-button">
-							<input name="photo" type="checkbox"/>
+							<input name="photo" type="checkbox" class="checkbox-keywords"/>
 							Фото
 						</label>
 						<label class="blog-keywords-button">
-							<input name="clothes" type="checkbox"/>
+							<input name="clothes" type="checkbox" class="checkbox-keywords"/>
 							Одежда
 						</label>
 						<label class="blog-keywords-button">
-							<input name="accessories" type="checkbox"/>
+							<input name="accessories" type="checkbox" class="checkbox-keywords"/>
 							Аксессуары
 						</label>
 						<label class="blog-keywords-button">
-							<input name="media" type="checkbox"/>
+							<input name="media" type="checkbox" class="checkbox-keywords"/>
 							Пресса
 						</label>
 					</form>
