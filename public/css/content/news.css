@@ -171,16 +171,21 @@
 }
 
 .news-card-button-wrapper {
-
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
-.read-more {
-    float: right;
+.read-more, .hide-news {
     border: none;
     border-bottom: 1px solid gray;
     background-color: transparent;
     cursor: pointer;
     color: gray;
+}
+
+.hide-news {
+    display: none;
 }
 
 .read {
@@ -191,6 +196,7 @@
     height: 3vh;
     font-size: 100%;
     background-color: transparent;
+    margin-left: 1vh;
 }
 
 .read-more:hover, .read:hover {
