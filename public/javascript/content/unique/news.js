@@ -140,7 +140,8 @@ $(window).on("onload.init_unique/news", () => {
 			});
 		}
 	});
-	$(".js-tags-form input").click(() => {
+	$(".js-tags-form input").click((evt) => {
+		evt.currentTarget.parentElement.classList.toggle("active");
 		let elements = Array.from($(".js-tags-form input"));
 		let tags = elements.filter(element => element.checked).map(element => element.name).join("-");
 		$.getJSON("/data/database/post_query/" + app.translation.language.code + `?tags=${tags}`, (data) => {
