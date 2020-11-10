@@ -31,6 +31,9 @@
 		</div>
 		<div class="flex col-1-3 footer-column">
 			<ul>
+			<li>
+					<a navid="cookies-policy" langid="cookies-policy"></a>
+				</li>
 				<li>
 					<a navid="legal-information" langid="legal-information"></a>
 				</li>
