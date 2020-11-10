@@ -45,7 +45,6 @@ $(window).on("onload.init_unique/news", () => {
 			if(!newData) {
 				let condition = "";
 				if(newPath[1] && Number.isNaN(+newPath[1])) condition = `?tags=${newPath[1]}`;
-				// console.log("/data/database/post_query/" + app.translation.language.code + condition);
 				
 				$.getJSON("/data/database/post_query/" + app.translation.language.code + condition, (data) => {
 					this.loadPosts(newPath, data);
@@ -58,7 +57,7 @@ $(window).on("onload.init_unique/news", () => {
 			this.fillCounts();
 			
 			if(+newPath[1]) this.openPost(+newPath[1]);
-			else this.closePost();
+			else this.closePost(false);
 		},
 		generatePreviews() {
 			$(".js-preview-container").html("");
@@ -69,28 +68,19 @@ $(window).on("onload.init_unique/news", () => {
 			}
 			
 			$(".js-read-more-btn").click((evt) => {
-				let button = $(evt.currentTarget);
-				let content = button.parents(".js-post-preview-wrapper").find(".news-card-content");
+				let wrapper = $(evt.currentTarget).hide().parents(".js-post-preview-wrapper");
+				wrapper.find(".js-hide-btn").show();
+				
 				let [lastX, lastY] = [window.scrollX, window.scrollY];
-				
-				content.children(".news-card-content-article").height("auto");
-				content.height(content[0].scrollHeight);
-				
+				wrapper.find(".news-card-content, .news-card-content-article").height("auto");
 				window.scrollTo(lastX, lastY);
-				
-				button.siblings(".js-hide-btn").show();
-				button.hide();
 			});
 			
 			$(".js-hide-btn").click((evt) => {
-				let button = $(evt.currentTarget);
-				let content = button.parent().siblings(".news-card-content");
+				let wrapper = $(evt.currentTarget).hide().parents(".js-post-preview-wrapper");
+				wrapper.find(".js-read-more-btn").show();
 				
-				content.height("");
-				content.children(".news-card-content-article").height("");
-				
-				button.siblings(".js-read-more-btn").show();
-				button.hide();
+				wrapper.find(".news-card-content").add(wrapper.find(".news-card-content-article")).height("");
 			});
 			
 			app.navigation.wrapPageLinks(".js-preview-container [navid]");
@@ -123,16 +113,16 @@ $(window).on("onload.init_unique/news", () => {
 				$(".js-post-wrapper").show();
 			});
 		},
-		closePost() {
+		closePost(doScroll = true) {
 			$(".js-post-wrapper").hide();
 			$(".js-news-page").show();
 			
-			window.scrollTo(this.mainX, this.mainY);
+			if(doScroll) window.scrollTo(this.mainX, this.mainY);
 		}
 	};
 	
 	$(".mobile-nav-button").click(() => { $(".blog-column-right").toggleClass("openned"); });
-	$(".js-search-btn").click(() => {
+	$(".js-search-form").on("submit", () => {
 		let searchValue = $(".js-search-value").val();
 		if(searchValue.length > 0) {
 			$.getJSON("/data/database/post_search/" + app.translation.language.code + `?search=${searchValue}`, (data) => {

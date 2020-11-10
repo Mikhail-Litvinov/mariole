@@ -81,11 +81,11 @@ Title: Новости;
 		<div class="blog-column-right wrap">
 			<div class="blog-nav-element">
 				<div class="blog-search-wrapper">
-					<form action="" class="blog-search-form flex wrap">
+					<form action="javascript:void(0);" class="blog-search-form flex wrap js-search-form">
 						<input type="text" placeholder="поиск" class="blog-search-input js-search-value"/>
 						<span class="blog-search"></span>
+						<input type="submit" class="blog-search-button js-search-btn" value="Поиск"/>
 					</form>
-					<button class="blog-search-button js-search-btn">Поиск</button>
 				</div>
 			</div>
 			<div class="blog-nav-element">
