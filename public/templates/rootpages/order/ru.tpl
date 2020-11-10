@@ -216,7 +216,7 @@ Title: Заказ;
 								<p>Оплата картой</p>
 							</div>
 						</button>
-						<button class="deliver-btn">
+						<button class="payment-btn">
 							<div>
 								<div class="payment-ind">
 									<img src="/public/images/icons/bill.png" alt="" width="100%">

@@ -219,11 +219,11 @@ input::-webkit-inner-spin-button {
     padding: 3%;
 }
 
-.deliver-btn:hover .delivery-ind, .payment-btn.selected .payment-ind, .payment-btn:hover .payment-ind, .payment-btn.selected .payment-ind {
+.deliver-btn:hover .delivery-ind, .deliver-btn.deliver-btn.selected .delivery-ind, .payment-btn.selected .payment-ind, .payment-btn:hover .payment-ind, .payment-btn.selected .payment-ind {
     background-color: whitesmoke
 }
 
-.payment-type-name {
+.payment-type-name, .delivery-type-name {
     font-size: 140%;
     color: #3D210C;
     margin-top: 1vh;
@@ -421,3 +421,112 @@ input::-webkit-inner-spin-button {
     position: absolute;
     top: 57vh;
 }
+
+@media screen and (min-width:0px) and (max-width:1024px) {
+    .content-wrapper-full-width {
+        width: 90%;
+    }
+
+    .left-column, .right-column {
+        width: 100%;
+    }
+
+    .content-wrapper-full-width .title {
+        text-align: center;
+    }
+
+    .order-wrapper, .product-card, .in-order-content, .comment-order {
+        flex-wrap: wrap;
+    }
+
+    .in-order-img {
+        width: 40%;
+    }
+
+    .in-order-content {
+        width: 60%;
+    }
+
+    .flex-column, .comment-order, .order-agreement, .comment-description {
+        margin-bottom: 4vh;
+    }
+
+    .product-card {
+        padding: 4vh 0;
+    }
+
+    .name, .email, .phone, .geopos, .index, .delivery-form {
+        width: 100%;
+    }
+
+    .deliver-btn, .payment-btn {
+        width: 100%;
+        height: max-content;
+        margin-right: 0;
+    }
+
+    .comment-order, .comment-order textarea, .order-agreement, .order-btn-cont, .comment-description {
+        width: 100%;
+    }
+
+    .order-btn-cont {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .comment-description p {
+        font-size: 120%;
+    }
+
+
+}
+
+@media screen and (min-width:0px) and (max-width: 280px) {
+
+}
+
+@media screen and (min-width:281px) and (max-width: 320px) {
+
+}
+
+@media screen and (min-width:321px) and (max-width: 360px) {
+
+}
+
+@media screen and (min-width:361px) and (max-width: 375px) {
+
+}
+
+@media screen and (min-width:376px) and (max-width: 411px) {
+
+}
+
+@media screen and (min-width:412px) and (max-width: 414px) {
+
+}
+
+@media screen and (min-width:415px) and (max-width: 540px) {
+
+}
+
+@media screen and (min-width:541px) and (max-width: 768px) {
+    .content-wrapper-full-width {
+        font-size: 130%;
+    }
+
+    .content-wrapper-full-width button {
+        font-size: 100%;
+    }
+}
+
+@media screen and (min-width:769px) and (max-width: 1024px) {
+    .content-wrapper-full-width {
+        font-size: 170%;
+    }
+
+    .content-wrapper-full-width button {
+        font-size: 100%;
+    }
+}
+
+/* media end */
