@@ -123,6 +123,7 @@
     margin: 1vh 0;
     color: #3D210C;
     border: 1px solid #3D210C;
+    cursor: pointer;
 }
 
 .payment-order button:hover {

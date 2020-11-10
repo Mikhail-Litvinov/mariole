@@ -1,4 +1,5 @@
 $(window).on("onload.app_scrollmagic", () => {
+
 	app.scrollmagic = {
 		_controller: undefined,
 		_tweens: undefined,
@@ -37,7 +38,9 @@ $(window).on("onload.app_scrollmagic", () => {
 			for(let tween of this._tweens) tween.invalidate();
 			for(let scene of this._scenes) scene.remove();
 		}
+		
 	};
+	
 	
 	app.scrollmagic.init();
 	app.scrollmagic.start();
