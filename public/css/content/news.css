@@ -17,9 +17,9 @@
 .blog-search {
     color: #3D210C;
     position: absolute;
-    top: 50%;
+    top: 10%;
     right: 1%;
-    transform: translate(-1%, -50%);
+    transform: translate(-1%, -10%);
 }
 
 .blog-search::before {
