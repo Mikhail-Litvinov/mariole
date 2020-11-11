@@ -160,4 +160,4 @@ Title: Новости;
 		</div>
 	</div>
 </div>
-<div class="js-post-wrapper" style="display: none;"></div>
+<div class="js-post-wrapper post-wrapper" style="display: none;"></div>
