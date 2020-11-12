@@ -329,6 +329,11 @@
     padding: 3% 4vh;
 }
 
+.content-wrapper-full-width.backgrounded {
+	position: fixed;
+	z-index: -1;
+}
+
 .search-input-cont {
     width: 100%;
     position: relative;
