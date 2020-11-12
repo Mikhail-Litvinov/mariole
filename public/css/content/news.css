@@ -17,9 +17,9 @@
 .blog-search {
     color: #3D210C;
     position: absolute;
-    top: 10%;
+    top: 50%;
     right: 1%;
-    transform: translate(-1%, -10%);
+    transform: translate(-1%, -50%);
 }
 
 .blog-search::before {
@@ -46,7 +46,7 @@
 }
 
 .blog-search-input {
-    width: 100%;
+    width: calc(85% - 1vh);
     height: 4vh;
     font-size: 100%;
     padding-left: 1vh;
@@ -327,6 +327,11 @@
 .post-wrapper .content-wrapper {
     background-color: whitesmoke;
     padding: 3% 4vh;
+}
+
+.search-input-cont {
+    width: 100%;
+    position: relative;
 }
 
 /* media */
