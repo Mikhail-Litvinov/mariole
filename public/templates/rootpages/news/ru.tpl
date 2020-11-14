@@ -8,6 +8,8 @@ Title: Новости;
 		</div>
 	</div>
 	<div class="blog-wrapper flex nowrap">
+		<div id="trigger">
+		</div>
 		<div class="blog-column-left flex wrap js-preview-container">
 			<!--
 			<div class="news-card-wrapper flex wrap relative scroll2" id="scroll-2">
@@ -79,87 +81,99 @@ Title: Новости;
 			</div>-->
 		</div>
 		<div class="blog-column-right wrap">
-			<div class="blog-nav-element">
-				<div class="blog-search-wrapper">
-					<form action="javascript:void(0);" class="blog-search-form flex wrap js-search-form">
-						<div class="search-input-cont">
-						<input type="text" placeholder="поиск" class="blog-search-input js-search-value"/>
-						<span class="blog-search"></span>
-						</div>
-						<input type="submit" class="blog-search-button js-search-btn" value="Поиск"/>
-					</form>
+			<div id="slickMenu">
+				<div class="blog-nav-element">
+					<div class="blog-search-wrapper">
+						<form action="javascript:void(0);" class="blog-search-form flex wrap js-search-form">
+							<div class="search-input-cont">
+							<input type="text" placeholder="поиск" class="blog-search-input js-search-value"/>
+							<span class="blog-search"></span>
+							</div>
+							<input type="submit" class="blog-search-button js-search-btn" value="Поиск"/>
+						</form>
+					</div>
 				</div>
-			</div>
-			<div class="blog-nav-element">
-				<div class="blog-categories-wrapper flex wrap">
-					<h2>Категории</h2>
-					<button class="blog-categories-button">
-						<a>Свежие новости (<span class="news-count js-count-fresh"></span>)</a>
-					</button>
-					<button class="blog-categories-button">
-						<a>Рекомендованное (<span class="news-count js-count-recommended"></span>)</a>
-					</button>
-					<button class="blog-categories-button">
-						<a navid="news/media">Мы в прессе (<span class="news-count js-count-media"></span>)</a>
-					</button>
-					<button class="blog-categories-button">
-						<a navid="news/trips">Поездки (<span class="news-count js-count-trips"></span>)</a>
-					</button>
-					<button class="blog-categories-button">
-						<a navid="news/product">Продукция (<span class="news-count js-count-products"></span>)</a>
-					</button>
-					<button class="blog-categories-button">
-						<a navid="news/sale">Акции (<span class="news-count js-count-sales"></span>)</a>
-					</button>
+				<div class="blog-nav-element">
+					<div class="blog-categories-wrapper flex wrap">
+						<h2>Категории</h2>
+						<button class="blog-categories-button">
+							<a>Свежие новости (<span class="news-count js-count-fresh"></span>)</a>
+						</button>
+						<button class="blog-categories-button">
+							<a>Рекомендованное (<span class="news-count js-count-recommended"></span>)</a>
+						</button>
+						<button class="blog-categories-button">
+							<a navid="news/media">Мы в прессе (<span class="news-count js-count-media"></span>)</a>
+						</button>
+						<button class="blog-categories-button">
+							<a navid="news/trips">Поездки (<span class="news-count js-count-trips"></span>)</a>
+						</button>
+						<button class="blog-categories-button">
+							<a navid="news/product">Продукция (<span class="news-count js-count-products"></span>)</a>
+						</button>
+						<button class="blog-categories-button">
+							<a navid="news/sale">Акции (<span class="news-count js-count-sales"></span>)</a>
+						</button>
+					</div>
 				</div>
-			</div>
-			<div class="blog-nav-element">
-				<div class="key-words-wrapper flex wrap">
-					<form action="" class="js-tags-form flex wrap">
-						<label class="blog-keywords-button">
-							<input name="product" type="checkbox" class="checkbox-keywords"/>
-							<span>Продукт</span>
-						</label>
-						<label class="blog-keywords-button">
-							<input name="sale" type="checkbox" class="checkbox-keywords"/>
-							Акция
-						</label>
-						<label class="blog-keywords-button">
-							<input name="trips" type="checkbox" class="checkbox-keywords"/>
-							Поездки
-						</label>
-						<label class="blog-keywords-button">
-							<input name="new" type="checkbox" class="checkbox-keywords"/>
-							Новинки
-						</label>
-						<label class="blog-keywords-button">
-							<input name="mariole_life_style" type="checkbox" class="checkbox-keywords"/>
-							Mariole life-style
-						</label>
-						<label class="blog-keywords-button">
-							<input name="design" type="checkbox" class="checkbox-keywords"/>
-							Дизайн
-						</label>
-						<label class="blog-keywords-button">
-							<input name="photo" type="checkbox" class="checkbox-keywords"/>
-							Фото
-						</label>
-						<label class="blog-keywords-button">
-							<input name="clothes" type="checkbox" class="checkbox-keywords"/>
-							Одежда
-						</label>
-						<label class="blog-keywords-button">
-							<input name="accessories" type="checkbox" class="checkbox-keywords"/>
-							Аксессуары
-						</label>
-						<label class="blog-keywords-button">
-							<input name="media" type="checkbox" class="checkbox-keywords"/>
-							Пресса
-						</label>
-					</form>
+				<div class="blog-nav-element">
+					<div class="key-words-wrapper flex wrap">
+						<form action="" class="js-tags-form flex wrap">
+							<label class="blog-keywords-button">
+								<input name="product" type="checkbox" class="checkbox-keywords"/>
+								<span>Продукт</span>
+							</label>
+							<label class="blog-keywords-button">
+								<input name="sale" type="checkbox" class="checkbox-keywords"/>
+								Акция
+							</label>
+							<label class="blog-keywords-button">
+								<input name="trips" type="checkbox" class="checkbox-keywords"/>
+								Поездки
+							</label>
+							<label class="blog-keywords-button">
+								<input name="new" type="checkbox" class="checkbox-keywords"/>
+								Новинки
+							</label>
+							<label class="blog-keywords-button">
+								<input name="mariole_life_style" type="checkbox" class="checkbox-keywords"/>
+								Mariole life-style
+							</label>
+							<label class="blog-keywords-button">
+								<input name="design" type="checkbox" class="checkbox-keywords"/>
+								Дизайн
+							</label>
+							<label class="blog-keywords-button">
+								<input name="photo" type="checkbox" class="checkbox-keywords"/>
+								Фото
+							</label>
+							<label class="blog-keywords-button">
+								<input name="clothes" type="checkbox" class="checkbox-keywords"/>
+								Одежда
+							</label>
+							<label class="blog-keywords-button">
+								<input name="accessories" type="checkbox" class="checkbox-keywords"/>
+								Аксессуары
+							</label>
+							<label class="blog-keywords-button">
+								<input name="media" type="checkbox" class="checkbox-keywords"/>
+								Пресса
+							</label>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 <div class="js-post-wrapper post-wrapper" style="display: none;"></div>
+
+<script>
+	var controller = new ScrollMagic.Controller();
+	$(function () { // wait for document ready
+				// build scene
+				var scene = new ScrollMagic.Scene({triggerElement: "#trigger"})
+								.setPin("#slickMenu")
+								.addTo(controller);
+			});
+</script>

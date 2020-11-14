@@ -417,11 +417,6 @@ input::-webkit-inner-spin-button {
     border-color: #CD7F32;
 }
 
-#trigger {
-    position: absolute;
-    top: 57vh;
-}
-
 @media screen and (min-width:0px) and (max-width:1024px) {
     .content-wrapper-full-width {
         width: 90%;

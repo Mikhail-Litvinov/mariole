@@ -339,6 +339,10 @@
     position: relative;
 }
 
+#trigger {
+    top: 51vh;
+}
+
 /* media */
 
 @media screen and (min-width:0px) and (max-width:1024px) {
@@ -432,6 +436,8 @@
     .post-wrapper .content-wrapper {
         padding: 0;
     }
+
+    
 }
 
 @media screen and (min-width:0px) and (max-width: 280px) {
