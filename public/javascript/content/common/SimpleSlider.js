@@ -1,3 +1,18 @@
+class GenericSimpleSlider {
+	constructor(selector, images) {
+		let slider = $("<div class=\"js-simpleslider\">");
+		
+		for(let image of images) {
+			slider.append(`<div class="js-simpleslider-slide"><img src="${image}" alt="" width="100%"/></div>`);
+		}
+		
+		slider.append("<div class=\"js-simpleslider-previous-slide\">&#10094;</div>");
+		slider.append("<div class=\"js-simpleslider-next-slide\">&#10095;</div>");
+		
+		$(selector).html("").append(slider);
+	}
+}
+
 class SimpleSlider {
 	constructor(config = {}) {
 		config = {
