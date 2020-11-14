@@ -428,6 +428,10 @@
         width: 100%;
         justify-content: space-between;
     }
+
+    .post-wrapper .content-wrapper {
+        padding: 0;
+    }
 }
 
 @media screen and (min-width:0px) and (max-width: 280px) {
