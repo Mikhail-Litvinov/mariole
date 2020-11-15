@@ -1,5 +1,5 @@
 .contacts-phone-container, .contacts-email-container, .contacts-org-container, .company-name {
-    margin-bottom: 1vh;
+    margin-bottom: 4vh;
 }
 
 .contacts-phone-container a, .contacts-email-container a, .contacts-data, .contacts-title  {
@@ -28,16 +28,6 @@
     margin: 1vh 0;
     font-size: 110%;
     position: relative;
-}
-
-.tinkoff {
-    background-image: url(/public/images/tinkoff/513f36a0-d533-4240-902c-86f082781f41.png);
-    width: 7vh;
-    height: 7vh;
-    background-size: cover;
-    position: absolute;
-    top: -3vh;
-    right: 30vh;
 }
 
 /* media */

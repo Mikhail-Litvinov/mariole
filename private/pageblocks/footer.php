@@ -31,11 +31,14 @@
 		</div>
 		<div class="flex col-1-3 footer-column">
 			<ul>
-			<li>
+				<li>
 					<a navid="cookies-policy" langid="cookies-policy"></a>
 				</li>
 				<li>
 					<a navid="legal-information" langid="legal-information"></a>
+				</li>
+				<li>
+					<a href="https://www.tinkoff.ru/" class="partner-footer"><span langid="general-partner"></span> <div><img src="/public/images/tinkoff/aed4615b-1449-4c1a-bcb3-3bea94f74af2.png" alt="" width="100%"></div></a>
 				</li>
 			</ul>
 		</div>
