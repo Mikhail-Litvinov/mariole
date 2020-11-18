@@ -58,7 +58,7 @@
 	
 	function get_product_query($db, $language, $request) {
 		// Wraps all products' fields into interact-convenient object
-		return wrap_products_info($db, $language, get_product_query_sql($db, $language, $request));
+		return wrap_products_info($db, $language, get_product_query_sql($db, $language, $request), true);
 	}
 	
 	function get_product_query_sql($db, $language, $request) { // Returns valid SQL request with given parameters
@@ -134,7 +134,7 @@
 				$row['unit'] = $exploded_name[1];
 			} else $row['name'] = $row[$language];
 			$row['value'] = $params[$row['id']];
-			unset($row[$language], $row['id'], $row['is_uni']);
+			unset($row[$language], $row['is_uni']);
 			$response[] = $row;
 		}
 		return $response;
