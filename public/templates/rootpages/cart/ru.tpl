@@ -142,6 +142,7 @@ Title: Корзина;
 								<p>Доставка по Москве. <br>
 									Осуществляется в течение дня, в удобное для вас время с 11:00 до 20:00
 								</p>
+								<input type="text" id="delivery-adress" placeholder="Введите адрес доставки">
 							</div>
 							<div class="delivery-description-wrapper" hidden>
 								<div class="delivery-description-title">
@@ -275,7 +276,7 @@ Title: Корзина;
 					<div class="full-price-wrapper">
 						<div class="all-price-row">
 							<p>Итого</p>
-							<p class="js-order-final-price"</p>
+							<p class="js-order-final-price"></p>
 						</div>
 						<button>Оформить заказ</button>
 					</div>
