@@ -157,7 +157,7 @@
     height: 4vh;
     background-color: transparent;
     border: 1px solid #d4d4d4;
-    font-size: 130%;
+    font-size: 100%;
     padding-left: 1vh;
 }
 
@@ -166,7 +166,6 @@
 }
 
 #order-page .name input:hover, #order-page .email input:hover, #order-page .phone input:hover, #order-page .name input:focus, #order-page .email input:focus, #order-page .phone input:focus, #order-page .geopos input:hover, #order-page .index input:hover, #order-page .geopos input:focus, #order-page .index input:focus, #order-page .delivery-form:hover textarea, #order-page .comment-order textarea:hover {
-    color: #CD7F32;
     border-color: #CD7F32;
 }
 
@@ -187,7 +186,7 @@ input::-webkit-inner-spin-button {
 
 #order-page .deliver-btn, #order-page .payment-btn {
     width: 30vh;
-    height: 15vh;
+    min-height: 15vh;
     margin: 4vh 0;
     margin-right: 4vh;
     position: relative;
