@@ -1,6 +1,7 @@
 $(window).on("onload.init_unique/cart", () => {
 	app.cart = {
 		orderSubmitBtn: undefined,
+		SMScene: undefined,
 		list: [],
 		crawler: {
 			crawl() {
@@ -303,7 +304,7 @@ $(window).on("onload.init_unique/cart", () => {
 		$(".js-payment-type-description").hide().filter(`[payment-type="${paymentType}"]`).show();
 	});
 	
-	app.scrollmagic.fix("#trigger", "#slickPrice");
+	app.cart.SMScene = app.scrollmagic.fix("#trigger", "#slickPrice");
 	
 	$(window).on({
 		"oncountrychange.content": () => {
@@ -324,7 +325,15 @@ $(window).on("onload.init_unique/cart", () => {
 				// }
 			// });
 		// },
-		"onresize.content": () => { /* something */ },
+		"onresize.content": () => {
+			if(app.main.isMobile || app.main.isLowWidth) {
+				$(".js-right-column").detach().insertBefore(".js-left-column");
+				app.cart.SMScene.enabled(false);
+			} else {
+				$(".js-right-column").detach().insertAfter(".js-left-column");
+				app.cart.SMScene.enabled(true);
+			}
+		},
 		"onunload.content": () => { app.cart = undefined; }
 	});
 });

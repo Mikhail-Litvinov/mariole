@@ -37,9 +37,8 @@ Title: Корзина;
 			<h2>Оформление заказа</h2>
 		</div>
 		<div class="order-wrapper">
-			<div id="trigger">
-			</div>
-			<div class="left-column">
+			<div id="trigger"></div>
+			<div class="left-column js-left-column">
 				<div class="in-order-wrapper">
 					<div class="title">
 						<h2>Товары в заказе</h2>
@@ -273,7 +272,7 @@ Title: Корзина;
 					</div>
 				</div>
 			</div>
-			<div class="right-column">
+			<div class="right-column js-right-column">
 				<div class="all-price-wrapper" id="slickPrice">
 					<div class="title">
 						<h2>Ваш заказ</h2>
