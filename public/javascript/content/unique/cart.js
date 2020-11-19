@@ -1,5 +1,6 @@
 $(window).on("onload.init_unique/cart", () => {
 	app.cart = {
+		orderSubmitBtn: undefined,
 		list: [],
 		crawler: {
 			crawl() {
@@ -15,8 +16,9 @@ $(window).on("onload.init_unique/cart", () => {
 				$.when(
 					$.getJSON("/public/templates/subtemplates/cart/localization.json"),
 					$.get("/public/templates/subtemplates/cart/item.tpl"),
-					$.get("/public/templates/subtemplates/cart/order_item.tpl")
-				).then((localization, item, orderItem) => {
+					$.get("/public/templates/subtemplates/cart/order_item.tpl"),
+					$.getJSON("/public/templates/subtemplates/cart/delivery.json")
+				).then((localization, item, orderItem, delivery) => {
 					app.templates.cart = {
 						_localization: localization[0],
 						getLocalization(id) {
@@ -40,8 +42,35 @@ $(window).on("onload.init_unique/cart", () => {
 								.replace("${quantity}", quantity)
 								.replace("${full_price}", fullPrice)
 								.replace("${params}", params);
+						},
+						_delivery: delivery[0],
+						getDeliveryData(addressData) {
+							let data = [];
+							for(let entryName in this._delivery) {
+								let entry = this._delivery[entryName];
+								let city = addressData.city.toLowerCase();
+								let region = addressData.region.toLowerCase();
+								if(
+									!(entry.deny.cities.includes(city) || entry.deny.regions.includes(region))
+									&& (entry.allow.cities[0] == "*" || entry.allow.regions[0] == "*"
+									|| entry.allow.cities.includes(city)
+									|| entry.allow.regions.includes(region))
+								) {
+									data.push({
+										"type": entryName,
+										"costs": entry.costs,
+										"payments": entry.payment
+									});
+								}
+							}
+							return data;
 						}
 					};
+					for(let element of document.querySelectorAll(".js-delivery-type-description")) {
+						let prices = app.templates.cart._delivery[element.getAttribute("delivery-type")].costs;
+						let price = this.formatPrice(prices[app.translation.currency.name]);
+						element.querySelector(".js-delivery-price").innerHTML = price;
+					}
 					this.updateList(newList, callback);
 				});
 				return;
@@ -112,6 +141,9 @@ $(window).on("onload.init_unique/cart", () => {
 		buildOrderList() {
 			let newOrderList = "";
 			let cookieCart = app.cookies.cart.getItems();
+			
+			document.querySelector("[userdata=\"cart\"]").value = JSON.stringify(Array.from(cookieCart));
+			
 			for(let product of this.list) {
 				let params = "";
 				for(let param of product.params) {
@@ -139,7 +171,7 @@ $(window).on("onload.init_unique/cart", () => {
 		},
 		calculateFinalOrderSum(prices) {
 			let price = prices.finalSum;
-			let delivery = 0;
+			let delivery = prices.deliverySum ?? 0;
 			let finalPrice = price + delivery;
 			
 			$(".js-order-raw-price").html(this.formatPrice(price));
@@ -147,45 +179,71 @@ $(window).on("onload.init_unique/cart", () => {
 			$(".js-order-final-price").html(this.formatPrice(finalPrice));
 		},
 		bindAutocompletes() {
-			let delayedFetch = (type, field, callback) => {
-				clearTimeout(field.timer);
-				field.timer = setTimeout(() => {
-					fetch("https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/" + type, {
-						method: "POST",
-						mode: "cors",
-						headers: {
-							"Content-Type": "application/json",
-							"Accept": "application/json",
-							"Authorization": "Token 7c5272e224601f8a36fd147a354c266eb2494cd9"
-						},
-						body: JSON.stringify({ query: field.value })
-					}).then(response => response.text()).then(result => callback(result)).catch(error => console.log("error", error));
-				}, 500);
-			};
-			$("[userdata=\"email\"]").on("input", (evt) => {
-				let field = evt.currentTarget;
-				if(field.value.length > 3) {
-					delayedFetch("email", field, (result) => {
-						console.log(JSON.parse(result).suggestions.map(entry => entry.value));
-					});
+			// let delayedFetch = (type, field, callback) => {
+				// clearTimeout(field.timer);
+				// field.timer = setTimeout(() => {
+					// fetch("https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/" + type, {
+						// method: "POST",
+						// mode: "cors",
+						// headers: {
+							// "Content-Type": "application/json",
+							// "Accept": "application/json",
+							// "Authorization": "Token 7c5272e224601f8a36fd147a354c266eb2494cd9"
+						// },
+						// body: JSON.stringify({ query: field.value })
+					// }).then(response => response.text()).then(result => callback(result)).catch(error => console.log("error", error));
+				// }, 500);
+			// };
+			// $("[userdata=\"email\"]").on("input", (evt) => {
+				// let field = evt.currentTarget;
+				// if(field.value.length > 3) {
+					// delayedFetch("email", field, (result) => {
+						// console.log(JSON.parse(result).suggestions.map(entry => entry.value));
+					// });
+				// }
+			// });
+			// $("[userdata=\"full_name\"]").on("input", (evt) => {
+				// let field = evt.currentTarget;
+				// if(field.value.length > 3) {
+					// delayedFetch("fio", field, (result) => {
+						// console.log(JSON.parse(result).suggestions.map(entry => entry.value));
+					// })
+				// }
+			// });
+			// $("[userdata=\"address\"]").on("input", (evt) => {
+				// let field = evt.currentTarget;
+				// if(field.value.length > 3) {
+					// delayedFetch("address", field, (result) => {
+						// console.log(JSON.parse(result).suggestions);
+					// })
+				// }
+			// });
+			$("input[name=\"address\"]").suggestions({
+				token: "7c5272e224601f8a36fd147a354c266eb2494cd9",
+				type: "ADDRESS",
+				onSelect: (suggestion) => {
+					console.log(suggestion);
+					
+					let fullAddress = `${suggestion.data.country}, ${suggestion.data.region_with_type}, ${suggestion.value}`;
+					document.querySelector("[userdata=\"address\"]").value = fullAddress;
+					document.querySelector("[userdata=\"postal_code\"]").value = suggestion.data.postal_code;
+					document.querySelector("[name=\"postal_code\"]").value = suggestion.data.postal_code;
+					
+					let delivery = app.templates.cart.getDeliveryData(suggestion.data);
+					
+					$("[delivery-type]").hide().filter(".js-delivery-type-btn").removeClass("selected");
+					for(let entry of delivery) {
+						$(`.js-delivery-type-btn[delivery-type="${entry.type}"]`).show();
+					}
 				}
 			});
-			$("[userdata=\"full_name\"]").on("input", (evt) => {
-				let field = evt.currentTarget;
-				if(field.value.length > 3) {
-					delayedFetch("fio", field, (result) => {
-						console.log(JSON.parse(result).suggestions.map(entry => entry.value));
-					})
-				}
-			});
-			$("[userdata=\"address\"]").on("input", (evt) => {
-				let field = evt.currentTarget;
-				if(field.value.length > 3) {
-					delayedFetch("address", field, (result) => {
-						console.log(JSON.parse(result).suggestions);
-					})
-				}
-			});
+		},
+		toggleOrderSubmitBtn() {
+			if(document.querySelector(".js-agreement-checkbox").checked == true) {
+				$(".js-end-of-order-wrapper").append(this.orderSubmitBtn);
+			} else {
+				this.orderSubmitBtn = $(".js-submit-order-btn-wrapper").detach();
+			}
 		}
 	};
 	
@@ -208,7 +266,44 @@ $(window).on("onload.init_unique/cart", () => {
 		}
 	});
 	
+	$(".js-submit-order-btn").click(() => {
+		console.log(app.cart.crawler.crawl());
+		alert("Перенаправление на страницу оплаты...");
+	});
+	
 	app.cart.bindAutocompletes();
+	app.cart.toggleOrderSubmitBtn();
+	
+	$(".js-agreement-checkbox").click(() => { app.cart.toggleOrderSubmitBtn(); });
+	$(".js-delivery-type-btn").click((evt) => {
+		let deliveryType = evt.currentTarget.getAttribute("delivery-type");
+		
+		document.querySelector("[userdata=\"delivery_type\"]").value = deliveryType;
+		
+		$(".js-delivery-type-btn").removeClass("selected").filter(evt.currentTarget).addClass("selected");
+		$(".js-delivery-type-description").hide().filter(`[delivery-type="${deliveryType}"]`).show();
+		
+		$(".js-payment-type-btn").removeClass("selected");
+		let paymentMethods = app.templates.cart._delivery[deliveryType].payment;
+		for(let element of $(".js-payment-type-btn")) {
+			if(paymentMethods.includes(element.getAttribute("payment-type"))) $(element).show();
+			else $(element).hide();
+		}
+		$(".js-payment-type-description").hide();
+		
+		let deliveryPrice = app.templates.cart._delivery[deliveryType].costs[app.translation.currency.name];
+		app.cart.calculateFinalOrderSum({ deliverySum: deliveryPrice, ...app.cart.calculateFinalSum() });
+	});
+	$(".js-payment-type-btn").click((evt) => {
+		let paymentType = evt.currentTarget.getAttribute("payment-type");
+		
+		document.querySelector("[userdata=\"payment_type\"]").value = paymentType;
+		
+		$(".js-payment-type-btn").removeClass("selected").filter(evt.currentTarget).addClass("selected");
+		$(".js-payment-type-description").hide().filter(`[payment-type="${paymentType}"]`).show();
+	});
+	
+	app.scrollmagic.fix("#trigger", "#slickPrice");
 	
 	$(window).on({
 		"oncountrychange.content": () => {
