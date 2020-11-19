@@ -1,0 +1,69 @@
+{
+	"pickup": {
+		"costs": {
+			"EUR": 0,
+			"USD": 0,
+			"RUB": 0,
+			"CZK": 0
+		},
+		"payment": [
+			"card",
+			"cash"
+		],
+		"allow": {
+			"cities": [
+				"москва"
+			],
+			"regions": [
+				"московская"
+			]
+		},
+		"deny": {
+			"cities": [],
+			"regions": []
+		}
+	},
+	"courier": {
+		"costs": {
+			"EUR": 553,
+			"USD": 653,
+			"RUB": 50000,
+			"CZK": 14645
+		},
+		"payment": [
+			"card",
+			"cash"
+		],
+		"allow": {
+			"cities": [
+				"москва"
+			],
+			"regions": []
+		},
+		"deny": {
+			"cities": [],
+			"regions": []
+		}
+	},
+	"ems": {
+		"costs": {
+			"EUR": 1547,
+			"USD": 1829,
+			"RUB": 140000,
+			"CZK": 41006
+		},
+		"payment": [
+			"card"
+		],
+		"allow": {
+			"cities": ["*"],
+			"regions": ["*"]
+		},
+		"deny": {
+			"cities": [
+				"москва"
+			],
+			"regions": []
+		}
+	}
+}
