@@ -138,7 +138,7 @@
 #order-page .name label, #order-page .name input, #order-page .email label, 
 #order-page .email input, #order-page .phone label, #order-page .phone input, 
 #order-page .geopos input, #order-page .geopos label, #order-page .index input, 
-#order-page .index label, #order-page .delivery-form label, #order-page .delivery-form textarea, #delivery-adress {
+#order-page .index label, #order-page .delivery-form label, #order-page .delivery-form textarea, #order-page #delivery-adress {
     width: 100%;
     font-size: 100%;
     color: #3D210C;
@@ -159,7 +159,7 @@
 
 #order-page .name input, #order-page .email input, #order-page .phone input, 
 #order-page .geopos input, #order-page .index input, #order-page .delivery-form textarea, 
-#order-page .comment-order textarea, #delivery-adress {
+#order-page .comment-order textarea, #order-page #delivery-adress {
     height: 4vh;
     background-color: transparent;
     border: 1px solid #d4d4d4;
@@ -168,7 +168,7 @@
 }
 
 #order-page .name label, #order-page .email label, #order-page .phone label, 
-#order-page .geopos label, #order-page .index label, #order-page .delivery-form label, #delivery-adress {
+#order-page .geopos label, #order-page .index label, #order-page .delivery-form label, #order-page #delivery-adress {
     margin-bottom: 1vh;
 }
 
@@ -176,7 +176,7 @@
 #order-page .phone input:hover, #order-page .name input:focus, #order-page .email input:focus, 
 #order-page .phone input:focus, #order-page .geopos input:hover, #order-page .index input:hover, 
 #order-page .geopos input:focus, #order-page .index input:focus, #order-page .delivery-form:hover textarea, 
-#order-page .comment-order textarea:hover, #delivery-adress:hover, #delivery-adress:focus {
+#order-page .comment-order textarea:hover, #order-page #delivery-adress:hover, #order-page #delivery-adress:focus {
     border-color: #CD7F32;
 }
 
@@ -189,7 +189,7 @@
     height: 15vh;
 }
 
-input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+#order-page input::-webkit-outer-spin-button, #order-page input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
