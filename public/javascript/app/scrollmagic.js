@@ -35,7 +35,9 @@ $(window).on("onload.app_scrollmagic", () => {
 		},
 		fix(what, where) {
 			this.stop();
-			new ScrollMagic.Controller().addScene(new ScrollMagic.Scene({ triggerElement: what }).setPin(where));
+			let scene = new ScrollMagic.Scene({ triggerElement: what }).setPin(where)
+			new ScrollMagic.Controller().addScene(scene);
+			return scene;
 		},
 		stop() {
 			for(let tween of this._tweens) tween.invalidate();
