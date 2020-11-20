@@ -4,7 +4,7 @@
 	</div>
 	<div class="news-card-content">
 		<h2>${name}</h2>
-		<article class="news-card-content-article">
+		<article class="news-card-content-article js-post-preview-content">
 			<p>${text}</p>
 		</article>
 	</div>

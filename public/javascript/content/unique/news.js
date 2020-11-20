@@ -74,7 +74,13 @@ $(window).on("onload.init_unique/news", () => {
 				wrapper.find(".js-hide-btn").show();
 				
 				let [lastX, lastY] = [window.scrollX, window.scrollY];
-				wrapper.find(".news-card-content, .news-card-content-article").height("auto");
+				
+				let content = wrapper.find(".news-card-content");
+				let article = content.find(".js-post-preview-content");
+				
+				article.height(article[0].scrollHeight);
+				content.height(content[0].scrollHeight);
+				
 				window.scrollTo(lastX, lastY);
 			});
 			
@@ -111,15 +117,17 @@ $(window).on("onload.init_unique/news", () => {
 				new GenericSimpleSlider(".js-post-slider", ["/public/images/news/plug_1.jpeg", "/public/images/news/plug_2.jpeg"]);
 				new SimpleSlider();
 				
-				// $(".js-news-page").attr("style", "position: fixed; z-index: -1;");
 				$(".js-news-page").addClass("backgrounded");
-				$(".js-post-wrapper").show();
+				$(".js-post-wrapper").css({
+					"display": "block",
+					"opacity": 1
+				})
 			});
 		},
 		closePost(doScroll = true) {
-			$(".js-post-wrapper").hide();
+			$(".js-post-wrapper").css("opacity", 0);
+			setTimeout(() => { $(".js-post-wrapper").css("display", "none"); }, 800);
 			$(".js-news-page").removeClass("backgrounded").css("display", "");
-			// $(".js-news-page").attr("style", "");
 			
 			if(doScroll) window.scrollTo(this.mainX, this.mainY);
 		}
