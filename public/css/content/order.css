@@ -10,6 +10,12 @@
     padding: 0 3vh;
 }
 
+#order-page .flex-column div {
+    display: flex;
+    color: #3D210C;
+    margin: 1vh 0;
+}
+
 #order-page .order-wrapper {
     width: 100%;
     display: flex;
@@ -145,7 +151,7 @@
 }
 
 #order-page .name label span:first-child, #order-page .email label span:first-child, 
-#order-page .phone label span:first-child, #order-page .geopos label span:first-child, 
+#order-page .phone label span:first-child, .required, 
 #order-page .index label span:first-child, #order-page .delivery-form label span:first-child {
     font-size: 70%;
     margin-right: 5px;

@@ -25,7 +25,7 @@ Title: Корзина;
 				</div>
 				<div class="payment-order flex wrap">
 					<a navid="order" style="width:100%;"><button class="js-payment-pay">Оформить</button></a>
-					<button class="js-payment-back">Назад в магазин</button>
+					<a navid="catalogue" style="width:100%;"><button class="js-payment-back">Назад в магазин</button></a>
 				</div>
 			</div>
 		</div>
@@ -83,7 +83,7 @@ Title: Корзина;
 						<form class="adress-form">
 							<div class="geopos">
 								<label>
-									<span>*</span><span>Местоположение</span>
+									<span class="required">*</span><span>Местоположение</span>
 									<input type="text" name="address"/>
 								</label>
 							</div>
