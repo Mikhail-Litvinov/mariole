@@ -246,21 +246,16 @@ Title: Корзина;
 						<textarea cols="30" rows="10" name="comment" userdata="comment" placeholder="Комментарий к заказу"></textarea>
 					</div>
 					<div class="order-agreement">
-						<label>
-							ФЛАЖОК СОГЛАСИЯ:
-							<input type="checkbox" class="js-agreement-checkbox"/>
-						</label>
 						<form action="">
-							<input type="checkbox" class="custom-checkbox"/>
-							<span class="custom-checkbox">
-								<span class="check-mark"><img src="/public/images/icons/check-mark.png" alt="" width="100%"/></span>
-							</span>
-							<label>
-								<p>Я подтверждаю, что я старше 18 лет и принимаю условия работы сайта и даю добровольное
-									согласие на обработку своих персональных данных.</p>
-								<p>В соответствии с ФЗ №54-ФЗ кассовый чек при заказе с доставкой будет предоставлен в
-									электронном виде на указанный при оформлении заказа номер телефона или адрес электронной
-									почты.</p>
+							<input type="checkbox" id="agreed" class="custom-checkbox js-agreement-checkbox">
+							<label for="agreed">
+								<div>
+									<p>Я подтверждаю, что я старше 18 лет и принимаю условия работы сайта и даю добровольное
+										согласие на обработку своих персональных данных.</p>
+									<p>В соответствии с ФЗ №54-ФЗ кассовый чек при заказе с доставкой будет предоставлен в
+										электронном виде на указанный при оформлении заказа номер телефона или адрес электронной
+										почты.</p>
+								</div>
 							</label>
 						</form>
 					</div>

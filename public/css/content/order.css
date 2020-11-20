@@ -324,20 +324,43 @@
     position: relative;
 }
 
-#order-page .order-agreement form input {
-    display: none;
+.custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+  
+.custom-checkbox+label {
+    display: inline-flex;
+    user-select: none;
+  }
+  
+.custom-checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #c4c4c4;
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+  }
+  
+.custom-checkbox:checked+label::before {
+    border-color:#c4c4c4;
+    background-color: #c4c4c4;
+    background-image: url("/public/images/icons/check-mark.png");
 }
 
-#order-page .custom-checkbox::before {
-    content: "";
-    background: #fff;
-    border: 1px solid #c4c4c4;
-    display: block;
-    width: 16px;
-    height: 16px;
-    transition: all .2s ease;
-    cursor: pointer;
+/* стили при наведении курсора на checkbox */
+.custom-checkbox:not(:disabled):not(:checked)+label:hover::before {
+    border-color: #CD7F32;
 }
+
 
 #order-page .order-agreement form label {
     margin-left: 1vh;
