@@ -1,41 +1,41 @@
-.content-wrapper-full-width {
+#order-page .content-wrapper-full-width {
     width: 80%;
     margin: 0 auto;
 }
 
-.flex-column {
+#order-page .flex-column {
     width: max-content;
     align-items: flex-start;
     justify-content: center;
     padding: 0 3vh;
 }
 
-.order-wrapper {
+#order-page .order-wrapper {
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
     padding: 4vh 0;
 }
 
-.left-column {
+#order-page .left-column {
     width: 75%;
     margin-right: 1vh;
 }
 
-.right-column {
+#order-page .right-column {
     width: 25%;
     margin-left: 1vh;
     position: relative;
 }
 
-.in-order-wrapper, .buyer-wrapper, .adress-wrapper, .delivery-wrapper, .payment-wrapper, .all-price-wrapper{
+#order-page .in-order-wrapper, #order-page .buyer-wrapper, #order-page .adress-wrapper, #order-page .delivery-wrapper, #order-page .payment-wrapper, #order-page .all-price-wrapper {
     width: 100%;
     border: 1px solid #d4d4d4;
     padding: 4vh 0;
     margin-bottom: 4vh;
 }
 
-.product-card {
+#order-page .product-card {
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
@@ -45,52 +45,52 @@
     border-right: none;
 }
 
-.in-order-img {
+#order-page .in-order-img {
     width: 20vh;
     overflow: hidden;
 }
 
-.in-order-content {
+#order-page .in-order-content {
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
 }
 
-.product-name, .product-color {
+#order-page .product-name, #order-page .product-color {
     margin-bottom: 2vh;
 }
 
-.product-size, .product-color {
+#order-page .product-size, #order-page .product-color {
     display: flex;
     flex-wrap: nowrap;
 }
 
-.product-name h2, .product-price p {
+#order-page .product-name h2, #order-page .product-price p {
     font-size: 130%;
-} 
+}
 
-.product-price p {
+#order-page .product-price p {
     color: #3D210C;
 }
 
-.product-color, .product-size, .in-order-quantity, .in-order-price {
+#order-page .product-color, #order-page .product-size, #order-page .in-order-quantity, #order-page .in-order-price {
     color: #828181;
     font-size: 110%;
 }
 
-.in-order-price {
+#order-page .in-order-price {
     color: #3D210C;
 }
 
-.in-order-wrapper .title {
+#order-page .in-order-wrapper .title {
     width: 90%;
     margin: 0 auto;
     margin-bottom: 4vh;
     color: #3D210C;
 }
 
-.product-card-wrapper {
+#order-page .product-card-wrapper {
     width: 90%;
     margin: 0 auto;
     border: 1px solid #d4d4d4;
@@ -100,21 +100,21 @@
     margin-bottom: 4vh;
 }
 
-.buyer-content, .adress-content, .delivery-content, .payment-content {
+#order-page .buyer-content, #order-page .adress-content, #order-page .delivery-content, #order-page .payment-content {
     width: 90%;
     margin: 0 auto;
 }
 
-.buyer-content .title, .adress-content .title, .delivery-content .title, .payment-content .title, .all-price-wrapper .title {
+#order-page .buyer-content .title, #order-page .adress-content .title, #order-page .delivery-content .title, #order-page .payment-content .title, #order-page .all-price-wrapper .title {
     margin-bottom: 4vh;
     color: #3D210C;
 }
 
-.content-wrapper-full-width .title {
+#order-page .content-wrapper-full-width .title {
     color: #3D210C;
 }
 
-.buyer-personal, .adress-form, .delivery-btn-wrapper {
+#order-page .buyer-personal, #order-page .adress-form, #order-page .delivery-btn-wrapper {
     border: 1px solid #d4d4d4;
     border-left: none;
     border-right: none;
@@ -122,7 +122,7 @@
     flex-wrap: wrap;
 }
 
-.name, .email, .phone, .geopos, .index, .delivery-form {
+#order-page .name, #order-page .email, #order-page .phone, #order-page .geopos, #order-page .index, #order-page .delivery-form {
     display: flex;
     flex-wrap: wrap;
     width: 35%;
@@ -131,65 +131,72 @@
     margin-left: 0;
 }
 
-.geopos, .index {
+#order-page .geopos, #order-page .index {
     width: 60%;
 }
 
-.name label, .name input, .email label, .email input, .phone label, .phone input, .geopos input, .geopos label, .index input, .index label,
-.delivery-form label, .delivery-form textarea {
+#order-page .name label, #order-page .name input, #order-page .email label, 
+#order-page .email input, #order-page .phone label, #order-page .phone input, 
+#order-page .geopos input, #order-page .geopos label, #order-page .index input, 
+#order-page .index label, #order-page .delivery-form label, #order-page .delivery-form textarea, #order-page #delivery-adress {
     width: 100%;
-    font-size: 120%;
+    font-size: 100%;
     color: #3D210C;
 }
 
-.name label span:first-child, .email label span:first-child, .phone label span:first-child, .geopos label span:first-child, .index label span:first-child,
-.delivery-form label span:first-child {
+#order-page .name label span:first-child, #order-page .email label span:first-child, 
+#order-page .phone label span:first-child, #order-page .geopos label span:first-child, 
+#order-page .index label span:first-child, #order-page .delivery-form label span:first-child {
     font-size: 70%;
     margin-right: 5px;
     color: red;
 }
 
-.delivery-form label span:nth-child(2) {
+#order-page .delivery-form label span:nth-child(2) {
     font-size: 90%;
     color: #828181;
 }
 
-.name input, .email input, .phone input, .geopos input, .index input, .delivery-form textarea, .comment-order textarea {
+#order-page .name input, #order-page .email input, #order-page .phone input, 
+#order-page .geopos input, #order-page .index input, #order-page .delivery-form textarea, 
+#order-page .comment-order textarea, #order-page #delivery-adress {
     height: 4vh;
     background-color: transparent;
     border: 1px solid #d4d4d4;
-    font-size: 130%;
+    font-size: 100%;
     padding-left: 1vh;
 }
 
-.name label, .email label, .phone label, .geopos label, .index label, .delivery-form label {
+#order-page .name label, #order-page .email label, #order-page .phone label, 
+#order-page .geopos label, #order-page .index label, #order-page .delivery-form label, #order-page #delivery-adress {
     margin-bottom: 1vh;
 }
 
-.name input:hover, .email input:hover, .phone input:hover, .name input:focus, .email input:focus, .phone input:focus,
-.geopos input:hover, .index input:hover, .geopos input:focus, .index input:focus, .delivery-form:hover textarea, .comment-order textarea:hover {
-    color: #CD7F32;
+#order-page .name input:hover, #order-page .email input:hover, 
+#order-page .phone input:hover, #order-page .name input:focus, #order-page .email input:focus, 
+#order-page .phone input:focus, #order-page .geopos input:hover, #order-page .index input:hover, 
+#order-page .geopos input:focus, #order-page .index input:focus, #order-page .delivery-form:hover textarea, 
+#order-page .comment-order textarea:hover, #order-page #delivery-adress:hover, #order-page #delivery-adress:focus {
     border-color: #CD7F32;
 }
 
-.delivery-form {
+#order-page .delivery-form {
     width: 50%;
 }
 
-.delivery-form textarea, .comment-order textarea {
+#order-page .delivery-form textarea, #order-page .comment-order textarea {
     resize: none;
     height: 15vh;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+#order-page input::-webkit-outer-spin-button, #order-page input::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    margin: 0; 
+    margin: 0;
 }
 
-.deliver-btn, .payment-btn {
+#order-page .deliver-btn, #order-page .payment-btn {
     width: 30vh;
-    height: 15vh;
+    min-height: 15vh;
     margin: 4vh 0;
     margin-right: 4vh;
     position: relative;
@@ -198,12 +205,12 @@ input::-webkit-inner-spin-button {
     border: 1px solid #d4d4d4;
 }
 
-.deliver-btn:hover, .deliver-btn.selected, .payment-btn:hover, .payment-btn.selected {
+#order-page .deliver-btn:hover, #order-page .deliver-btn.selected, #order-page .payment-btn:hover, #order-page .payment-btn.selected {
     background-color: #eaeaea;
     border-color: #eaeaea;
 }
 
-.deliver-btn input, .payment-btn input {
+#order-page .deliver-btn input, #order-page .payment-btn input {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -212,32 +219,32 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
-.delivery-ind, .payment-ind {
+#order-page .delivery-ind, #order-page .payment-ind {
     width: 20%;
     background-color: #eaeaea;
     border-radius: 50%;
     padding: 3%;
 }
 
-.deliver-btn:hover .delivery-ind, .deliver-btn.deliver-btn.selected .delivery-ind, .payment-btn.selected .payment-ind, .payment-btn:hover .payment-ind, .payment-btn.selected .payment-ind {
+#order-page .deliver-btn:hover .delivery-ind, #order-page .deliver-btn.selected .delivery-ind, #order-page .payment-btn.selected .payment-ind, #order-page .payment-btn:hover .payment-ind, #order-page .payment-btn.selected .payment-ind {
     background-color: whitesmoke
 }
 
-.payment-type-name, .delivery-type-name {
+#order-page .payment-type-name, #order-page .delivery-type-name {
     font-size: 140%;
     color: #3D210C;
     margin-top: 1vh;
     text-align: left;
 }
 
-.delivery-description, .payment-description {
+#order-page .delivery-description, #order-page .payment-description {
     border-bottom: 1px solid #d4d4d4;
     display: flex;
     flex-wrap: wrap;
     padding: 2vh 0;
 }
 
-.delivery-description-title, .payment-description-title {
+#order-page .delivery-description-title, #order-page .payment-description-title {
     width: 100%;
     padding: 0 0 2vh 0;
     border-bottom: 1px solid #d4d4d4;
@@ -245,29 +252,30 @@ input::-webkit-inner-spin-button {
     color: #3D210C;
 }
 
-.delivery-description p, .payment-description p {
+#order-page .delivery-description p, #order-page .payment-description p {
     margin-top: 2vh;
+    margin-bottom: 1vh;
     font-size: 110%;
     line-height: 1.5;
     color: #828181;
 }
 
-.delivery-price {
+#order-page .delivery-price {
     width: 100%;
     margin-top: 2vh;
     color: #3D210C;
 }
 
-.delivery-price h2 {
+#order-page .delivery-price h2 {
     font-size: 120%;
 }
 
-.delivery-price p {
+#order-page .delivery-price p {
     color: #828181;
     margin-top: 1vh;
 }
 
-.end-of-order-wrapper {
+#order-page .end-of-order-wrapper {
     width: 90%;
     margin: 0 auto;
     position: relative;
@@ -275,46 +283,46 @@ input::-webkit-inner-spin-button {
     flex-wrap: wrap;
 }
 
-.comment-order {
+#order-page .comment-order {
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
 }
 
-.comment-description {
+#order-page .comment-description {
     width: 30%;
     color: #3D210C;
 }
 
-.comment-description .title {
+#order-page .comment-description .title {
     font-size: 90%;
 }
 
-.comment-description .title p {
+#order-page .comment-description .title p {
     font-size: 110%;
     color: #828181;
 }
 
-.comment-order textarea {
+#order-page .comment-order textarea {
     width: 70%;
     padding: 1vh;
 }
 
-.order-agreement {
+#order-page .order-agreement {
     width: 30%;
 }
 
-.order-agreement form {
+#order-page .order-agreement form {
     display: flex;
     flex-wrap: nowrap;
-    position: relative; 
+    position: relative;
 }
 
-.order-agreement form input {
+#order-page .order-agreement form input {
     display: none;
 }
 
-.custom-checkbox::before {
+#order-page .custom-checkbox::before {
     content: "";
     background: #fff;
     border: 1px solid #c4c4c4;
@@ -325,16 +333,16 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
-.order-agreement form label {
+#order-page .order-agreement form label {
     margin-left: 1vh;
     color: #828181;
 }
 
-.order-agreement form label p:nth-child(1) {
+#order-page .order-agreement form label p:nth-child(1) {
     margin-bottom: 1vh;
 }
 
-.check-mark {
+#order-page .check-mark {
     width: 16px;
     height: 16px;
     position: absolute;
@@ -344,14 +352,14 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
-.order-btn-cont {
+#order-page .order-btn-cont {
     width: 70%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
 }
 
-.order-btn-cont button {
+#order-page .order-btn-cont button {
     width: 40vh;
     height: 8vh;
     border: 1px solid #1a1a1a;
@@ -366,21 +374,21 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
-.order-btn-cont button:hover {
+#order-page .order-btn-cont button:hover {
     border: 1px solid #353535;
     background-color: #353535;
 }
 
-.btn-ind {
+#order-page .btn-ind {
     width: 11%;
     overflow: hidden;
 }
 
-.all-price-wrapper {
+#order-page .all-price-wrapper {
     padding: 4vh 2vh;
 }
 
-.all-price-row {
+#order-page .all-price-row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -391,18 +399,18 @@ input::-webkit-inner-spin-button {
     width: 100%;
 }
 
-.all-price-row p:nth-child(2) {
+#order-page .all-price-row p:nth-child(2) {
     color: #3D210C;
     font-size: 120%;
 }
 
-.full-price-wrapper {
+#order-page .full-price-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.full-price-wrapper button {
+#order-page .full-price-wrapper button {
     width: 70%;
     height: 6vh;
     color: #3D210C;
@@ -412,114 +420,84 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
-.full-price-wrapper button:hover {
+#order-page .full-price-wrapper button:hover {
     color: #CD7F32;
     border-color: #CD7F32;
 }
 
 @media screen and (min-width:0px) and (max-width:1024px) {
-    .content-wrapper-full-width {
+    #order-page .content-wrapper-full-width {
         width: 90%;
     }
-
-    .left-column, .right-column {
+    #order-page .left-column, #order-page .right-column {
         width: 100%;
     }
-
-    .content-wrapper-full-width .title {
+    #order-page .content-wrapper-full-width .title {
         text-align: center;
     }
-
-    .order-wrapper, .product-card, .in-order-content, .comment-order {
+    #order-page .order-wrapper, #order-page .product-card, #order-page .in-order-content, #order-page .comment-order {
         flex-wrap: wrap;
     }
-
-    .in-order-img {
+    #order-page .in-order-img {
         width: 40%;
     }
-
-    .in-order-content {
+    #order-page .in-order-content {
         width: 60%;
     }
-
-    .flex-column, .comment-order, .order-agreement, .comment-description {
+    #order-page .flex-column, #order-page .comment-order, #order-page .order-agreement, #order-page .comment-description {
         margin-bottom: 4vh;
     }
-
-    .product-card {
+    #order-page .product-card {
         padding: 4vh 0;
     }
-
-    .name, .email, .phone, .geopos, .index, .delivery-form {
+    #order-page .name, #order-page .email, #order-page .phone, #order-page .geopos, #order-page .index, #order-page .delivery-form {
         width: 100%;
     }
-
-    .deliver-btn, .payment-btn {
+    #order-page .deliver-btn, #order-page .payment-btn {
         width: 100%;
         height: max-content;
         margin-right: 0;
     }
-
-    .comment-order, .comment-order textarea, .order-agreement, .order-btn-cont, .comment-description {
+    #order-page .comment-order, #order-page .comment-order textarea, #order-page .order-agreement, #order-page .order-btn-cont, #order-page .comment-description {
         width: 100%;
     }
-
-    .order-btn-cont {
+    #order-page .order-btn-cont {
         justify-content: center;
         align-items: center;
     }
-
-    .comment-description p {
+    #order-page .comment-description p {
         font-size: 120%;
     }
-
-
 }
 
-@media screen and (min-width:0px) and (max-width: 280px) {
+@media screen and (min-width:0px) and (max-width: 280px) {}
 
-}
+@media screen and (min-width:281px) and (max-width: 320px) {}
 
-@media screen and (min-width:281px) and (max-width: 320px) {
+@media screen and (min-width:321px) and (max-width: 360px) {}
 
-}
+@media screen and (min-width:361px) and (max-width: 375px) {}
 
-@media screen and (min-width:321px) and (max-width: 360px) {
+@media screen and (min-width:376px) and (max-width: 411px) {}
 
-}
+@media screen and (min-width:412px) and (max-width: 414px) {}
 
-@media screen and (min-width:361px) and (max-width: 375px) {
-
-}
-
-@media screen and (min-width:376px) and (max-width: 411px) {
-
-}
-
-@media screen and (min-width:412px) and (max-width: 414px) {
-
-}
-
-@media screen and (min-width:415px) and (max-width: 540px) {
-
-}
+@media screen and (min-width:415px) and (max-width: 540px) {}
 
 @media screen and (min-width:541px) and (max-width: 768px) {
-    .content-wrapper-full-width {
+    #order-page .content-wrapper-full-width {
         font-size: 130%;
     }
-
-    .content-wrapper-full-width button {
+    #order-page .content-wrapper-full-width button {
         font-size: 100%;
     }
 }
 
 @media screen and (min-width:769px) and (max-width: 1024px) {
-    .content-wrapper-full-width {
+    #order-page .content-wrapper-full-width {
         font-size: 170%;
     }
-
-    .content-wrapper-full-width button {
+    #order-page .content-wrapper-full-width button {
         font-size: 100%;
     }
 }

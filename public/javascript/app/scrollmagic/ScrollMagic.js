@@ -2275,7 +2275,7 @@
 			window.addEventListener('resize', updatePinInContainer);
 			window.addEventListener('resize', updateRelativePinSpacer);
 			// add mousewheel listener to catch scrolls over fixed elements
-			_pin.addEventListener("mousewheel", onMousewheelOverPin);
+			_pin.addEventListener("mousewheel", onMousewheelOverPin, { passive: true });
 			_pin.addEventListener("DOMMouseScroll", onMousewheelOverPin);
 
 			log(3, "added pin");
