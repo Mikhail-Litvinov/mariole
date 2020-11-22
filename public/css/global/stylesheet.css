@@ -427,4 +427,9 @@
     border-radius: 3px;
 }
 
+#trigger {
+    position: absolute;
+    top: 57vh;
+}
+
 /* modal gallery end */

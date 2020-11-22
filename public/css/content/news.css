@@ -46,7 +46,7 @@
 }
 
 .blog-search-input {
-    width: 100%;
+    width: calc(85% - 1vh);
     height: 4vh;
     font-size: 100%;
     padding-left: 1vh;
@@ -96,11 +96,19 @@
     background-color: whitesmoke;
     border: 1px solid rgb(160, 160, 160);
     cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
-.blog-categories-button:hover, .blog-keywords-button:hover, .blog-search-button:hover, .blog-search-input:hover, .blog-search-input:hover::placeholder {
+.blog-categories-button:hover, .blog-keywords-button:hover, .blog-search-button:hover, .blog-search-input:hover, .blog-search-input:hover::placeholder,
+.blog-categories-button:hover a, .blog-keywords-button:hover a, .blog-search-button:hover a, .blog-keywords-button.active {
     color: #CD7F32;
     border-color: #CD7F32;
+}
+
+.checkbox-keywords {
+    -webkit-appearance: none;
 }
 
 .blog-search-input:focus::placeholder, .blog-search-input:focus {
@@ -171,16 +179,21 @@
 }
 
 .news-card-button-wrapper {
-
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
-.read-more {
-    float: right;
+.read-more, .hide-news {
     border: none;
     border-bottom: 1px solid gray;
     background-color: transparent;
     cursor: pointer;
     color: gray;
+}
+
+.hide-news {
+    display: none;
 }
 
 .read {
@@ -191,6 +204,7 @@
     height: 3vh;
     font-size: 100%;
     background-color: transparent;
+    margin-left: 1vh;
 }
 
 .read-more:hover, .read:hover {
@@ -306,6 +320,29 @@
     transition: all 0.3s ease-in-out;
 }
 
+.post-wrapper {
+    background-color: rgb(0 0 0 / 0.6);
+}
+
+.post-wrapper .content-wrapper {
+    background-color: whitesmoke;
+    padding: 3% 4vh;
+}
+
+.content-wrapper-full-width.backgrounded {
+	position: fixed;
+	z-index: -1;
+}
+
+.search-input-cont {
+    width: 100%;
+    position: relative;
+}
+
+#trigger {
+    top: 51vh;
+}
+
 /* media */
 
 @media screen and (min-width:0px) and (max-width:1024px) {
@@ -380,6 +417,27 @@
     .imgV1, .imgV2, .imgV3 {
         width: 50%;
     }
+
+    .news-card-footer {
+        flex-wrap: wrap;
+    }
+
+    .news-card-keywords-wrapper {
+        margin-bottom: 1vh;
+        width: 100%;
+    }
+
+    .news-card-button-wrapper {
+        margin-top: 1vh;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .post-wrapper .content-wrapper {
+        padding: 0;
+    }
+
+    
 }
 
 @media screen and (min-width:0px) and (max-width: 280px) {

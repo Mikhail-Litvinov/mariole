@@ -2,11 +2,24 @@
     display: block;
 }
 
+.desktop-flex {
+    display: flex;
+} 
+
 .mobile-nav-news {
     display: none;
 }
 
+.mobile-flex {
+    display: none;
+}
+
 @media screen and (min-width:0px) and (max-width:1024px) {
+
+.mobile-flex {
+    display: flex;
+}       
+
 /* header */
 
 .cart-quantity-wrapper {
@@ -47,7 +60,7 @@
     .mobile-menu-wrapper {
         background-color: whitesmoke;
         position: relative; 
-        padding-top: 45px;
+        padding-top: 10vh;
         height: 100%;
     }
 
@@ -128,6 +141,10 @@
     /* header end */
 
     /* global */
+
+    .desktop-flex {
+        display: none;
+    }
 
     .content-wrapper {
         width: 100%;
@@ -226,6 +243,7 @@
         font-size: 160%;
         padding: 0 4vw;
         margin: 1vh 0;
+        width: 50%;
     }
 
     .nav-list li a::after {
@@ -458,12 +476,6 @@
         min-height: auto;
     }
 
-    
-
-    
-
-    
-
     .buttons-top-nav {
         width: 50%;
         justify-content: flex-start;
@@ -474,8 +486,6 @@
         margin: 0 30%;
     }
 
-<<<<<<< Updated upstream
-=======
     .cookies-wrapper {
         width: 100%;
     }
@@ -492,7 +502,6 @@
         height: 8vh;
     }
 
->>>>>>> Stashed changes
 }
 
 @media screen and (min-width:0px) and (max-width: 280px) {
@@ -575,16 +584,17 @@
         top: 0;
     }
 
-    
-
-    
-
     .search-icon::before, .inst-icon::before, .cart-icon::before {
         font-size: 250%;
     }
 
-    
+   .cookies-title, .cookies-msg, .cookies-footer {
+        font-size: 150%;
+    }
 
+    .mobile-link-wrapper {
+        font-size: 200%;
+    }
 }
 
 @media screen and (min-width:769px) and (max-width: 1024px) {
@@ -668,13 +678,10 @@
 
     .news-sub-title, .rec-sub-title, .media-sub-title {
         font-size: 230%
-    }
-
-    
-    
+    }    
 
     .btn-country, .btn-language {
-        font-size: 180%;
+        font-size: 200%;
     }
 
     .clothes-table {
@@ -693,17 +700,9 @@
         top: 0;
     }
 
-    
-
-    
-
     .footer {
         font-size: 200%;
     }
-    
-    
-
-    
 
     .footer-row {
         font-size: 80%;
@@ -714,6 +713,14 @@
     }
 
     .search-icon::before, .inst-icon::before, .cart-icon::before {
+        font-size: 300%;
+    }
+
+    .cookies-title, .cookies-msg, .cookies-footer {
+        font-size: 200%;
+    }
+
+    .mobile-link-wrapper {
         font-size: 300%;
     }
 

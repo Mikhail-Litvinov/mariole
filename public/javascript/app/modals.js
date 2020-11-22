@@ -33,6 +33,10 @@ app.modals = {
 		$("#error-404-modal").addClass("active");
 		setTimeout(() => { $("#error-404-modal").remove(); }, this.timeouts.close404);
 	},
+	acceptCookies() {
+		app.cookies.base.set("accept-cookies", "1");
+		$(".js-cookies-warning-wrapper").remove();
+	},
 	onKeyDown(evt) {
 		if(evt.keyCode == this.escapeKeycode) {
 			this.toggleLang(false);
@@ -50,6 +54,10 @@ $(window).on("onload.app_modals", () => {
 	$("#open-search").click(() => { app.modals.toggleSearch(true); });
 	$("#close-search").click(() => { app.modals.toggleSearch(false); });
 	$("#close-error-404").click(() => { app.modals.close404(); });
+	$(".js-accept-cookies-btn").click(() => { app.modals.acceptCookies(); });
+	
+	if(app.cookies.base.get("accept-cookies")) app.modals.acceptCookies();
+	else $(".js-cookies-warning-wrapper").show();
 	
 	$(window).on({
 		"keydown.modal": (evt) => { app.modals.onKeyDown(evt); }

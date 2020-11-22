@@ -14,33 +14,22 @@ Title: Главная;
 	</div>
 	<div id="slide-container">
 		<div class="slide">
-<<<<<<< Updated upstream
-			<img src="/public/images/carousel/166.jpg" width="100%" class="desktop">
-			<img src="/public/images/carousel/166m.jpg" width="100%" class="mobile">
-=======
 			<img src="/public/images/carousel/DSC_0796.jpg" width="100%" class="desktop">
 			<img src="/public/images/carousel/DSC_0796m.jpg" width="100%" class="mobile">
->>>>>>> Stashed changes
 			<p class="slide-text">Надо придумать текст</p>
 			<div class="slide-btn-cont">
 				<a navid="catalogue/clothes">
-					<button class="slide-button-dark">Одежда</button>
+					<button class="slide-button">Одежда</button>
 				</a>
 				<a navid="catalogue/accessories">
-					<button class="slide-button-dark">Аксессуары</button>
+					<button class="slide-button">Аксессуары</button>
 				</a>
 			</div>
 		</div>
 		<div class="slide">
-<<<<<<< Updated upstream
-			<img src="/public/images/carousel/156.jpg" width="100%" class="desktop">
-			<img src="/public/images/carousel/156m.jpg" width="100%" class="mobile">
-			<p class="slide-text">Надо придумать текст</p>
-=======
 			<img src="/public/images/carousel/DSC_0578.jpg" width="100%" class="desktop">
 			<img src="/public/images/carousel/DSC_0578m.jpg" width="100%" class="mobile">
 			<p class="slide-text">Верность традициям.</p>
->>>>>>> Stashed changes
 			<div class="slide-btn-cont">
 				<a navid="catalogue/accessories">
 					<button class="slide-button">Бижутерия</button>
@@ -48,13 +37,8 @@ Title: Главная;
 			</div>
 		</div>
 		<div class="slide">
-<<<<<<< Updated upstream
-			<img src="/public/images/carousel/IMG_6298.jpg" width="100%" class="desktop"/>
-			<img src="/public/images/carousel/IMG_6298m.jpg" width="100%" class="mobile"/>
-=======
 			<img src="/public/images/carousel/13.jpg" width="100%" class="desktop"/>
 			<img src="/public/images/carousel/13m.jpg" width="100%" class="mobile"/>
->>>>>>> Stashed changes
 			<p class="slide-text">Надо придумать текст</p>
 			<div class="slide-btn-cont">
 				<a navid="catalogue/accessories">

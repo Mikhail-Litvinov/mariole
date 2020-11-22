@@ -10,12 +10,13 @@
 		</header>
 		<main>
 			<div id="content"></div>
+			<?php include 'private/pageblocks/cookies_warning.php'; ?>
+			<?php include 'private/pageblocks/modal_countries.php'; ?>
+			<?php include 'private/pageblocks/modal_search.php'; ?>
 		</main>
 		<footer id="footer">
 			<?php include 'private/pageblocks/footer.php'; ?>
 		</footer>
-		<?php include 'private/pageblocks/modal_countries.php'; ?>
-		<?php include 'private/pageblocks/modal_search.php'; ?>
 		<?php include 'private/pageblocks/scripts.php' ?>
 	</body>
 </html>

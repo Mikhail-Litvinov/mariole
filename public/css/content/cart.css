@@ -1,20 +1,20 @@
-.cart-content {
+#cart-page .cart-content {
     width: 60%;
     margin: 0 auto;
     position: relative;
 }
 
-.cart-column-left {
+#cart-page .cart-column-left {
     width: 70%;
     position: relative;
 }
 
-.cart-column-right {
+#cart-page .cart-column-right {
     width: 30%;
     position: relative;
 }
 
-.product-card {
+#cart-page .product-card {
     width: 100%;
     height: auto;
     box-shadow: 0px 2px 7px 0px black;
@@ -22,13 +22,13 @@
     margin: 2vh 0;
 }
 
-.product-card-photo {
+#cart-page .product-card-photo {
     width: 20vh;
     height: 20vh;
     position: relative;
 }
 
-.product-card-content {
+#cart-page .product-card-content {
     height: auto;
     position: relative;
     align-items: center;
@@ -36,34 +36,34 @@
     width: 75%;
 }
 
-.product-card-content .first {
+#cart-page .product-card-content .first {
     justify-content: space-between;
 }
 
-.product-card-title {
+#cart-page .product-card-title {
     font-size: 140%;
     color: #3D210C;
 }
 
-.product-card-price {
+#cart-page .product-card-price {
     font-size: 140%;
     padding: 0 1vh;
 }
 
-.product-card-quantity {
+#cart-page .product-card-quantity {
     width: 100%;
     justify-content: flex-end;
     padding-right: 1vh;
     align-items: center;
 }
 
-.product-card-quantity p {
+#cart-page .product-card-quantity p {
     font-size: 120%;
     margin: 0 1vh;
     color: #3D210C;
 }
 
-.product-card-quantity button {
+#cart-page .product-card-quantity button {
     font-size: 120%;
     width: 4vh;
     height: 4vh;
@@ -73,13 +73,13 @@
     cursor: pointer;
 }
 
-.product-card-del {
+#cart-page .product-card-del {
     width: 100%;
     justify-content: flex-end;
     padding-right: 1vh;
 }
 
-.product-card-del button {
+#cart-page .product-card-del button {
     font-size: 110%;
     padding: 0.5vh 3vw;
     color: #3D210C;
@@ -88,34 +88,34 @@
     cursor: pointer;
 }
 
-.product-card-quantity button:hover, .product-card-del button:hover {
+#cart-page .product-card-quantity button:hover, #cart-page .product-card-del button:hover {
     color: #CD7F32;
     border-color: #CD7F32;
 }
 
-.payment-content {
+#cart-page .payment-content {
     background-color: rgb(230, 230, 230);
     width: 90%;
     margin: 0 auto;
     padding: 1vh;
 }
 
-.payment-details {
+#cart-page .payment-details {
     width: 100%;
 }
 
-.payment-details-item {
+#cart-page .payment-details-item {
     width: 100%;
     justify-content: space-between;
     font-size: 120%;
     color: #3D210C;
 }
 
-.payment-order {
+#cart-page .payment-order {
     width: 100%;
 }
 
-.payment-order button {
+#cart-page .payment-order button {
     width: 100%;
     padding: 1vh 0;
     font-size: 100%;
@@ -123,9 +123,10 @@
     margin: 1vh 0;
     color: #3D210C;
     border: 1px solid #3D210C;
+    cursor: pointer;
 }
 
-.payment-order button:hover {
+#cart-page .payment-order button:hover {
     color: #CD7F32;
     border-color: #CD7F32;
 }
@@ -133,14 +134,14 @@
 /* media */
 
 @media screen and (min-width:0px) and (max-width:1024px) {
-    .cart-content {
+    #cart-page .cart-content {
         width: 90%;
         margin: 0 auto;
         position: relative;
         flex-wrap: wrap;
     }
 
-    .cart-column-left, .cart-column-right, .payment-content {
+    #cart-page .cart-column-left, #cart-page .cart-column-right, #cart-page .payment-content {
         width: 100%;
     }
 }
@@ -174,15 +175,15 @@
 }
 
 @media screen and (min-width:541px) and (max-width: 768px) {
-    .product-card-title, .product-card-quantity button, .product-card-quantity p, .product-card-price,
-    .payment-details-item, .payment-order button {
+    #cart-page .product-card-title, #cart-page .product-card-quantity button, #cart-page .product-card-quantity p, #cart-page .product-card-price,
+    #cart-page .payment-details-item, #cart-page .payment-order button {
         font-size: 150%;
     }
 }
 
 @media screen and (min-width:769px) and (max-width: 1024px) {
-    .product-card-title, .product-card-quantity button, .product-card-quantity p, .product-card-price,
-    .payment-details-item, .payment-order button {
+    #cart-page .product-card-title, #cart-page .product-card-quantity button, #cart-page .product-card-quantity p, #cart-page .product-card-price,
+    #cart-page .payment-details-item, #cart-page .payment-order button {
         font-size: 200%;
     }
 }

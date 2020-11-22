@@ -17,9 +17,6 @@
 			</div>
 		</div>
 		<div class="mobile-menu mobile modal" id="mobile-menu">
-<<<<<<< Updated upstream
-			<div class="mobile-menu-wrapper"></div>
-=======
 			<div class="mobile-menu-wrapper">
 				<ul class="mobile-links">
 					<li><div class="mobile-link-wrapper">
@@ -71,7 +68,7 @@
 						
 					</li>
 					<li>
-						<div class="buttons-top-nav flex flex-align-middle">
+						<div class="buttons-top-nav flex flex-align-middle mobile-flex">
 							<ul class="buttons-top-nav-list">
 								<li>
 									<span class="search-icon" id="open-search"></span>
@@ -93,10 +90,9 @@
 					</li>
 				</ul>
 			</div>
->>>>>>> Stashed changes
 		</div>
-		<div class="nav-top-cont flex nowrap desktop">
-			<div class="countries flex desktop">
+		<div class="nav-top-cont flex nowrap desktop-flex">
+			<div class="countries flex desktop-flex">
 				<button class="btn-country desktop" id="btn-country">
 					<span id="country" langid="country-title"></span> 
 					<span id="country-name"></span>
@@ -126,14 +122,14 @@
 					</div>
 				</button>
 			</div>
-			<div class="logo flex desktop">
+			<div class="logo flex desktop-flex">
 				<div class="logo-cont">
 					<a navid="home">
 						<img src="/public/images/logo.png" alt="mario'le logo" srcset="" width="80px">
 					</a>
 				</div>
 			</div>
-			<div class="buttons-top-nav flex flex-align-middle desktop">
+			<div class="buttons-top-nav flex flex-align-middle desktop-flex">
 				<ul class="buttons-top-nav-list">
 					<li>
 						<span class="search-icon" id="open-search"></span>
@@ -155,7 +151,7 @@
 		</div>
 	</div>
 	<div class="flex-row nav flex-align-middle wrap">
-		<div class="flex nav-wrapper navigation">
+		<div class="flex nav-wrapper navigation desktop">
 			<ul class="nav-list">
 				<li>
 					<a navid="home" rel="noopener noreferrer" class="menu-btn" id="home">

@@ -30,7 +30,7 @@ Title: Наши контакты;
                     <li><p class="contacts-title">Рсчетный счет</p></li>
                     <li><p class="contacts-data">40802 810 9000 0004 5919</p></li>
                     <li><p class="contacts-title">Наименование банка</p></li>
-                    <li><p class="contacts-data">АО "Тинькофф Банк"</p><span class="tinkoff desktop"></span></li>
+                    <li><p class="contacts-data">АО "Тинькофф Банк"</p></li>
                     <li><p class="contacts-title">Юридический адрес банка</p></li>
                     <li><p class="contacts-data">Москва, 123060, 1-й Волоколамский проезд, д.10, стр.1</p></li>
                     <li><p class="contacts-title">Корр счет банка</p></li>
