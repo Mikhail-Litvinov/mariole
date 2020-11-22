@@ -7,6 +7,13 @@
 					<span class="line"></span>
 					<span class="line"></span>
 				</div>
+				<div class="logo flex">
+				<div class="logo-cont">
+					<a navid="home">
+						<img src="/public/images/logo.png" alt="mario'le logo" srcset="" width="80px">
+					</a>
+				</div>
+			</div>
 			</div>
 		</div>
 		<div class="mobile-menu mobile modal" id="mobile-menu">
@@ -42,17 +49,55 @@
 					<li>
 						<div class="mobile-link-wrapper">
 							<a class="menu-btn"><span class="menu-ind mobile" navid="news"></span></a>
-						</div></li>
+						</div>
+					</li>
+					<li>
+						<div class="mobile-link-wrapper">
+							<a class="menu-btn"><span langid="country-title"></span><br><span id="country-name"></span></a>
+						</div>
+					</li>
+					<li>
+						
+					</li>
+					<li>
+						<div class="mobile-link-wrapper">
+							<a class="menu-btn"><span id="lang" langid="language-title"></span> <span id="lang-symbol"langid="language-symbol"></span>&nbsp;<span class="lang-ind"></span></a>
+						</div>
+					</li>
+					<li>
+						
+					</li>
+					<li>
+						<div class="buttons-top-nav flex flex-align-middle mobile-flex">
+							<ul class="buttons-top-nav-list">
+								<li>
+									<span class="search-icon" id="open-search"></span>
+								</li>
+								<li>
+									<a href="https://www.instagram.com/mario__le/" target="_blank">
+										<span class="inst-icon"></span>
+									</a>
+								</li>
+								<li>
+									<a navid="cart">
+										<span class="cart-icon">
+											<div class="cart-quantity-wrapper"></div>
+										</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
 				</ul>
 			</div>
 		</div>
-		<div class="nav-top-cont flex nowrap">
-			<div class="countries flex">
-				<button class="btn-country" id="btn-country">
+		<div class="nav-top-cont flex nowrap desktop-flex">
+			<div class="countries flex desktop-flex">
+				<button class="btn-country desktop" id="btn-country">
 					<span id="country" langid="country-title"></span> 
 					<span id="country-name"></span>
 				</button>
-				<button class="btn-language" id="btn-lang">
+				<button class="btn-language desktop" id="btn-lang">
 					<span id="lang" langid="language-title"></span> <span id="lang-symbol"langid="language-symbol"></span>&nbsp;<span class="lang-ind"></span>
 					<div class="modal-wrapper-lang flex" id="modal-lang" style="display: none;">
 						<div class="modal-content-lang">
@@ -76,16 +121,15 @@
 						</div>
 					</div>
 				</button>
-				
 			</div>
-			<div class="logo flex">
+			<div class="logo flex desktop-flex">
 				<div class="logo-cont">
 					<a navid="home">
 						<img src="/public/images/logo.png" alt="mario'le logo" srcset="" width="80px">
 					</a>
 				</div>
 			</div>
-			<div class="buttons-top-nav flex flex-align-middle">
+			<div class="buttons-top-nav flex flex-align-middle desktop-flex">
 				<ul class="buttons-top-nav-list">
 					<li>
 						<span class="search-icon" id="open-search"></span>

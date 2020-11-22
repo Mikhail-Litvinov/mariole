@@ -1,6 +1,7 @@
 .wool-wrapper {
     width: 100%;
     position: relative;
+    margin-top: 10px;
 }
 
 .wool-img {
@@ -51,7 +52,7 @@
 
 .wool-title p {
     font-size: 120%;
-    background-color: rgb(27 27 27 / 0.8);
+    /* background-color: rgb(27 27 27 / 0.8); */
     border-radius: 30px;
 }
 

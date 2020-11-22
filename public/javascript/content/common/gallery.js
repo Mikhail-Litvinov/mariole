@@ -16,7 +16,7 @@ $(window).on("onload.init_common/gallery", () => {
 	
 	$(".prev-slide").click(() => { app.gallery.moveSlide(-1); });
 	$(".next-slide").click(() => { app.gallery.moveSlide(1); });
-	$(".grid-gallery").height($(".grid-gallery").width())
+	// $(".grid-gallery").height($(".grid-gallery").width())
 	$(".grid-gallery").children("div").each((index, element) => {
 		$(element).click(() => {
 			app.gallery.enable(index);

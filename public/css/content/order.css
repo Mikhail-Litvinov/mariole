@@ -328,13 +328,13 @@
     position: absolute;
     z-index: -1;
     opacity: 0;
-  }
-  
+}
+
 #order-page .custom-checkbox+label {
     display: inline-flex;
     user-select: none;
-  }
-  
+}
+
 #order-page .custom-checkbox+label::before {
     content: '';
     display: inline-block;
@@ -348,8 +348,8 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 100% 100%;
-  }
-  
+}
+
 #order-page .custom-checkbox:checked+label::before {
     border-color:#c4c4c4;
     background-color: #c4c4c4;

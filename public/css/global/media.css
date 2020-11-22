@@ -2,11 +2,33 @@
     display: block;
 }
 
+.desktop-flex {
+    display: flex;
+} 
+
 .mobile-nav-news {
     display: none;
 }
 
+.mobile-flex {
+    display: none;
+}
+
 @media screen and (min-width:0px) and (max-width:1024px) {
+
+.grid-gallery {
+    grid-template-columns: repeat(2, 50%);
+}
+
+.gallery-item {
+    width: 20vh;
+    height: 20vh;
+}
+
+.mobile-flex {
+    display: flex;
+}       
+
 /* header */
 
 .cart-quantity-wrapper {
@@ -129,6 +151,10 @@
 
     /* global */
 
+    .desktop-flex {
+        display: none;
+    }
+
     .content-wrapper {
         width: 100%;
         padding: 5vh 0;
@@ -186,11 +212,7 @@
     }
 
     .gallery-slider {
-        height: auto;
-    }
-
-    .gallery-slide {
-        height: 50vh;
+        height: 100%;
     }
 
     .slider-preview {
@@ -475,6 +497,14 @@
 
     .cookies-footer button {
         width: auto;
+    }
+
+    .modal-search {
+        width: 100%;
+    }
+
+    .search-form {
+        height: 8vh;
     }
 
 }
