@@ -474,6 +474,25 @@
         margin: 0 30%;
     }
 
+<<<<<<< Updated upstream
+=======
+    .cookies-wrapper {
+        width: 100%;
+    }
+
+    .cookies-footer button {
+        width: auto;
+    }
+
+    .modal-search {
+        width: 100%;
+    }
+
+    .search-form {
+        height: 8vh;
+    }
+
+>>>>>>> Stashed changes
 }
 
 @media screen and (min-width:0px) and (max-width: 280px) {

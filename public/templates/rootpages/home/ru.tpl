@@ -14,8 +14,13 @@ Title: Главная;
 	</div>
 	<div id="slide-container">
 		<div class="slide">
+<<<<<<< Updated upstream
 			<img src="/public/images/carousel/166.jpg" width="100%" class="desktop">
 			<img src="/public/images/carousel/166m.jpg" width="100%" class="mobile">
+=======
+			<img src="/public/images/carousel/DSC_0796.jpg" width="100%" class="desktop">
+			<img src="/public/images/carousel/DSC_0796m.jpg" width="100%" class="mobile">
+>>>>>>> Stashed changes
 			<p class="slide-text">Надо придумать текст</p>
 			<div class="slide-btn-cont">
 				<a navid="catalogue/clothes">
@@ -27,9 +32,15 @@ Title: Главная;
 			</div>
 		</div>
 		<div class="slide">
+<<<<<<< Updated upstream
 			<img src="/public/images/carousel/156.jpg" width="100%" class="desktop">
 			<img src="/public/images/carousel/156m.jpg" width="100%" class="mobile">
 			<p class="slide-text">Надо придумать текст</p>
+=======
+			<img src="/public/images/carousel/DSC_0578.jpg" width="100%" class="desktop">
+			<img src="/public/images/carousel/DSC_0578m.jpg" width="100%" class="mobile">
+			<p class="slide-text">Верность традициям.</p>
+>>>>>>> Stashed changes
 			<div class="slide-btn-cont">
 				<a navid="catalogue/accessories">
 					<button class="slide-button">Бижутерия</button>
@@ -37,8 +48,13 @@ Title: Главная;
 			</div>
 		</div>
 		<div class="slide">
+<<<<<<< Updated upstream
 			<img src="/public/images/carousel/IMG_6298.jpg" width="100%" class="desktop"/>
 			<img src="/public/images/carousel/IMG_6298m.jpg" width="100%" class="mobile"/>
+=======
+			<img src="/public/images/carousel/13.jpg" width="100%" class="desktop"/>
+			<img src="/public/images/carousel/13m.jpg" width="100%" class="mobile"/>
+>>>>>>> Stashed changes
 			<p class="slide-text">Надо придумать текст</p>
 			<div class="slide-btn-cont">
 				<a navid="catalogue/accessories">
@@ -51,10 +67,10 @@ Title: Главная;
 <div class="content-wrapper">
 	<div class="section-wrapper-grid">
 		<div class="grid-col-1-1-left scrollable">
-			<img src="/public/images/home/IMG_6317-2.JPG" alt="" width="100%"/>
+			<img src="/public/images/home/DSC_0324.jpg" alt="" width="100%"/>
 		</div>
 		<div class="grid-col-1-2-right scrollable">
-			<img src="/public/images/home/IMG_8978-26-12-18-05-24.JPG" alt="" width="100%"/>
+			<img src="/public/images/home/DSC_0333-(1).jpg" alt="" width="100%"/>
 		</div>
 		<div class="grid-bottom-1-1-left content-text-left">
 			<div class="content-text-wrapper-left flex wrap flex-align-middle scrollable">
@@ -74,10 +90,10 @@ Title: Главная;
 <div class="content-wrapper">
 	<div class="section-wrapper-grid">
 		<div class="grid-col-1-1-right scrollable">
-			<img src="/public/images/home/IMG_6379-2.JPG" alt="" width="100%"/>
+			<img src="/public/images/home/DSC_0920.jpg" alt="" width="100%"/>
 		</div>
 		<div class="grid-col-1-2-left scrollable">
-			<img src="/public/images/home/74.jpg" alt="" width="100%"/>
+			<img src="/public/images/home/DSC_0925.jpg" alt="" width="100%"/>
 		</div>
 		<div class="grid-bottom-1-1-right content-text-right">
 			<div class="content-text-wrapper-right flex wrap flex-align-middle scrollable">
@@ -112,12 +128,12 @@ Title: Главная;
 		</div>
 		<div class="grid-col-1-2-left-2 scrollable">
 			<div class="width-100 height-100 relative overflow-hidden">
-				<img src="/public/images/home/IMG_6380-2.JPG" alt="" width="100%"/>
+				<img src="/public/images/home/15.jpg" alt="" width="100%"/>
 			</div>
 		</div>
 		<div class="grid-col-1-2-right-2 scrollable">
 			<div class="width-100 height-100 relative overflow-hidden">
-				<img src="/public/images/home/IMG_6366.JPG" alt="" width="100%"/>
+				<img src="/public/images/home/144.jpg" alt="" width="100%"/>
 			</div>
 		</div>
 	</div>

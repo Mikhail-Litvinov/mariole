@@ -8,7 +8,7 @@ Title: О нас;
 	<article class="content-article scrollable">
 		<p>
 			<img src="/public/images/about/kozi.jpg" alt="" class="float-left p-right-20">
-			Mario’le - это эксклюзивная вязанная одежда и аксессуары ручной работы из пуха знаменитых Оренбургских коз.
+			Mario’le - это эксклюзивная вязаная одежда и аксессуары ручной работы из пуха знаменитых Оренбургских коз.
 			Ремесло, история которого в России насчитывает более 250 лет, с помощью современных технологий, обретает
 			новую жизнь. Опираясь на вековые традиции и следуя тенденциям современного дизайна, мы гарантируем
 			исключительно высокое качество наших изделий.
@@ -17,12 +17,12 @@ Title: О нас;
 </div>
 <div class="content-wrapper-full-width">
 	<div class="content-title-2">
-		<h2>Секрет Mario’le.</h2>
+		<h2>Секрет Mario’le</h2>
 	</div>
 	<div class="wool-wrapper">
 		<div class="wool-img">
-			<img src="/public/images/about/IMG_6298.JPG" alt="" width="100%" class="desktop">
-			<img src="/public/images/about/IMG_6298m.jpg" alt="" width="100%" class="mobile">
+			<img src="/public/images/about/39.jpg" alt="" width="100%" class="desktop">
+			<img src="/public/images/about/39m.jpg" alt="" width="100%" class="mobile">
 		</div>
 		<div class="wool-text">
 			<div class="wool-text-wrapper">
