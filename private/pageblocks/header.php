@@ -53,7 +53,7 @@
 					</li>
 					<li>
 						<div class="mobile-link-wrapper">
-							<a class="menu-btn"><span langid="country-title"></span>&nbsp;<span id="country-name"></span></a>
+							<a class="menu-btn"><span langid="country-title"></span><br><span id="country-name"></span></a>
 						</div>
 					</li>
 					<li>

@@ -16,6 +16,15 @@
 
 @media screen and (min-width:0px) and (max-width:1024px) {
 
+.grid-gallery {
+    grid-template-columns: repeat(2, 50%);
+}
+
+.gallery-item {
+    width: 20vh;
+    height: 20vh;
+}
+
 .mobile-flex {
     display: flex;
 }       
@@ -203,11 +212,7 @@
     }
 
     .gallery-slider {
-        height: auto;
-    }
-
-    .gallery-slide {
-        height: 50vh;
+        height: 100%;
     }
 
     .slider-preview {
