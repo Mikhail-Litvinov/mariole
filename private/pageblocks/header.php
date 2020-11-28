@@ -8,60 +8,96 @@
 					<span class="line"></span>
 				</div>
 				<div class="logo flex">
-				<div class="logo-cont">
-					<a navid="home">
-						<img src="/public/images/logo.png" alt="mario'le logo" srcset="" width="80px">
-					</a>
+					<!--
+					<div class="logo-cont">
+						<a navid="home">
+							<img src="/public/images/logo.png" alt="mario'le logo" srcset="" width="80px">
+						</a>
+					</div>
+					-->
 				</div>
 			</div>
-			</div>
 		</div>
-		<div class="mobile-menu mobile modal" id="mobile-menu">
+		<div id="mobile-menu" class="mobile-menu mobile modal">
 			<div class="mobile-menu-wrapper">
 				<ul class="mobile-links">
-					<li><div class="mobile-link-wrapper">
-						<a rel="noopener noreferrer" class="menu-btn" id="home" langid="home-menu">Главная</a>
-					</div></li>
-					<li><div class="mobile-link-wrapper">
-						<a class="menu-btn"><span class="menu-ind mobile" navid="home"></span></a>
-					</div></li>
-					<li><div class="mobile-link-wrapper">
-						<a rel="noopener noreferrer" class="menu-btn" id="gallery" langid="gallery-menu">Галерея</a>
-					</div></li>
-					<li><div class="mobile-link-wrapper">
-						<a class="menu-btn"><span class="menu-ind mobile" navid="gallery"></span></a>
-					</div></li>
-					<li><div class="mobile-link-wrapper">
-						<a rel="noopener noreferrer" class="menu-btn" id="clothes" langid="clothes-menu">Одежда</a>
-					</div></li>
-					<li><div class="mobile-link-wrapper">
-						<a class="menu-btn"><span class="menu-ind mobile" navid="catalogue/clothes"></span></a>
-					</div></li>
-					<li><div class="mobile-link-wrapper">
-						<a rel="noopener noreferrer" class="menu-btn" id="accessories" langid="accessories-menu">Аксессуары</a>
-					</div></li>
-					<li><div class="mobile-link-wrapper">
-						<a class="menu-btn"><span class="menu-ind mobile" navid="catalogue/accessories"></span></a>
-					</div></li>
-					<li><div class="mobile-link-wrapper">
-						<a rel="noopener noreferrer" class="menu-btn" id="news" langid="news-menu">Новости</a>
-					</div></li>
 					<li>
 						<div class="mobile-link-wrapper">
-							<a class="menu-btn"><span class="menu-ind mobile" navid="news"></span></a>
+							<a rel="noopener noreferrer" class="menu-btn" langid="home-menu" navid="home"></a>
+						</div>
+					</li>
+					<li menu="home">
+						<div class="mobile-link-wrapper">
+							<a class="menu-btn">
+								<span class="menu-ind mobile"></span>
+							</a>
 						</div>
 					</li>
 					<li>
 						<div class="mobile-link-wrapper">
-							<a class="menu-btn"><span langid="country-title"></span><br><span id="country-name"></span></a>
+							<a rel="noopener noreferrer" class="menu-btn" langid="gallery-menu" navid="gallery"></a>
+						</div>
+					</li>
+					<li menu="gallery">
+						<div class="mobile-link-wrapper">
+							<a class="menu-btn">
+								<span class="menu-ind mobile"></span>
+							</a>
 						</div>
 					</li>
 					<li>
-						
+						<div class="mobile-link-wrapper">
+							<a rel="noopener noreferrer" class="menu-btn" langid="clothes-menu" navid="catalogue/clothes"></a>
+						</div>
+					</li>
+					<li menu="clothes">
+						<div class="mobile-link-wrapper">
+							<a class="menu-btn">
+								<span class="menu-ind mobile"></span>
+							</a>
+						</div>
 					</li>
 					<li>
 						<div class="mobile-link-wrapper">
-							<a class="menu-btn"><span id="lang" langid="language-title"></span> <span id="lang-symbol"langid="language-symbol"></span>&nbsp;<span class="lang-ind"></span></a>
+							<a rel="noopener noreferrer" class="menu-btn" langid="accessories-menu" navid="catalogue/accessories"></a>
+						</div>
+					</li>
+					<li menu="accessories">
+						<div class="mobile-link-wrapper">
+							<a class="menu-btn">
+								<span class="menu-ind mobile"></span>
+							</a>
+						</div>
+					</li>
+					<li>
+						<div class="mobile-link-wrapper">
+							<a rel="noopener noreferrer" class="menu-btn" langid="news-menu" navid="news"></a>
+						</div>
+					</li>
+					<li menu="news">
+						<div class="mobile-link-wrapper">
+							<a class="menu-btn">
+								<span class="menu-ind mobile"></span>
+							</a>
+						</div>
+					</li>
+					<li>
+						<div class="mobile-link-wrapper">
+							<a class="menu-btn js-btn-country">
+								<span class="js-country" langid="country-title"></span><br/>
+								<span class="js-country-name"></span>
+							</a>
+						</div>
+					</li>
+					<li>
+						<!-- ??? -->
+					</li>
+					<li>
+						<div class="mobile-link-wrapper">
+							<a class="menu-btn js-lang-selector">
+								<span class="js-lang" langid="language-title"></span>
+								<span class="js-lang-symbol" langid="language-symbol"></span>&nbsp;<span class="lang-ind"></span>
+							</a>
 						</div>
 					</li>
 					<li>
@@ -91,14 +127,15 @@
 				</ul>
 			</div>
 		</div>
-		<div class="nav-top-cont flex nowrap desktop-flex">
+		<div id="desktop-menu" class="nav-top-cont flex nowrap desktop-flex">
 			<div class="countries flex desktop-flex">
-				<button class="btn-country desktop" id="btn-country">
-					<span id="country" langid="country-title"></span> 
-					<span id="country-name"></span>
+				<button class="btn-country desktop js-btn-country" id="btn-country">
+					<span class="js-country" langid="country-title"></span> 
+					<span class="js-country-name"></span>
 				</button>
-				<button class="btn-language desktop" id="btn-lang">
-					<span id="lang" langid="language-title"></span> <span id="lang-symbol"langid="language-symbol"></span>&nbsp;<span class="lang-ind"></span>
+				<button class="btn-language desktop js-lang-selector" id="btn-lang">
+					<span class="js-lang" langid="language-title"></span>
+					<span class="js-lang-symbol" langid="language-symbol"></span>&nbsp;<span class="lang-ind"></span>
 					<div class="modal-wrapper-lang flex" id="modal-lang" style="display: none;">
 						<div class="modal-content-lang">
 							<ul>
@@ -150,30 +187,30 @@
 			</div>
 		</div>
 	</div>
-	<div class="flex-row nav flex-align-middle wrap">
+	<div class="flex-row nav flex-align-middle wrap js-desktop-menu-points">
 		<div class="flex nav-wrapper navigation desktop">
 			<ul class="nav-list">
-				<li>
+				<li menu="home">
 					<a navid="home" rel="noopener noreferrer" class="menu-btn" id="home">
 						<span langid="home-menu"></span>
 					</a>
 				</li>
-				<li>
+				<li menu="gallery">
 					<a navid="gallery" rel="noopener noreferrer" class="menu-btn" id="gallery">
 						<span langid="gallery-menu"></span>
 					</a>
 				</li>
-				<li>
+				<li menu="clothes">
 					<a navid="catalogue/clothes" rel="noopener noreferrer" class="menu-btn" id="clothes">
 						<span langid="clothes-menu"></span>
 					</a>
 				</li>
-				<li>
+				<li menu="accessories">
 					<a navid="catalogue/accessories" rel="noopener noreferrer" class="menu-btn" id="accessories">
 						<span langid="accessories-menu"></span>
 					</a>
 				</li>
-				<li>
+				<li menu="news">
 					<a navid="news" rel="noopener noreferrer" class="menu-btn" id="news">
 						<span langid="news-menu"></span>
 					</a>
@@ -182,7 +219,7 @@
 		</div>
 	</div>
 </div>
-<div class="sub-menu-container">
+<div class="sub-menu-container js-submenus-container">
 	<div class="flex sub-nav-home-wrapper sub-nav" id="home-sub">
 		<div class="sub-home-wrapper">
 				<div class="flex nowrap flex-align-middle mobile-sub">

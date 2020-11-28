@@ -45,7 +45,7 @@ app.translation = {
 			this.updateLabel(); // Update country label with new country
 		},
 		updateLabel() {
-			$("#country-name").html(app.translation.language.get(`country-${this.latin}`) + ` (${app.translation.currency.sign})`);
+			$(".js-country-name").html(app.translation.language.get(`country-${this.latin}`) + ` (${app.translation.currency.sign})`);
 		}
 	},
 	currency: {
