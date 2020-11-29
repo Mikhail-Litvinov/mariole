@@ -6,8 +6,9 @@ app.menu = {
 	closeSubmenusTimer: undefined,
 	closeSubmenus() {
 		this.desktopMenus.removeClass("active");
-		this.mobileMenus.removeClass("active");
+		this.mobileMenus.add(this.mobileMenus.find("span")).removeClass("active");
 		this.submenus.height(0);
+		$(window).off(".navmenu");
 	},
 	actualize(element) {
 		$(element).addClass("active");
@@ -76,16 +77,43 @@ $(window).on("onload.app_menu", () => {
 		"mouseleave.navmenu": () => { app.menu.closeSubmenusTimer = setTimeout(() => { app.menu.closeSubmenus(); }, 50); }
 	});
 	app.menu.mobileMenus.on({
-		"click.navmenu": (evt) => { app.menu.actualize(evt.currentTarget); }
+		"click.navmenu": (evt) => {
+			app.menu.actualize(evt.currentTarget);
+			
+			$(window).off(".navmenu").on({
+				"click.navmenu": (evt) => {
+					if(app.menu.mobileMenus.find("span").parent().add(app.menu.submenus).has(evt.target).length === 0) app.menu.closeSubmenus();
+				}
+			});
+		}
+	});
+	app.menu.mobileMenus.find("span").on({
+		"click.navmenu": (evt) => {
+			app.menu.mobileMenus.find("span").removeClass("active").filter(evt.currentTarget).addClass("active");
+		}
 	});
 	app.menu.submenus.on({
 		"mouseenter.navmenu": () => { clearTimeout(app.menu.closeSubmenusTimer); },
 		"mouseleave.navmenu": () => { app.menu.closeSubmenusTimer = setTimeout(() => { app.menu.closeSubmenus(); }, 50); }
 	});
 	
-	$(".hamburger").off(".navmenu").on("click.navmenu", (evt) => {
-		app.menu.mobileMenu.toggleClass("open", $(evt.currentTarget).toggleClass("is-active").hasClass("is-active"));
-		app.menu.closeSubmenus();
+	$("#hamburger-1").on({
+		"click.navmenu": (evt) => {
+			let isActive = $("#hamburger-1").toggleClass("is-active").hasClass("is-active");
+			app.menu.mobileMenu.toggleClass("open", isActive);
+			app.menu.closeSubmenus();
+			
+			$(window).off(".navmenu");
+		}
+	});
+	$(".js-submenus-container [navid]").add(app.menu.desktopMenus).add(app.menu.mobileMenu.find("ul [navid]")).on({
+		"click.navmenu": (evt) => {
+			$("#hamburger-1").removeClass("is-active");
+			app.menu.mobileMenu.removeClass("open");
+			app.menu.closeSubmenus();
+			
+			$(window).off(".navmenu");
+		}
 	});
 	
 	app.menu.updateCartItemsCount();
