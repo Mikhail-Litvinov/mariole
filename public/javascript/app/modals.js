@@ -2,6 +2,7 @@ app.modals = {
 	timeouts: {
 		open: 50,
 		close: 300,
+		closeLang: 400,
 		close404: 700
 	},
 	escapeKeycode: 27,
@@ -12,7 +13,7 @@ app.modals = {
 			setTimeout(() => { $("#modal-lang").addClass("open"); }, this.timeouts.open);
 		} else {
 			$("#modal-lang").removeClass("open");
-			setTimeout(() => { $("#modal-lang").css("display", "none"); }, this.timeouts.close);
+			setTimeout(() => { $("#modal-lang").css("display", "none"); }, this.timeouts.closeLang);
 		}
 	},
 	toggleCountry(state) {
