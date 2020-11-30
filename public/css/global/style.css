@@ -281,7 +281,8 @@ header {
 
 .mobile-link-wrapper {
     padding: 0 4vw;
-    font-size: 160%;
+    font-size: 120%;
+    padding-right: 0;
 }
 
 .menu-ind::before {

@@ -482,13 +482,13 @@
     }
 
     .buttons-top-nav {
-        width: 50%;
+        width: max-content;
         justify-content: flex-start;
-        padding: 0 4vw;
+        padding: 0 2vw;
     }
 
     .buttons-top-nav-list li {
-        margin: 0 30%;
+        margin: 0 1vh;
     }
 
     .cookies-wrapper {

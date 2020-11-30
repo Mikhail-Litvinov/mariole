@@ -1,5 +1,12 @@
 <div class="flex width-100 wrap" id="headerContainer">
 	<div class="flex-row nav-top">
+		<div class="logo flex mobile-flex">	
+			<div class="logo-cont">
+				<a navid="home">
+					<img src="/public/images/logo.png" alt="mario'le logo" srcset="" width="80px">
+					</a>
+			</div>
+		</div>
 		<div class="mobile hamburger-wrapper">
 			<div class="icon-container">
 				<div class="hamburger" id="hamburger-1">
@@ -7,15 +14,7 @@
 					<span class="line"></span>
 					<span class="line"></span>
 				</div>
-				<div class="logo flex">
-					<!--
-					<div class="logo-cont">
-						<a navid="home">
-							<img src="/public/images/logo.png" alt="mario'le logo" srcset="" width="80px">
-						</a>
-					</div>
-					-->
-				</div>
+				
 			</div>
 		</div>
 		<div id="mobile-menu" class="mobile-menu mobile modal">
