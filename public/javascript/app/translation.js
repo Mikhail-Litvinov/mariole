@@ -21,6 +21,13 @@ app.translation = {
 			$("html:first").attr("lang", this.code);
 			for(let element of $("[langid]")) element.innerHTML = this.get(element.getAttribute("langid"));
 			app.translation.country.updateLabel();
+		},
+		translateContent(translation = { title: "Invalid translation data" }) {
+			for(let element of document.querySelectorAll("#content [clangid]")) {
+				let clangid = element.getAttribute("clangid");
+				let content = translation[clangid];
+				element.innerHTML = content ?? `Unexisting translation: ${app.translation.language.code} -> ${clangid}`;
+			}
 		}
 	},
 	country: {

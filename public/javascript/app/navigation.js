@@ -33,11 +33,19 @@ app.navigation = {
 			scrollTo(0, 0); // Scroll page to the start
 			$(window).trigger("onunload.content").off(".content");
 			$.ajax({
-				url: `/public/templates/rootpages/${newPath[0]}/${app.translation.language.code}.tpl`,
+				url: `/public/templates/rootpages/getter.php`,
+				data: {
+					"page_name": newPath[0],
+					"page": 1,
+					"language": app.translation.language.code
+				},
+				dataType: "json",
 				cache: true,
 				success: (data) => {
-					$("#content").html(this.processContent(data));
+					$("#content").html(this.processContent(data.page));
 					this.wrapPageLinks("#content a[navid]");
+					app.translation.language.translateContent(data.translation);
+					this.performContentTitle(data.translation._title);
 					$(window).one("onscriptsloadend", () => { this.updateContentSelection(newPath); });
 				}
 			});
@@ -60,10 +68,17 @@ app.navigation = {
 		let scripts = data.match(/Scripts: (.+?);/);
 		if(scripts) this.performContentScripts(scripts[1].split(", "));
 		
-		let title = data.match(/Title: (.+?);/);
-		if(title) this.performContentTitle(title[1]);
+		// let title = data.match(/Title: (.+?);/);
+		// if(title) this.performContentTitle(title[1]);
 		
-		return data.replace(/(Styles|Scripts|Title): .+?;/g, "");
+		let description = data.match(/Description: (.+?);/);
+		let keywords = data.match(/Keywords: (.+?);/);
+		this.performContentMetas({
+			description: description[1],
+			keywords: keywords[1]
+		});
+		
+		return data.replace(/(Styles|Scripts|Description|Keywords): .+?;/g, "");
 	},
 	performContentStyles(styles) {
 		let head = $("head:first");
@@ -78,7 +93,14 @@ app.navigation = {
 		if(scripts) app.loadScripts(scripts);
 	},
 	performContentTitle(title) {
-		$("head:first").children("title:first").html(`Mario'le | ${title}`);
+		if(title) $("head:first").children("title:first").html(`Mario'le | ${title}`);
+	},
+	performContentMetas(values) {
+		let metas = $("head:first").children("meta");
+		for(let metaName in values) {
+			let metaValue = values[metaName];
+			if(metaValue) metas.filter(`[name="${metaName}"]`).attr("content", metaValue);
+		}
 	},
 	wrapPageLinks(selector) {
 		for(let element of document.querySelectorAll(selector)) { // Not jQuery because of 6-time speed difference
@@ -111,6 +133,21 @@ $(window).one("navigate", () => {
 	app.navigation.wrapPageLinks("[navid]");
 	$(window).on({
 		"popstate": () => { app.navigation.switchContent(); },
-		"onlanguagechange.navigation": () => { app.navigation.routePagePath(app.navigation.path, true); }
+		"onlanguagechange.navigation": () => {
+			// app.navigation.routePagePath(app.navigation.path, true);
+			$.ajax({
+				url: `/public/templates/rootpages/getter.php`,
+				data: {
+					"page_name": app.navigation.path[0],
+					"language": app.translation.language.code
+				},
+				dataType: "json",
+				cache: true,
+				success: (data) => {
+					app.translation.language.translateContent(data.translation);
+					app.navigation.performContentTitle(data.translation._title);
+				}
+			});
+		}
 	});
 });
