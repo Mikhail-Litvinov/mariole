@@ -7,7 +7,8 @@ app.modals = {
 	},
 	escapeKeycode: 27,
 	toggleLang(state) {
-		$("#btn-lang").toggleClass("active", state);
+		let wrapper = $(".js-lang-selector");
+		wrapper.add(wrapper.find(".lang-ind")).toggleClass("active", state);
 		if(state) {
 			$("#modal-lang").css("display", "flex");
 			setTimeout(() => { $("#modal-lang").addClass("open"); }, this.timeouts.open);
@@ -49,7 +50,7 @@ app.modals = {
 };
 
 $(window).on("onload.app_modals", () => {
-	$(".js-lang-selector").click(() => { app.modals.toggleLang(!$("#btn-lang").hasClass("active")); });
+	$(".js-lang-selector").click(() => { app.modals.toggleLang(!$(".js-lang-selector").hasClass("active")); });
 	$(".js-btn-country").click(() => { app.modals.toggleCountry(true); });
 	$("#close-country, .country-btn").click(() => { app.modals.toggleCountry(false); });
 	$("#open-search").click(() => { app.modals.toggleSearch(true); });

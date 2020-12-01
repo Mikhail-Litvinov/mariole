@@ -12,7 +12,9 @@ app.menu = {
 	},
 	actualize(element) {
 		$(element).addClass("active");
-		let submenu = $(`#${element.getAttribute("menu")}-sub`);
+		let menu = element.getAttribute("menu");
+		this.mobileMenus.filter(`[menu="${menu}"]`).find("span").addClass("active");
+		let submenu = $(`#${menu}-sub`);
 		submenu.height(submenu[0].scrollHeight + "px");
 	},
 	updateCartItemsCount(newCount = app.cookies.cart.getItems().size) {
@@ -78,6 +80,12 @@ $(window).on("onload.app_menu", () => {
 	});
 	app.menu.mobileMenus.on({
 		"click.navmenu": (evt) => {
+			if(evt.currentTarget.classList.contains("active")) {
+				app.menu.closeSubmenus();
+				return;
+			}
+			
+			app.menu.closeSubmenus();
 			app.menu.actualize(evt.currentTarget);
 			
 			$(window).off(".navmenu").on({
