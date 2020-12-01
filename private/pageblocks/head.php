@@ -1,5 +1,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description"/>
+<meta name="keywords"/>
 <title></title/>
 <link rel="stylesheet" href="/public/css/global/stylesheet.css"/>
 <link rel="stylesheet" href="/public/css/global/style.css"/>
