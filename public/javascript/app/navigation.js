@@ -45,7 +45,7 @@ app.navigation = {
 					$("#content").html(this.processContent(data.page));
 					this.wrapPageLinks("#content a[navid]");
 					app.translation.language.translateContent(data.translation);
-					this.performContentTitle(data.translation._title);
+					this.performContentTitle(data.translation?._title);
 					$(window).one("onscriptsloadend", () => { this.updateContentSelection(newPath); });
 				}
 			});
@@ -67,9 +67,6 @@ app.navigation = {
 		
 		let scripts = data.match(/Scripts: (.+?);/);
 		if(scripts) this.performContentScripts(scripts[1].split(", "));
-		
-		// let title = data.match(/Title: (.+?);/);
-		// if(title) this.performContentTitle(title[1]);
 		
 		let description = data.match(/Description: (.+?);/);
 		let keywords = data.match(/Keywords: (.+?);/);
@@ -134,7 +131,6 @@ $(window).one("navigate", () => {
 	$(window).on({
 		"popstate": () => { app.navigation.switchContent(); },
 		"onlanguagechange.navigation": () => {
-			// app.navigation.routePagePath(app.navigation.path, true);
 			$.ajax({
 				url: `/public/templates/rootpages/getter.php`,
 				data: {
@@ -145,7 +141,7 @@ $(window).one("navigate", () => {
 				cache: true,
 				success: (data) => {
 					app.translation.language.translateContent(data.translation);
-					app.navigation.performContentTitle(data.translation._title);
+					app.navigation.performContentTitle(data.translation?._title);
 				}
 			});
 		}
