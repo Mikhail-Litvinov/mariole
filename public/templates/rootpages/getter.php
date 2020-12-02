@@ -1,14 +1,22 @@
 <?php
-	exit(json_encode([
-		'page' => $_GET['page'] ? get_page($_GET['page_name']) : [],
-		'translation' => $_GET['language'] ? get_translation($_GET['page_name'], $_GET['language']) : []
-	]));
+	$response = [
+		'page' => null,
+		'translation' => null
+	];
+	$page_name = $_GET['page_name'];
+	if($page_name) {
+		if($_GET['page']) $response['page'] = get_page($page_name);
+		if($_GET['language']) $response['translation'] = get_translation($page_name, $_GET['language']);
+	}
+	exit(json_encode($response));
 	
 	function get_page($page_name) {
-		return $page_name ? file_get_contents("./$page_name/page.tpl") : [];
+		$page = file_get_contents("./$page_name/page.tpl");
+		return $page ?? null;
 	}
 	
 	function get_translation($page_name, $language) {
-		return ($page_name && $language) ? json_decode(file_get_contents("./$page_name/translation.json"), true)[$language] : [];
+		$translation = json_decode(file_get_contents("./$page_name/translation.json"), true)[$language];
+		return count($translation) ? $translation : null;
 	}
 ?>
