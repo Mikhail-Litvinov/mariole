@@ -13,7 +13,7 @@ Scripts: common/jquery.nselect, unique/catalogue;
 			<p id="categories-title" clangid="categories"></p>
 		</div>
 		<button class="catalogue-button accordion">
-			<p clangid="clothes"></p>
+			<p><span clangid="clothes"></span> <span class="btn-ind"></span></p>
 			<div class="catalogue-sub">
 				<ul>
 					<li>
@@ -29,7 +29,7 @@ Scripts: common/jquery.nselect, unique/catalogue;
 			</div>
 		</button>
 		<button class="catalogue-button accordion">
-			<p clangid="accessories"></p>
+			<p><span clangid="accessories"></span> <span class="btn-ind"></span></p>
 			<div class="catalogue-sub">
 				<ul>
 					<li>
@@ -62,7 +62,7 @@ Scripts: common/jquery.nselect, unique/catalogue;
 			</a>
 		</button>
 		<button class="catalogue-button accordion">
-			<p clangid="bijouterie"></p>
+			<p><span clangid="bijouterie"></span> <span class="btn-ind"></span></p>
 			<div class="catalogue-sub">
 				<ul>
 					<li>

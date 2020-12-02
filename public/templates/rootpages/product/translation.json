@@ -1,9 +1,13 @@
 {
 	"en": {
-		"add_to_cart": "Add to cart"
+		"texts": {
+			"add_to_cart": "Add to cart"
+		}
 	},
 	"ru": {
-		"add_to_cart": "В корзину"
+		"texts": {
+			"add_to_cart": "В корзину"
+		}
 	},
 	"cs": {},
 	"it": {},

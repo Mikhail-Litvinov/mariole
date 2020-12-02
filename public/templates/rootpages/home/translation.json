@@ -1,25 +1,29 @@
 {
 	"en": {
-		"_title": "Home",
-		"clothes": "Clothes",
-		"accessories": "Accessories",
-		"loyality_to_traditions": "Loyality to traditions.",
-		"bijouterie": "Bijouterie",
-		"for_home": "For the house",
-		"watch": "Watch",
-		"sales": "Sales",
-		"new": "New"
+		"title": "Home",
+		"texts": {
+			"clothes": "Clothes",
+			"accessories": "Accessories",
+			"loyality_to_traditions": "Loyality to traditions.",
+			"bijouterie": "Bijouterie",
+			"for_home": "For the house",
+			"watch": "Watch",
+			"sales": "Sales",
+			"new": "New"
+		}
 	},
 	"ru": {
-		"_title": "Главная",
-		"clothes": "Одежда",
-		"accessories": "Аксессуары",
-		"loyality_to_traditions": "Верность традициям.",
-		"bijouterie": "Бижутерия",
-		"for_home": "Для дома",
-		"watch": "Просмотреть",
-		"sales": "Акции",
-		"new": "Новинки"
+		"title": "Главная",
+		"texts": {
+			"clothes": "Одежда",
+			"accessories": "Аксессуары",
+			"loyality_to_traditions": "Верность традициям.",
+			"bijouterie": "Бижутерия",
+			"for_home": "Для дома",
+			"watch": "Просмотреть",
+			"sales": "Акции",
+			"new": "Новинки"
+		}
 	},
 	"cs": {},
 	"it": {},

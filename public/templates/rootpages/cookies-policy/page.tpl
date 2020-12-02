@@ -76,6 +76,6 @@ Scripts: unique/order;
         <h2 clangid="changes"></h2>
         <p clangid="this_page"></p>
         <h2 clangid="data_deletion"></h2>
-        <p clangid="data_subject_info"></p>
+        <p><span clangid="data_subject_info"></span> <a href="mailto:mariolewool@yandex.ru">mariolewool@yandex.ru</a></p>
     </div>
 </div>

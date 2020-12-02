@@ -1,11 +1,15 @@
 {
 	"en": {
-		"_title": "Privacy policy",
-		"wip": "WIP, the information will appear later."
+		"title": "Privacy policy",
+		"texts": {
+			"wip": "WIP, the information will appear later."
+		}
 	},
 	"ru": {
-		"_title": "Политика конфиденциальности",
-		"wip": "Данная страница находится на стадии разработки, информация появится позже."
+		"title": "Политика конфиденциальности",
+		"texts": {
+			"wip": "Данная страница находится на стадии разработки, информация появится позже."
+		}
 	},
 	"cs": {},
 	"it": {},

@@ -15,10 +15,10 @@ Scripts: common/SimpleSlider, unique/news;
 					<div class="blog-search-wrapper">
 						<form action="javascript:void(0);" class="blog-search-form flex wrap js-search-form">
 							<div class="search-input-cont">
-								<input type="text" placeholder="поиск" class="blog-search-input js-search-value"/>
+								<input type="text" class="blog-search-input js-search-value" clangattrid="search_text"/>
 								<span class="blog-search"></span>
 							</div>
-							<input type="submit" class="blog-search-button js-search-btn" value="Поиск"/>
+							<input type="submit" class="blog-search-button js-search-btn" clangattrid="search_button"/>
 						</form>
 					</div>
 				</div>

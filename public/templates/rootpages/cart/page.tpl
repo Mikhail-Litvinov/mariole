@@ -235,7 +235,7 @@ Keywords: корзина шерсть купить;
 							</div>
 							<p clangid="order_comment_description"></p>
 						</div>
-						<textarea cols="30" rows="10" name="comment" userdata="comment" placeholder="Комментарий к заказу"></textarea>
+						<textarea cols="30" rows="10" name="comment" userdata="comment" clangattrid="order_comment_textarea"></textarea>
 					</div>
 					<div class="order-agreement">
 						<form action="">

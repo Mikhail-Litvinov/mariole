@@ -1,11 +1,15 @@
 {
 	"en": {
-		"_title": "Legal information",
-		"wip": "WIP, the information will appear later."
+		"title": "Legal information",
+		"texts": {
+			"wip": "WIP, the information will appear later."
+		}
 	},
 	"ru": {
-		"_title": "Юридическая информация",
-		"wip": "Данная страница находится на стадии разработки, информация появится позже."
+		"title": "Юридическая информация",
+		"texts": {
+			"wip": "Данная страница находится на стадии разработки, информация появится позже."
+		}
 	},
 	"cs": {},
 	"it": {},
