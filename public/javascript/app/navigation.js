@@ -74,8 +74,8 @@ app.navigation = {
 		let description = data.match(/Description: (.+?);/);
 		let keywords = data.match(/Keywords: (.+?);/);
 		this.performContentMetas({
-			description: description[1],
-			keywords: keywords[1]
+			description: description ? description[1] : null,
+			keywords: description ? keywords[1] : null
 		});
 		
 		return data.replace(/(Styles|Scripts|Description|Keywords): .+?;/g, "");
