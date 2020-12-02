@@ -45,7 +45,7 @@ app.navigation = {
 					$("#content").html(this.processContent(data.page));
 					this.wrapPageLinks("#content a[navid]");
 					app.translation.language.translateContent(data.translation);
-					this.performContentTitle(data.translation?._title);
+					this.performContentTitle(data.translation?.title);
 					$(window).one("onscriptsloadend", () => { this.updateContentSelection(newPath); });
 				}
 			});
@@ -141,7 +141,7 @@ $(window).one("navigate", () => {
 				cache: true,
 				success: (data) => {
 					app.translation.language.translateContent(data.translation);
-					app.navigation.performContentTitle(data.translation?._title);
+					app.navigation.performContentTitle(data.translation?.title);
 				}
 			});
 		}
