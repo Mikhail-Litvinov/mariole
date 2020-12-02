@@ -87,7 +87,7 @@ $(window).on("onload.init_unique/product", () => {
 	app.product.load();
 	
 	$(window).on({
-		//"onlanguagechange.content": () => { app.product.load(); },
+		"onlanguagechange.content": () => { app.product.load(); },
 		"oncountrychange.content": () => { app.product.updatePrice(); },
 		"onresize.content": () => {
 			let mobile = (app.main.isMobile || app.main.isLowWidth);
