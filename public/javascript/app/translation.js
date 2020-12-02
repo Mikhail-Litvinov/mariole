@@ -22,11 +22,22 @@ app.translation = {
 			for(let element of $("[langid]")) element.innerHTML = this.get(element.getAttribute("langid"));
 			app.translation.country.updateLabel();
 		},
-		translateContent(translation = { title: "Invalid translation data" }) {
+		translateContent(translation = { texts: {}, attributes: {} }) {
+			translation = {
+				texts: {},
+				attributes: {},
+				...translation
+			};
+			let langCode = app.translation.language.code;
 			for(let element of document.querySelectorAll("#content [clangid]")) {
 				let clangid = element.getAttribute("clangid");
-				let content = translation[clangid];
-				element.innerHTML = content ?? `Unexisting translation: ${app.translation.language.code} -> ${clangid}`;
+				let content = translation.texts[clangid];
+				element.innerHTML = content ?? `Unexisting translation: ${langCode} -> ${clangid}`;
+			}
+			for(let element of document.querySelectorAll("#content [clangattrid]")) {
+				let clangattrid = element.getAttribute("clangattrid");
+				let attributes = translation.attributes[clangattrid];
+				for(let attribute in attributes) element.setAttribute(attribute, attributes[attribute]);
 			}
 		}
 	},
