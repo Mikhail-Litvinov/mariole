@@ -255,8 +255,8 @@
 		<div class="sub-gallery-wrapper">
 			<div class="sub-gallery-table">
 				<div class="clothes-gallery sub-list-element">
-					<a navid="fashion-gallery">
-						<img src="/public/images/menu/fachion.jpg" alt="" width="100%">
+					<a navid="gallery/fashion">
+						<img src="/public/images/menu/fashion.jpg" alt="" width="100%">
 						<div class="gallery-sub-title">
 							<p>
 								<span langid="fashion-gallery"></span>
@@ -265,7 +265,7 @@
 					</a>
 				</div>
 				<div class="home-gallery sub-list-element">
-					<a navid="home-gallery">
+					<a navid="gallery/home">
 						<img src="/public/images/menu/home.jpg" alt="" width="100%">
 						<div class="gallery-sub-title">
 							<p>
@@ -275,7 +275,7 @@
 					</a>
 				</div>
 				<div class="travel-gallery sub-list-element">
-					<a navid="travel-gallery">
+					<a navid="gallery/travel">
 						<img src="/public/images/menu/travel.jpg" alt="" width="100%">
 						<div class="gallery-sub-title">
 							<p>
