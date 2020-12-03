@@ -59,6 +59,9 @@ app.navigation = {
 			case "news":
 				app.news.loadPosts(newPath);
 				break;
+			case "gallery":
+				app.gallery.route(newPath[1]);
+				break;
 		}
 	},
 	processContent(data) {
