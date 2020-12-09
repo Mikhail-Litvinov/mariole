@@ -62,27 +62,23 @@
 	}
 	
 	function get_product_query_sql($db, $language, $request) { // Returns valid SQL request with given parameters
-		$sql = "
-			SELECT * FROM products
-				JOIN ( SELECT article, name FROM products_lang_$language ) USING(article)
-		";
+		$sql = "SELECT article, type, class, EUR, USD, RUB, CZK, uni_params, images, $language FROM products";
 		switch($request[0]) {
 			case 'cart': // Multiple products for cart, e.g. '1-2-3-4', where 1, 2, 3 and 4 - products' articles
 				$products_list = str_replace('-', ', ', $db->escapeString($request[1]));
-				return $sql . " WHERE products.article IN ({$products_list})";
+				return $sql . " WHERE article IN ({$products_list})";
 			default: // Another cases, selecting by type (e.g. clothes) and class (e.g. gloves)
 				$type = $db->escapeString($request[0]);
 				$class = $db->escapeString($request[1]);
-				return $sql . ($type ? " WHERE products.type = '$type'" . ($class ? " AND products.class = '$class'" : '') : '');
+				return $sql . ($type ? " WHERE type = '$type'" . ($class ? " AND class = '$class'" : '') : '');
 		}
 	}
 	
 	function get_product_info($db, $language, $request) {
 		$article = $db->escapeString($request[0]);
 		$sql = "
-			SELECT * FROM products
-				JOIN products_lang_$language USING(article)
-			WHERE products.article = '$article'
+			SELECT article, type, class, EUR, USD, RUB, CZK, uni_params, images, $language FROM products
+			WHERE article = '$article';
 		";
 		return wrap_products_info($db, $language, $sql, true)[0]; // Wrap with saving products' parameters
 	}
@@ -91,9 +87,11 @@
 		$result = $db->query($sql);
 		$response = [];
 		while($row = $result->fetchArray(SQLITE3_ASSOC)) {
+			$row['language'] = json_decode($row[$language], true);
+			unset($row[$language]);
+			
 			foreach([ // Category name => category's values
 				'data' => ['article', 'type', 'class'], // Wrap article, type and class in field 'data'
-				'language' => ['name', 'description'], // Wrap name and description in field 'language'
 				'prices' => ['EUR', 'USD', 'RUB', 'CZK'] // Wrap all prices in field 'prices'
 			] as $type => $columns) { // $type = category name, $columns = category's values
 				$row[$type] = []; // Make new wrapper for category
@@ -109,10 +107,13 @@
 			if($has_params) { // If need to save product's parameters
 				$row['params'] = get_product_params( // Translate parameters and wrap them
 					$db, $language,
-					array_merge(json_decode($row['uni_params'], true), json_decode($row['params'], true) ?? []) // Combine unified and common parameters
+					array_merge( // Combine unified and common parameters
+						json_decode($row['uni_params'], true),
+						$row['language']['params'] ?? []
+					)
 				);
-			} else unset($row['params']); // If don't need to save parameters then remove this field
-			unset($row['uni_params']); // Remove unified parameters' array
+			}
+			unset($row['uni_params'], $row['language']['params']); // Remove unified parameters' array
 			
 			$response[] = $row;
 		}
