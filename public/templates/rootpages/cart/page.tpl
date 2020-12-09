@@ -113,7 +113,7 @@ Keywords: корзина шерсть купить;
 									<div class="delivery-ind">
 										<img src="/public/images/icons/hand-bag.png" alt="" width="100%"/>
 									</div>
-									<input type="checkbox" name="" id="">
+									<input type="checkbox"/>
 								</div>
 								<div class="delivery-type-name">
 									<p clangid="order_pickup"></p>
@@ -124,7 +124,7 @@ Keywords: корзина шерсть купить;
 									<div class="delivery-ind">
 										<img src="/public/images/icons/map.png" alt="" width="100%"/>
 									</div>
-									<input type="checkbox" name="" id="">
+									<input type="checkbox"/>
 								</div>
 								<div class="delivery-type-name">
 									<p clangid="order_courier"></p>
@@ -135,7 +135,7 @@ Keywords: корзина шерсть купить;
 									<div class="delivery-ind">
 										<img src="/public/images/icons/truck.png" alt="" width="100%"/>
 									</div>
-									<input type="checkbox" name="" id="">
+									<input type="checkbox"/>
 								</div>
 								<div class="delivery-type-name">
 									<p clangid="order_ems"></p>
