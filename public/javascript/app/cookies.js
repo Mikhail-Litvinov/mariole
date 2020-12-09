@@ -44,6 +44,9 @@ app.cookies = {
 		},
 		removeItem(article) {
 			this.changeItem(article, 0);
+		},
+		clear() {
+			app.cookies.base.set("cart", "");
 		}
 	}
 };
