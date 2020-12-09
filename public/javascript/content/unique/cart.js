@@ -317,17 +317,24 @@ $(window).on("onload.init_unique/cart", () => {
 					.find(".js-product-price:first")
 					.html(app.cart.formatPrice(product.prices[currencyName]));
 			}
-			app.cart.calculateFinalSum();
+			
+			app.cart.calculateFinalOrderSum(app.cart.calculateFinalSum(true, true));
+			app.cart.buildOrderList();
+			for(let element of document.querySelectorAll(".js-delivery-type-description")) {
+				let prices = app.templates.cart._delivery[element.getAttribute("delivery-type")].costs;
+				let price = app.cart.formatPrice(prices[app.translation.currency.name]);
+				element.querySelector(".js-delivery-price").innerHTML = price;
+			}
 		},
-		// "onlanguagechange.content": () => {
-			// app.cart.updateList(undefined, () => {
-				// for(product of app.cart.list) {
-					// $(`.product-card[article="${product.data.article}"]`)
-							// .find(".product-card-title > a")
-							// .html(product.language.name);
-				// }
-			// });
-		// },
+		"onlanguagechange.content": () => {
+			app.cart.updateList(undefined, () => {
+				for(product of app.cart.list) {
+					$(`.product-card[article="${product.data.article}"]`).find(".product-card-title > a").html(product.language.name);
+				}
+				$("button.js-product-delete").html(app.templates.cart.getLocalization("delete_text"));
+				app.cart.buildOrderList();
+			});
+		},
 		"onresize.content": () => {
 			if(app.main.isMobile || app.main.isLowWidth) {
 				$(".js-right-column").detach().insertBefore(".js-left-column");
