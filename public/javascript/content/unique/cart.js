@@ -1,9 +1,9 @@
 $(window).on("onload.init_unique/cart", () => {
 	app.cart = {
-		orderSubmitBtn: undefined,
 		SMScene: undefined,
 		list: [],
 		crawler: {
+			totalSum: 0,
 			crawl() {
 				let data = {};
 				for(let element of document.querySelectorAll("[userdata]")) {
@@ -121,7 +121,7 @@ $(window).on("onload.init_unique/cart", () => {
 			app.navigation.wrapPageLinks(".product-card-title a[navid]");
 			$(window).trigger("oncountrychange.content").trigger("onlanguagechange.content");
 		},
-		calculateFinalSum() {
+		calculateFinalSum(formatValues = true, returnValues = false) {
 			let cookiesCart = app.cookies.cart.getItems();
 			
 			let currencyName = app.translation.currency.name;
@@ -129,14 +129,20 @@ $(window).on("onload.init_unique/cart", () => {
 			let vat = 0; // TODO: later
 			let finalSum = sum + vat;
 			
-			$(".js-payment-sum").html(this.formatPrice(sum));
-			$(".js-payment-vat").html(this.formatPrice(vat));
-			$(".js-payment-final-sum").html(this.formatPrice(finalSum));
-			return {
-				sum: sum,
-				vat: vat,
-				finalSum: finalSum
-			};
+			if(formatValues) {
+				$(".js-payment-sum").html(this.formatPrice(sum));
+				$(".js-payment-vat").html(this.formatPrice(vat));
+				$(".js-payment-final-sum").html(this.formatPrice(finalSum));
+			}
+			
+			if(returnValues) {
+				return {
+					sum: sum,
+					vat: vat,
+					finalSum: finalSum
+				};
+			}
+			
 		},
 		formatPrice(rawPrice) { return `${(rawPrice / 100).toFixed(2)}&nbsp;${app.translation.currency.sign}`; },
 		buildOrderList() {
@@ -168,67 +174,36 @@ $(window).on("onload.init_unique/cart", () => {
 			$(".js-order-item-list").html(newOrderList);
 			app.navigation.wrapPageLinks(".js-order-item-name > a[navid]");
 			
-			this.calculateFinalOrderSum(this.calculateFinalSum());
+			this.calculateFinalOrderSum(this.calculateFinalSum(true, true));
 		},
-		calculateFinalOrderSum(prices) {
+		calculateFinalOrderSum(prices, formatValues = true, returnValues = false) {
 			let price = prices.finalSum;
 			let delivery = prices.deliverySum ?? 0;
 			let finalPrice = price + delivery;
 			
-			$(".js-order-raw-price").html(this.formatPrice(price));
-			$(".js-order-delivery-price").html(this.formatPrice(delivery));
-			$(".js-order-final-price").html(this.formatPrice(finalPrice));
+			if(formatValues) {
+				$(".js-order-raw-price").html(this.formatPrice(price));
+				$(".js-order-delivery-price").html(this.formatPrice(delivery));
+				$(".js-order-final-price").html(this.formatPrice(finalPrice));
+			}
+			
+			if(returnValues) {
+				return {
+					price: price,
+					delivery: delivery,
+					total: finalPrice
+				};
+			}
 		},
 		bindAutocompletes() {
-			// let delayedFetch = (type, field, callback) => {
-				// clearTimeout(field.timer);
-				// field.timer = setTimeout(() => {
-					// fetch("https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/" + type, {
-						// method: "POST",
-						// mode: "cors",
-						// headers: {
-							// "Content-Type": "application/json",
-							// "Accept": "application/json",
-							// "Authorization": "Token 7c5272e224601f8a36fd147a354c266eb2494cd9"
-						// },
-						// body: JSON.stringify({ query: field.value })
-					// }).then(response => response.text()).then(result => callback(result)).catch(error => console.log("error", error));
-				// }, 500);
-			// };
-			// $("[userdata=\"email\"]").on("input", (evt) => {
-				// let field = evt.currentTarget;
-				// if(field.value.length > 3) {
-					// delayedFetch("email", field, (result) => {
-						// console.log(JSON.parse(result).suggestions.map(entry => entry.value));
-					// });
-				// }
-			// });
-			// $("[userdata=\"full_name\"]").on("input", (evt) => {
-				// let field = evt.currentTarget;
-				// if(field.value.length > 3) {
-					// delayedFetch("fio", field, (result) => {
-						// console.log(JSON.parse(result).suggestions.map(entry => entry.value));
-					// })
-				// }
-			// });
-			// $("[userdata=\"address\"]").on("input", (evt) => {
-				// let field = evt.currentTarget;
-				// if(field.value.length > 3) {
-					// delayedFetch("address", field, (result) => {
-						// console.log(JSON.parse(result).suggestions);
-					// })
-				// }
-			// });
 			$("input[name=\"address\"]").suggestions({
 				token: "7c5272e224601f8a36fd147a354c266eb2494cd9",
 				type: "ADDRESS",
 				onSelect: (suggestion) => {
-					console.log(suggestion);
-					
 					let fullAddress = `${suggestion.data.country}, ${suggestion.data.region_with_type}, ${suggestion.value}`;
 					document.querySelector("[userdata=\"address\"]").value = fullAddress;
-					document.querySelector("[userdata=\"postal_code\"]").value = suggestion.data.postal_code;
-					document.querySelector("[name=\"postal_code\"]").value = suggestion.data.postal_code;
+					$("[userdata=\"postal_code\"], [name=\"postal_code\"]").attr("value", suggestion.data.postal_code);
+					$("[userdata=\"delivery_type\"], [userdata=\"payment_type\"]").attr("value", "");
 					
 					let delivery = app.templates.cart.getDeliveryData(suggestion.data);
 					
@@ -236,14 +211,41 @@ $(window).on("onload.init_unique/cart", () => {
 					for(let entry of delivery) {
 						$(`.js-delivery-type-btn[delivery-type="${entry.type}"]`).show();
 					}
+					
+					$(".js-payment-type-btn").removeClass("selected");
+					$(".js-payment-type-description").hide();
 				}
 			});
 		},
 		toggleOrderSubmitBtn() {
-			if(document.querySelector(".js-agreement-checkbox").checked == true) {
-				$(".js-end-of-order-wrapper").append(this.orderSubmitBtn);
+			let wrapper = $(".js-submit-order-btn-wrapper");
+			let button = wrapper.find(".js-submit-order-btn");
+			if(document.querySelector(".js-agreement-checkbox").checked === true) {
+				wrapper.show();
+				button.on("click.order", () => { this.submitData(); });
 			} else {
-				this.orderSubmitBtn = $(".js-submit-order-btn-wrapper").detach();
+				wrapper.hide();
+				button.off(".order");
+			}
+		},
+		submitData() {
+			let data = this.crawler.crawl();
+			if(Object.values({ ...data, comment: "-" }).every(value => value)) {
+				data.currency = app.translation.currency.name;
+				data.sum = this.crawler.totalSum;
+				
+				$.post({
+					url: "/public/templates/subtemplates/cart/order.php",
+					data: data,
+					success: (response) => {
+						alert("Заказ создан!");
+						app.cookies.cart.clear();
+						app.menu.updateCartItemsCount();
+						app.navigation.switchContent("home");
+					}
+				});
+			} else {
+				alert("Не все поля заполнены!");
 			}
 		}
 	};
@@ -267,11 +269,6 @@ $(window).on("onload.init_unique/cart", () => {
 		}
 	});
 	
-	$(".js-submit-order-btn").click(() => {
-		console.log(app.cart.crawler.crawl());
-		alert("Перенаправление на страницу оплаты...");
-	});
-	
 	app.cart.bindAutocompletes();
 	app.cart.toggleOrderSubmitBtn();
 	
@@ -280,11 +277,14 @@ $(window).on("onload.init_unique/cart", () => {
 		let deliveryType = evt.currentTarget.getAttribute("delivery-type");
 		
 		document.querySelector("[userdata=\"delivery_type\"]").value = deliveryType;
+		document.querySelector("[userdata=\"payment_type\"]").value = "";
 		
 		$(".js-delivery-type-btn").removeClass("selected").filter(evt.currentTarget).addClass("selected");
 		$(".js-delivery-type-description").hide().filter(`[delivery-type="${deliveryType}"]`).show();
 		
 		$(".js-payment-type-btn").removeClass("selected");
+		$(".js-payment-type-description").hide();
+		
 		let paymentMethods = app.templates.cart._delivery[deliveryType].payment;
 		for(let element of $(".js-payment-type-btn")) {
 			if(paymentMethods.includes(element.getAttribute("payment-type"))) $(element).show();
@@ -293,7 +293,10 @@ $(window).on("onload.init_unique/cart", () => {
 		$(".js-payment-type-description").hide();
 		
 		let deliveryPrice = app.templates.cart._delivery[deliveryType].costs[app.translation.currency.name];
-		app.cart.calculateFinalOrderSum({ deliverySum: deliveryPrice, ...app.cart.calculateFinalSum() });
+		app.cart.crawler.totalSum = app.cart.calculateFinalOrderSum({
+			deliverySum: deliveryPrice,
+			...app.cart.calculateFinalSum(false, true)
+		}, true, true).total;
 	});
 	$(".js-payment-type-btn").click((evt) => {
 		let paymentType = evt.currentTarget.getAttribute("payment-type");
