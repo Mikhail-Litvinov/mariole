@@ -57,7 +57,7 @@ app.navigation = {
 				app.catalogue.updateSelection(newPath);
 				break;
 			case "news":
-				app.news.loadPosts(newPath);
+				app.news.updateSelection(newPath);
 				break;
 			case "gallery":
 				app.gallery.route(newPath[1]);
