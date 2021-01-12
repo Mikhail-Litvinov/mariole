@@ -26,8 +26,7 @@ $(window).on("onload.app_scrollmagic", () => {
 				
 				let scene = new ScrollMagic
 					.Scene({ triggerElement: element })
-					.setTween(tween)
-					.addIndicators();
+					.setTween(tween);
 				this._scenes.push(scene);
 				
 				this._controller.addScene(scene);
